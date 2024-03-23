@@ -254,7 +254,7 @@ public class Main {
                 obj.setLocalEvent(event1);
 
 
-                int t = obj.addFoodService(serviceId, type);
+          obj.addFoodService(serviceId, type);
 
                 logger.info("Successful addtion");
 
@@ -267,7 +267,7 @@ public class Main {
 static int cost;
 
 
-    private static void location(Scanner input,int year,int month,int day,Time time){
+    private static void location(int year,int month,int day,Time time){
 
         logger.info("locations: ");
         int temp=0;
@@ -321,7 +321,7 @@ static int cost;
 
 
 
-        location( input, year, month, day, time);
+        location(year, month, day, time);
 
         Integer id = input.nextInt();
 
@@ -452,7 +452,7 @@ static int cost;
                 break;
 
             case 2:
-                location( input,  obj.searchInEventByName(eventName).getDate().getYear(), obj.searchInEventByName(eventName).getDate().getMonth(),obj.searchInEventByName(eventName).getDate().getDate(), obj.searchInEventByName(eventName).getTime());
+                location(obj.searchInEventByName(eventName).getDate().getYear(), obj.searchInEventByName(eventName).getDate().getMonth(),obj.searchInEventByName(eventName).getDate().getDate(), obj.searchInEventByName(eventName).getTime());
                 int locationId = input.nextInt();
                 obj.editLocation(user.getUserName(),eventName, locationId);
                 break;
