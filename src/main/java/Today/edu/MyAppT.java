@@ -1489,7 +1489,7 @@ int temp=0;
                 message.setText(s);
             Transport.send(message);
         } catch (MessagingException m) {
-            m.printStackTrace();
+           // m.printStackTrace();
         }
     }
 
