@@ -6,11 +6,9 @@ import javax.mail.internet.MimeMessage;
 import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Properties;
+import java.util.*;
 import java.util.logging.Logger;
+
 
 public class MyAppT {
 public static int num=0;
@@ -47,6 +45,14 @@ public static int num=0;
     private boolean editPackageFlag;
 
 
+    public Event getLocalEvent() {
+        return localEvent;
+    }
+
+    public void setLocalEvent(Event localEvent) {
+        this.localEvent = localEvent;
+    }
+
     public MyAppT() {
 
 
@@ -64,14 +70,17 @@ public static int num=0;
         addEvent(e1);
         addEvent(e2);
         Time t = new Time(8, 0, 0);
-        java.util.Date d = new java.util.Date(2024, 2, 29);
+       d = new Date(2024, 2, 29);
+
+
         Event localEvent = new Event("asmaa", d, t, "home", "frozen", 25);
         addEvent(localEvent);
         Person u4 = new Person("ahmad", "1234", "7\3\2004", "0594507933","raghadsalhab13@gmail.com");
         Person u3 = new Person("salma", "1234", "7\3\2004", "0594507933","raghadsalhab13@gmail.com");
         Person PforLogin = new Person("adam", "54321", "7\3\2004", "0594507933","raghadsalhab13@gmail.com");
         Person SpLogin = new Person("eman", "54321", "7\3\2004", "0594507933","eman@gmail.com");
-        Person u7 = new Person("ali", "1234", "7\3\2004", "0594507933","raghadsalhab13@gmail.com");
+        Person u7 = new Person("ali", "1234", "7\3\2004", "0594507933","s12112499@stu.najah.edu" +
+                "");
         Person u8 = new Person("tala", "1234", "7\3\2004", "0594507933","raghadsalhab13@gmail.com");
 
         ServiceProvider eman = new ServiceProvider(SpLogin, "Photographer");
@@ -182,8 +191,17 @@ locationList.add(k2);
     private List<ServiceProvider> providerList = new ArrayList<>();
 
     private List<Event> eventList = new ArrayList<>();
+
+    public List<Event> getEventList() {
+        return eventList;
+    }
+
     private List<Package> packageList = new ArrayList<>();
     private List<Location>locationList=new ArrayList<>();
+
+    public List<Location> getLocationList() {
+        return locationList;
+    }
 
     public void addUser(Person user) {
         up.add(user);
@@ -402,23 +420,32 @@ locationList.add(k2);
 
     public void createEventWithBasicInfo(String s, String string, Integer int4, Integer int5, Integer int6, Integer int1, Integer int2, Integer int3, String string2, String string3, Integer int7) {
         Person n = searchInUser(s);
-        Date d = new Date(int4, int5, int6);
+   Date date=new Date(int4,int5,int6);
         Time t = new Time(int1, int2, int3);
-        int temp = 0;
+
+
+int temp=0;
+
+
         for (Event e : eventList) {
             if (e.getDate().equals(d) && e.getTime().equals(t) && e.getLocation().equals(string2)) {
                 localEventFlag = false;
                 temp = 1;
-                System.out.println("in");
+
             }
 
         }
         if (temp == 0) {
-            localEvent = new Event(string, d, t, string2, string3, int7);
+            localEvent = new Event(string, date, t, string2, string3, int7);
             localEvent.setUser(n);
-            System.out.println("out");
+            n.getEventList().add(localEvent);
+            eventList.add(localEvent);
+
             localEventFlag = true;
+
         }
+
+
     }
 
     public boolean isLocalEventFlag() {
@@ -495,6 +522,9 @@ locationList.add(k2);
                 serviceMenuFlag = false;
         }
     }
+    public void addLocalEventToEventList() {
+        eventList.add(localEvent);
+    }
 
     public void isMenuServiceFlag() {
         serviceMenuFlag = false;
@@ -524,7 +554,7 @@ locationList.add(k2);
         return isEnterService;
     }
 
-    public void addFoodService(Integer int1, String str) {
+    public int addFoodService(Integer int1, String str) {
 
 
         for (ServiceProvider sp : providerList) {
@@ -532,13 +562,10 @@ locationList.add(k2);
                 for (Service s : sp.getOfferList()) {
 
 
-                        System.out.println(" dfhkjshfjks:::"+s.getSp().getPerson().getUserName());
-
-
                         if (s.getId() == int1) {
-                            sendEmailTo(s.getSp().getPerson().getEmail());
 
                             sp.addEvent(localEvent);
+
 
                             switch (str) {
                                 case "Food":
@@ -558,14 +585,21 @@ locationList.add(k2);
                                 case "Photographer":
                                     localEvent.setPhotographerService(s);
                                     addLocalEventPhotoFlag = true;
+
                                     break;
-                            }
+                            } String email="";
+                            if(localEvent.getUser()!=null){
+                           email = "The user "+localEvent.getUser().getUserName()+", whose phone number is "+localEvent.getUser().getPhoneNum()+" , has booked a service from you...";
+                           } sendEmailTo(s.getSp().getPerson().getEmail(),email);
+                            return s.getCost();
 
                         }
 
                 }
             }
+
         }
+      return 0;
     }
 
     public boolean isAddLocalEventFoodFlag() {
@@ -584,13 +618,15 @@ locationList.add(k2);
         return addLocalEventPhotoFlag;
     }
 
-    public void addPackageToEvent(Integer int1) {
+    public boolean addPackageToEvent(Integer int1) {
         for (Package p : packageList) {
             if (p.getNumber() == int1) {
                 localEvent.setPack(p);
                 addPackageFlag = true;
+                return true;
             }
         }
+        return false;
     }
 
     public boolean isAddPackageFlag() {
@@ -636,6 +672,19 @@ locationList.add(k2);
         return null;
     }
 
+
+    public String searchInSpAccordingToType(String string) {
+        String s="Service providers:\n";
+        for (ServiceProvider p : providerList) {
+            if (p.getServiceType().equals(string)) {
+              s+=p.getPerson().getUserName()+"\t"+p.getPerson().getPhoneNum()+"\n";
+            }
+        }
+        return s;
+    }
+
+
+
     public ServiceProvider searchInServiceProvider(String string) {
         for (ServiceProvider p : providerList) {
             if (p.getPerson().getUserName().equals(string)) {
@@ -650,6 +699,12 @@ locationList.add(k2);
         userhasevent = !(pp.getEventList().isEmpty());
     }
 
+
+
+
+
+
+
     public boolean isUserhasevent() {
         return userhasevent;
     }
@@ -662,6 +717,28 @@ locationList.add(k2);
         }
         return null;
     }
+
+    public Event searchInEventByName(String str) {
+        for (Event e : eventList) {
+            if (e.getEventName().equals(str)) {
+                return e;
+            }
+        }
+        return null;
+    }
+
+
+
+    public Location searchInLocation(Integer int1) {
+        for (Location e : locationList) {
+            if (e.getId() == int1) {
+                 return e;
+            }
+        }
+        return null;
+    }
+
+
 
     public void serchforevent(Integer int1) {
 
@@ -765,6 +842,9 @@ locationList.add(k2);
 
     }
 
+
+
+
     public boolean isEditServiceForSpFlag() {
         return editServiceForSpFlag;
     }
@@ -789,43 +869,48 @@ locationList.add(k2);
 
     public String showservicesForSp(String string) {
         ServiceProvider p = searchInServiceProvider(string);
-        String format = "ID" + "\t" + "Discription" + "\t" + "Cost" + "\n";
-        for (Service s : p.getOfferList()) {
-            format += s.getId() + "\t" + s.getDiscription() + "\t" + s.getCost() + "\n";
+        String headerFormat = "%-10s\t%-50s\t%-10s\n";
+        String rowFormat = "%-10s\t%-50s\t%-10.2f\n";
 
+        StringBuilder format = new StringBuilder();
+        format.append("\n");
+        format.append(String.format(headerFormat, "ID", "Description", "Cost"));
+
+        for (Service s : p.getOfferList()) {
+            double cost = s.getCost();
+            format.append(String.format(rowFormat,
+                    s.getId(),
+                    s.getDiscription(),
+                    cost));
         }
+
         showservicesForSpFlag = true;
 
-        return format;
-
-
+        return format.toString();
     }
-
-
-
-
 
 
     public String showUsersAndEventsForSp(String string) {
 
+       ServiceProvider p = searchInServiceProvider(string);
+
+       String headerFormat = "%-20s\t%-15s\t%-20s\t%-15s\t%-20s\t%-10s\t%-10s\n";
+       String rowFormat = "%-20s\t%-15s\t%-20s\t%-15s\t%-20s\t%-10s\t%-10s\n";
+
+       StringBuilder format = new StringBuilder();
+       format.append("\n");
+
+       format.append(String.format(headerFormat, "User Name", "Phone Number", "Event Name", "Theme", "Location", "Date", "Time"));
 
 
+       for (Event e : p.getEventList()) {
+           String date = e.getDate().getYear() + "\\" + e.getDate().getMonth() + "\\" + e.getDate().getDate();
+           format.append(String.format(rowFormat, e.getUser().getUserName(), e.getUser().getPhoneNum(), e.getEventName(), e.getTheme(), e.getLocation(), date, e.getTime()));
+       }
 
-
-
-        ServiceProvider p = searchInServiceProvider(string);
-
-
-        String format = "User Name" + "\t" + "Phone Number" + "\t" + "Event Name" + "\t" + "Theme" + "\t" + "Location" + "\t" + "Date" + "\t" + "Time" + "\n";
-        for (Event e : p.getEventList()) {
-            format += "t"+e.getUser().getUserName() + "\t" + e.getUser().getPhoneNum() + "\t" + e.getEventName() + "\t" + e.getTheme() + "\t" + e.getLocation() + "\t" + dateFormat.format(e.getDate()) + "\t" + e.getTime() + "\n";
-        }
-        showUsersAndEventsForSpFlag = true;
-        System.out.println(format);
-        return format;
-
-
-    }
+       showUsersAndEventsForSpFlag = true;
+       return format.toString();
+   }
 
     public boolean isShowservicesForSpFlag() {
         return showservicesForSpFlag;
@@ -863,38 +948,82 @@ locationList.add(k2);
     }
 
     public String showUserListForAdmin() {
-        String s = "";
+        StringBuilder s = new StringBuilder();
 
-        s = "UserName" + "\t" + "Phone Number" + "\t" + "Birth Date" + "\n";
+        String headerFormat = "%-20s\t%-15s\t%-10s\n";
+        String rowFormat = "%-20s\t%-15s\t%-10s\n";
+
+        s.append("\n");
+
+        s.append(String.format(headerFormat, "UserName", "Phone Number", "Birth Date"));
+
         for (Person p : up) {
-            s += p.getUserName() + "\t" + p.getPhoneNum() + "\t" + p.getB() + "\n";
+
+            String birthDate = p.getB();
+            s.append(String.format(rowFormat,
+                    p.getUserName(),
+                    p.getPhoneNum(),
+                    birthDate ));
         }
+
         showUserListForAdminFlag = true;
-        return s;
+
+        return s.toString();
     }
+
 
     public String showEventForAdmin() {
+        StringBuilder format = new StringBuilder();
 
-        String format = "Event Name" + "\t" + "Theme" + "\t" + "Location" + "\t" + "Date" + "\t" + "Time" + "\n";
+
+        SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat timeFormatter = new SimpleDateFormat("HH:mm:ss");
+
+
+        format.append("\n");
+        String headerFormat = "%-20s\t%-15s\t%-20s\t%-12s\t%-10s\n";
+        format.append(String.format(headerFormat, "Event Name", "Theme", "Location", "Date", "Time"));
+
+
         for (Event e : eventList) {
-            format += e.getEventName() + "\t" + e.getTheme() + "\t" + e.getLocation() + "\t" + dateFormat.format(e.getDate()) + "\t" + e.getTime() + "\n";
+            // Format date and time based on the stored date object within the event
+            String formattedDate = dateFormatter.format(e.getDate());
+            String formattedTime = timeFormatter.format(e.getDate());
+
+            String rowFormat = "%-20s\t%-15s\t%-20s\t%-12s\t%-10s\n";
+            format.append(String.format(rowFormat,
+                    e.getEventName(),
+                    e.getTheme(),
+                    e.getLocation(),
+                    formattedDate,
+                    formattedTime));
         }
+
         showEventForAdminFlag = true;
-        return format;
-
+        return format.toString();
     }
-
     public String showSPtForAdmin() {
 
+        StringBuilder formattedOutput = new StringBuilder();
 
-        String s = "UserName" + "\t" + "Phone Number" + "\t" + "Birth Date" + "\t" + " Service Type" + "\n";
+        String headerFormat = "%-20s\t%-15s\t%-12s\t%-15s\n";
+        String rowFormat = "%-20s\t%-15s\t%-12s\t%-15s\n";
+        formattedOutput.append("\n");
+
+        formattedOutput.append(String.format(headerFormat, "UserName", "Phone Number", "Birth Date", "Service Type"));
+
+
         for (ServiceProvider e : providerList) {
-            s += e.getPerson().getUserName() + "\t" + e.getPerson().getPhoneNum() + "\t" + e.getPerson().getB() + "\t" + e.getServiceType() + "\n";
+            formattedOutput.append(String.format(rowFormat,
+                    e.getPerson().getUserName(),
+                    e.getPerson().getPhoneNum(),
+                    e.getPerson().getB(),
+                    e.getServiceType()));
         }
         showSPtForAdminFlag = true;
-        return s;
-
+        return formattedOutput.toString();
     }
+
 
     public boolean isAdminMenuFlag() {
         return adminMenuFlag;
@@ -953,17 +1082,28 @@ locationList.add(k2);
     }
 
     public String showPackageForAdmin() {
+        StringBuilder format = new StringBuilder();
+        format.append("\n");
 
-        String format = "ID" + "\t" + "Discription" + "\t" + "Cost" + "\n";
+        String headerFormat = "%-10s\t%-50s\t%-10s\n";
+        String rowFormat = "%-10s\t%-50s\t%-10.2f\n";
+
+
+        format.append(String.format(headerFormat, "ID", "Description", "Cost"));
+
+
         for (Package p : packageList) {
-            format += p.getNumber() + "\t" + p.getDescription() + "\t" + p.getTotalPrice() + "\n";
-
+            format.append(String.format(rowFormat,
+                    p.getNumber(),
+                    p.getDescription(),
+                    p.getTotalPrice()
+            ));
         }
+
         showPackageForAdminFlag = true;
-
-        return format;
-
+        return format.toString();
     }
+
 
     public boolean isShowPackageForAdminFlag() {
         return showPackageForAdminFlag;
@@ -1056,8 +1196,24 @@ locationList.add(k2);
 
     public void editEventNameByUser(String string, String string2, String string3) {
         Person p=searchInUser(string);
+
        Event e= p.searchInUserEvents(string2);
-       e.setEventName(string3);
+
+
+            for (Event o : p.getEventList()) {
+
+                    System.out.println("in side user event list "+o.getEventName()+"\n");
+
+            }
+
+
+
+
+       if(e==null){
+
+       }
+       else{
+       e.setEventName(string3);}
         editEventNameByUserFlag=true;
 
     }
@@ -1168,7 +1324,7 @@ locationList.add(k2);
                 e.setPhotographerService(null);
             }
             else {
-                System.out.println("in else");
+
                 editDeleteServiceFromEventByUserFlag = false;
             }
 
@@ -1186,73 +1342,94 @@ locationList.add(k2);
         e.setPack(null);
         editDeletePackageFromEventByUserFlag=true;
         System.out.println(editDeletePackageFromEventByUserFlag);
+        logger.info("deleted successfully");
 
+    }
+    public int getcostlocation(String l){
+        for(Location i :locationList){
+            if(i.getLocationName().equals(l)){
+               return i.getCost();
+            }
+        }
+        return 0;
     }
 
     public boolean isEditDeletePackageFromEventByUserFlag() {
         return editDeletePackageFromEventByUserFlag;
     }
 
+
     public String ViewEventsByUser(String string) {
-        Person p=searchInUser(string);
-        String format = "Event Name" + "\t" + "Theme" + "\t" + "Location" + "\t" + "Date" + "\t" + "Time" +"\t"+"Number of peaple"+ "\t"+"Decoration Service"+"\t"+"Entertainment Service"+"\t"+"Food Service"+"\t"+"Photographer Service"+"\n";
+        Person p = searchInUser(string);
+        StringBuilder eventsWithPackage = new StringBuilder();
+        StringBuilder eventsWithoutPackage = new StringBuilder();
+        eventsWithPackage.append("\n");
+        eventsWithoutPackage.append("\n");
+        String eventWithPackageFormat = "%-20s %-15s %-20s %-12s %-10s %-18s %-10s %-25s %-10s\n";
+        String eventWithoutPackageFormat = "%-20s %-15s %-20s %-12s %-10s %-18s %-25s %-25s %-25s %-25s %-10s\n";
+
+           int c= getcostlocation(localEvent.getLocation());
+        eventsWithPackage.append(String.format(eventWithPackageFormat, "Event Name", "Theme", "Location", "Date", "Time", "Number of People", "Package ID", "Package Description", "Cost"));
+        eventsWithoutPackage.append(String.format(eventWithoutPackageFormat, "Event Name", "Theme", "Location", "Date", "Time", "Number of People", "Decoration Service", "Entertainment Service", "Food Service", "Photographer Service", "Cost"));
+
         for (Event e : p.getEventList()) {
-            format += e.getEventName() + "\t" + e.getTheme() + "\t" + e.getLocation() + "\t" + e.getDate() + "\t" + e.getTime()+"\t"+e.getNumGuests()+"\t";
-            if(!(e.getDecorService()==null)){
-               format+=e.getDecorService().getDiscription();
-            }
-            else{
-                format+="\t\t";
-            }
-            if(!(e.getEntertainmentService()==null)){
-                format+=e.getEntertainmentService().getDiscription();
+            String date = e.getDate().getYear() + "\\" + e.getDate().getMonth() + "\\" + e.getDate().getDate(); // Format the date
 
-            }
-            else{
-                format+="\t\t";
-            }
-            if(!(e.getFoodService()==null)){
-                format+=e.getFoodService().getDiscription();
+            if (e.getPack() == null) {
 
-            }
-            else{
-                format+="\t\t";
-            }
-            if(!(e.getPhotographerService()==null)){
-                format+=e.getPhotographerService().getDiscription();
+                eventsWithoutPackage.append(String.format(eventWithoutPackageFormat,
+                        e.getEventName(),
+                        e.getTheme(),
+                        e.getLocation(),
+                        date,
+                        e.getTime(),
+                        e.getNumGuests(),
+                        e.getDecorService() != null ? e.getDecorService().getDiscription() : "------",
+                        e.getEntertainmentService() != null ? e.getEntertainmentService().getDiscription() : "------",
+                        e.getFoodService() != null ? e.getFoodService().getDiscription() : "------",
+                        e.getPhotographerService() != null ? e.getPhotographerService().getDiscription() : "------",
+                        e.eventCost(c)));
+            } else {
 
+                eventsWithPackage.append(String.format(eventWithPackageFormat,
+                        e.getEventName(),
+                        e.getTheme(),
+                        e.getLocation(),
+                        date,
+                        e.getTime(),
+                        e.getNumGuests(),
+                        e.getPack().getNumber(),
+                        e.getPack().getDescription(),
+                        e.eventCost(c)));
             }
-            else{
-                format+="\t\t";
-            }
-
-        format+="\n";
         }
-        ViewEventsByUserFlag = true;
-        return format;
 
+
+        String combined = eventsWithoutPackage.toString() + "\n\n\n\n" + eventsWithPackage.toString();
+        ViewEventsByUserFlag = true;
+        return combined;
     }
+
 
     public boolean isViewEventsByUserFlag() {
         return ViewEventsByUserFlag;
     }
 
     public void DeleteEventByUser(String string, String string2) {
-        Person p=searchInUser(string);
-        Event e= p.searchInUserEvents(string2);
+        Person p = searchInUser(string);
+        Event e = p.searchInUserEvents(string2);
         p.getEventList().remove(e);
         eventList.remove(e);
-        DeleteEventByUserFlag=true;
-        for(ServiceProvider S:providerList){
-            for(Event E:S.getEventList()){
-                if(E.getEventName().equals(string2)){
-                    S.getEventList().remove(E);
-
+        DeleteEventByUserFlag = true;
+        for (ServiceProvider S : providerList) {
+            Iterator<Event> iterator = S.getEventList().iterator(); // Use an iterator
+            while (iterator.hasNext()) { // Iterate over the list
+                Event E = iterator.next(); // Get the next event
+                if (E.getEventName().equals(string2)) {
+                    iterator.remove(); // Remove the current event using the iterator
                 }
             }
         }
-
-
     }
 
     public boolean isDeleteEventByUserFlag() {
@@ -1266,7 +1443,7 @@ locationList.add(k2);
         for(Location l:locationList)
         {
             if (l.getId()==int1) {
-                e.setLocation(l.getDescription());
+                e.setLocation(l.getLocationName());
                 editLocationFlag=true;
             }
         }
@@ -1287,7 +1464,9 @@ locationList.add(k2);
         }
 
     }
-    public void sendEmailTo(String recipient) {
+    public void sendEmailTo(String recipient,String s) {
+
+        String ss=s;
         try {
             Properties properties = System.getProperties();
             properties.put("mail.smtp.host", "smtp.gmail.com");
@@ -1298,15 +1477,16 @@ locationList.add(k2);
             Session session = Session.getDefaultInstance(properties, new javax.mail.Authenticator() {
                 @Override
                 protected PasswordAuthentication getPasswordAuthentication() {
-                    return new PasswordAuthentication("caraccessories1224@gmail.com\n", "lprr ivue vbtg rwpk");
+                    return new PasswordAuthentication("eventplannerapp1@gmail.com\n", "nmyv urhn rsxv zooj");
                 }
             });
-            session.setDebug(true);
+            //session.setDebug(true);
             MimeMessage message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("caraccessories1224@gmail.com\n"));
+            message.setFrom(new InternetAddress("eventplannerapp1@gmail.com\n"));
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(recipient, false));
-            message.setSubject("Software Engineer");
-            message.setText("Car accessories project");
+
+                message.setSubject("event planner project");
+                message.setText(s);
             Transport.send(message);
         } catch (MessagingException m) {
             m.printStackTrace();
@@ -1345,6 +1525,16 @@ locationList.add(k2);
         }
     }
 
+    public Package searchInPackage(int packId) {
+        for(Package j :packageList)
+        {
+            if (j.getNumber()==packId) {
+              return j;
+                       }
+
+        }
+        return null;
+    }
 }
 
 

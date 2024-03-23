@@ -32,11 +32,11 @@ public class Notification {
 
     }
 
-    @Then("Send email to {string}")
-
-        public void sendEmailTo(String recipient) {
-         obj.sendEmailTo(recipient);
+    @Then("Send email to {string} with message {string}")
+    public void send_email_to_with_message(String string, String string2) {
+        obj.sendEmailTo(string,string2);
     }
+
 
     @When("the user create event")
     public void the_user_create_event() {
