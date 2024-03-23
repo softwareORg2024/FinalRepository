@@ -87,9 +87,17 @@ public class Main {
 
             }
         }
+    private static String getEncryptedUser() {
+    return "toqa";
+    }
 
-
+        private static String getEncryptedPassword() {
+    return "123";
+    }
     private static void loginProcedure(Scanner input) {
+        String adimnUsername = getEncryptedUser();
+        String adminPassword = getEncryptedPassword();
+
         String name= getInput( "Please enter your Name");
         String password = getInput( "Please enter your password");
        user= obj.searchInUser(name);
@@ -110,7 +118,7 @@ public class Main {
 
 
         }
-       else if(name.equals("toqa")&&password.equals("123")){
+       else if(name.equals(adimnUsername)&&password.equals(adminPassword)){
             displayAdminMenu(input);
 
         }else{
