@@ -169,34 +169,29 @@ public class Main {
                 case 2:
                     if (sp != null && sp.getPerson() != null && sp.getPerson().getUserName() != null) {
                         logger.info(obj.showservicesForSp(sp.getPerson().getUserName()));
+                        logger.info(PROMPT_SERVICE_ID);
+                        id = input.nextInt();
+                        description = getInput("Please enter new description");
+                        logger.info("Enter new cost:");
+                        cost = input.nextInt();
+                        if (description != null) {
+                            obj.editServiceForSp(description, cost, id, sp.getPerson().getUserName());
+                        } else {
+                            logger.info("Cannot edit service for SP, description is null.");
+                        }
                     } else {
                         logger.info("Service provider details are incomplete.");
                     }
-
-                    logger.info(PROMPT_SERVICE_ID);
-                    id = input.nextInt();
-
-                   description = getInput("Please enter new description");
-
-                    logger.info("Enter new cost:");
-                   cost = input.nextInt();
-
-                    if (description != null && sp != null && sp.getPerson() != null && sp.getPerson().getUserName() != null) {
-                        obj.editServiceForSp(description, cost, id, sp.getPerson().getUserName());
-                    } else {
-                        logger.info("Cannot edit service for SP, one or more required details are null.");
-                    }
-
                     break;
 
                 case 3:
                     if (sp != null && sp.getPerson() != null && sp.getPerson().getUserName() != null) {
                         logger.info(obj.showservicesForSp(sp.getPerson().getUserName()));
                         logger.info(PROMPT_SERVICE_ID);
-                       id = input.nextInt();
+                        id = input.nextInt();
                         obj.deleteServiceForSp(id, sp.getPerson().getUserName());
                     } else {
-                        logger.info("Service provider or username is null, cannot proceed with delete operation.");
+                        logger.info("Service provider or username is null, cannot proceed with the delete operation.");
                     }
                     break;
                 case 4:
@@ -211,7 +206,7 @@ public class Main {
                     if (sp != null && sp.getPerson() != null && sp.getPerson().getUserName() != null) {
                         logger.info(obj.showservicesForSp(sp.getPerson().getUserName()));
                     } else {
-                        logger.info("Cannot show services for service provider - missing details.");
+                        logger.info("Cannot show services for the service provider - missing details.");
                     }
                     break;
 
@@ -398,7 +393,7 @@ public class Main {
                 break;
             case 3:
                 logger.info(CREATE_EVENT_MESSAGE+cost);
-
+                 break;
 
             default:
 
@@ -603,13 +598,16 @@ public class Main {
                 obj.editDeletePackageFromEventByUser(user.getUserName(), eventName);
                 break;
             case 10:
-                String pack= obj.showPackageForAdmin();
+                String pack = obj.showPackageForAdmin();
                 logger.info(pack);
-               int  pakid = input.nextInt();
-               obj.setLocalEvent(obj.searchInEventByName(eventName));
-                boolean b=obj.addPackageToEvent(pakid);
-
-                logger.info(CREATE_EVENT_MESSAGE+ obj.getLocalEvent().eventCost(cost));
+                int pakid = input.nextInt();
+                obj.setLocalEvent(obj.searchInEventByName(eventName));
+                boolean b = obj.addPackageToEvent(pakid);
+                if (b) {
+                    logger.info(String.format("%s %d", CREATE_EVENT_MESSAGE, obj.getLocalEvent().eventCost(cost)));
+                } else {
+                    logger.info("Failed to add package to the event.");
+                }
                 break;
             case 11:
                 displayUserMenu(input);
