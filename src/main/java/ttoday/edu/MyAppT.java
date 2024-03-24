@@ -49,7 +49,7 @@ private static int num=0;
     private boolean editDeleteServiceFromEventByUserFlag;
     private boolean editDeletePackageFromEventByUserFlag;
     private boolean viewEventsByUserFlag;
-    private boolean DeleteEventByUserFlag;
+    private boolean deleteeventbyuserflag;
     private boolean editLocationFlag;
     private boolean editPackageFlag;
 
@@ -87,15 +87,15 @@ private static int num=0;
         addEvent(localEvent);
         Person u4 = new Person("ahmad", "1234", "7\3\2005", "0594507933","raghadsalhab13@gmail.com");
         Person u3 = new Person("salma", "1234", "7\7\2006", "0594507933","raghadsalhab13@gmail.com");
-        Person PforLogin = new Person("adam", "54321", "7\13\2014", "0594507933","raghadsalhab13@gmail.com");
-        Person SpLogin = new Person("eman", "54321", "7\17\2016", "0594507933","eman@gmail.com");
+        Person pforlogin = new Person("adam", "54321", "7\13\2014", "0594507933","raghadsalhab13@gmail.com");
+        Person splogin = new Person("eman", "54321", "7\17\2016", "0594507933","eman@gmail.com");
         Person u7 = new Person("ali", "1234", "7\12\2020", "0594507933","s12112499@stu.najah.edu" +
                 "");
         Person u8 = new Person("tala", "1234", "8\3\2009", "0594507933","raghadsalhab13@gmail.com");
 
-        ServiceProvider eman = new ServiceProvider(SpLogin, "Photographer");
+        ServiceProvider eman = new ServiceProvider(splogin, "Photographer");
         addServiceProvider(eman);
-        addUser(PforLogin);
+        addUser(pforlogin);
         addUser(u3);
         addUser(u4);
         u3.getEventList().add(e2);
@@ -1283,26 +1283,26 @@ int temp=0;
         return editEventThemeByUserFlag;
     }
 
-    public ArrayList<String> editToAddAdditionalServiceByUser(String string, String string2) {
-        ArrayList<String> S;
-        S = new ArrayList<>();
+    public List<String> editToAddAdditionalServiceByUser(String string, String string2) {
+        List<String> s;
+        s = new ArrayList<>();
 
         Person p=searchInUser(string);
         Event e= p.searchInUserEvents(string2);
         if(e.getDecorService()==null){
-            S.add("Decoration");
+            s.add("Decoration");
         }
         if(e.getEntertainmentService()==null){
-            S.add("Entertainment");
+            s.add("Entertainment");
         }
         if(e.getFoodService()==null){
-            S.add("Food");
+            s.add("Food");
         }
         if(e.getPhotographerService()==null){
-            S.add("Photographer");
+            s.add("Photographer");
         }
         editToAddAdditionalServiceByUserFlag=true;
-        return S;
+        return s;
     }
 
     public boolean isEditToAddAdditionalServiceByUserFlag() {
@@ -1315,23 +1315,23 @@ int temp=0;
         Event e = p.searchInUserEvents(eventName);
         System.out.println(e.getEventName());
              if (e.getEntertainmentService() != null) {
-            if( e.getEntertainmentService().getId()==serviceId)
-                e.setEntertainmentService(null);
+            if( e.getEntertainmentService().getId()==serviceId){  e.setEntertainmentService(null);}
+
         }
            else if (e.getDecorService() != null) {
                  if( e.getDecorService().getId()==serviceId)
-               e.setDecorService(null);
+                 { e.setDecorService(null);}
 
             }
 
             else if (e.getFoodService() == null ) {
               if(e.getFoodService().getId()==(serviceId))
-                e.setFoodService(null);
+              { e.setFoodService(null);}
             }
 
             else if (e.getPhotographerService() != null ) {
                 if(e.getPhotographerService().getId()==(serviceId))
-                e.setPhotographerService(null);
+                {  e.setPhotographerService(null);  }
             }
             else {
 
@@ -1369,7 +1369,7 @@ int temp=0;
     }
 
 
-    public String ViewEventsByUser(String string) {
+    public String vieweventsbyUser(String string) {
         Person p = searchInUser(string);
         StringBuilder eventsWithPackage = new StringBuilder();
         StringBuilder eventsWithoutPackage = new StringBuilder();
@@ -1425,17 +1425,17 @@ int temp=0;
         return viewEventsByUserFlag;
     }
 
-    public void DeleteEventByUser(String string, String string2) {
+    public void deleteEventByUser(String string, String string2) {
         Person p = searchInUser(string);
         Event e = p.searchInUserEvents(string2);
         p.getEventList().remove(e);
         eventList.remove(e);
-        DeleteEventByUserFlag = true;
+        deleteeventbyuserflag = true;
         for (ServiceProvider S : providerList) {
             Iterator<Event> iterator = S.getEventList().iterator(); // Use an iterator
             while (iterator.hasNext()) { // Iterate over the list
-                Event E = iterator.next(); // Get the next event
-                if (E.getEventName().equals(string2)) {
+                Event yy = iterator.next(); // Get the next event
+                if (yy.getEventName().equals(string2)) {
                     iterator.remove(); // Remove the current event using the iterator
                 }
             }
@@ -1443,7 +1443,7 @@ int temp=0;
     }
 
     public boolean isDeleteEventByUserFlag() {
-        return DeleteEventByUserFlag;
+        return deleteeventbyuserflag;
     }
 
 

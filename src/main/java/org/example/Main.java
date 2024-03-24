@@ -101,14 +101,14 @@ public class Main {
         String password = getInput( "Please enter your password");
        user= obj.searchInUser(name);
         sp=obj.searchInServiceProvider(name);
-        if(!(user==(null))){
+        if(user!=(null)){
             if(password.equals(user.getPass())){
             displayUserMenu(input);}else{
                 logger.info("Wrong Password\n");
                 LogInSignUp();
             }
         }
-       else if(!(sp==(null))){
+       else if(sp!=(null)){
             if(password.equals(sp.getPerson().getPass())){
                 displaySpMenu(input);}else{
                 logger.info("Wrong Password\n");
@@ -327,25 +327,25 @@ static int cost;
         String theme= getInput( "Please enter theme: ");
         logger.info("Please enter number of attend people: ");
         Integer number = input.nextInt();
-        Location L=obj.searchInLocation(id);
-        cost+=L.getCost();
-        String locationName=L.getLocationName();
+        Location loc=obj.searchInLocation(id);
+        cost+=loc.getCost();
+        String locationName=loc.getLocationName();
 
         obj.createEventWithBasicInfo(user.getUserName(),eventName,year,month, day, time.getHours(), time.getMinutes(), time.getSeconds(), locationName, theme, number);
         String s="\n1.choose from existing package\n2. choose your own services\n3. exit\n";
         logger.info(s);
         int choice = input.nextInt();
-        int PackId;
+        int packid;
         switch (choice) {
             case 1:
                 String pack= obj.showPackageForAdmin();
                 logger.info(pack);
-                PackId = input.nextInt();
-                boolean b=obj.addPackageToEvent(PackId);
+                packid = input.nextInt();
+                boolean b=obj.addPackageToEvent(packid);
                 obj.addLocalEventToEventList();
 
-                Package P;
-                P=obj.searchInPackage(PackId);
+                Package pk;
+                pk=obj.searchInPackage(packid);
                 logger.info("create event successfully and its price is "+ obj.getLocalEvent().eventCost(cost));
 
                 displayUserMenu(input);
@@ -370,11 +370,13 @@ static int cost;
     }
 
     private static void displayUserMenu(Scanner input) {
-        String s="\n1.create an event\n" +
-                "2.edit the event\n" +
-                "3.delete an existing event\n" +
-                "4.view events\n" +
-                "5.exit\nEnter the number of your choice:";
+        String s = """
+               \n1.create an event
+               2.edit the event
+               3.delete an existing event
+               4.view events
+               5.exit
+               Enter the number of your choice:""";
         logger.info(s);
         int choice = input.nextInt();
         switch (choice) {
@@ -388,15 +390,15 @@ static int cost;
                editEvent(input);
                 break;
          case 3:
-                String show=obj.ViewEventsByUser(user.getUserName());
-                String EventName= getInput(show+"\n Please enter eventName:\n");
-                System.out.println("The event "+EventName+" was successfully deleted\n\n");
-                obj.DeleteEventByUser(user.getUserName(), EventName);
+                String show=obj.vieweventsbyUser(user.getUserName());
+                String eventname= getInput(show+"\n Please enter eventName:\n");
+                System.out.println("The event "+eventname+" was successfully deleted\n\n");
+                obj.deleteEventByUser(user.getUserName(), eventname);
 
                 break;
 
             case 4:
-                 show=obj.ViewEventsByUser(user.getUserName());
+                 show=obj.vieweventsbyUser(user.getUserName());
                 logger.info(show);
                 displayUserMenu(input);
                 break;
@@ -419,34 +421,37 @@ static int cost;
     }
 
     private static void editEvent(Scanner input) {
-        String show=obj.ViewEventsByUser(user.getUserName());
+        String show=obj.vieweventsbyUser(user.getUserName());
         logger.info(show);
         String eventName= getInput( "Please enter Event name: ");
 
 
-        String s="\n1.edits the event name\n" +
-                "2.changes the event location\n" +
-                "3.updates the event date\n" +
-                "4.User updates the event time\n" +
-                "5.number of attendees for the event\n" +
-                "6.changes the theme of the event\n" +
-                "7.adds additional services to the event\n" +
-                "8.removes a service from the event\n" +
-                "9.cancels the selected package\n" +
-                "10.User edit the selected package\n11.exit\nEnter the number of your choice:";
+        String s = """
+               \n1.edits the event name
+               2.changes the event location
+               3.updates the event date
+               4.User updates the event time
+               5.number of attendees for the event
+               6.changes the theme of the event
+               7.adds additional services to the event
+               8.removes a service from the event
+               9.cancels the selected package
+               10.User edit the selected package
+               11.exit
+               Enter the number of your choice:""";
         logger.info(s);
         int choice = input.nextInt();
 
 
-        show=obj.ViewEventsByUser(user.getUserName());
+        show=obj.vieweventsbyUser(user.getUserName());
         logger.info(show);
         switch (choice) {
             case 1:
-                String NewEventName= getInput( "Please enter Event name: ");
+                String neweventname= getInput( "Please enter Event name: ");
 
-                obj.editEventNameByUser(user.getUserName(),eventName,NewEventName);
+                obj.editEventNameByUser(user.getUserName(),eventName,neweventname);
 
-                eventName=NewEventName;
+                eventName=neweventname;
 
                 break;
 
@@ -558,9 +563,9 @@ static int cost;
             case 10:
                 String pack= obj.showPackageForAdmin();
                 logger.info(pack);
-               int  PackId = input.nextInt();
+               int  pakid = input.nextInt();
                obj.setLocalEvent(obj.searchInEventByName(eventName));
-                boolean b=obj.addPackageToEvent(PackId);
+                boolean b=obj.addPackageToEvent(pakid);
 
                 logger.info("create event successfully and its price is "+ obj.getLocalEvent().eventCost(cost));
                 break;
