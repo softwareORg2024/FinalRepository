@@ -714,7 +714,7 @@ public class Main {
     }
 
     private static String getInput(String prompt) {
-        System.out.println(prompt);
+       logger.info(prompt);
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         try {
             return reader.readLine();

@@ -1350,8 +1350,8 @@ int temp=0;
         String eventWithoutPackageFormat = "%-20s %-15s %-20s %-12s %-10s %-18s %-25s %-25s %-25s %-25s %-10s\n";
 
         int c = getcostlocation(localEvent.getLocation());
-        eventsWithPackage.append(String.format(eventWithPackageFormat, "Event Name", "Theme", "Location", "Date", "Time", "Number of People", "Package ID", "Package Description", "Cost"));
-        eventsWithoutPackage.append(String.format(eventWithoutPackageFormat, "Event Name", "Theme", "Location", "Date", "Time", "Number of People", "Decoration Service", "Entertainment Service", "Food Service", "Photographer Service", "Cost"));
+        eventsWithPackage.append(String.format(eventWithPackageFormat, EVENT_NAME_LABEL, THEME_LABEL,LOCATION_LABEL, "Date", "Time", "Number of People", "Package ID", "Package Description", "Cost"));
+        eventsWithoutPackage.append(String.format(eventWithoutPackageFormat, EVENT_NAME_LABEL, THEME_LABEL, LOCATION_LABEL, "Date", "Time", "Number of People", "Decoration Service", "Entertainment Service", "Food Service", "Photographer Service", "Cost"));
 
         addEventDetailsToBuilders(p.getEventList(), eventsWithPackage, eventsWithoutPackage, eventWithPackageFormat, eventWithoutPackageFormat, c);
 
@@ -1422,11 +1422,11 @@ int temp=0;
         eventList.remove(e);
         deleteeventbyuserflag = true;
         for (ServiceProvider S : providerList) {
-            Iterator<Event> iterator = S.getEventList().iterator(); // Use an iterator
-            while (iterator.hasNext()) { // Iterate over the list
-                Event yy = iterator.next(); // Get the next event
+            Iterator<Event> iterator = S.getEventList().iterator();
+            while (iterator.hasNext()) {
+                Event yy = iterator.next();
                 if (yy.getEventName().equals(string2)) {
-                    iterator.remove(); // Remove the current event using the iterator
+                    iterator.remove();
                 }
             }
         }
