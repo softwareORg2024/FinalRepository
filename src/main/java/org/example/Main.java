@@ -380,43 +380,33 @@ public class Main {
         int choice = input.nextInt();
         int packid;
         switch (choice) {
-            case 1:
+            case 1 -> {
                 String pack = obj.showPackageForAdmin();
                 logger.info(pack);
 
                 packid = input.nextInt();
                 obj.addLocalEventToEventList();
 
+
                 Package pk = obj.searchInPackage(packid);
                 if (pk != null) {
                     Event localEvent = obj.getLocalEvent();
                     if (localEvent != null) {
                         int eventCost = localEvent.eventCost(cost);
-                        logger.info( CREATE_EVENT_MESSAGE+ eventCost);
+                        logger.info(CREATE_EVENT_MESSAGE + eventCost);
                     } else {
                         logger.info("Local event not found, cannot calculate cost.");
                     }
                 } else {
-                    logger.info("Package with id "+packid+" not found.");
+                    logger.info("Package with id " + packid + " not found.");
                 }
 
                 displayUserMenu(input);
-                break;
-
-            case 2:
-                addServices(input,obj.getLocalEvent().eventCost(cost),obj.getLocalEvent());
-                break;
-            case 3:
-                logger.info(CREATE_EVENT_MESSAGE+cost);
-                 break;
-
-            default:
-
-
-
-
-
-
+            }
+            case 2 -> addServices(input, obj.getLocalEvent().eventCost(cost), obj.getLocalEvent());
+            case 3 -> logger.info(CREATE_EVENT_MESSAGE + cost);
+            default -> {
+            }
         }
 
     }
@@ -482,42 +472,21 @@ public class Main {
         int choice = input.nextInt();
 
         switch (choice) {
-            case 1:
-                editEventName(eventName);
-                break;
-            case 2:
-                editEventLocation(eventName, input);
-                break;
-            case 3:
-                editEventDate(eventName, input);
-                break;
-            case 4:
-                editEventTime(eventName, input);
-                break;
-            case 5:
-                editEventAttendees(eventName, input);
-                break;
-            case 6:
-                editEventTheme(eventName);
-                break;
-            case 7:
-                addServicesToEvent(eventName, input);
-                break;
-            case 8:
-                removeServiceFromEvent(eventName, input);
-                break;
-            case 9:
-                cancelSelectedPackage(eventName);
-                break;
-            case 10:
-                editSelectedPackage(eventName, input);
-                break;
-            case 11:
-                displayUserMenu(input);
-                break;
-            default:
+            case 1 -> editEventName(eventName);
+            case 2 -> editEventLocation(eventName, input);
+            case 3 -> editEventDate(eventName, input);
+            case 4 -> editEventTime(eventName, input);
+            case 5 -> editEventAttendees(eventName, input);
+            case 6 -> editEventTheme(eventName);
+            case 7 -> addServicesToEvent(eventName, input);
+            case 8 -> removeServiceFromEvent(eventName, input);
+            case 9 -> cancelSelectedPackage(eventName);
+            case 10 -> editSelectedPackage(eventName, input);
+            case 11 -> displayUserMenu(input);
+            default -> {
                 logger.info(INVALID_OPTION_MESSAGE);
                 displayEditMenu();
+            }
         }
 
     }
