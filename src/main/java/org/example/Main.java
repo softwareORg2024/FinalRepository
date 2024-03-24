@@ -18,6 +18,7 @@ import java.util.Scanner;
 public class Main {
     private static final String INCORRECT_VALUE_MESSAGE = "\nYou have entered an incorrect value. Please enter a correct number:";
     private static final String PROMPT_PASSWORD_MESSAGE = "Please enter your password";
+    private static final String ANSI_PURPLE = "\u001B[95m";
 
 
     private static String username(){
@@ -103,7 +104,7 @@ public class Main {
     public static void logInSignUp() {
         Scanner input = new Scanner(System.in);
 
-        String menuOptions = "\n\u001B[95m" + """
+        String menuOptions = ANSI_PURPLE + """
                      ╔════════════════════════════╗
                      ║         System Menu        ║
                      ╠════════════════════════════╣
@@ -187,7 +188,7 @@ public class Main {
     }
 
     private static void displaySpMenu(Scanner input) {
-        String menuOptions = "\n\u001B[95m" + """
+        String menuOptions = ANSI_PURPLE + """
                      ╔════════════════════════════════════╗
                      ║       Service Provider Menu        ║
                      ╠════════════════════════════════════╣
@@ -302,7 +303,7 @@ public class Main {
     }
 
    private static void addServices(Scanner input,int int1,Event event1){
-       String menu = "\n\u001B[95m" + """
+       String menu = ANSI_PURPLE + """
               ╔════════════════════════════╗
               ║       Service Menu         ║
               ╠════════════════════════════╣
@@ -445,12 +446,19 @@ public class Main {
         String theme= getInput( "Please enter theme: ");
         logger.info("Please enter number of attend people: ");
         Integer number = input.nextInt();
-        Location loc=searchInLocation(id);
-        cost+=loc.getCost();
-        String locationName=loc.getLocationName();
+        Location loc;
+        String locationName="";
+        if(searchInLocation(id)!=null){
+            loc=searchInLocation(id);
+            cost+=loc.getCost();
+             locationName=loc.getLocationName();
+
+        }
+
+
 
         obj.createEventWithBasicInfo(user.getUserName(),eventName,year,month, day, time.getHours(), time.getMinutes(), time.getSeconds(), locationName, theme, number);
-        String menu = "\n\u001B[95m" + """
+        String menu = ANSI_PURPLE + """
               ╔═════════════════════════════════╗
               ║        Package & Services       ║
               ╠═════════════════════════════════╣
@@ -775,7 +783,7 @@ public class Main {
     }
 
     private static void signUpProcedure(Scanner input) {
-        String menu = "\n\u001B[95m" + """
+        String menu = ANSI_PURPLE + """
               ╔══════════════════════╗
               ║      Role Menu       ║
               ╠══════════════════════╣
