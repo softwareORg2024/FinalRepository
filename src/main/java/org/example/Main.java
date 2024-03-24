@@ -17,17 +17,15 @@ import java.util.Scanner;
 
 public class Main {
     private static final String INCORRECT_VALUE_MESSAGE = "\nYou have entered an incorrect value. Please enter a correct number:";
-    private static final String ENCRYPTED_USER = "toqa";
     private static final String PROMPT_PASSWORD_MESSAGE = "Please enter your password";
-    private static final String ENCRYPTED_PASSWORD = "123";
 
 
     private static String username(){
-        String user=ENCRYPTED_USER;
+        String user="toqa";
         return user;
     }
     private static String password(){
-        String pass=ENCRYPTED_PASSWORD;
+        String pass="123";
         return pass;
     }
     private static final String PROMPT_NAME_MESSAGE = "Please enter your Name";
