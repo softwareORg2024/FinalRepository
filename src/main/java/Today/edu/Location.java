@@ -1,7 +1,8 @@
 package Today.edu;
 
 public class Location {
-    private int cost,id;
+    private int cost;
+     private int id;
     private String locationName;
     private String description;
 
