@@ -65,7 +65,7 @@ public static int num=0;
     public MyAppT() {
 
 
-        Person u1 = new Person("haya", "123", "7\3\2004", "0599222333","raghadsalhab13@gmail.com");
+        Person u1 = new Person("haya", "123", "7\3\2003", "0599222333","raghadsalhab13@gmail.com");
         addUser(u1);
         Person u2 = new Person("s12112499@stu.najah.edu", "1234", "7\3\2004", "0594507933","raghadsalhab13@gmail.com");
         addUser(u2);
@@ -85,13 +85,13 @@ public static int num=0;
 
         Event localEvent = new Event("asmaa", d, t, "home", "frozen", 25);
         addEvent(localEvent);
-        Person u4 = new Person("ahmad", "1234", "7\3\2004", "0594507933","raghadsalhab13@gmail.com");
-        Person u3 = new Person("salma", "1234", "7\3\2004", "0594507933","raghadsalhab13@gmail.com");
-        Person PforLogin = new Person("adam", "54321", "7\3\2004", "0594507933","raghadsalhab13@gmail.com");
-        Person SpLogin = new Person("eman", "54321", "7\3\2004", "0594507933","eman@gmail.com");
-        Person u7 = new Person("ali", "1234", "7\3\2004", "0594507933","s12112499@stu.najah.edu" +
+        Person u4 = new Person("ahmad", "1234", "7\3\2005", "0594507933","raghadsalhab13@gmail.com");
+        Person u3 = new Person("salma", "1234", "7\7\2006", "0594507933","raghadsalhab13@gmail.com");
+        Person PforLogin = new Person("adam", "54321", "7\13\2014", "0594507933","raghadsalhab13@gmail.com");
+        Person SpLogin = new Person("eman", "54321", "7\17\2016", "0594507933","eman@gmail.com");
+        Person u7 = new Person("ali", "1234", "7\12\2020", "0594507933","s12112499@stu.najah.edu" +
                 "");
-        Person u8 = new Person("tala", "1234", "7\3\2004", "0594507933","raghadsalhab13@gmail.com");
+        Person u8 = new Person("tala", "1234", "8\3\2009", "0594507933","raghadsalhab13@gmail.com");
 
         ServiceProvider eman = new ServiceProvider(SpLogin, "Photographer");
         addServiceProvider(eman);
@@ -124,13 +124,13 @@ public static int num=0;
         addPackage(p);
         Package p2 = new Package("food+photo+cake", 100.00,2);
         addPackage(p2);
-        Person admin=new Person("Fatina","1234","7\3\2004","0598123123");
-        Person abd=new Person("abd","1234","7\3\2004","0598123123");
+        Person admin=new Person("Fatina","1234","17\3\2004","0598123123");
+        Person abd=new Person("abd","1234","26\5\2004","0598123123");
         Event e3 = new Event("abd's Birthday", d1, t1, "home", "unicorn", 20);
         e3.setPack(p2);
         abd.addUserEvent(e3);
         up.add(abd);
-        Person p5=new Person("mira","1234","7\3\2004","0598123123");
+        Person p5=new Person("mira","1234","26\2\2003","0598123123");
         addUser(p5);
         Event e5 = new Event("mira's Birthday", d1, t1, "home", "unicorn", 20);
         asma.addEvent(e5);
@@ -144,7 +144,7 @@ Location k1=new Location(1,100,"Resturant","50 people");
 Location k2=new Location(2,100,"Park","70 people");
 locationList.add(k1);
 locationList.add(k2);
-        Person pForDelete=new Person("rawand","1234","7\3\2004","0598123123");
+        Person pForDelete=new Person("rawand","1234","8\3\2011","0598123123");
         addUser(pForDelete);
         Event e6 = new Event("rawand's Birthday", d1, t1, "home", "unicorn", 20);
         e6.setUser(pForDelete);
