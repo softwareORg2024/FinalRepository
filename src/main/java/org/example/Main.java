@@ -6,6 +6,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.logging.ConsoleHandler;
 import java.util.logging.Formatter;
 import java.util.logging.Handler;
@@ -19,6 +20,16 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class Main {
+    private static final String INCORRECT_VALUE_MESSAGE = "\nYou have entered an incorrect value. Please enter a correct number:";
+    private static final String ENCRYPTED_USER = "toqa";
+    private static final String PROMPT_PASSWORD_MESSAGE = "Please enter your password";
+    private static final String ENCRYPTED_PASSWORD = "123";
+    private static final String PROMPT_NAME_MESSAGE = "Please enter your Name";
+    private static final String PROMPT_SERVICE_ID = "Enter service id:";
+    private static final String INVALID_OPTION_MESSAGE = "Invalid option selected.";
+    private static final String CREATE_EVENT_MESSAGE = "Create event successfully and its price is ";
+
+
 
     private static final Logger logger = Logger.getLogger(Main.class.getName());
     static {
@@ -61,7 +72,7 @@ public class Main {
                     valid = true;
                 } catch (InputMismatchException e) {
 
-                    logger.info("\nYou have entered an incorrect value.\n Please enter a correct number:");
+                    logger.info(INCORRECT_VALUE_MESSAGE);
                     input.next();
 
                 }
@@ -80,25 +91,22 @@ public class Main {
                 case 4:
                     logger.info("Have a nice day!! ");
                     System.exit(1);
+                    break;
                 default:
                     logger.info("Invalid option selected. Please try again.");
                     logger.info(s);
 
             }
         }
-    private static String getEncryptedUser() {
-    return "toqa";
-    }
 
-        private static String getEncryptedPassword() {
-    return "123";
-    }
+
+
     private static void loginProcedure(Scanner input) {
-        String adimnUsername = getEncryptedUser();
-        String adminPassword = getEncryptedPassword();
+        String adimnUsername = ENCRYPTED_USER;
+        String adminPassword = ENCRYPTED_PASSWORD;
 
-        String name= getInput( "Please enter your Name");
-        String password = getInput( "Please enter your password");
+        String name= getInput( PROMPT_NAME_MESSAGE);
+        String password = getInput( PROMPT_PASSWORD_MESSAGE);
        user= obj.searchInUser(name);
         sp=obj.searchInServiceProvider(name);
         if(user!=(null)){
@@ -143,7 +151,7 @@ public class Main {
 
                 } catch (InputMismatchException e) {
 
-                    logger.info("\nYou have entered an incorrect value.\n Please enter a correct number:");
+                    logger.info(INCORRECT_VALUE_MESSAGE);
                     input.next();
 
                 }
@@ -152,7 +160,7 @@ public class Main {
 
             switch (choice) {
             case 1:
-                logger.info("Enter service id:");
+                logger.info(PROMPT_SERVICE_ID);
                 int id = input.nextInt();
                 String description= getInput( "Please enter description");
                 logger.info("Enter service cost:");
@@ -161,36 +169,61 @@ public class Main {
                 break;
 
 
-            case 2:
-                logger.info(obj.showservicesForSp(sp.getPerson().getUserName()));
+                case 2:
+                    if (sp != null && sp.getPerson() != null && sp.getPerson().getUserName() != null) {
+                        logger.info(obj.showservicesForSp(sp.getPerson().getUserName()));
+                    } else {
+                        logger.info("Service provider details are incomplete.");
+                    }
 
-                logger.info("Enter service id:");
-                 id = input.nextInt();
-                 description= getInput( "Please enter new description");
-                logger.info("Enter new cost:");
-                 cost = input.nextInt();
-                obj.editServiceForSp(description,cost,id,sp.getPerson().getUserName());
+                    logger.info(PROMPT_SERVICE_ID);
+                    id = input.nextInt();
 
-                break;
-            case 3:
-                logger.info(obj.showservicesForSp(sp.getPerson().getUserName()));
-                logger.info("Enter service id:");
-                id = input.nextInt();
-                obj.deleteServiceForSp(id,sp.getPerson().getUserName());
-                break;
-            case 4:
-                logger.info(obj.showUsersAndEventsForSp(sp.getPerson().getUserName()));
-                break;
-            case 5:
-                logger.info(obj.showservicesForSp(sp.getPerson().getUserName()));
+                   description = getInput("Please enter new description");
 
-                break;
-            case 6:
+                    logger.info("Enter new cost:");
+                   cost = input.nextInt();
+
+                    if (description != null && sp != null && sp.getPerson() != null && sp.getPerson().getUserName() != null) {
+                        obj.editServiceForSp(description, cost, id, sp.getPerson().getUserName());
+                    } else {
+                        logger.info("Cannot edit service for SP, one or more required details are null.");
+                    }
+
+                    break;
+
+                case 3:
+                    if (sp != null && sp.getPerson() != null && sp.getPerson().getUserName() != null) {
+                        logger.info(obj.showservicesForSp(sp.getPerson().getUserName()));
+                        logger.info(PROMPT_SERVICE_ID);
+                       id = input.nextInt();
+                        obj.deleteServiceForSp(id, sp.getPerson().getUserName());
+                    } else {
+                        logger.info("Service provider or username is null, cannot proceed with delete operation.");
+                    }
+                    break;
+                case 4:
+                    if (sp != null && sp.getPerson() != null && sp.getPerson().getUserName() != null) {
+                        logger.info(obj.showUsersAndEventsForSp(sp.getPerson().getUserName()));
+                    } else {
+                        logger.info("Cannot show users and events for service provider - missing details.");
+                    }
+                    break;
+
+                case 5:
+                    if (sp != null && sp.getPerson() != null && sp.getPerson().getUserName() != null) {
+                        logger.info(obj.showservicesForSp(sp.getPerson().getUserName()));
+                    } else {
+                        logger.info("Cannot show services for service provider - missing details.");
+                    }
+                    break;
+
+                case 6:
                 logger.info("Logging out as Service provider.");
                 logInSignUp();
                 break;
             default:
-                logger.info("Invalid option selected.");
+                logger.info(INVALID_OPTION_MESSAGE);
 
         }
         displaySpMenu( input);
@@ -208,7 +241,7 @@ public class Main {
                    valid = true;
                } catch (InputMismatchException e) {
 
-                   logger.info("\nYou have entered an incorrect value.\n Please enter a correct number:");
+                   logger.info(INCORRECT_VALUE_MESSAGE);
                    input.next();
 
                }
@@ -233,37 +266,41 @@ public class Main {
                     break;
                 case 5:
                     int t = obj.getLocalEvent().eventCost(cost);
-                    logger.info("create event successfully and its price is " + t);
+                    logger.info(CREATE_EVENT_MESSAGE+ t);
                     displayUserMenu(input);
 
                     break;
                 default:
-                    //logger.info("locally cost "+ cost);
+
                     logger.info("Choose from the menu plz..\n");
                     addServices(input, int1, event1);
 
 
             }
-            if (serviceChoice != 5) {
-                spList = obj.searchInSpAccordingToType(type);
-                logger.info(spList);
-                String spName = getInput("Please enter service Provider Name: ");
-                logger.info(obj.showservicesForSp(spName));
-                Integer serviceId = input.nextInt();
-                obj.setLocalEvent(event1);
+       if (serviceChoice != 5) {
+            spList = obj.searchInSpAccordingToType(type);
+           logger.info(spList);
+
+           String spName = getInput("Please enter service Provider Name: ");
+           if (spName != null && !spName.isEmpty()) {
+               logger.info(obj.showservicesForSp(spName));
+           } else {
+               logger.info("Service provider name is not provided.");
+           }
+
+           Integer serviceId = input.nextInt();
+           obj.setLocalEvent(event1);
+
+           obj.addFoodService(serviceId, type);
+
+           logger.info("Added Successfully");
 
 
-          obj.addFoodService(serviceId, type);
-
-                logger.info("Successful addtion");
-
-
-                addServices(input, int1, event1);
-
-        }}
+           addServices(input, int1, event1);
+       }}
 
 
-static int cost;
+       static int cost;
 
 
     private static void location(int year,int month,int day,Time time){
@@ -297,7 +334,6 @@ static int cost;
     private static void creatBasicEvent(Scanner input){
         cost=0;
 
-        Date date= new Date(2003, 2, 13);
         Time time= new Time(1, 2, 3);
         String eventName= getInput( "Please enter event name: ");
         String dates= getInput( "Please enter event date(yyyy-MM-dd): ");
@@ -338,15 +374,24 @@ static int cost;
         int packid;
         switch (choice) {
             case 1:
-                String pack= obj.showPackageForAdmin();
+                String pack = obj.showPackageForAdmin();
                 logger.info(pack);
+
                 packid = input.nextInt();
-                boolean b=obj.addPackageToEvent(packid);
                 obj.addLocalEventToEventList();
 
-                Package pk;
-                pk=obj.searchInPackage(packid);
-                logger.info("create event successfully and its price is "+ obj.getLocalEvent().eventCost(cost));
+                Package pk = obj.searchInPackage(packid);
+                if (pk != null) {
+                    Event localEvent = obj.getLocalEvent();
+                    if (localEvent != null) {
+                        int eventCost = localEvent.eventCost(cost);
+                        logger.info( CREATE_EVENT_MESSAGE+ eventCost);
+                    } else {
+                        logger.info("Local event not found, cannot calculate cost.");
+                    }
+                } else {
+                    logger.info("Package with id "+packid+" not found.");
+                }
 
                 displayUserMenu(input);
                 break;
@@ -355,10 +400,10 @@ static int cost;
                 addServices(input,obj.getLocalEvent().eventCost(cost),obj.getLocalEvent());
                 break;
             case 3:
-                logger.info("create event successfully and its price is "+cost);
+                logger.info(CREATE_EVENT_MESSAGE+cost);
 
 
-
+            default:
 
 
 
@@ -371,12 +416,12 @@ static int cost;
 
     private static void displayUserMenu(Scanner input) {
         String s = """
-               \n1.create an event
-               2.edit the event
-               3.delete an existing event
-               4.view events
-               5.exit
-               Enter the number of your choice:""";
+        1. create an event
+        2. edit the event
+        3. delete an existing event
+        4. view events
+        5. exit
+        Enter the number of your choice:""";
         logger.info(s);
         int choice = input.nextInt();
         switch (choice) {
@@ -392,7 +437,7 @@ static int cost;
          case 3:
                 String show=obj.vieweventsbyUser(user.getUserName());
                 String eventname= getInput(show+"\n Please enter eventName:\n");
-                System.out.println("The event "+eventname+" was successfully deleted\n\n");
+                logger.info("The event "+eventname+" was successfully deleted\n\n");
                 obj.deleteEventByUser(user.getUserName(), eventname);
 
                 break;
@@ -567,13 +612,13 @@ static int cost;
                obj.setLocalEvent(obj.searchInEventByName(eventName));
                 boolean b=obj.addPackageToEvent(pakid);
 
-                logger.info("create event successfully and its price is "+ obj.getLocalEvent().eventCost(cost));
+                logger.info(CREATE_EVENT_MESSAGE+ obj.getLocalEvent().eventCost(cost));
                 break;
             case 11:
                 displayUserMenu(input);
                 break;
             default:
-                logger.info("Invalid option selected.");
+                logger.info(INVALID_OPTION_MESSAGE);
                 editEvent( input);
         }
         editEvent( input);
@@ -618,7 +663,7 @@ static int cost;
                 logInSignUp();
 
             default:
-                logger.info("Invalid option selected.");
+                logger.info(INVALID_OPTION_MESSAGE);
                 displayAdminMenu(input);
         }
         displayAdminMenu( input);
@@ -640,10 +685,10 @@ static int cost;
         switch (choice) {
             case 1 :
                 logger.info("\nIn order to make a new account you have to enter your information\n");
-                String name= getInput( "Please enter your Name");
+                String name= getInput( PROMPT_NAME_MESSAGE);
                 String phone= getInput( "Please enter your phone");
                 String email = getInput( "Please enter your Gmail");
-                String password = getInput( "Please enter your password");
+                String password = getInput( PROMPT_PASSWORD_MESSAGE);
                 String birthDate = getInput("Please enter your BirthDate");
                 String type= getInput( "\nPlease enter your type(Food,Decoration,Entertainment,Photographer)-->");
                 obj.createAccountForSp(name,password,birthDate,phone,type,email);
@@ -652,17 +697,17 @@ static int cost;
 
             case 2 :
                 logger.info("\nIn order to make a new account you have to enter your information\n");
-                 name= getInput( "Please enter your Name");
+                 name= getInput( PROMPT_NAME_MESSAGE);
                  phone= getInput( "Please enter your phone");
                  email = getInput( "Please enter your Gmail");
-                 password = getInput("Please enter your password");
+                 password = getInput(PROMPT_PASSWORD_MESSAGE);
                  birthDate = getInput("Please enter your BirthDate");
                 obj.createAccountForUser(name,password,birthDate,phone,email);
                 break;
             case 3 :
                 logInSignUp();
             default :
-                logger.info("Invalid option selected.");
+                logger.info(INVALID_OPTION_MESSAGE);
                 signUpProcedure(input);
 
         }
