@@ -29,6 +29,7 @@ public class Main {
     private static final String INVALID_OPTION_MESSAGE = "Invalid option selected.";
     private static final String CREATE_EVENT_MESSAGE = "Create event successfully and its price is ";
 
+    private static final String INCORRECT_VALUE_MESSAGEE = "\nYou have entered an incorrect value. Please enter a correct number:";
 
 
     private static final Logger logger = Logger.getLogger(Main.class.getName());

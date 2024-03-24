@@ -69,10 +69,6 @@ private Person person;
     }
 
 
-    public void editService(String string, Integer double1, Integer int1) {
-
-    }
-
     public Service searchForServiceId(Integer int1){
         for(Service s : serviceList){
             if(s.getId()==int1){

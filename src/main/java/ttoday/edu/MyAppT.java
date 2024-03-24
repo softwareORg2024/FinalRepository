@@ -394,7 +394,7 @@ locationList.add(k2);
             case 1:
                 isInCreationPage = true;
                 break;
-
+            default:
         }
 
     }
@@ -597,6 +597,7 @@ int temp=0;
                                     addLocalEventPhotoFlag = true;
 
                                     break;
+                                default:
                             } String email="";
                             if(localEvent.getUser()!=null){
                            email = "The user "+localEvent.getUser().getUserName()+", whose phone number is "+localEvent.getUser().getPhoneNum()+" , has booked a service from you...";
