@@ -1,4 +1,4 @@
-package Today_edu;
+package ttoday.edu;
 
 public class Service {
     private ServiceProvider sp;

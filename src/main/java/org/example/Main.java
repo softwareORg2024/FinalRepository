@@ -1,7 +1,6 @@
 package org.example;
-
-import Today_edu.*;
-import Today_edu.Package;
+import ttoday.edu.*;
+import ttoday.edu.Package;
 
 import java.io.BufferedReader;
 import java.io.IOException;

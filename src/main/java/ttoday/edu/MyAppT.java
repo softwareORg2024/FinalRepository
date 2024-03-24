@@ -1,4 +1,4 @@
-package Today_edu;
+package ttoday.edu;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 
 
 public class MyAppT {
-public static int num=0;
+private static int num=0;
      private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
       private boolean isEventDeleteEventEdit;
@@ -48,7 +48,7 @@ public static int num=0;
     private boolean editToAddAdditionalServiceByUserFlag;
     private boolean editDeleteServiceFromEventByUserFlag;
     private boolean editDeletePackageFromEventByUserFlag;
-    private boolean ViewEventsByUserFlag;
+    private boolean viewEventsByUserFlag;
     private boolean DeleteEventByUserFlag;
     private boolean editLocationFlag;
     private boolean editPackageFlag;
@@ -1416,13 +1416,13 @@ int temp=0;
 
 
         String combined = eventsWithoutPackage.toString() + "\n\n\n\n" + eventsWithPackage.toString();
-        ViewEventsByUserFlag = true;
+        viewEventsByUserFlag = true;
         return combined;
     }
 
 
     public boolean isViewEventsByUserFlag() {
-        return ViewEventsByUserFlag;
+        return viewEventsByUserFlag;
     }
 
     public void DeleteEventByUser(String string, String string2) {
