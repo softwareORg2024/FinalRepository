@@ -640,12 +640,18 @@ public class Main {
         int temp = 0;
 
         for (Event e : obj.getEventList()) {
-            if (e.getDate().getYear() == year && e.getDate().getMonth() == month && e.getDate().getDate() == day && e.getTime().equals(searchInEventByName(eventName).getTime()) && e.getLocation().equals(searchInEventByName(eventName).getLocation())) {
-                logger.info("You cannot book on this date.\n There is another event booked\n");
-                temp = 1;
-                editEventDate(eventName, input);
-                break;
+
+            Event event = searchInEventByName(eventName);
+            if (event != null) {
+                if (e.getDate().getYear() == year && e.getDate().getMonth() == month && e.getDate().getDate() == day && e.getTime().equals(event.getTime()) && e.getLocation().equals(event.getLocation())) {
+                    logger.info("You cannot book on this date.\n There is another event booked\n");
+                    temp = 1;
+                    editEventDate(eventName, input);
+                    break;
+                }
             }
+
+
         }
         if (temp == 0) {
             obj.editEventDateByUser(user.getUserName(), eventName, year, month, day);
@@ -691,22 +697,29 @@ public class Main {
     }
 
     private static void addServicesToEvent(String eventName, Scanner input) {
-        addServices(input, searchInEventByName(eventName).getOverallCost(), searchInEventByName(eventName));
+        Event event = searchInEventByName(eventName);
+        if (event != null) {
+            addServices(input, event.getOverallCost(),event);
+        }
     }
 
     private static void removeServiceFromEvent(String eventName, Scanner input) {
+
         String s = "";
-        if (searchInEventByName(eventName).getFoodService() != null) {
-            s += searchInEventByName(eventName).getFoodService().getId() + "\t" + searchInEventByName(eventName).getFoodService().getDiscription() + "\n";
+        Event event = searchInEventByName(eventName);
+        if (event != null) {
+        if (event.getFoodService() != null) {
+            s += event.getFoodService().getId() + "\t" + event.getFoodService().getDiscription() + "\n";
         }
-        if (searchInEventByName(eventName).getDecorService() != null) {
-            s += searchInEventByName(eventName).getDecorService().getId() + "\t" + searchInEventByName(eventName).getDecorService().getDiscription() + "\n";
+        if (event.getDecorService() != null) {
+            s += event.getDecorService().getId() + "\t" + event.getDecorService().getDiscription() + "\n";
         }
-        if (searchInEventByName(eventName).getEntertainmentService() != null) {
-            s += searchInEventByName(eventName).getEntertainmentService().getId() + "\t" + searchInEventByName(eventName).getEntertainmentService().getDiscription() + "\n";
+        if (event.getEntertainmentService() != null) {
+            s += event.getEntertainmentService().getId() + "\t" + event.getEntertainmentService().getDiscription() + "\n";
         }
-        if (searchInEventByName(eventName).getPhotographerService() != null) {
-            s += searchInEventByName(eventName).getPhotographerService().getId() + "\t" + searchInEventByName(eventName).getPhotographerService().getDiscription() + "\n";
+        if (event.getPhotographerService() != null) {
+            s += event.getPhotographerService().getId() + "\t" + event.getPhotographerService().getDiscription() + "\n";
+        }
         }
         logger.info(s);
         Integer serviceToDelete = input.nextInt();
