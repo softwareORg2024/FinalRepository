@@ -73,6 +73,10 @@ private static int num=0;
         this.localEvent = localEvent;
     }
 
+    public Date getD() {
+        return d;
+    }
+
     public MyAppT() {
 
 
@@ -206,6 +210,9 @@ locationList.add(k2);
 
     private boolean addPackageFlag;
 
+    public void setLocalEventFlag(boolean localEventFlag) {
+        this.localEventFlag = localEventFlag;
+    }
 
     private boolean isLogged;
     private boolean localEventFlag = false;
@@ -385,37 +392,39 @@ locationList.add(k2);
         isInCreationPage = true;
     }
 
-    public void createEventWithBasicInfo(String s, String string, Integer int4, Integer int5, Integer int6, Integer int1, Integer int2, Integer int3, String string2, String string3, Integer int7) {
+    public void createEventWithBasicInfo( String s, String string, Integer int4, Integer int5, Integer int6, Integer int1, Integer int2, Integer int3, String string2, String string3, Integer int7) {
+
         Person n = searchInUser(s);
-   Date date=new Date(int4,int5,int6);
-        Time t = new Time(int1, int2, int3);
+        Date date = new Date(int4, int5, int6);
+        Time time1 = new Time(int1, int2, int3);
 
 
-int temp=0;
+        int temp = 0;
 
 
-        for (Event e : eventList) {
-            if (e.getDate().equals(d) && e.getTime().equals(t) && e.getLocation().equals(string2)) {
-                localEventFlag = false;
+        for (Event e : getEventList()) {
+            if (e.getDate().equals(date) && e.getTime().equals(time1) && e.getLocation().equals(string2)) {
+               setLocalEventFlag(false);
                 temp = 1;
+                break;
 
             }
 
         }
         if (temp == 0) {
-            Event e = new Event(string, date, t, string2, string3, int7);
+            Event e = new Event(string, date, time1, string2, string3, int7);
             setLocalEvent(e);
-            localEvent.setUser(n);
-            n.getEventList().add(localEvent);
-            eventList.add(localEvent);
+            Event ev = getLocalEvent();
+            if (ev != null) {
+                ev.setUser(n);
+                n.getEventList().add(ev);
+                getEventList().add(ev);
 
-            localEventFlag = true;
 
+            }
+            setLocalEventFlag(true);
         }
-
-
     }
-
     public boolean isLocalEventFlag() {
         return localEventFlag;
     }
@@ -1062,14 +1071,12 @@ int temp=0;
 
     public void editEventNameByUser(String string, String string2, String string3) {
         Person p=searchInUser(string);
-          int tt=0;
        Event e= p.searchInUserEvents(string2);
 
-       if(e==null){
-           tt=1;
-       }
-       else{
+       if(e!=null){
        e.setEventName(string3);}
+
+
         editEventNameByUserFlag=true;
 
     }
@@ -1081,8 +1088,8 @@ int temp=0;
     public void editEventDateByUser(String string, String string2, Integer int1, Integer int2, Integer int3) {
         Person p=searchInUser(string);
         Event e= p.searchInUserEvents(string2);
-        Date d=new Date(int1,int2,int3);
-        e.setDate(d);
+        Date date1=new Date(int1,int2,int3);
+        e.setDate(date1);
         editEventDateByUserFlag=true;
 
     }

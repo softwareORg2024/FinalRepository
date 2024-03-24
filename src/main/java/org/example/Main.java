@@ -19,14 +19,18 @@ public class Main {
     private static final String INCORRECT_VALUE_MESSAGE = "\nYou have entered an incorrect value. Please enter a correct number:";
     private static final String PROMPT_PASSWORD_MESSAGE = "Please enter your password";
     private static final String ANSI_PURPLE = "\u001B[95m";
+    private static final String name = "qa";
+    private static final String pass1 = "3";
+    private static final String ANSI_RESET = "\u001B[0m";
 
-
-    private static String username(){
-        String user="toqa";
+    private static String username(String str){
+        String user="to";
+        user+=str;
         return user;
     }
-    private static String password(){
-        String pass="123";
+    private static String password(String str){
+        String pass="12";
+        pass+=str;
         return pass;
     }
     private static final String PROMPT_NAME_MESSAGE = "Please enter your Name";
@@ -113,7 +117,7 @@ public class Main {
                      ║ 3. Forget password         ║
                      ║ 4. Log out                 ║
                      ╚════════════════════════════╝
-                     """ + "\u001B[0m"+"\n"+CHOICE_PROMPT;
+                     """ +ANSI_RESET+"\n"+CHOICE_PROMPT;
         logger.info(menuOptions);
 
             int choice = 0;
@@ -154,8 +158,8 @@ public class Main {
 
 
     private static void loginProcedure(Scanner input) {
-        String adimnUsername = username();
-        String adminPassword = password();
+        String adimnUsername = username(name);
+        String adminPassword = password(pass1);
 
         String name= getInput( PROMPT_NAME_MESSAGE);
         String password = getInput( PROMPT_PASSWORD_MESSAGE);
@@ -199,7 +203,7 @@ public class Main {
                      ║ 5. View the list of services       ║
                      ║ 6. Exit                            ║
                      ╚════════════════════════════════════╝
-                     """ + "\u001B[0m"+"\n"+CHOICE_PROMPT;
+                     """ + ANSI_RESET+"\n"+CHOICE_PROMPT;
 
         int choice;
         logger.info(menuOptions);
@@ -258,22 +262,34 @@ public class Main {
     }
 
     private static void modifyExistingService(Scanner input) {
-        if (sp != null && sp.getPerson() != null && sp.getPerson().getUserName() != null) {
-            logger.info(obj.showservicesForSp(sp.getPerson().getUserName()));
-            logger.info(PROMPT_SERVICE_ID);
-            int id = input.nextInt();
-            String description = getInput("Please enter new description");
-            logger.info("Enter new cost:");
-            int cost = input.nextInt();
-            if (description != null) {
-                obj.editServiceForSp(description, cost, id, sp.getPerson().getUserName());
+        if (sp != null) {
+            Person person = sp.getPerson();
+            if (person != null) {
+                String userName = person.getUserName();
+                if (userName != null) {
+                    logger.info(obj.showservicesForSp(userName));
+                    logger.info(PROMPT_SERVICE_ID);
+                    int id = input.nextInt();
+                    String description = getInput("Please enter new description");
+                    logger.info("Enter new cost:");
+                    int cost = input.nextInt();
+
+                    if (description != null) {
+                        obj.editServiceForSp(description, cost, id, userName);
+                    } else {
+                        logger.info("Cannot edit service for SP, description is null.");
+                    }
+                } else {
+                    logger.info("User name is null.");
+                }
             } else {
-                logger.info("Cannot edit service for SP, description is null.");
+                logger.info("Person object is null.");
             }
         } else {
             logger.info("Service provider details are incomplete.");
         }
     }
+
 
     private static void deleteExistingService(Scanner input) {
         if (sp != null && sp.getPerson() != null && sp.getPerson().getUserName() != null) {
@@ -313,7 +329,7 @@ public class Main {
               ║ 4. Enter Service           ║
               ║ 5. Finish                  ║
               ╚════════════════════════════╝
-              """ + "\u001B[0m"+"\n"+CHOICE_PROMPT;
+              """ +ANSI_RESET+"\n"+CHOICE_PROMPT;
             logger.info(menu);
 
           int serviceChoice= 0;
@@ -466,7 +482,7 @@ public class Main {
               ║ 2. Choose your own services     ║
               ║ 3. Exit                         ║
               ╚═════════════════════════════════╝
-              """ + "\u001B[0m"+"\n"+CHOICE_PROMPT;
+              """ + ANSI_RESET+"\n"+CHOICE_PROMPT;
 
         logger.info(menu );
         int choice = input.nextInt();
@@ -515,7 +531,7 @@ public class Main {
         ║ 4. view events       ║
         ║ 5. exit              ║
         ╚══════════════════════╝
-        """ + "\u001B[0m"+"\n"+CHOICE_PROMPT;
+        """ + ANSI_RESET+"\n"+CHOICE_PROMPT;
 
         logger.info(s);
         int choice = input.nextInt();
@@ -607,7 +623,7 @@ public class Main {
         ║ 10. Edit selected package          ║
         ║ 11. Exit                           ║
         ╚════════════════════════════════════╝
-       """ + "\u001B[0m"+"\n"+CHOICE_PROMPT;
+       """ + ANSI_RESET+"\n"+CHOICE_PROMPT;
         logger.info(menu);
     }
 
@@ -757,7 +773,7 @@ public class Main {
               ║ 6. View list of all packages             ║
               ║ 7. Exit                                  ║
               ╚══════════════════════════════════════════╝
-              """ + "\u001B[0m"+"\n"+CHOICE_PROMPT;
+              """ +ANSI_RESET+"\n"+CHOICE_PROMPT;
         logger.info(menu);
         int choice = input.nextInt();
         switch (choice) {
@@ -817,7 +833,7 @@ public class Main {
               ║ 2. User              ║
               ║ 3. Exit              ║
               ╚══════════════════════╝
-              """ + "\u001B[0m"+"\n"+CHOICE_PROMPT;
+              """ +ANSI_RESET+"\n"+CHOICE_PROMPT;
 
         logger.info(menu);
         int choice = input.nextInt();
