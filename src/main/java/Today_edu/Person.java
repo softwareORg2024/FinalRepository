@@ -1,4 +1,4 @@
-package Today.edu;
+package Today_edu;
 
 import java.util.ArrayList;
 

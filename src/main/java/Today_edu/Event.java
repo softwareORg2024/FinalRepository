@@ -1,4 +1,4 @@
-package Today.edu;
+package Today_edu;
 
 import java.sql.Time;
 import java.util.Date;

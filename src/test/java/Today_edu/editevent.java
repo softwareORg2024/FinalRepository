@@ -1,7 +1,5 @@
-package Today.edu;
+package Today_edu;
 import io.cucumber.java.en.*;
-
-import java.sql.Time;
 
 import static org.junit.Assert.assertTrue;
 

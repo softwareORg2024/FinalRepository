@@ -1,6 +1,5 @@
-package Today.edu;
+package Today_edu;
 
-import Today.edu.MyAppT;
 import io.cucumber.java.en.*;
 
 import static org.junit.Assert.assertFalse;
