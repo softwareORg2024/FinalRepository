@@ -26,6 +26,7 @@ public class Main {
     private static final String CREATE_EVENT_MESSAGE = "Create event successfully and its price is ";
 
     private static final String INCORRECT_VALUE_MESSAGEE = "\nYou have entered an incorrect value. Please enter a correct number:";
+    public static final String CHOICE_PROMPT = "\u001B[37mEnter the number of your choice: \u001B[0m";
 
 
     private static final Logger logger = Logger.getLogger(Main.class.getName());
@@ -58,8 +59,18 @@ public class Main {
     }
     public static void logInSignUp() {
         Scanner input = new Scanner(System.in);
-        String s = "\n1. Sign up\n2. Login\n3. Forget password\n4.Log out\nEnter the number of your choice:";
-        logger.info(s);
+
+        String menuOptions = "\n\u001B[95m" + """
+                     ╔════════════════════════════╗
+                     ║         System Menu        ║
+                     ╠════════════════════════════╣
+                     ║ 1. Sign up                 ║
+                     ║ 2. Login                   ║
+                     ║ 3. Forget password         ║
+                     ║ 4. Log out                 ║
+                     ╚════════════════════════════╝
+                     """ + "\u001B[0m"+"\n"+CHOICE_PROMPT;
+        logger.info(menuOptions);
 
             int choice = 0;
             boolean valid = false;
@@ -91,7 +102,7 @@ public class Main {
                     break;
                 default:
                     logger.info("Invalid option selected. Please try again.");
-                    logger.info(s);
+                    logger.info(menuOptions);
 
             }
         }
@@ -133,8 +144,19 @@ public class Main {
     }
 
     private static void displaySpMenu(Scanner input) {
-        String menuOptions = "\n1.add a new service\n2.modify an existing service\n3.delete an existing service\n4.view the list of users\n";
-        menuOptions += "5.view the list of services\n6. exit\nEnter the number of your choice:";
+        String menuOptions = "\n\u001B[95m" + """
+                     ╔════════════════════════════════════╗
+                     ║       Service Provider Menu        ║
+                     ╠════════════════════════════════════╣
+                     ║ 1. Add a new service               ║
+                     ║ 2. Modify an existing service      ║
+                     ║ 3. Delete an existing service      ║
+                     ║ 4. View the list of users          ║
+                     ║ 5. View the list of services       ║
+                     ║ 6. Exit                            ║
+                     ╚════════════════════════════════════╝
+                     """ + "\u001B[0m"+"\n"+CHOICE_PROMPT;
+
         int choice;
         logger.info(menuOptions);
 
@@ -237,8 +259,18 @@ public class Main {
     }
 
    private static void addServices(Scanner input,int int1,Event event1){
-            String s = "\n1.FoodService\n2.DecorService\n3.PhotoService\n4.EnterService\n5.finish\nEnter the number of your choice:";
-            logger.info(s);
+       String menu = "\n\u001B[95m" + """
+              ╔════════════════════════════╗
+              ║       Service Menu         ║
+              ╠════════════════════════════╣
+              ║ 1. Food Service            ║
+              ║ 2. Decor Service           ║
+              ║ 3. Photo Service           ║
+              ║ 4. Enter Service           ║
+              ║ 5. Finish                  ║
+              ╚════════════════════════════╝
+              """ + "\u001B[0m"+"\n"+CHOICE_PROMPT;
+            logger.info(menu);
 
           int serviceChoice= 0;
            boolean valid = false;
@@ -375,8 +407,17 @@ public class Main {
         String locationName=loc.getLocationName();
 
         obj.createEventWithBasicInfo(user.getUserName(),eventName,year,month, day, time.getHours(), time.getMinutes(), time.getSeconds(), locationName, theme, number);
-        String s="\n1.choose from existing package\n2. choose your own services\n3. exit\n";
-        logger.info(s);
+        String menu = "\n\u001B[95m" + """
+              ╔═════════════════════════════════╗
+              ║        Package & Services       ║
+              ╠═════════════════════════════════╣
+              ║ 1. Choose from existing package ║
+              ║ 2. Choose your own services     ║
+              ║ 3. Exit                         ║
+              ╚═════════════════════════════════╝
+              """ + "\u001B[0m"+"\n"+CHOICE_PROMPT;
+
+        logger.info(menu );
         int choice = input.nextInt();
         int packid;
         switch (choice) {
@@ -422,13 +463,19 @@ public class Main {
     }
 
     private static void displayUserMenu(Scanner input) {
-        String s = """
-        1. create an event
-        2. edit the event
-        3. delete an existing event
-        4. view events
-        5. exit
-        Enter the number of your choice:""";
+        String s = "\u001B[95m" + """
+        \n
+        ╔══════════════════════╗
+        ║      User Menu       ║
+        ╠══════════════════════╣
+        ║ 1. create an event   ║
+        ║ 2. edit the event    ║
+        ║ 3. delete an event   ║
+        ║ 4. view events       ║
+        ║ 5. exit              ║
+        ╚══════════════════════╝
+        """ + "\u001B[0m"+"\n"+CHOICE_PROMPT;
+
         logger.info(s);
         int choice = input.nextInt();
         switch (choice) {
@@ -523,21 +570,27 @@ public class Main {
     }
 
     private static void displayEditMenu() {
-        String menu = """
-        1. Edit event name
-        2. Change event location
-        3. Update event date
-        4. Update event time
-        5. Number of attendees for the event
-        6. Change the theme of the event
-        7. Add additional services to the event
-        8. Remove a service from the event
-        9. Cancel the selected package
-        10. Edit the selected package
-        11. Exit
-        Enter the number of your choice:""";
+        String menu = "\u001B[95m" + """
+        \n
+        ╔════════════════════════════════════╗
+        ║          Edit Event Menu           ║
+        ╠════════════════════════════════════╣
+        ║  1. Edit event name                ║
+        ║  2. Change event location          ║
+        ║  3. Update event date              ║
+        ║  4. Update event time              ║
+        ║  5. Number of attendees for event  ║
+        ║  6. Change event theme             ║
+        ║  7. Add additional services        ║
+        ║  8. Remove a service               ║
+        ║  9. Cancel selected package        ║
+        ║ 10. Edit selected package          ║
+        ║ 11. Exit                           ║
+        ╚════════════════════════════════════╝
+       """ + "\u001B[0m"+"\n"+CHOICE_PROMPT;
         logger.info(menu);
     }
+
     private static void editEventName(String eventName) {
         String newEventName = getInput("Please enter new Event name: ");
         obj.editEventNameByUser(user.getUserName(), eventName, newEventName);
@@ -646,9 +699,20 @@ public class Main {
 
 
     private static void displayAdminMenu(Scanner input) {
-        String s="\n1.view list of all registered users\n2.view list of all service providers\n3.view list of all event\n4.create a new ready-made package\n";
-        s+="5.deletes an existing ready-made package\n6.view list of all packages\n7.exit\nEnter the number of your choice: ";
-        logger.info(s);
+        String menu = "\n\u001B[33m" + """
+              ╔══════════════════════════════════════════╗
+              ║                 Admin Menu               ║
+              ╠══════════════════════════════════════════╣
+              ║ 1. View list of all registered users     ║
+              ║ 2. View list of all service providers    ║
+              ║ 3. View list of all events               ║
+              ║ 4. Create a new ready-made package       ║
+              ║ 5. Delete an existing ready-made package ║
+              ║ 6. View list of all packages             ║
+              ║ 7. Exit                                  ║
+              ╚══════════════════════════════════════════╝
+              """ + "\u001B[0m"+"\n"+CHOICE_PROMPT;
+        logger.info(menu);
         int choice = input.nextInt();
         switch (choice) {
             case 1:
@@ -699,7 +763,17 @@ public class Main {
     }
 
     private static void signUpProcedure(Scanner input) {
-        logger.info("\n1.Service provider \n2.User\n3.Exit\n Enter the Number:");
+        String menu = "\n\u001B[95m" + """
+              ╔══════════════════════╗
+              ║      Role Menu       ║
+              ╠══════════════════════╣
+              ║ 1. Service provider  ║
+              ║ 2. User              ║
+              ║ 3. Exit              ║
+              ╚══════════════════════╝
+              """ + "\u001B[0m"+"\n"+CHOICE_PROMPT;
+
+        logger.info(menu);
         int choice = input.nextInt();
 
 
