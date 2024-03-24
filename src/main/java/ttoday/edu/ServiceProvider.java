@@ -57,8 +57,11 @@ private Person person;
         serviceList.add(e);
     }
 
-    public List<Event> getEventList() {
+    public List<Event>getEventList() {
         return eventList;
+    }
+    public List<Service> getOfferList() {
+        return serviceList;
     }
 
     public void setEventList(List<Event> eventList) {

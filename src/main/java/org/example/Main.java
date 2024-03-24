@@ -45,10 +45,10 @@ public class Main {
 
     public static void main(String[] args) {
 
-        LogInSignUp();
+        logInSignUp();
 
     }
-    public static void LogInSignUp() {
+    public static void logInSignUp() {
         Scanner input = new Scanner(System.in);
         String s = "\n1. Sign up\n2. Login\n3. Forget password\n4.Log out\nEnter the number of your choice:";
         logger.info(s);
@@ -105,14 +105,14 @@ public class Main {
             if(password.equals(user.getPass())){
             displayUserMenu(input);}else{
                 logger.info("Wrong Password\n");
-                LogInSignUp();
+                logInSignUp();
             }
         }
        else if(sp!=(null)){
             if(password.equals(sp.getPerson().getPass())){
                 displaySpMenu(input);}else{
                 logger.info("Wrong Password\n");
-                LogInSignUp();
+                logInSignUp();
             }
 
 
@@ -122,7 +122,7 @@ public class Main {
 
         }else{
             logger.info("Wrong information\n");
-            LogInSignUp();
+            logInSignUp();
         }
 
     }
@@ -187,7 +187,7 @@ public class Main {
                 break;
             case 6:
                 logger.info("Logging out as Service provider.");
-            LogInSignUp();
+                logInSignUp();
                 break;
             default:
                 logger.info("Invalid option selected.");
@@ -404,7 +404,7 @@ static int cost;
                 break;
 
             case 5:
-                LogInSignUp();
+                logInSignUp();
                 break;
 
 
@@ -615,7 +615,7 @@ static int cost;
             case 7:
                 logger.info("Logging out as Admin.");
 
-                LogInSignUp();
+                logInSignUp();
 
             default:
                 logger.info("Invalid option selected.");
@@ -660,7 +660,7 @@ static int cost;
                 obj.createAccountForUser(name,password,birthDate,phone,email);
                 break;
             case 3 :
-                LogInSignUp();
+                logInSignUp();
             default :
                 logger.info("Invalid option selected.");
                 signUpProcedure(input);
