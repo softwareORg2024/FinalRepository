@@ -20,6 +20,16 @@ public class Main {
     private static final String ENCRYPTED_USER = "toqa";
     private static final String PROMPT_PASSWORD_MESSAGE = "Please enter your password";
     private static final String ENCRYPTED_PASSWORD = "123";
+
+
+    private static String username(){
+        String user=ENCRYPTED_USER;
+        return user;
+    }
+    private static String password(){
+        String pass=ENCRYPTED_PASSWORD;
+        return pass;
+    }
     private static final String PROMPT_NAME_MESSAGE = "Please enter your Name";
     private static final String PROMPT_SERVICE_ID = "Enter service id:";
     private static final String INVALID_OPTION_MESSAGE = "Invalid option selected.";
@@ -145,8 +155,8 @@ public class Main {
 
 
     private static void loginProcedure(Scanner input) {
-        String adimnUsername = ENCRYPTED_USER;
-        String adminPassword = ENCRYPTED_PASSWORD;
+        String adimnUsername = username();
+        String adminPassword = password();
 
         String name= getInput( PROMPT_NAME_MESSAGE);
         String password = getInput( PROMPT_PASSWORD_MESSAGE);
