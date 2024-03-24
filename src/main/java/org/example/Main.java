@@ -448,12 +448,12 @@ public class Main {
         Integer number = input.nextInt();
         Location loc;
         String locationName="";
-        if(searchInLocation(id)!=null){
-            loc=searchInLocation(id);
-            cost+=loc.getCost();
-             locationName=loc.getLocationName();
-
+        loc = searchInLocation(id);
+        if (loc != null) {
+            cost += loc.getCost();
+            locationName = loc.getLocationName();  
         }
+
 
 
 
