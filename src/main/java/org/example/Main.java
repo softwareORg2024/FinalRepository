@@ -133,92 +133,107 @@ public class Main {
     }
 
     private static void displaySpMenu(Scanner input) {
-        String s="\n1.add a new service\n2.modify an existing service\n3.delete an existing service\n4.view the list of users\n";
-        s+="5.view the list of services\n6. exit\nEnter the number of your choice:";
+        String menuOptions = "\n1.add a new service\n2.modify an existing service\n3.delete an existing service\n4.view the list of users\n";
+        menuOptions += "5.view the list of services\n6. exit\nEnter the number of your choice:";
         int choice;
-        logger.info(s);
+        logger.info(menuOptions);
 
-
-            choice = 0;
-            boolean valid = false;
-            while (!valid) {
-                try {
-                    choice = input.nextInt();
-                    valid = true;
-
-                } catch (InputMismatchException e) {
-
-                    logger.info(INCORRECT_VALUE_MESSAGE);
-                    input.next();
-
-                }
-
-        }displaySpMenu( input);
-
+        while (true) {
+            choice = getChoice(input);
             switch (choice) {
-            case 1:
-                logger.info(PROMPT_SERVICE_ID);
-                int id = input.nextInt();
-                String description= getInput( "Please enter description");
-                logger.info("Enter service cost:");
-                int cost = input.nextInt();
-                obj.addServiceToSp(description,cost,id,sp.getPerson().getUserName());
-                break;
-
-
-                case 2:
-                    if (sp != null && sp.getPerson() != null && sp.getPerson().getUserName() != null) {
-                        logger.info(obj.showservicesForSp(sp.getPerson().getUserName()));
-                        logger.info(PROMPT_SERVICE_ID);
-                        id = input.nextInt();
-                        description = getInput("Please enter new description");
-                        logger.info("Enter new cost:");
-                        cost = input.nextInt();
-                        if (description != null) {
-                            obj.editServiceForSp(description, cost, id, sp.getPerson().getUserName());
-                        } else {
-                            logger.info("Cannot edit service for SP, description is null.");
-                        }
-                    } else {
-                        logger.info("Service provider details are incomplete.");
-                    }
+                case 1:
+                    addNewService(input);
                     break;
-
+                case 2:
+                    modifyExistingService(input);
+                    break;
                 case 3:
-                    if (sp != null && sp.getPerson() != null && sp.getPerson().getUserName() != null) {
-                        logger.info(obj.showservicesForSp(sp.getPerson().getUserName()));
-                        logger.info(PROMPT_SERVICE_ID);
-                        id = input.nextInt();
-                        obj.deleteServiceForSp(id, sp.getPerson().getUserName());
-                    } else {
-                        logger.info("Service provider or username is null, cannot proceed with the delete operation.");
-                    }
+                    deleteExistingService(input);
                     break;
                 case 4:
-                    if (sp != null && sp.getPerson() != null && sp.getPerson().getUserName() != null) {
-                        logger.info(obj.showUsersAndEventsForSp(sp.getPerson().getUserName()));
-                    } else {
-                        logger.info("Cannot show users and events for service provider - missing details.");
-                    }
+                    viewListOfUsers();
                     break;
-
                 case 5:
-                    if (sp != null && sp.getPerson() != null && sp.getPerson().getUserName() != null) {
-                        logger.info(obj.showservicesForSp(sp.getPerson().getUserName()));
-                    } else {
-                        logger.info("Cannot show services for the service provider - missing details.");
-                    }
+                    viewListOfServices();
                     break;
-
                 case 6:
-                logger.info("Logging out as Service provider.");
-                logInSignUp();
-                break;
-            default:
-                logger.info(INVALID_OPTION_MESSAGE);
-
+                    logger.info("Logging out as Service provider.");
+                    logInSignUp();
+                    return;
+                default:
+                    logger.info(INVALID_OPTION_MESSAGE);
+            }
+            displaySpMenu( input);
         }
-        displaySpMenu( input);
+    }
+
+    private static int getChoice(Scanner input) {
+        int choice = 0;
+        boolean valid = false;
+        while (!valid) {
+            try {
+                choice = input.nextInt();
+                valid = true;
+            } catch (InputMismatchException e) {
+                logger.info(INCORRECT_VALUE_MESSAGE);
+                input.next();
+            }
+        }
+        return choice;
+    }
+
+    private static void addNewService(Scanner input) {
+        logger.info(PROMPT_SERVICE_ID);
+        int id = input.nextInt();
+        String description = getInput("Please enter description");
+        logger.info("Enter service cost:");
+        int cost = input.nextInt();
+        obj.addServiceToSp(description, cost, id, sp.getPerson().getUserName());
+    }
+
+    private static void modifyExistingService(Scanner input) {
+        if (sp != null && sp.getPerson() != null && sp.getPerson().getUserName() != null) {
+            logger.info(obj.showservicesForSp(sp.getPerson().getUserName()));
+            logger.info(PROMPT_SERVICE_ID);
+            int id = input.nextInt();
+            String description = getInput("Please enter new description");
+            logger.info("Enter new cost:");
+            int cost = input.nextInt();
+            if (description != null) {
+                obj.editServiceForSp(description, cost, id, sp.getPerson().getUserName());
+            } else {
+                logger.info("Cannot edit service for SP, description is null.");
+            }
+        } else {
+            logger.info("Service provider details are incomplete.");
+        }
+    }
+
+    private static void deleteExistingService(Scanner input) {
+        if (sp != null && sp.getPerson() != null && sp.getPerson().getUserName() != null) {
+            logger.info(obj.showservicesForSp(sp.getPerson().getUserName()));
+            logger.info(PROMPT_SERVICE_ID);
+            int id = input.nextInt();
+            obj.deleteServiceForSp(id, sp.getPerson().getUserName());
+        } else {
+            logger.info("Service provider or username is null, cannot proceed with the delete operation.");
+        }
+    }
+
+    private static void viewListOfUsers() {
+        if (sp != null && sp.getPerson() != null && sp.getPerson().getUserName() != null) {
+            logger.info(obj.showUsersAndEventsForSp(sp.getPerson().getUserName()));
+        } else {
+            logger.info("Cannot show users and events for service provider - missing details.");
+        }
+    }
+
+    private static void viewListOfServices() {
+        if (sp != null && sp.getPerson() != null && sp.getPerson().getUserName() != null) {
+            logger.info(obj.showservicesForSp(sp.getPerson().getUserName()));
+        } else {
+            logger.info("Cannot show services for the service provider - missing details.");
+        }
     }
 
    private static void addServices(Scanner input,int int1,Event event1){
