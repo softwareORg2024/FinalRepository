@@ -21,11 +21,22 @@ Feature: Create Event
     When the user selects an option by entering 1 for individual services and other for ready-made packages
     Then the user's choice is captured
 
+  Scenario Outline: User chooses between the different services
+    Given the user chooses to select individual services
+    When the user selects <int1> choice from the menu
+    Then the user's choice is token
+    Examples:
+      | int1 |
+      | 1    |
+      | 2   |
+      | 3   |
+      | 4   |
+      | 5   |
+
   Scenario: User chooses between the different services
     Given the user chooses to select individual services
-    When the user selects 1 choice from the menu
-    Then the user's choice is token
-
+    When the user selects 6 choice from the menu
+    Then the user's choice is not token
 
   Scenario: User selects food service for the event
     Given the user selects the food service

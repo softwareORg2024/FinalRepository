@@ -27,7 +27,34 @@ public class Main {
 
     private static final String INCORRECT_VALUE_MESSAGEE = "\nYou have entered an incorrect value. Please enter a correct number:";
 
+    public static String searchInSpAccordingToType(String string) {
+        StringBuilder resultBuilder = new StringBuilder();
+        resultBuilder.append("Service providers:\n");
+        for (ServiceProvider p : obj.getProviderList()) {
+            if (p.getServiceType().equals(string)) {
+                resultBuilder.append(p.getPerson().getUserName()).append("\t").append(p.getPerson().getPhoneNum()).append("\n");
+            }
+        }
+        return resultBuilder.toString();
+    }
+    public static Event searchInEventByName(String str) {
+        for (Event e : obj.getEventList()) {
+            if (e.getEventName().equals(str)) {
+                return e;
+            }
+        }
+        return null;
+    }
+    public static Package searchInPackage(int packId) {
+        for(Package j :obj.getPackageList())
+        {
+            if (j.getNumber()==packId) {
+                return j;
+            }
 
+        }
+        return null;
+    }
     private static final Logger logger = Logger.getLogger(Main.class.getName());
     static {
         Handler consoleHandler = new ConsoleHandler();
@@ -44,6 +71,14 @@ public class Main {
         if (handlers[0] instanceof ConsoleHandler) {
             rootLogger.removeHandler(handlers[0]);
         }
+    }
+    public static Location searchInLocation(Integer int1) {
+        for (Location e : obj.getLocationList()) {
+            if (e.getId() == int1) {
+                return e;
+            }
+        }
+        return null;
     }
 
     private static Person user=new Person();
@@ -285,7 +320,7 @@ public class Main {
 
             }
        if (serviceChoice != 5) {
-            spList = obj.searchInSpAccordingToType(type);
+            spList = searchInSpAccordingToType(type);
            logger.info(spList);
 
            String spName = getInput("Please enter service Provider Name: ");
@@ -370,7 +405,7 @@ public class Main {
         String theme= getInput( "Please enter theme: ");
         logger.info("Please enter number of attend people: ");
         Integer number = input.nextInt();
-        Location loc=obj.searchInLocation(id);
+        Location loc=searchInLocation(id);
         cost+=loc.getCost();
         String locationName=loc.getLocationName();
 
@@ -388,7 +423,7 @@ public class Main {
                 obj.addLocalEventToEventList();
 
 
-                Package pk = obj.searchInPackage(packid);
+                Package pk = searchInPackage(packid);
                 if (pk != null) {
                     Event localEvent = obj.getLocalEvent();
                     if (localEvent != null) {
@@ -513,7 +548,7 @@ public class Main {
     }
 
     private static void editEventLocation(String eventName, Scanner input) {
-        location(obj.searchInEventByName(eventName).getDate().getYear(), obj.searchInEventByName(eventName).getDate().getMonth(), obj.searchInEventByName(eventName).getDate().getDate(), obj.searchInEventByName(eventName).getTime());
+        location(searchInEventByName(eventName).getDate().getYear(), searchInEventByName(eventName).getDate().getMonth(), searchInEventByName(eventName).getDate().getDate(), searchInEventByName(eventName).getTime());
         int locationId = input.nextInt();
         obj.editLocation(user.getUserName(), eventName, locationId);
     }
@@ -527,7 +562,7 @@ public class Main {
         int temp = 0;
 
         for (Event e : obj.getEventList()) {
-            if (e.getDate().getYear() == year && e.getDate().getMonth() == month && e.getDate().getDate() == day && e.getTime().equals(obj.searchInEventByName(eventName).getTime()) && e.getLocation().equals(obj.searchInEventByName(eventName).getLocation())) {
+            if (e.getDate().getYear() == year && e.getDate().getMonth() == month && e.getDate().getDate() == day && e.getTime().equals(searchInEventByName(eventName).getTime()) && e.getLocation().equals(searchInEventByName(eventName).getLocation())) {
                 logger.info("You cannot book on this date.\n There is another event booked\n");
                 temp = 1;
                 editEventDate(eventName, input);
@@ -550,7 +585,7 @@ public class Main {
         int temp = 0;
 
         for (Event e : obj.getEventList()) {
-            if (e.getDate().getYear() == obj.searchInEventByName(eventName).getDate().getYear() && e.getDate().getMonth() == obj.searchInEventByName(eventName).getDate().getMonth() && e.getDate().getDate() == obj.searchInEventByName(eventName).getDate().getDate() && e.getTime().equals(time) && e.getLocation().equals(obj.searchInEventByName(eventName).getLocation())) {
+            if (e.getDate().getYear() == searchInEventByName(eventName).getDate().getYear() && e.getDate().getMonth() == searchInEventByName(eventName).getDate().getMonth() && e.getDate().getDate() == searchInEventByName(eventName).getDate().getDate() && e.getTime().equals(time) && e.getLocation().equals(searchInEventByName(eventName).getLocation())) {
                 logger.info("you can't choose this time because location is booked to another event\n");
                 temp = 1;
                 editEvent(input);
@@ -574,22 +609,22 @@ public class Main {
     }
 
     private static void addServicesToEvent(String eventName, Scanner input) {
-        addServices(input, obj.searchInEventByName(eventName).getOverallCost(), obj.searchInEventByName(eventName));
+        addServices(input, searchInEventByName(eventName).getOverallCost(), searchInEventByName(eventName));
     }
 
     private static void removeServiceFromEvent(String eventName, Scanner input) {
         String s = "";
-        if (obj.searchInEventByName(eventName).getFoodService() != null) {
-            s += obj.searchInEventByName(eventName).getFoodService().getId() + "\t" + obj.searchInEventByName(eventName).getFoodService().getDiscription() + "\n";
+        if (searchInEventByName(eventName).getFoodService() != null) {
+            s += searchInEventByName(eventName).getFoodService().getId() + "\t" + searchInEventByName(eventName).getFoodService().getDiscription() + "\n";
         }
-        if (obj.searchInEventByName(eventName).getDecorService() != null) {
-            s += obj.searchInEventByName(eventName).getDecorService().getId() + "\t" + obj.searchInEventByName(eventName).getDecorService().getDiscription() + "\n";
+        if (searchInEventByName(eventName).getDecorService() != null) {
+            s += searchInEventByName(eventName).getDecorService().getId() + "\t" + searchInEventByName(eventName).getDecorService().getDiscription() + "\n";
         }
-        if (obj.searchInEventByName(eventName).getEntertainmentService() != null) {
-            s += obj.searchInEventByName(eventName).getEntertainmentService().getId() + "\t" + obj.searchInEventByName(eventName).getEntertainmentService().getDiscription() + "\n";
+        if (searchInEventByName(eventName).getEntertainmentService() != null) {
+            s += searchInEventByName(eventName).getEntertainmentService().getId() + "\t" + searchInEventByName(eventName).getEntertainmentService().getDiscription() + "\n";
         }
-        if (obj.searchInEventByName(eventName).getPhotographerService() != null) {
-            s += obj.searchInEventByName(eventName).getPhotographerService().getId() + "\t" + obj.searchInEventByName(eventName).getPhotographerService().getDiscription() + "\n";
+        if (searchInEventByName(eventName).getPhotographerService() != null) {
+            s += searchInEventByName(eventName).getPhotographerService().getId() + "\t" + searchInEventByName(eventName).getPhotographerService().getDiscription() + "\n";
         }
         logger.info(s);
         Integer serviceToDelete = input.nextInt();
@@ -604,7 +639,7 @@ public class Main {
         String pack = obj.showPackageForAdmin();
         logger.info(pack);
         int pakid = input.nextInt();
-        obj.setLocalEvent(obj.searchInEventByName(eventName));
+        obj.setLocalEvent(searchInEventByName(eventName));
         boolean b = obj.addPackageToEvent(pakid);
         if (b) {
             logger.info(String.format("%s %d", CREATE_EVENT_MESSAGE, obj.getLocalEvent().eventCost(cost)));

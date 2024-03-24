@@ -14,7 +14,7 @@ Feature: login
 
   Scenario: invalid pass
     Given I am not in system
-    When set valid username "haya" and invalid pass "1234"
+    When set valid username "haya" and invalid pass "12349"
     Then login failed
 
 
@@ -43,4 +43,16 @@ Feature: login
     Given I am not in system
     And i don't have an account
     When set new username "eman" and pass "54321" and bd="7\3\2004" and sType="photographer" and phone numbr="0594507933" and email= "eman@gmail.com"
+    Then create succeed
+
+  Scenario: Service provider needs to Create Account
+    Given I am not in system
+    And i don't have an account
+    When set new username "jana" and pass "54321" and bd="7\3\2004" and sType="photographer" and phone numbr="0594507933" and email= "eman@gmail.com"
+    Then create succeed
+
+  Scenario: User needs to Create Account
+    Given I am not in system
+    And i don't have an account
+    When set new username "zaid" and pass "54321" and bd="7\3\2004" and phone numbr="0594507933" and email="haya@gmail.com"
     Then create succeed

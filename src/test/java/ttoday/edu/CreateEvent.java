@@ -87,6 +87,10 @@ public class CreateEvent {
     public void the_user_selects_choice_from_the_menu(Integer int1) {
         obj.chooseService(int1);
     }
+    @Then("the user's choice is not token")
+    public void the_user_s_choice_is_not_token() {
+        assertFalse(obj.isServiceMenuFlag());
+    }
 
     @Then("the user's choice is token")
     public void the_user_s_choice_is_token() {
