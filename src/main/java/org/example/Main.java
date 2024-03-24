@@ -257,11 +257,11 @@ public class Main {
                     type = "Photographer";
                     break;
                 case 5:
-                    int t = obj.getLocalEvent().eventCost(cost);
-                    logger.info(CREATE_EVENT_MESSAGE+ t);
+                    int eventCost = obj.getLocalEvent().eventCost(cost);
+                    logger.info( CREATE_EVENT_MESSAGE+eventCost);
                     displayUserMenu(input);
-
                     break;
+
                 default:
 
                     logger.info("Choose from the menu plz..\n");
