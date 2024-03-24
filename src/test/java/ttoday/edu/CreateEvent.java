@@ -18,7 +18,7 @@ public class CreateEvent {
 
     @Given("the user in user page")
     public void the_user_in_user_page() {
-        obj.iAmInUserPage(obj);
+        obj.iAmInUserPage();
     }
 
     @When("the user enters the {int}")
@@ -33,7 +33,7 @@ public class CreateEvent {
 
     @Given("the user is on the event creation page")
     public void the_user_is_on_the_event_creation_page() {
-        obj.iAmINCreationPage(obj);
+        obj.iAmINCreationPage();
     }
 
 
@@ -64,7 +64,7 @@ public class CreateEvent {
 
     @Given("the user is presented with a choice between individual services and ready-made packages")
     public void the_user_is_presented_with_a_choice_between_individual_services_and_ready_made_packages() {
-        obj.chooseServiceOrPackageFlag(obj);
+        obj.chooseServiceOrPackageFlag();
     }
 
     @When("the user selects an option by entering {int} for individual services and other for ready-made packages")

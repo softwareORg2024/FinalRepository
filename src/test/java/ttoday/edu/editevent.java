@@ -121,7 +121,7 @@ public class editevent {
 
     @When("user {string} to add")
     public void user_to_add(String string) {
-        obj.vieweventsbyUser(string);
+        obj.viewEventsByUser(string);
     }
 
     @When("user {string} to delete event {string}")
