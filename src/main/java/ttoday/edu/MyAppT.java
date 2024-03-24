@@ -16,7 +16,7 @@ private static int num=0;
      private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     public static final String DEFAULT_EMAIL = "raghadsalhab13@gmail.com";
     public static final String SERVICE_TYPE_PHOTOGRAPHER = "Photographer";
-    final String SERVICE_TYPE = "Entertainment";
+    public static final String SERVICE_TYPE = "Entertainment";
     public static final String SERVICE_TYPE_DECORATION = "Decoration";
 
     public static final String SERVICE_TYPE_FOOD = "Food";
