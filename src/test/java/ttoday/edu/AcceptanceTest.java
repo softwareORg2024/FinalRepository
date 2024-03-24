@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = {"C:\\Users\\miraa\\OneDrive\\Desktop\\SW\\FinalRepository\\src\\use_cases"},
+        features = {"src/use_cases"},
         plugin = {"html:target/cucumber/wikipedia3.html"},
         monochrome = true,
         snippets = SnippetType.CAMELCASE,
