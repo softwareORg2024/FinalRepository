@@ -14,8 +14,14 @@ public class MyAppT {
 public static int num=0;
      private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
-    private boolean isEventDeleteEventEdit,isEventViewEventsEdit,isEventCancelPackageEdit,isEventRemoveServiceEdit,isEventThemeEdit;
-    private boolean isEventNumOfPeopleEdit,isEventTimeEdit,isEventDateEdit;
+      private boolean isEventDeleteEventEdit;
+    private boolean isEventViewEventsEdit;
+    private boolean isEventCancelPackageEdit;
+    private boolean isEventRemoveServiceEdit;
+    private boolean isEventThemeEdit;
+    private boolean isEventNumOfPeopleEdit;
+    private boolean isEventTimeEdit;
+    private boolean isEventDateEdit;
     private boolean adminMenuFlag;
     private boolean isDeletePackage;
     private boolean isCreatePackage;
