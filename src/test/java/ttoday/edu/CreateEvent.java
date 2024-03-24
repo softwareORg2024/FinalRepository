@@ -18,7 +18,7 @@ public class CreateEvent {
 
     @Given("the user in user page")
     public void the_user_in_user_page() {
-        obj.iAmInUserPage(obj);
+        obj.iAmInUserPage();
     }
 
     @When("the user enters the {int}")
@@ -33,7 +33,7 @@ public class CreateEvent {
 
     @Given("the user is on the event creation page")
     public void the_user_is_on_the_event_creation_page() {
-        obj.iAmINCreationPage(obj);
+        obj.iAmINCreationPage();
     }
 
 

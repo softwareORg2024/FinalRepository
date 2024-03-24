@@ -402,11 +402,11 @@ locationList.add(k2);
         isInCreationPage = inCreationPage;
     }
 
-    public void iAmInUserPage(MyAppT obj) {
+    public void iAmInUserPage() {
         inUserPage = true;
     }
 
-    public void iAmINCreationPage(MyAppT obj) {
+    public void iAmINCreationPage() {
         isInCreationPage = true;
     }
 
