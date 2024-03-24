@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
         plugin = {"html:target/cucumber/wikipedia3.html"},
         monochrome = true,
         snippets = SnippetType.CAMELCASE,
-        glue = {"Today/edu"}
+        glue = {"ttoday.edu"}
 
 )
 public class AcceptanceTest {

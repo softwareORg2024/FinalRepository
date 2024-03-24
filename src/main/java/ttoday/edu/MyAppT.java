@@ -72,7 +72,7 @@ private static int num=0;
         Time t1 = new Time(5, 0, 0);
         java.sql.Date d1 = new java.sql.Date((long)2024 - 3 - 25);
         Event e1 = new Event("Laila's Birthday", d1, t1, "home", "unicorn", 20);
-        Event e2 = new Event("omar's birthday", d1, t1, "home", "unicorn", 20);
+        Event e2 = new Event("omar's birthday", d1, t1, "home", "frozenn", 20);
         Location l1=new Location(1,0,"home","in my home free");
         Location l2=new Location(2,100,"ajaa resturent","150 peaple");
 
@@ -364,14 +364,12 @@ locationList.add(k2);
             if (user.getUserName().equals(enteredUsername)) {
                 user.setPass(newPass);
                 passwordUpdated = true;
-                System.out.println(user.getPass());
             }
         }
         for (ServiceProvider sp : providerList) {
 
             if (sp.getPerson().getUserName().equals(enteredUsername)) {
                 sp.getPerson().setPass(newPass);
-                System.out.println( sp.getPerson().getPass());
                 passwordUpdated = true;
             }
 
@@ -564,53 +562,51 @@ int temp=0;
         return isEnterService;
     }
 
-    public int addFoodService(Integer int1, String str) {
-
-
+   public int addFoodService(Integer int1, String str) {
         for (ServiceProvider sp : providerList) {
             if (sp.getServiceType().equals(str)) {
                 for (Service s : sp.getOfferList()) {
-
-
-                        if (s.getId() == int1) {
-
-                            sp.addEvent(localEvent);
-
-
-                            switch (str) {
-                                case "Food":
-                                    localEvent.setFoodService(s);
-                                    addLocalEventFoodFlag = true;
-
-                                    break;
-                                case "Decoration":
-                                    localEvent.setDecorService(s);
-                                    addLocalEventDecorFlag = true;
-
-                                    break;
-                                case "Entertainment":
-                                    localEvent.setEntertainmentService(s);
-                                    addLocalEventEnterFlag = true;
-                                    break;
-                                case "Photographer":
-                                    localEvent.setPhotographerService(s);
-                                    addLocalEventPhotoFlag = true;
-
-                                    break;
-                                default:
-                            } String email="";
-                            if(localEvent.getUser()!=null){
-                           email = "The user "+localEvent.getUser().getUserName()+", whose phone number is "+localEvent.getUser().getPhoneNum()+" , has booked a service from you...";
-                           } sendEmailTo(s.getSp().getPerson().getEmail(),email);
-                            return s.getCost();
-
-                        }
-
+                    if (s.getId() == int1) {
+                        handleEventService(s, str);
+                        return s.getCost();
+                    }
                 }
             }
-
         }
-      return 0;
+        return 0;
+    }
+
+    private void handleEventService(Service service, String serviceType) {
+        switch (serviceType) {
+            case "Food":
+                localEvent.setFoodService(service);
+                addLocalEventFoodFlag = true;
+                break;
+            case "Decoration":
+                localEvent.setDecorService(service);
+                addLocalEventDecorFlag = true;
+                break;
+            case "Entertainment":
+                localEvent.setEntertainmentService(service);
+                addLocalEventEnterFlag = true;
+                break;
+            case "Photographer":
+                localEvent.setPhotographerService(service);
+                addLocalEventPhotoFlag = true;
+                break;
+            default:
+                break;
+        }
+        sendBookingNotification(service);
+    }
+
+    private void sendBookingNotification(Service service) {
+        String email = "";
+        if (localEvent.getUser() != null) {
+            email = "The user " + localEvent.getUser().getUserName() + ", whose phone number is " +
+                    localEvent.getUser().getPhoneNum() + " , has booked a service from you...";
+        }
+        sendEmailTo(service.getSp().getPerson().getEmail(), email);
     }
 
     public boolean isAddLocalEventFoodFlag() {
