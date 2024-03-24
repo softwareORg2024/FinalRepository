@@ -451,7 +451,7 @@ public class Main {
         loc = searchInLocation(id);
         if (loc != null) {
             cost += loc.getCost();
-            locationName = loc.getLocationName();  
+            locationName = loc.getLocationName();
         }
 
 
@@ -617,8 +617,17 @@ public class Main {
     }
 
     private static void editEventLocation(String eventName, Scanner input) {
-        location(searchInEventByName(eventName).getDate().getYear(), searchInEventByName(eventName).getDate().getMonth(), searchInEventByName(eventName).getDate().getDate(), searchInEventByName(eventName).getTime());
-        int locationId = input.nextInt();
+
+        Event event = searchInEventByName(eventName); // Call the method once and store the result in loc
+        if (event != null) {           // Check if loc is not null
+            location(event.getDate().getYear(), event.getDate().getMonth(), event.getDate().getDate(), event.getTime());
+        }
+
+
+
+
+
+            int locationId = input.nextInt();
         obj.editLocation(user.getUserName(), eventName, locationId);
     }
 
@@ -654,11 +663,15 @@ public class Main {
         int temp = 0;
 
         for (Event e : obj.getEventList()) {
-            if (e.getDate().getYear() == searchInEventByName(eventName).getDate().getYear() && e.getDate().getMonth() == searchInEventByName(eventName).getDate().getMonth() && e.getDate().getDate() == searchInEventByName(eventName).getDate().getDate() && e.getTime().equals(time) && e.getLocation().equals(searchInEventByName(eventName).getLocation())) {
+            Event event = searchInEventByName(eventName); // Call the method once and store the result in loc
+            if (event != null) {           // Check if loc is not null
+            if (e.getDate().getYear() == event.getDate().getYear() && e.getDate().getMonth() == event.getDate().getMonth() && e.getDate().getDate() == event.getDate().getDate() && e.getTime().equals(time) && e.getLocation().equals(event.getLocation())) {
                 logger.info("you can't choose this time because location is booked to another event\n");
                 temp = 1;
                 editEvent(input);
                 break;
+            }
+
             }
         }
         if (temp == 0) {
