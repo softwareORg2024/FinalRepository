@@ -464,7 +464,7 @@ public class Main {
 
 
         String s = """
-               \n1.edits the event name
+               1.edits the event name
                2.changes the event location
                3.updates the event date
                4.User updates the event time

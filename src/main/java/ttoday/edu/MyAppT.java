@@ -1466,7 +1466,7 @@ int temp=0;
     }
     public void sendEmailTo(String recipient,String s) {
 
-        String ss=s;
+
         try {
             Properties properties = System.getProperties();
             properties.put("mail.smtp.host", "smtp.gmail.com");
