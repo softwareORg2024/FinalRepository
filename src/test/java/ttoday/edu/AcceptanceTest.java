@@ -8,11 +8,11 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = {"src/use_cases"},
+        features = {"C:\\Users\\miraa\\OneDrive\\Desktop\\SW\\FinalRepository\\src\\use_cases"},
         plugin = {"html:target/cucumber/wikipedia3.html"},
         monochrome = true,
         snippets = SnippetType.CAMELCASE,
-        glue = {"Today/edu"}
+        glue = {"ttoday.edu"}
 
 )
 public class AcceptanceTest {

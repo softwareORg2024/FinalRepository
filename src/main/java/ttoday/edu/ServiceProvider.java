@@ -15,10 +15,7 @@ private Person person;
         this.person = p;
         this.serviceType = stype;
     }
-    public ServiceProvider(String un, String pa, String bd ,String pn, String stype) {
-        person=new Person(un,pa,bd,pn);
-        serviceType=stype;
-    }
+
     public ServiceProvider(String un, String pa, String bd ,String pn, String stype,String em) {
         person=new Person(un,pa,bd,pn,em);
         serviceType=stype;
@@ -30,23 +27,14 @@ private Person person;
         return person;
     }
 
-    public void setPerson(Person person) {
-        this.person = person;
-    }
 
     public String getServiceType() {
         return serviceType;
     }
 
 
-    public void setServiceType(String serviceType) {
-        this.serviceType = serviceType;
-    }
 
 
-    public void setOfferList(List<Service> offerList) {
-        this.serviceList = (ArrayList<Service>) offerList;
-    }
 
     public void addEvent (Event e)
     {
@@ -64,9 +52,7 @@ private Person person;
         return serviceList;
     }
 
-    public void setEventList(List<Event> eventList) {
-        this.eventList = (ArrayList<Event>) eventList;
-    }
+
 
 
     public Service searchForServiceId(Integer int1){
@@ -77,15 +63,7 @@ private Person person;
         }
         return null;
     }
-    public Event searchForEventName(String string){
-        for(Event e : eventList){
-            if(e.getEventName().equals(string)){
-                return e;
-            }
-        }
-        return null;
-    }
-
+  
 
 
 
