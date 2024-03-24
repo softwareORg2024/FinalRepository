@@ -41,6 +41,7 @@ public static int num=0;
     private boolean isEventAdditionalServiceEdit;
     private boolean editEventNameByUserFlag;
     private boolean editEventDateByUserFlag;
+
     private boolean editEventTimeByUserFlag;
     private boolean editEventNumOfPeapleByUserFlag;
     private boolean editEventThemeByUserFlag;
