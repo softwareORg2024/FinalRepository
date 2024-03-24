@@ -436,7 +436,7 @@ public class Main {
                editEvent(input);
                 break;
          case 3:
-                String show=obj.vieweventsbyUser(user.getUserName());
+                String show=obj.viewEventsByUser(user.getUserName());
                 String eventname= getInput(show+"\n Please enter eventName:\n");
                 logger.info("The event "+eventname+" was successfully deleted\n\n");
                 obj.deleteEventByUser(user.getUserName(), eventname);
@@ -444,7 +444,7 @@ public class Main {
                 break;
 
             case 4:
-                 show=obj.vieweventsbyUser(user.getUserName());
+                 show=obj.viewEventsByUser(user.getUserName());
                 logger.info(show);
                 displayUserMenu(input);
                 break;
@@ -467,7 +467,7 @@ public class Main {
     }
 
     private static void editEvent(Scanner input) {
-        String show=obj.vieweventsbyUser(user.getUserName());
+        String show=obj.viewEventsByUser(user.getUserName());
         logger.info(show);
         String eventName= getInput( "Please enter Event name: ");
 
@@ -489,7 +489,7 @@ public class Main {
         int choice = input.nextInt();
 
 
-        show=obj.vieweventsbyUser(user.getUserName());
+        show=obj.viewEventsByUser(user.getUserName());
         logger.info(show);
         switch (choice) {
             case 1:
@@ -716,7 +716,7 @@ public class Main {
 
 
     }
-    
+
     private static String getInput(String prompt) {
         System.out.println(prompt);
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));

@@ -12,8 +12,19 @@ import java.util.logging.Logger;
 
 public class MyAppT {
 private static int num=0;
-     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
+     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    public static final String DEFAULT_EMAIL = "raghadsalhab13@gmail.com";
+    public static final String SERVICE_TYPE_PHOTOGRAPHER = "Photographer";
+    final String SERVICE_TYPE = "Entertainment";
+    public static final String SERVICE_TYPE_DECORATION = "Decoration";
+
+    public static final String SERVICE_TYPE_FOOD = "Food";
+    public static final String HYPHEN_STRING = "------";
+    public static final String PHONE_NUMBER_LABEL = "Phone Number";
+    public static final String THEME_LABEL = "Theme";
+    public static final String EVENT_NAME_LABEL = "Event Name";
+    public static final String LOCATION_LABEL = "Location";
       private boolean isEventDeleteEventEdit;
     private boolean isEventViewEventsEdit;
     private boolean isEventCancelPackageEdit;
@@ -65,14 +76,14 @@ private static int num=0;
     public MyAppT() {
 
 
-        Person u1 = new Person("haya", "123", "7\3\2003", "0599222333","raghadsalhab13@gmail.com");
+        Person u1 = new Person("haya", "123", "7\3\2003", "0599221233",DEFAULT_EMAIL);
         addUser(u1);
-        Person u2 = new Person("s12112499@stu.najah.edu", "1234", "7\3\2004", "0594507933","raghadsalhab13@gmail.com");
+        Person u2 = new Person("mohammad", "1234", "7\3\2004", "0594506933",DEFAULT_EMAIL);
         addUser(u2);
         Time t1 = new Time(5, 0, 0);
         java.sql.Date d1 = new java.sql.Date((long)2024 - 3 - 25);
-        Event e1 = new Event("Laila's Birthday", d1, t1, "home", "unicorn", 20);
-        Event e2 = new Event("omar's birthday", d1, t1, "home", "frozenn", 20);
+        Event e1 = new Event("Laila's Birthday", d1, t1, "home", "Under the Sea", 20);
+        Event e2 = new Event("omar's birthday", d1, t1, "home", "Upcycling ", 20);
         Location l1=new Location(1,0,"home","in my home free");
         Location l2=new Location(2,100,"ajaa resturent","150 peaple");
 
@@ -83,26 +94,26 @@ private static int num=0;
 
 
 
-        Event localEvent = new Event("asmaa", d, t, "home", "frozen", 25);
+        Event localEvent = new Event("asmaa", d, t, "home", "Superhero", 25);
         addEvent(localEvent);
-        Person u4 = new Person("ahmad", "1234", "7\3\2005", "0594507933","raghadsalhab13@gmail.com");
-        Person u3 = new Person("salma", "1234", "7\7\2006", "0594507933","raghadsalhab13@gmail.com");
-        Person pforlogin = new Person("adam", "54321", "7\13\2014", "0594507933","raghadsalhab13@gmail.com");
+        Person u4 = new Person("ahmad", "1234", "7\3\2005", "0594507973",DEFAULT_EMAIL);
+        Person u3 = new Person("salma", "1234", "7\7\2006", "0594502933",DEFAULT_EMAIL);
+        Person pforlogin = new Person("adam", "54321", "7\13\2014", "0594507933",DEFAULT_EMAIL);
         Person splogin = new Person("eman", "54321", "7\17\2016", "0594507933","eman@gmail.com");
-        Person u7 = new Person("ali", "1234", "7\12\2020", "0594507933","s12112499@stu.najah.edu" +
+        Person u7 = new Person("ali", "1234", "7\12\2020", "0594597933","s12112499@stu.najah.edu" +
                 "");
-        Person u8 = new Person("tala", "1234", "8\3\2009", "0594507933","raghadsalhab13@gmail.com");
+        Person u8 = new Person("tala", "1234", "8\3\2009", "0594506933",DEFAULT_EMAIL);
 
-        ServiceProvider eman = new ServiceProvider(splogin, "Photographer");
+        ServiceProvider eman = new ServiceProvider(splogin, SERVICE_TYPE_PHOTOGRAPHER);
         addServiceProvider(eman);
         addUser(pforlogin);
         addUser(u3);
         addUser(u4);
         u3.getEventList().add(e2);
-        ServiceProvider raghad = new ServiceProvider(u8, "Photographer");
-        ServiceProvider mira = new ServiceProvider(u1, "Food");
-        ServiceProvider asma = new ServiceProvider(u2, "Entertainment");
-        ServiceProvider lama = new ServiceProvider(u7, "Decoration");
+        ServiceProvider raghad = new ServiceProvider(u8, SERVICE_TYPE_PHOTOGRAPHER);
+        ServiceProvider mira = new ServiceProvider(u1, SERVICE_TYPE_FOOD);
+        ServiceProvider asma = new ServiceProvider(u2, SERVICE_TYPE);
+        ServiceProvider lama = new ServiceProvider(u7, SERVICE_TYPE_DECORATION);
         addServiceProvider(raghad);
         addServiceProvider(mira);
         addServiceProvider(asma);
@@ -124,13 +135,13 @@ private static int num=0;
         addPackage(p);
         Package p2 = new Package("food+photo+cake", 100.00,2);
         addPackage(p2);
-        Person admin=new Person("Fatina","1234","17\3\2004","0598123123");
-        Person abd=new Person("abd","1234","26\5\2004","0598123123");
-        Event e3 = new Event("abd's Birthday", d1, t1, "home", "unicorn", 20);
+        Person admin=new Person("Fatina","1234","17\3\2004","0599623123");
+        Person abd=new Person("abd","1234","26\5\2004","0598188123");
+        Event e3 = new Event("abd's Birthday", d1, t1, "home", "Circus ", 20);
         e3.setPack(p2);
         abd.addUserEvent(e3);
         up.add(abd);
-        Person p5=new Person("mira","1234","26\2\2003","0598123123");
+        Person p5=new Person("mira","1234","26\2\2003","05981555123");
         addUser(p5);
         Event e5 = new Event("mira's Birthday", d1, t1, "home", "unicorn", 20);
         asma.addEvent(e5);
@@ -144,9 +155,9 @@ Location k1=new Location(1,100,"Resturant","50 people");
 Location k2=new Location(2,100,"Park","70 people");
 locationList.add(k1);
 locationList.add(k2);
-        Person pForDelete=new Person("rawand","1234","8\3\2011","0598123123");
+        Person pForDelete=new Person("rawand","1234","8\3\2011","0598986445");
         addUser(pForDelete);
-        Event e6 = new Event("rawand's Birthday", d1, t1, "home", "unicorn", 20);
+        Event e6 = new Event("rawand's Birthday", d1, t1, "home", "Mexican", 20);
         e6.setUser(pForDelete);
         e6.setPhotographerService(f4);
         pForDelete.addUserEvent(e6);
@@ -255,11 +266,11 @@ locationList.add(k2);
     }
 
     public void setInvalidUsernameAndPass(String name, String pass) {
-        // Write code here that turns the phrase above into concrete actions
+
         validation = false;
         for (Person u : up) {
             if (name.equals(u.getUserName()) && u.getPass().equals(pass)) {
-                logger.info("hiu");
+
                 validation = true;
                 break;
             }
@@ -270,7 +281,6 @@ locationList.add(k2);
         validation = false;
         for (Person u : up) {
             if (name.equals(u.getUserName()) && u.getPass().equals(pass)) {
-                logger.info("hip");
                 validation = true;
                 break;
             }
@@ -578,19 +588,19 @@ int temp=0;
 
     private void handleEventService(Service service, String serviceType) {
         switch (serviceType) {
-            case "Food":
+            case SERVICE_TYPE_FOOD:
                 localEvent.setFoodService(service);
                 addLocalEventFoodFlag = true;
                 break;
-            case "Decoration":
+            case SERVICE_TYPE_DECORATION:
                 localEvent.setDecorService(service);
                 addLocalEventDecorFlag = true;
                 break;
-            case "Entertainment":
+            case SERVICE_TYPE:
                 localEvent.setEntertainmentService(service);
                 addLocalEventEnterFlag = true;
                 break;
-            case "Photographer":
+            case SERVICE_TYPE_PHOTOGRAPHER:
                 localEvent.setPhotographerService(service);
                 addLocalEventPhotoFlag = true;
                 break;
@@ -907,7 +917,7 @@ int temp=0;
        StringBuilder format = new StringBuilder();
        format.append("\n");
 
-       format.append(String.format(headerFormat, "User Name", "Phone Number", "Event Name", "Theme", "Location", "Date", "Time"));
+       format.append(String.format(headerFormat, "User Name", PHONE_NUMBER_LABEL, EVENT_NAME_LABEL, THEME_LABEL, LOCATION_LABEL, "Date", "Time"));
 
 
        for (Event e : p.getEventList()) {
@@ -962,7 +972,7 @@ int temp=0;
 
         s.append("\n");
 
-        s.append(String.format(headerFormat, "UserName", "Phone Number", "Birth Date"));
+        s.append(String.format(headerFormat, "UserName", PHONE_NUMBER_LABEL, "Birth Date"));
 
         for (Person p : up) {
 
@@ -989,7 +999,7 @@ int temp=0;
 
         format.append("\n");
         String headerFormat = "%-20s\t%-15s\t%-20s\t%-12s\t%-10s\n";
-        format.append(String.format(headerFormat, "Event Name", "Theme", "Location", "Date", "Time"));
+        format.append(String.format(headerFormat,EVENT_NAME_LABEL,THEME_LABEL, LOCATION_LABEL, "Date", "Time"));
 
 
         for (Event e : eventList) {
@@ -1017,7 +1027,7 @@ int temp=0;
         String rowFormat = "%-20s\t%-15s\t%-12s\t%-15s\n";
         formattedOutput.append("\n");
 
-        formattedOutput.append(String.format(headerFormat, "UserName", "Phone Number", "Birth Date", "Service Type"));
+        formattedOutput.append(String.format(headerFormat, "UserName", PHONE_NUMBER_LABEL, "Birth Date", "Service Type"));
 
 
         for (ServiceProvider e : providerList) {
@@ -1206,16 +1216,6 @@ int temp=0;
 
        Event e= p.searchInUserEvents(string2);
 
-
-            for (Event o : p.getEventList()) {
-
-                    System.out.println("in side user event list "+o.getEventName()+"\n");
-
-            }
-
-
-
-
        if(e==null){
 
        }
@@ -1287,16 +1287,16 @@ int temp=0;
         Person p=searchInUser(string);
         Event e= p.searchInUserEvents(string2);
         if(e.getDecorService()==null){
-            s.add("Decoration");
+            s.add(SERVICE_TYPE_DECORATION);
         }
         if(e.getEntertainmentService()==null){
-            s.add("Entertainment");
+            s.add(SERVICE_TYPE);
         }
         if(e.getFoodService()==null){
-            s.add("Food");
+            s.add(SERVICE_TYPE_FOOD);
         }
         if(e.getPhotographerService()==null){
-            s.add("Photographer");
+            s.add(SERVICE_TYPE_PHOTOGRAPHER);
         }
         editToAddAdditionalServiceByUserFlag=true;
         return s;
@@ -1310,7 +1310,7 @@ int temp=0;
          editDeleteServiceFromEventByUserFlag = true;
         Person p = searchInUser(username);
         Event e = p.searchInUserEvents(eventName);
-        System.out.println(e.getEventName());
+
              if (e.getEntertainmentService() != null) {
             if( e.getEntertainmentService().getId()==serviceId){  e.setEntertainmentService(null);}
 
@@ -1348,7 +1348,6 @@ int temp=0;
         Event e= p.searchInUserEvents(string2);
         e.setPack(null);
         editDeletePackageFromEventByUserFlag=true;
-        System.out.println(editDeletePackageFromEventByUserFlag);
         logger.info("deleted successfully");
 
     }
@@ -1366,56 +1365,75 @@ int temp=0;
     }
 
 
-    public String vieweventsbyUser(String string) {
+    public String viewEventsByUser(String string) {
         Person p = searchInUser(string);
         StringBuilder eventsWithPackage = new StringBuilder();
         StringBuilder eventsWithoutPackage = new StringBuilder();
-        eventsWithPackage.append("\n");
-        eventsWithoutPackage.append("\n");
+        initializeEventStringBuilders(eventsWithPackage, eventsWithoutPackage);
+
         String eventWithPackageFormat = "%-20s %-15s %-20s %-12s %-10s %-18s %-10s %-25s %-10s\n";
         String eventWithoutPackageFormat = "%-20s %-15s %-20s %-12s %-10s %-18s %-25s %-25s %-25s %-25s %-10s\n";
 
-           int c= getcostlocation(localEvent.getLocation());
+        int c = getcostlocation(localEvent.getLocation());
         eventsWithPackage.append(String.format(eventWithPackageFormat, "Event Name", "Theme", "Location", "Date", "Time", "Number of People", "Package ID", "Package Description", "Cost"));
         eventsWithoutPackage.append(String.format(eventWithoutPackageFormat, "Event Name", "Theme", "Location", "Date", "Time", "Number of People", "Decoration Service", "Entertainment Service", "Food Service", "Photographer Service", "Cost"));
 
-        for (Event e : p.getEventList()) {
-            String date = e.getDate().getYear() + "\\" + e.getDate().getMonth() + "\\" + e.getDate().getDate(); // Format the date
-
-            if (e.getPack() == null) {
-
-                eventsWithoutPackage.append(String.format(eventWithoutPackageFormat,
-                        e.getEventName(),
-                        e.getTheme(),
-                        e.getLocation(),
-                        date,
-                        e.getTime(),
-                        e.getNumGuests(),
-                        e.getDecorService() != null ? e.getDecorService().getDiscription() : "------",
-                        e.getEntertainmentService() != null ? e.getEntertainmentService().getDiscription() : "------",
-                        e.getFoodService() != null ? e.getFoodService().getDiscription() : "------",
-                        e.getPhotographerService() != null ? e.getPhotographerService().getDiscription() : "------",
-                        e.eventCost(c)));
-            } else {
-
-                eventsWithPackage.append(String.format(eventWithPackageFormat,
-                        e.getEventName(),
-                        e.getTheme(),
-                        e.getLocation(),
-                        date,
-                        e.getTime(),
-                        e.getNumGuests(),
-                        e.getPack().getNumber(),
-                        e.getPack().getDescription(),
-                        e.eventCost(c)));
-            }
-        }
-
+        addEventDetailsToBuilders(p.getEventList(), eventsWithPackage, eventsWithoutPackage, eventWithPackageFormat, eventWithoutPackageFormat, c);
 
         String combined = eventsWithoutPackage.toString() + "\n\n\n\n" + eventsWithPackage.toString();
         viewEventsByUserFlag = true;
         return combined;
     }
+
+    private void initializeEventStringBuilders(StringBuilder eventsWithPackage, StringBuilder eventsWithoutPackage) {
+        eventsWithPackage.append("\n");
+        eventsWithoutPackage.append("\n");
+    }
+
+    private void addEventDetailsToBuilders(List<Event> eventList, StringBuilder eventsWithPackage, StringBuilder eventsWithoutPackage, String eventWithPackageFormat, String eventWithoutPackageFormat, int cost) {
+        for (Event e : eventList) {
+            String date = formatDate(e.getDate());
+
+            if (e.getPack() == null) {
+                addEventWithoutPackageDetails(e, eventsWithoutPackage, eventWithoutPackageFormat, date, cost);
+            } else {
+                addEventWithPackageDetails(e, eventsWithPackage, eventWithPackageFormat, date, cost);
+            }
+        }
+    }
+
+    private void addEventWithoutPackageDetails(Event event, StringBuilder eventsWithoutPackage, String eventWithoutPackageFormat, String date, int cost) {
+        eventsWithoutPackage.append(String.format(eventWithoutPackageFormat,
+                event.getEventName(),
+                event.getTheme(),
+                event.getLocation(),
+                date,
+                event.getTime(),
+                event.getNumGuests(),
+                event.getDecorService() != null ? event.getDecorService().getDiscription() : HYPHEN_STRING,
+                event.getEntertainmentService() != null ? event.getEntertainmentService().getDiscription() : HYPHEN_STRING,
+                event.getFoodService() != null ? event.getFoodService().getDiscription() : HYPHEN_STRING,
+                event.getPhotographerService() != null ? event.getPhotographerService().getDiscription() : HYPHEN_STRING,
+                event.eventCost(cost)));
+    }
+
+    private void addEventWithPackageDetails(Event event, StringBuilder eventsWithPackage, String eventWithPackageFormat, String date, int cost) {
+        eventsWithPackage.append(String.format(eventWithPackageFormat,
+                event.getEventName(),
+                event.getTheme(),
+                event.getLocation(),
+                date,
+                event.getTime(),
+                event.getNumGuests(),
+                event.getPack().getNumber(),
+                event.getPack().getDescription(),
+                event.eventCost(cost)));
+    }
+
+    private String formatDate(Date date) {
+        return date.getYear() + "\\" + date.getMonth() + "\\" + date.getDate();
+    }
+
 
 
     public boolean isViewEventsByUserFlag() {
