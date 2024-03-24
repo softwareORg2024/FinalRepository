@@ -26,8 +26,8 @@ public class Main {
         Handler consoleHandler = new ConsoleHandler();
         consoleHandler.setFormatter(new Formatter() {
             @Override
-            public String format(LogRecord record) {
-                return record.getLevel() + ": " + record.getMessage() + "\n";
+            public String format(LogRecord rec) {
+                return rec.getLevel() + ": " + rec.getMessage() + "\n";
             }
         });
         logger.addHandler(consoleHandler);
