@@ -84,17 +84,14 @@ private static int num=0;
         java.sql.Date d1 = new java.sql.Date((long)2024 - 3 - 25);
         Event e1 = new Event("Laila's Birthday", d1, t1, "home", "Under the Sea", 20);
         Event e2 = new Event("omar's birthday", d1, t1, "home", "Upcycling ", 20);
-        Location l1=new Location(1,0,"home","in my home free");
-        Location l2=new Location(2,100,"ajaa resturent","150 peaple");
-
         addEvent(e1);
         addEvent(e2);
-        Time t = new Time(8, 0, 0);
+        Time tim = new Time(8, 0, 0);
        d = new Date(2024, 2, 29);
 
 
 
-        Event localEvent = new Event("asmaa", d, t, "home", "Superhero", 25);
+        Event localEvent = new Event("asmaa", d, tim, "home", "Superhero", 25);
         addEvent(localEvent);
         Person u4 = new Person("ahmad", "1234", "7\3\2005", "0594507973",DEFAULT_EMAIL);
         Person u3 = new Person("salma", "1234", "7\7\2006", "0594502933",DEFAULT_EMAIL);
@@ -129,13 +126,11 @@ private static int num=0;
         raghad.addService(f3);
         asma.addService(f4);
         e2.setEntertainmentService(f4);
-       // e2.setDecorService(f2);
 
         Package p = new Package("food+photo", 1000.00,1);
         addPackage(p);
         Package p2 = new Package("food+photo+cake", 100.00,2);
         addPackage(p2);
-        Person admin=new Person("Fatina","1234","17\3\2004","0599623123");
         Person abd=new Person("abd","1234","26\5\2004","0598188123");
         Event e3 = new Event("abd's Birthday", d1, t1, "home", "Circus ", 20);
         e3.setPack(p2);
@@ -287,11 +282,6 @@ locationList.add(k2);
         }
     }
 
-    public void searchUser(){
-
-    }
-
-
     public void setEmptyUsernameAndPass(String name, String pass) {
         if (name.isEmpty() && !pass.isEmpty())
             validation = false;
@@ -392,32 +382,16 @@ locationList.add(k2);
 
         enteredUsername=s;
     }
-
-    public void iAmNotINCreationPage(MyAppT obj) {
-        isInCreationPage = false;
-    }
-
     public void chooseFromUserPage(Integer int1) {
-        switch (int1) {
-            case 1:
-                isInCreationPage = true;
-                break;
-            default:
+        if (int1.equals(1)) {
+            isInCreationPage = true;
         }
-
     }
 
     public boolean checkPastDate(Integer int1, Integer int2, Integer int3) {
         LocalDate d = LocalDate.of(int1, int2, int3);
-
-
         LocalDate currentDate = LocalDate.now();
-        if (d.isBefore(currentDate))
-            return true;
-        else
-            return false;
-
-
+        return d.isBefore(currentDate);
     }
 
     public boolean isInCreationPage() {
@@ -475,7 +449,7 @@ int temp=0;
     }
 
 
-    public void chooseServiceOrPackageFlag(MyAppT obj) {
+    public void chooseServiceOrPackageFlag() {
         serviceOrPackage = false;
     }
 
@@ -691,13 +665,14 @@ int temp=0;
 
 
     public String searchInSpAccordingToType(String string) {
-        String s="Service providers:\n";
+        StringBuilder resultBuilder = new StringBuilder();
+        resultBuilder.append("Service providers:\n");
         for (ServiceProvider p : providerList) {
             if (p.getServiceType().equals(string)) {
-              s+=p.getPerson().getUserName()+"\t"+p.getPerson().getPhoneNum()+"\n";
+                resultBuilder.append(p.getPerson().getUserName()).append("\t").append(p.getPerson().getPhoneNum()).append("\n");
             }
         }
-        return s;
+        return resultBuilder.toString();
     }
 
 
@@ -1213,11 +1188,11 @@ int temp=0;
 
     public void editEventNameByUser(String string, String string2, String string3) {
         Person p=searchInUser(string);
-
+          int tt=0;
        Event e= p.searchInUserEvents(string2);
 
        if(e==null){
-
+           tt=1;
        }
        else{
        e.setEventName(string3);}
@@ -1505,7 +1480,7 @@ int temp=0;
                     return new PasswordAuthentication("eventplannerapp1@gmail.com\n", "nmyv urhn rsxv zooj");
                 }
             });
-            //session.setDebug(true);
+
             MimeMessage message = new MimeMessage(session);
             message.setFrom(new InternetAddress("eventplannerapp1@gmail.com\n"));
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(recipient, false));
@@ -1514,7 +1489,7 @@ int temp=0;
                 message.setText(s);
             Transport.send(message);
         } catch (MessagingException m) {
-           // m.printStackTrace();
+          logger.info("MessagingException");
         }
     }
 

@@ -64,7 +64,7 @@ public class CreateEvent {
 
     @Given("the user is presented with a choice between individual services and ready-made packages")
     public void the_user_is_presented_with_a_choice_between_individual_services_and_ready_made_packages() {
-        obj.chooseServiceOrPackageFlag(obj);
+        obj.chooseServiceOrPackageFlag();
     }
 
     @When("the user selects an option by entering {int} for individual services and other for ready-made packages")
