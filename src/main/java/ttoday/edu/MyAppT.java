@@ -84,6 +84,9 @@ private static int num=0;
         java.sql.Date d1 = new java.sql.Date((long)2024 - 3 - 25);
         Event e1 = new Event("Laila's Birthday", d1, t1, "home", "Under the Sea", 20);
         Event e2 = new Event("omar's birthday", d1, t1, "home", "Upcycling ", 20);
+        Event e8 = new Event("amr's birthday", d1, t1, "home", "Upcycling ", 20);
+         eventList.add(e8);
+
         addEvent(e1);
         addEvent(e2);
         Time tim = new Time(8, 0, 0);
@@ -116,7 +119,8 @@ private static int num=0;
         addServiceProvider(asma);
         addServiceProvider(lama);
 
-
+        e8.setUser(u3);
+        u3.addUserEvent(e8);
         Service f1 = new Service("cake", 1, 50, mira);
         Service f2 = new Service("flower", 3, 50, lama);
         Service f3 = new Service("photo", 4, 50, raghad);
@@ -126,7 +130,8 @@ private static int num=0;
         raghad.addService(f3);
         asma.addService(f4);
         e2.setEntertainmentService(f4);
-
+       e1.setFoodService(f1);
+u3.addUserEvent(e1);
         Package p = new Package("food+photo", 1000.00,1);
         addPackage(p);
         Package p2 = new Package("food+photo+cake", 100.00,2);
@@ -141,7 +146,8 @@ private static int num=0;
         Event e5 = new Event("mira's Birthday", d1, t1, "home", "unicorn", 20);
         asma.addEvent(e5);
         e5.setUser(p5);
-        e5.setPhotographerService(f4);
+        e5.setDecorService(f2);
+
 p5.addUserEvent(e5);
 up.add(p5);
 eventList.add(e5);
@@ -156,8 +162,16 @@ locationList.add(k2);
         e6.setUser(pForDelete);
         e6.setPhotographerService(f4);
         pForDelete.addUserEvent(e6);
-
-
+        Event e7 = new Event("tala's Birthday", d1, t1, "home", "Circus ", 20);
+        e7.setPhotographerService(f3);
+        e7.setUser(u3);
+        u3.addUserEvent(e7);
+       eventList.add(e7);
+       raghad.addEvent(e7);
+        Event e9 = new Event("jori's Birthday", d1, t1, "home", "Circus ", 20);
+        eventList.add(e9);
+        e9.setUser(u3);
+        u3.addUserEvent(e9);
     }
 
     private boolean editServiceForSpFlag;
@@ -247,40 +261,21 @@ locationList.add(k2);
 
 
     public void setUsernameAndPassAndPassFromSystem(String name, String pass) {
-
-        for (Person u : up) {
-
-            if (name.equals(u.getUserName()) && u.getPass().equals(pass)) {
-                validation = true;
-
-                logger.info("hi");
-                break;
-
-            }
-        }
-    }
-
-    public void setInvalidUsernameAndPass(String name, String pass) {
-
         validation = false;
         for (Person u : up) {
-            if (name.equals(u.getUserName()) && u.getPass().equals(pass)) {
 
+            if (name.equals(u.getUserName()) && u.getPass().equals(pass)) {
                 validation = true;
+
                 break;
+
             }
         }
     }
 
-    public void setValidUsernameAndInvalidPass(String name, String pass) {
-        validation = false;
-        for (Person u : up) {
-            if (name.equals(u.getUserName()) && u.getPass().equals(pass)) {
-                validation = true;
-                break;
-            }
-        }
-    }
+
+
+
 
     public void setEmptyUsernameAndPass(String name, String pass) {
         if (name.isEmpty() && !pass.isEmpty())
@@ -313,9 +308,7 @@ locationList.add(k2);
 
     private String enteredUsername;
 
-    public String getEnteredUsername() {
-        return enteredUsername;
-    }
+
 
     private boolean passwordUpdated = false;
 
@@ -341,22 +334,6 @@ locationList.add(k2);
         }
     }
 
-    public void createAcc(String enteredUsernam, String enteredPasswor) {
-        for (Person user : up) {
-            if (user.getUserName().equals(enteredUsernam) && user.getPass().equals(enteredPasswor)) {
-                userCreated = true;
-                break;
-            }
-
-        }
-
-        for (ServiceProvider user : providerList) {
-            if (user.getPerson().getUserName().equals(enteredUsernam) && user.getPerson().getPass().equals(enteredPasswor)) {
-                userCreated = true;
-                break;
-            }
-        }
-    }
 
     public void takePass(String newPass) {
         for (Person user : up) {
@@ -398,9 +375,7 @@ locationList.add(k2);
         return isInCreationPage;
     }
 
-    public void setInCreationPage(boolean inCreationPage) {
-        isInCreationPage = inCreationPage;
-    }
+
 
     public void iAmInUserPage() {
         inUserPage = true;
@@ -428,7 +403,8 @@ int temp=0;
 
         }
         if (temp == 0) {
-            localEvent = new Event(string, date, t, string2, string3, int7);
+            Event e = new Event(string, date, t, string2, string3, int7);
+            setLocalEvent(e);
             localEvent.setUser(n);
             n.getEventList().add(localEvent);
             eventList.add(localEvent);
@@ -444,9 +420,7 @@ int temp=0;
         return localEventFlag;
     }
 
-    public void setLocalEventFlag(boolean localEventFlag) {
-        this.localEventFlag = localEventFlag;
-    }
+
 
 
     public void chooseServiceOrPackageFlag() {
@@ -472,25 +446,14 @@ int temp=0;
         return serviceOrPackage;
     }
 
-    public void setServiceOrPackage(boolean serviceOrPackage) {
-        this.serviceOrPackage = serviceOrPackage;
-    }
+
 
     public boolean isPackageFlag() {
         return isPackageFlag;
     }
 
-    public void setPackageFlag(boolean packageFlag) {
-        isPackageFlag = packageFlag;
-    }
 
-    public boolean isServiceFlag() {
-        return isServiceFlag;
-    }
 
-    public void setServiceFlag(boolean serviceFlag) {
-        isServiceFlag = serviceFlag;
-    }
 
     public void chooseService(Integer int1) {
         serviceMenuFlag = true;
@@ -563,7 +526,7 @@ int temp=0;
     private void handleEventService(Service service, String serviceType) {
         switch (serviceType) {
             case SERVICE_TYPE_FOOD:
-                localEvent.setFoodService(service);
+               getLocalEvent().setFoodService(service);
                 addLocalEventFoodFlag = true;
                 break;
             case SERVICE_TYPE_DECORATION:
@@ -664,18 +627,9 @@ int temp=0;
     }
 
 
-    public String searchInSpAccordingToType(String string) {
-        StringBuilder resultBuilder = new StringBuilder();
-        resultBuilder.append("Service providers:\n");
-        for (ServiceProvider p : providerList) {
-            if (p.getServiceType().equals(string)) {
-                resultBuilder.append(p.getPerson().getUserName()).append("\t").append(p.getPerson().getPhoneNum()).append("\n");
-            }
-        }
-        return resultBuilder.toString();
+    public List<ServiceProvider> getProviderList() {
+        return providerList;
     }
-
-
 
     public ServiceProvider searchInServiceProvider(String string) {
         for (ServiceProvider p : providerList) {
@@ -697,9 +651,7 @@ int temp=0;
 
 
 
-    public boolean isUserhasevent() {
-        return userhasevent;
-    }
+
 
     public Event searchInEvent(Integer int1) {
         for (Event e : eventList) {
@@ -710,25 +662,11 @@ int temp=0;
         return null;
     }
 
-    public Event searchInEventByName(String str) {
-        for (Event e : eventList) {
-            if (e.getEventName().equals(str)) {
-                return e;
-            }
-        }
-        return null;
-    }
 
 
 
-    public Location searchInLocation(Integer int1) {
-        for (Location e : locationList) {
-            if (e.getId() == int1) {
-                 return e;
-            }
-        }
-        return null;
-    }
+
+
 
 
 
@@ -775,29 +713,8 @@ int temp=0;
     }
 
 
-    public boolean isEditService() {
-        return isEditService;
-    }
 
-    public boolean isDeleteService() {
-        return isDeleteService;
-    }
 
-    public boolean isShoweventsAnduser() {
-        return isShoweventsAnduser;
-    }
-
-    public boolean isShowService() {
-        return isShowService;
-    }
-
-    public boolean isServiceproviderMenuFlag() {
-        return serviceproviderMenuFlag;
-    }
-
-    public boolean isAddService() {
-        return isAddService;
-    }
 
     public void addServiceToSp(String string, Integer double1, Integer int1, String string1) {
 
@@ -813,11 +730,7 @@ int temp=0;
         return serviceaddedsucc;
     }
 
-    public void searchInServicesForSp(String string) {
-        ServiceProvider pp = searchInServiceProvider(string);
 
-        providerhasservice = !(pp.getOfferList().isEmpty());
-    }
 
     public void editServiceForSp(String string, Integer double1, Integer int1, String string2) {
         Service s = searchInServiceProvider(string2).searchForServiceId(int1);
@@ -1146,45 +1059,6 @@ int temp=0;
         }
     }
 
-    public boolean isEventDeleteEventEdit() {
-        return isEventDeleteEventEdit;
-    }
-
-    public boolean isEventViewEventsEdit() {
-        return isEventViewEventsEdit;
-    }
-
-    public boolean isEventCancelPackageEdit() {
-        return isEventCancelPackageEdit;
-    }
-
-    public boolean isEventRemoveServiceEdit() {
-        return isEventRemoveServiceEdit;
-    }
-
-    public boolean isEventThemeEdit() {
-        return isEventThemeEdit;
-    }
-
-    public boolean isEventNumOfPeopleEdit() {
-        return isEventNumOfPeopleEdit;
-    }
-
-    public boolean isEventTimeEdit() {
-        return isEventTimeEdit;
-    }
-
-    public boolean isEventDateEdit() {
-        return isEventDateEdit;
-    }
-
-    public boolean isEventNameEdit() {
-        return isEventNameEdit;
-    }
-
-    public boolean isEventLocationEdit() {
-        return isEventLocationEdit;
-    }
 
     public void editEventNameByUser(String string, String string2, String string3) {
         Person p=searchInUser(string);
@@ -1282,7 +1156,8 @@ int temp=0;
     }
 
     public void editDeleteServiceFromEventByUser(String username, String eventName, Integer serviceId) {
-         editDeleteServiceFromEventByUserFlag = true;
+
+        editDeleteServiceFromEventByUserFlag = true;
         Person p = searchInUser(username);
         Event e = p.searchInUserEvents(eventName);
 
@@ -1291,17 +1166,20 @@ int temp=0;
 
         }
            else if (e.getDecorService() != null) {
+
                  if( e.getDecorService().getId()==serviceId)
                  { e.setDecorService(null);}
 
             }
 
-            else if (e.getFoodService() == null ) {
+            else if (e.getFoodService() != null ) {
+
               if(e.getFoodService().getId()==(serviceId))
               { e.setFoodService(null);}
             }
 
             else if (e.getPhotographerService() != null ) {
+
                 if(e.getPhotographerService().getId()==(serviceId))
                 {  e.setPhotographerService(null);  }
             }
@@ -1498,20 +1376,20 @@ int temp=0;
         for (ServiceProvider user : providerList) {
             if (user.getPerson().getUserName().equals(string) && user.getPerson().getPass().equals(string2)) {
                 temp=1;
-                userCreated = true;
                 break;
             }
         }
         if(temp==0){
             addServiceProvider(new ServiceProvider(string, string2,string3,string5,string4,string6));
         }
+        userCreated = true;
     }
     public void createAccountForUser(String string, String string2, String string3, String string5, String string4) {
     int temp=0;
         for (Person user : up) {
             if (user.getUserName().equals(string) && user.getPass().equals(string2)) {
                 temp=1;
-                userCreated = true;
+
                 break;
             }
 
@@ -1523,17 +1401,11 @@ int temp=0;
             addUser(new Person(string, string2,string3,string4,string5));
 
         }
+        userCreated = true;
     }
 
-    public Package searchInPackage(int packId) {
-        for(Package j :packageList)
-        {
-            if (j.getNumber()==packId) {
-              return j;
-                       }
-
-        }
-        return null;
+    public List<Package> getPackageList() {
+        return packageList;
     }
 }
 

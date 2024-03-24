@@ -1,6 +1,7 @@
 package ttoday.edu;
 import io.cucumber.java.en.*;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class editevent {
@@ -147,6 +148,10 @@ public class editevent {
     public void theEventThemeIsUpdatedSuccessfully() {
         assertTrue(obj.isEditEventThemeByUserFlag());
 
+    }
+    @Then("the selected service is not removed from the event")
+    public void the_selected_service_is_not_removed_from_the_event() {
+        assertFalse(obj.isEditDeleteServiceFromEventByUserFlag());
     }
 
     @Then("the number of attendees for the event is updated successfully")

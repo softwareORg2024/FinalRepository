@@ -39,7 +39,7 @@ public class loginstep {
 
     @When("set invalid username {string} and pass {string}")
     public void setInvalidUsernameAndPass(String user_name, String pass) {
-        obj.setInvalidUsernameAndPass(user_name,pass);
+        obj.setUsernameAndPassAndPassFromSystem(user_name,pass);
     }
     @Then("login failed")
     public void loginFailed() {
@@ -48,7 +48,7 @@ public class loginstep {
 
     @When("set valid username {string} and invalid pass {string}")
     public void setValidUsernameAndInvalidPass(String user_name, String pass) {
-        obj.setValidUsernameAndInvalidPass(user_name,pass);
+        obj.setUsernameAndPassAndPassFromSystem(user_name,pass);
     }
 
     @When("set empty username {string} and pass {string}")

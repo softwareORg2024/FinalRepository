@@ -39,3 +39,11 @@ K
 src/use_cases/login.feature,7\2\7260eab96166a71e563642d574f0d0debcc11dae
 V
 &src/test/java/Today/edu/loginstep.java,d\4\d436646239fff752948c5dbaa77208a5602179f7
+\
+,src/test/java/ttoday/edu/AcceptanceTest.java,a\f\af175bc66ced64af384f70dc58941a8f8b5384ec
+]
+-src/main/java/ttoday/edu/ServiceProvider.java,f\1\f11682fb24bd857613f255a598753ba11e2390ee
+S
+#.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
+]
+-.idea/sonarlint/securityhotspotstore/index.pb,8\8\88a9255124c95bdc913197c120a8d560edc59c8e

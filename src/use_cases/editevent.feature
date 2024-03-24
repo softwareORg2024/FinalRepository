@@ -49,14 +49,30 @@ Then the event theme is updated successfully
 Scenario: User adds additional services to the event
 Given the user is on the event details page
 When the user select 7 to edit
-  And  user "salma" modifies the event "omar's birthday"
+  And  user "salma" modifies the event "jori's Birthday"
 Then the services appear
 
-Scenario: User removes a service from the event
-Given the user is on the event details page
-When the user select 8 to edit
-  And  user "salma" delete from event "omar's birthday" the service with id 2
-Then the selected service is removed from the event
+  Scenario Outline: User removes a service from the event
+    Given the user is on the event details page
+    When the user select <int1> to edit
+    And user <string> delete from event <string2> the service with id <int11>
+    Then the selected service is removed from the event
+    Examples:
+      | int1 | string  | string2           | int11 |
+      | 8    | "salma" | "omar's birthday" | 2     |
+      | 8    | "salma" | "tala's Birthday" | 4     |
+      | 8    | "mira" | "mira's Birthday" | 3     |
+      | 8    | "salma" | "Laila's Birthday" | 1     |
+
+
+  Scenario Outline: User removes a service from the event
+    Given the user is on the event details page
+    When the user select <int1> to edit
+    And user <string> delete from event <string2> the service with id <int11>
+    Then the selected service is not removed from the event
+    Examples:
+      | int1 | string  | string2           | int11 |
+      | 8    | "salma" | "amr's birthday" | 100    |
 
 Scenario: User cancels the selected package
 Given the user is on the event details page
@@ -65,14 +81,19 @@ When the user select 9 to edit
 Then the selected package  is removed from the event
 
 
-Scenario: User views events created by them
-Given the user is logged in
-When the user select 10 to edit
-  And user "salma" to add
-Then a list of events created by the user is displayed
+  Scenario Outline: User views events created by them
+    Given the user is logged in
+    When the user select <int1> to edit
+    And user <string> to add
+    Then a list of events created by the user is displayed
+    Examples:
+      | int1 | string  |
+      | 10   | "salma" |
+      | 10   | "abd" |
 
 
-Scenario: User deletes an existing event
+
+  Scenario: User deletes an existing event
 Given the user is logged in
 When the user select 11 to edit
   And user "rawand" to delete event "rawand's Birthday"
