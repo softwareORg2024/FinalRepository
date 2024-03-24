@@ -1,4 +1,4 @@
-package Today.edu;
+package ttoday.edu;
 
 public class Package {
     private String description;

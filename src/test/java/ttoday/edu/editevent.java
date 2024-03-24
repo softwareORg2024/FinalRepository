@@ -1,7 +1,5 @@
-package Today.edu;
+package ttoday.edu;
 import io.cucumber.java.en.*;
-
-import java.sql.Time;
 
 import static org.junit.Assert.assertTrue;
 
@@ -123,12 +121,12 @@ public class editevent {
 
     @When("user {string} to add")
     public void user_to_add(String string) {
-        obj.ViewEventsByUser(string);
+        obj.vieweventsbyUser(string);
     }
 
     @When("user {string} to delete event {string}")
     public void user_to_delete_event(String string, String string2) {
-        obj.DeleteEventByUser(string, string2);
+        obj.deleteEventByUser(string, string2);
 
     }
 

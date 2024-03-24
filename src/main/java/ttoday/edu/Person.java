@@ -1,6 +1,7 @@
-package Today.edu;
+package ttoday.edu;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Person
 {
@@ -55,12 +56,12 @@ public class Person
         this.phoneNum=pn;
     }
 
-    public ArrayList<Event> getEventList() {
+    public List<Event> getEventList() {
         return eventList;
     }
 
-    public void setEventList(ArrayList<Event> eventList) {
-        this.eventList = eventList;
+    public void setEventList(List<Event> eventList) {
+        this.eventList = (ArrayList<Event>) eventList;
     }
     public void addUserEvent(Event e){
         eventList.add(e);

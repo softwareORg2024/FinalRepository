@@ -1,6 +1,7 @@
-package Today.edu;
+package ttoday.edu;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ServiceProvider {
 
@@ -10,8 +11,8 @@ private Person person;
     private ArrayList<Event> eventList =new ArrayList<>();
     private ArrayList<Service> serviceList=new ArrayList<>();
 
-    public ServiceProvider(Person P, String stype) {
-        this.person = P;
+    public ServiceProvider(Person p, String stype) {
+        this.person = p;
         this.serviceType = stype;
     }
     public ServiceProvider(String un, String pa, String bd ,String pn, String stype) {
@@ -42,12 +43,9 @@ private Person person;
         this.serviceType = serviceType;
     }
 
-    public ArrayList<Service> getOfferList() {
-        return serviceList;
-    }
 
-    public void setOfferList(ArrayList<Service> offerList) {
-        this.serviceList = offerList;
+    public void setOfferList(List<Service> offerList) {
+        this.serviceList = (ArrayList<Service>) offerList;
     }
 
     public void addEvent (Event e)
@@ -59,18 +57,17 @@ private Person person;
         serviceList.add(e);
     }
 
-    public ArrayList<Event> getEventList() {
+    public List<Event>getEventList() {
         return eventList;
     }
-
-    public void setEventList(ArrayList<Event> eventList) {
-        this.eventList = eventList;
+    public List<Service> getOfferList() {
+        return serviceList;
     }
 
-
-    public void editService(String string, Integer double1, Integer int1) {
-
+    public void setEventList(List<Event> eventList) {
+        this.eventList = (ArrayList<Event>) eventList;
     }
+
 
     public Service searchForServiceId(Integer int1){
         for(Service s : serviceList){

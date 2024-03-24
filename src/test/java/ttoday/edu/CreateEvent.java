@@ -1,11 +1,6 @@
-package Today.edu;
+package ttoday.edu;
 
-import io.cucumber.java.an.Dada;
 import io.cucumber.java.en.*;
-import org.junit.Before;
-
-import java.sql.Date;
-import java.sql.Time;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;

@@ -1,4 +1,4 @@
-package Today.edu;
+package ttoday.edu;
 
 import io.cucumber.java.en.*;
 

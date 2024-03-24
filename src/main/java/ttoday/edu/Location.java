@@ -1,4 +1,4 @@
-package Today.edu;
+package ttoday.edu;
 
 public class Location {
     private int cost;

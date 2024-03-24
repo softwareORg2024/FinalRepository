@@ -1,5 +1,5 @@
 
-package Today.edu;
+package ttoday.edu;
 import io.cucumber.java.Before;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;

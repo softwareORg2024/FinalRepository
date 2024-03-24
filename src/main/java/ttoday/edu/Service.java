@@ -1,4 +1,4 @@
-package Today.edu;
+package ttoday.edu;
 
 public class Service {
     private ServiceProvider sp;
@@ -12,11 +12,11 @@ public class Service {
         this.sp = sp;
     }
 
-    private String Discription;
+    private String discription;
     private int cost;
 
-    public Service(String discription,int id,int cost,ServiceProvider s) {
-        Discription = discription;
+    public Service(String d,int id,int cost,ServiceProvider s) {
+        this.discription = d;
         this.cost=cost;
         this.id=id;
         sp=s;
@@ -31,11 +31,11 @@ public class Service {
     }
 
     public String getDiscription() {
-        return Discription;
+        return discription;
     }
 
     public void setDiscription(String discription) {
-        Discription = discription;
+        this.discription = discription;
     }
 
     public int getCost() {

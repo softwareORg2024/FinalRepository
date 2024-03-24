@@ -1,12 +1,6 @@
-package Today.edu;
+package ttoday.edu;
 
 import io.cucumber.java.en.*;
-
-import java.util.Properties;
-import javax.mail.*;
-import javax.mail.internet.*;
-import java.util.Properties;
-
 
 
 public class Notification {
