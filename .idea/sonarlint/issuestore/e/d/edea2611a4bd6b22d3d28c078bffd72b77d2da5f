@@ -1,186 +1,163 @@
 
 p
-java:S1192J"NDefine a constant instead of duplicating this literal "Entertainment" 3 times.(æ«ğõùÿÿÿÿ8£Åµ÷ß1
-g
-java:S1192K"KDefine a constant instead of duplicating this literal "Decoration" 3 times.(½¹ &8¤Åµ÷ß1
-j
-java:S1192H"MDefine a constant instead of duplicating this literal "Photographer" 3 times.(‘ñÂ…8¤Åµ÷ß1
-h
-java:S11924"KDefine a constant instead of duplicating this literal "0594507933" 3 times.(çîé›8¤Åµ÷ß1
+java:S1192e"NDefine a constant instead of duplicating this literal "Entertainment" 3 times.(æ«ğõùÿÿÿÿ8£Åµ÷ß1
 m
-java:S1192a"KDefine a constant instead of duplicating this literal "0598123123" 3 times.(şºİØşÿÿÿÿ8¤Åµ÷ß1
-k
-java:S11922"IDefine a constant instead of duplicating this literal "7\3\2004" 7 times.(ß·¹Ûüÿÿÿÿ8¤Åµ÷ß1
-i
-java:S1192é"KDefine a constant instead of duplicating this literal "Event Name" 3 times.(„—š8¥Åµ÷ß1
-d
-java:S1192é"FDefine a constant instead of duplicating this literal "Theme" 3 times.(„—š8¥Åµ÷ß1
-k
-java:S1192é"MDefine a constant instead of duplicating this literal "Phone Number" 3 times.(„—š8¥Åµ÷ß1
+java:S1192f"KDefine a constant instead of duplicating this literal "Decoration" 3 times.(×ò×õúÿÿÿÿ8É—áûæ1
 j
-java:S11928"HDefine a constant instead of duplicating this literal "unicorn" 4 times.(Ì¾…åøÿÿÿÿ8¥Åµ÷ß1
-g
-java:S1192é"IDefine a constant instead of duplicating this literal "Location" 3 times.(„—š8¥Åµ÷ß1
-
-java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(å•Ğë8«Åµ÷ß1
-s	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(•¸°çşÿÿÿÿ8­Åµ÷ß1
+java:S1192]"MDefine a constant instead of duplicating this literal "Photographer" 4 times.(Äñ¤É8Ğ—áûæ1
+j
+java:S1192ò
+"GDefine a constant instead of duplicating this literal "------" 4 times.(Åÿàšşÿÿÿÿ8ß—áûæ1
+h
+java:S1192C"KDefine a constant instead of duplicating this literal "0594507933" 7 times.(“£8ì—áûæ1
+m
+java:S1192|"KDefine a constant instead of duplicating this literal "0598123123" 4 times.(şºİØşÿÿÿÿ8¤Åµ÷ß1
+l
+java:S1192A"JDefine a constant instead of duplicating this literal "7\3\2004" 12 times.(¢Ôèôşÿÿÿÿ8†˜áûæ1
 n
-java:S1301Ê"KReplace this "switch" statement by "if" statements to increase readability.(¯À¶òûÿÿÿÿ8´Åµ÷ß1
-?
-java:S1643Ü"Use a StringBuilder instead.(²ˆøÿÿÿÿ8·Åµ÷ß1
-:
-java:S1643ë"Use a StringBuilder instead.(”­Õ8·Åµ÷ß1
-:
-java:S1643›"Use a StringBuilder instead.(÷—¤ú8·Åµ÷ß1
-:
-java:S1643¦"Use a StringBuilder instead.(ôÜÊØ8·Åµ÷ß1
-:
-java:S1643²"Use a StringBuilder instead.(˜à‹8·Åµ÷ß1
-?
-java:S1643î"Use a StringBuilder instead.(ƒ‰†úÿÿÿÿ8·Åµ÷ß1
-?
-java:S1643ß"Use a StringBuilder instead.(³ƒÉøÿÿÿÿ8¸Åµ÷ß1
-:
-java:S1643á"Use a StringBuilder instead.(¯¯Øİ8¹Åµ÷ß1
-:
-java:S1643ä"Use a StringBuilder instead.(šöª8¹Åµ÷ß1
-?
-java:S1643ç"Use a StringBuilder instead.(¢›Çáÿÿÿÿÿ8¹Åµ÷ß1
-:
-java:S1643ë"Use a StringBuilder instead.(šöª8¹Åµ÷ß1
-:
-java:S1643î"Use a StringBuilder instead.(ÿĞêĞ8¹Åµ÷ß1
-:
-java:S1643ò"Use a StringBuilder instead.(šöª8¹Åµ÷ß1
-:
-java:S1643õ"Use a StringBuilder instead.(»éÀ‹8¹Åµ÷ß1
-:
-java:S1643ù"Use a StringBuilder instead.(šöª8¹Åµ÷ß1
-?
-java:S1643ü"Use a StringBuilder instead.(İµø¸ûÿÿÿÿ8¹Åµ÷ß1
+java:S1192"KDefine a constant instead of duplicating this literal "Event Name" 4 times.(ğ˜‹øÿÿÿÿ8—˜áûæ1
+{
+java:S1192A"YDefine a constant instead of duplicating this literal "raghadsalhab13@gmail.com" 6 times.(¢Ôèôşÿÿÿÿ8§˜áûæ1
+i
+java:S1192"FDefine a constant instead of duplicating this literal "Theme" 4 times.(ğ˜‹øÿÿÿÿ8¬˜áûæ1
+p
+java:S1192"MDefine a constant instead of duplicating this literal "Phone Number" 3 times.(ğ˜‹øÿÿÿÿ8¯˜áûæ1
+j
+java:S1192G"HDefine a constant instead of duplicating this literal "unicorn" 5 times.(Ì¾…åøÿÿÿÿ8¥Åµ÷ß1
+l
+java:S1192"IDefine a constant instead of duplicating this literal "Location" 4 times.(ğ˜‹øÿÿÿÿ8ç˜áûæ1
+
+java:S1319ƒ
+"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(å•Ğë8«Åµ÷ß1
+r	java:S117W"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£¹ãÇûÿÿÿÿ8‡™áûæ1
+r	java:S117X"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ãàôÔÿÿÿÿÿ8™áûæ1
+s	java:S117„
+"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(•¸°çşÿÿÿÿ8­Åµ÷ß1
+n	java:S117š"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ı»Íì8˜™áûæ1
+n
+java:S1301†"KReplace this "switch" statement by "if" statements to increase readability.(¯À¶òûÿÿÿÿ8´Åµ÷ß1
 q
-java:S1104"OMake num a static final constant or non-public and provide accessors if needed.(‚†’ùÿÿÿÿ8»Åµ÷ß1
+java:S1104"OMake num a static final constant or non-public and provide accessors if needed.(‚†’ùÿÿÿÿ8»Åµ÷ß1
 K
-java:S1444")Make this "public static num" field final(‚†’ùÿÿÿÿ8¼Åµ÷ß1
+java:S1444")Make this "public static num" field final(‚†’ùÿÿÿÿ8¼Åµ÷ß1
 e
-java:S21847"CCast one of the operands of this subtraction operation to a "long".(À²é¾ıÿÿÿÿ8ÊÅµ÷ß1
+java:S2184F"CCast one of the operands of this subtraction operation to a "long".(À²é¾ıÿÿÿÿ8ÊÅµ÷ß1
 u	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(š°ä?8ÍÅµ÷ß1
 e
-java:S3973³"GUse indentation to denote the code conditionally executed by this "if".(àç¶Ó8ÑÅµ÷ß1
+java:S3973§
+"GUse indentation to denote the code conditionally executed by this "if".(àç¶Ó8ÑÅµ÷ß1
 e
-java:S3973¾"GUse indentation to denote the code conditionally executed by this "if".(¨•÷8ÑÅµ÷ß1
-b
-java:S2583ğ"DChange this condition so that it does not always evaluate to "false"(¸Ã¼Ø8îáµ÷ß1
-{	java:S116)"_Rename this field "ViewEventsByUserFlag" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÙÃ´¿8ñáµ÷ß1
-|	java:S116*"`Rename this field "DeleteEventByUserFlag" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ËÏâÄ8òáµ÷ß1
-o
-java:S1659"RDeclare "isEventViewEventsEdit" and all following declarations on a separate line.(ÊŠĞŒ8ÿáµ÷ß1
-i
-java:S1659"LDeclare "isEventTimeEdit" and all following declarations on a separate line.(Ç‚‡µ8€âµ÷ß1
+java:S3973²
+"GUse indentation to denote the code conditionally executed by this "if".(¨•÷8ÑÅµ÷ß1
+{	java:S1160"_Rename this field "ViewEventsByUserFlag" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÙÃ´¿8ñáµ÷ß1
+|	java:S1161"`Rename this field "DeleteEventByUserFlag" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ËÏâÄ8òáµ÷ß1
+Ÿ
+java:S1186•"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(è¤¹8Âáûæ1
 w
-java:S1450š"YRemove the "inUserPage" field and declare it as a local variable in the relevant methods.(¶ìÿ™8…âµ÷ß1
+java:S1450½"YRemove the "inUserPage" field and declare it as a local variable in the relevant methods.(¶ìÿ™8…âµ÷ß1
 €
-java:S1450"^Remove the "isCreatePackage" field and declare it as a local variable in the relevant methods.(ê‚¥ûÿÿÿÿ8…âµ÷ß1
+java:S1450"^Remove the "isCreatePackage" field and declare it as a local variable in the relevant methods.(ê‚¥ûÿÿÿÿ8…âµ÷ß1
 z
-java:S1450"^Remove the "isDeletePackage" field and declare it as a local variable in the relevant methods.(İõˆ%8…âµ÷ß1
+java:S1450"^Remove the "isDeletePackage" field and declare it as a local variable in the relevant methods.(İõˆ%8…âµ÷ß1
 ‡
-java:S1450 "kRemove the "isEventAdditionalServiceEdit" field and declare it as a local variable in the relevant methods.(éõ[8†âµ÷ß1
+java:S1450'"kRemove the "isEventAdditionalServiceEdit" field and declare it as a local variable in the relevant methods.(éõ[8†âµ÷ß1
 z
-java:S1450"]Remove the "isSeeEventList" field and declare it as a local variable in the relevant methods.(”Ç¢ã8‡âµ÷ß1
+java:S1450"]Remove the "isSeeEventList" field and declare it as a local variable in the relevant methods.(”Ç¢ã8‡âµ÷ß1
 v
-java:S1450"ZRemove the "isSeeSPList" field and declare it as a local variable in the relevant methods.(ÀÃ;8‡âµ÷ß1
+java:S1450 "ZRemove the "isSeeSPList" field and declare it as a local variable in the relevant methods.(ÀÃ;8‡âµ÷ß1
 y
-java:S1450"\Remove the "isSeeUserList" field and declare it as a local variable in the relevant methods.(Ç×ß¨8‡âµ÷ß1
-ƒ
-java:S1450x"aRemove the "providerhasservice" field and declare it as a local variable in the relevant methods.(´€¼øÿÿÿÿÿ8Šâµ÷ß1
-_	java:S107ğ"=Method has 11 parameters, which is greater than 7 authorized.(®ğá„ûÿÿÿÿ8‘âµ÷ß1
+java:S1450"\Remove the "isSeeUserList" field and declare it as a local variable in the relevant methods.(Ç×ß¨8‡âµ÷ß1
+„
+java:S1450›"aRemove the "providerhasservice" field and declare it as a local variable in the relevant methods.(´€¼øÿÿÿÿÿ8Šâµ÷ß1
+_	java:S107¬"=Method has 11 parameters, which is greater than 7 authorized.(®ğá„ûÿÿÿÿ8‘âµ÷ß1
 I
-java:S18746",Remove this use of "Time"; it is deprecated.(èº³Å8˜âµ÷ß1
+java:S1874E",Remove this use of "Time"; it is deprecated.(èº³Å8˜âµ÷ß1
 I
-java:S1481:"'Remove this unused "l1" local variable.(ÿÈ¿©øÿÿÿÿ8›âµ÷ß1
+java:S1481I"'Remove this unused "l1" local variable.(ÿÈ¿©øÿÿÿÿ8›âµ÷ß1
 I
-java:S1481;"'Remove this unused "l2" local variable.(“æ©øıÿÿÿÿ8œâµ÷ß1
+java:S1481J"'Remove this unused "l2" local variable.(“æ©øıÿÿÿÿ8œâµ÷ß1
 S
-java:S1117?"6Rename "t" which hides the field declared at line 157.(Î¨ÌÙ8âµ÷ß1
+java:S1117N"6Rename "t" which hides the field declared at line 192.(Î¨ÌÙ8âµ÷ß1
 I
-java:S1874?",Remove this use of "Time"; it is deprecated.(Î¨ÌÙ8Ÿâµ÷ß1
-S
-java:S1117@"6Rename "d" which hides the field declared at line 158.(ã¯Å8Ÿâµ÷ß1
-K
-java:S1874@".Remove this use of "<init>"; it is deprecated.(ã¯Å8 âµ÷ß1
-\
-java:S1117A"?Rename "localEvent" which hides the field declared at line 159.( –¸8¡âµ÷ß1
-X	java:S125["<This block of commented-out lines of code should be removed.(’îÁò8ëâµ÷ß1
-L
-java:S1481a"*Remove this unused "admin" local variable.(şºİØşÿÿÿÿ8ïâµ÷ß1
-J
-java:S1874",Remove this use of "Time"; it is deprecated.(Î¨ÌÙ8ùâµ÷ß1
-O
-java:S1874",Remove this use of "Date"; it is deprecated.(ôƒ½ùùÿÿÿÿ8úâµ÷ß1
-H
-java:S1172Å"*Remove this unused method parameter "obj".(¯çÀŒ8¦ãµ÷ß1
-D	java:S131Ê""Add a default case to this switch.(¯À¶òûÿÿÿÿ8¨ãµ÷ß1
-Y
-java:S1117Ô"6Rename "d" which hides the field declared at line 158.(´¨ŒÁøÿÿÿÿ8©ãµ÷ß1
-^
-java:S1126Ø"AReplace this if-then-else statement by a single return statement.(û‘Ï8ªãµ÷ß1
-H
-java:S1172è"*Remove this unused method parameter "obj".(¨‚­·8¬ãµ÷ß1
-M
-java:S1172ì"*Remove this unused method parameter "obj".(·ÊÈÍúÿÿÿÿ8¯ãµ÷ß1
-Y
-java:S1117ò"6Rename "d" which hides the field declared at line 158.(á±üøÿÿÿÿ8³ãµ÷ß1
-O
-java:S1874ò",Remove this use of "Date"; it is deprecated.(á±üøÿÿÿÿ8³ãµ÷ß1
-Y
-java:S1117ó"6Rename "t" which hides the field declared at line 157.(Íı„ùÿÿÿÿ8³ãµ÷ß1
-O
-java:S1874ó",Remove this use of "Time"; it is deprecated.(Íı„ùÿÿÿÿ8´ãµ÷ß1
-M	java:S106ù"+Replace this use of System.out by a logger.(ğù•øÿÿÿÿ8·ãµ÷ß1
-H	java:S106€"+Replace this use of System.out by a logger.(½·†ö8¸ãµ÷ß1
-H
-java:S1172"*Remove this unused method parameter "obj".(œí€ 8¿ãµ÷ß1
-?	java:S131ô""Add a default case to this switch.(å’ÎÑ8Íãµ÷ß1
-˜
-java:S2159ğ"zRemove this call to "equals"; comparisons against null always return false; consider using '== null' to check for nullity.(¸Ã¼Ø8Üãµ÷ß1
-M	java:S106µ"+Replace this use of System.out by a logger.(Å­Ëİúÿÿÿÿ8¦åµ÷ß1
-H	java:S106ò"+Replace this use of System.out by a logger.(¤™ï×8²åµ÷ß1
-T
-java:S1117ß"6Rename "d" which hides the field declared at line 158.(•èÎ8Ååµ÷ß1
-J
-java:S1874ß",Remove this use of "Date"; it is deprecated.(•èÎ8Æåµ÷ß1
-Y
-java:S1117ì"6Rename "d" which hides the field declared at line 158.(¸ºÒÉûÿÿÿÿ8Éåµ÷ß1
-O
-java:S1874ì",Remove this use of "Time"; it is deprecated.(¸ºÒÉûÿÿÿÿ8Êåµ÷ß1
-M	java:S106­"+Replace this use of System.out by a logger.(Î‰•ıÿÿÿÿ8İåµ÷ß1
-M	java:S106Â"+Replace this use of System.out by a logger.(¯ÆÄçıÿÿÿÿ8ååµ÷ß1
-H	java:S106Ó"+Replace this use of System.out by a logger.(±§çè8éåµ÷ß1
-p	java:S100Û"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(äî”şÿÿÿÿ8êåµ÷ß1
-G
-java:S1940à")Use the opposite operator ("!=") instead.(¤Š¯Í8ğåµ÷ß1
-L
-java:S1940æ")Use the opposite operator ("!=") instead.(Ååá¥üÿÿÿÿ8ñåµ÷ß1
-L
-java:S1940í")Use the opposite operator ("!=") instead.(›†éØıÿÿÿÿ8óåµ÷ß1
-F
-java:S1940ô")Use the opposite operator ("!=") instead.(‡ñY8ôåµ÷ß1
-p	java:S100‡	"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ù©«¸şÿÿÿÿ8öåµ÷ß1
-O
-java:S1068"3Remove this unused "isDeletePackage" private field.(İõˆ%8ùæµ÷ß1
-U
-java:S1068"3Remove this unused "isCreatePackage" private field.(ê‚¥ûÿÿÿÿ8ùæµ÷ß1
-O
-java:S1068"2Remove this unused "isSeeEventList" private field.(”Ç¢ã8ûæµ÷ß1
+java:S1874N",Remove this use of "Time"; it is deprecated.(Î¨ÌÙ8Ÿâµ÷ß1
 N
-java:S1068"1Remove this unused "isSeeUserList" private field.(Ç×ß¨8üæµ÷ß1
-K
-java:S1068"/Remove this unused "isSeeSPList" private field.(ÀÃ;8üæµ÷ß1
+java:S1874O",Remove this use of "Date"; it is deprecated.(õòÃùÿÿÿÿ8ëŸáûæ1
 \
-java:S1068 "@Remove this unused "isEventAdditionalServiceEdit" private field.(éõ[8üæµ÷ß1
-X
-java:S1068x"6Remove this unused "providerhasservice" private field.(´€¼øÿÿÿÿÿ8üæµ÷ß1
-O
-java:S1068˜",Remove this unused "isLogged" private field.(²ÇĞûÿÿÿÿ8ıæµ÷ß1
+java:S1117S"?Rename "localEvent" which hides the field declared at line 194.( –¸8¡âµ÷ß1
+X	java:S125v"<This block of commented-out lines of code should be removed.(’îÁò8ëâµ÷ß1
 L
-java:S1068š".Remove this unused "inUserPage" private field.(¶ìÿ™8ıæµ÷ß1
+java:S1481|"*Remove this unused "admin" local variable.(şºİØşÿÿÿÿ8ïâµ÷ß1
+J
+java:S1874À",Remove this use of "Time"; it is deprecated.(Î¨ÌÙ8ùâµ÷ß1
+O
+java:S1874Á",Remove this use of "Date"; it is deprecated.(ôƒ½ùùÿÿÿÿ8úâµ÷ß1
+H	java:S106ì"+Replace this use of System.out by a logger.(ßıå8Å¡áûæ1
+H	java:S106ó"+Replace this use of System.out by a logger.(Ë•±å8Ì¡áûæ1
+H
+java:S1172"*Remove this unused method parameter "obj".(¯çÀŒ8¦ãµ÷ß1
+D	java:S131†""Add a default case to this switch.(¯À¶òûÿÿÿÿ8¨ãµ÷ß1
+Y
+java:S1117"6Rename "d" which hides the field declared at line 193.(´¨ŒÁøÿÿÿÿ8©ãµ÷ß1
+^
+java:S1126”"AReplace this if-then-else statement by a single return statement.(û‘Ï8ªãµ÷ß1
+H
+java:S1172¤"*Remove this unused method parameter "obj".(¨‚­·8¬ãµ÷ß1
+M
+java:S1172¨"*Remove this unused method parameter "obj".(·ÊÈÍúÿÿÿÿ8¯ãµ÷ß1
+J
+java:S1874®",Remove this use of "Date"; it is deprecated.(éáÚ¥8ú¡áûæ1
+Y
+java:S1117¯"6Rename "t" which hides the field declared at line 192.(Íı„ùÿÿÿÿ8³ãµ÷ß1
+O
+java:S1874¯",Remove this use of "Time"; it is deprecated.(Íı„ùÿÿÿÿ8´ãµ÷ß1
+H
+java:S1172Ó"*Remove this unused method parameter "obj".(œí€ 8¿ãµ÷ß1
+o
+java:S3776´"RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.(‚¶Úm8â¢áûæ1
+?	java:S131Á""Add a default case to this switch.(å’ÎÑ8Íãµ÷ß1
+G	java:S106¼	"+Replace this use of System.out by a logger.(±³úP8¯¥áûæ1
+K	java:S108Ã	")Either remove or fill this block of code.(‚Ù«ğøÿÿÿÿ8Ê¥áûæ1
+T
+java:S1117Ó	"6Rename "d" which hides the field declared at line 193.(•èÎ8Ååµ÷ß1
+J
+java:S1874Ó	",Remove this use of "Date"; it is deprecated.(•èÎ8Æåµ÷ß1
+Y
+java:S1117à	"6Rename "d" which hides the field declared at line 193.(¸ºÒÉûÿÿÿÿ8Éåµ÷ß1
+O
+java:S1874à	",Remove this use of "Time"; it is deprecated.(¸ºÒÉûÿÿÿÿ8Êåµ÷ß1
+M	java:S106¡
+"+Replace this use of System.out by a logger.(Î‰•ıÿÿÿÿ8İåµ÷ß1
+H	java:S106Ç
+"+Replace this use of System.out by a logger.(±§çè8éåµ÷ß1
+p	java:S100Ù
+"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(äî”şÿÿÿÿ8êåµ÷ß1
+u
+java:S3776Ù
+"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(äî”şÿÿÿÿ8ß¦áûæ1
+p	java:S100‘"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ù©«¸şÿÿÿÿ8öåµ÷ß1
+Y
+java:S1854Ä"6Remove this useless assignment to local variable "ss".(ŞøÀàùÿÿÿÿ8Î§áûæ1
+J
+java:S1481Ä"'Remove this unused "ss" local variable.(ŞøÀàùÿÿÿÿ8Ó§áûæ1
+^	java:S125Ò"<This block of commented-out lines of code should be removed.(»Ùä•úÿÿÿÿ8è§áûæ1
+^	java:S125Û"<This block of commented-out lines of code should be removed.(ßÓúÿÿÿÿ8õ§áûæ1
+P
+java:S1068".Remove this unused "dateFormat" private field.(‚óôÎøÿÿÿÿ8‡¨áûæ1
+O
+java:S1068"3Remove this unused "isDeletePackage" private field.(İõˆ%8ùæµ÷ß1
+U
+java:S1068"3Remove this unused "isCreatePackage" private field.(ê‚¥ûÿÿÿÿ8ùæµ÷ß1
+O
+java:S1068"2Remove this unused "isSeeEventList" private field.(”Ç¢ã8ûæµ÷ß1
+N
+java:S1068"1Remove this unused "isSeeUserList" private field.(Ç×ß¨8üæµ÷ß1
+K
+java:S1068 "/Remove this unused "isSeeSPList" private field.(ÀÃ;8üæµ÷ß1
+\
+java:S1068'"@Remove this unused "isEventAdditionalServiceEdit" private field.(éõ[8üæµ÷ß1
+Y
+java:S1068›"6Remove this unused "providerhasservice" private field.(´€¼øÿÿÿÿÿ8üæµ÷ß1
+O
+java:S1068»",Remove this unused "isLogged" private field.(²ÇĞûÿÿÿÿ8ıæµ÷ß1
+L
+java:S1068½".Remove this unused "inUserPage" private field.(¶ìÿ™8ıæµ÷ß1
