@@ -70,7 +70,7 @@ private static int num=0;
         Person u2 = new Person("s12112499@stu.najah.edu", "1234", "7\3\2004", "0594507933","raghadsalhab13@gmail.com");
         addUser(u2);
         Time t1 = new Time(5, 0, 0);
-        java.sql.Date d1 = new java.sql.Date(2024 - 3 - 25);
+        java.sql.Date d1 = new java.sql.Date((long)2024 - 3 - 25);
         Event e1 = new Event("Laila's Birthday", d1, t1, "home", "unicorn", 20);
         Event e2 = new Event("omar's birthday", d1, t1, "home", "unicorn", 20);
         Location l1=new Location(1,0,"home","in my home free");
@@ -754,7 +754,7 @@ int temp=0;
 
         Event ev = searchInEvent(int1);
 
-        if (ev.equals(null)) {
+        if (ev == null) {
             eventfoundflag = false;
         } else {
             eventfoundflag = true;
