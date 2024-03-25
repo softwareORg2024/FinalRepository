@@ -20,8 +20,9 @@ public class Main {
     private static final String PROMPT_PASSWORD_MESSAGE = "Please enter your password";
     private static final String ANSI_PURPLE = "\u001B[95m";
 
-    private static final String name = "qa";
-    private static final String pass1 = "3";
+    private static final String NAME = "qa";
+    private static final String PASS_1 = "3";
+
     private static final String ANSI_RESET = "\u001B[0m";
 
     private static String username(String str){
@@ -162,8 +163,8 @@ public class Main {
 
 
     private static void loginProcedure(Scanner input) {
-        String adimnUsername = username(name);
-        String adminPassword = password(pass1);
+        String adimnUsername = username(NAME);
+        String adminPassword = password(PASS_1);
 
         String name= getInput( PROMPT_NAME_MESSAGE);
         String password = getInput( PROMPT_PASSWORD_MESSAGE);
