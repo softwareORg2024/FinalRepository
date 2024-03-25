@@ -98,7 +98,7 @@ private static int num=0;
 
 
 
-        Event localEvent = new Event("asmaa", d, tim, "home", "Superhero", 25);
+         localEvent = new Event("asmaa", d, tim, "home", "Superhero", 25);
         addEvent(localEvent);
         Person u4 = new Person("ahmad", "1234", "7\3\2005", "0594507973",DEFAULT_EMAIL);
         Person u3 = new Person("salma", "1234", "7\7\2006", "0594502933",DEFAULT_EMAIL);
@@ -141,7 +141,7 @@ u3.addUserEvent(e1);
         Package p2 = new Package("food+photo+cake", 100.00,2);
         addPackage(p2);
         Person abd=new Person("abd","1234","26\5\2004","0598188123");
-        Event e3 = new Event("abd's Birthday", d1, t1, "home", "Circus ", 20);
+        Event e3 = new Event("abd's Birthday", d1, t1, "home", "boyTheme ", 20);
         e3.setPack(p2);
         abd.addUserEvent(e3);
         up.add(abd);
@@ -166,7 +166,7 @@ locationList.add(k2);
         e6.setUser(pForDelete);
         e6.setPhotographerService(f4);
         pForDelete.addUserEvent(e6);
-        Event e7 = new Event("tala's Birthday", d1, t1, "home", "Circus ", 20);
+        Event e7 = new Event("tala's Birthday", d1, t1, "home", "girly ", 20);
         e7.setPhotographerService(f3);
         e7.setUser(u3);
         u3.addUserEvent(e7);
@@ -373,9 +373,9 @@ locationList.add(k2);
     }
 
     public boolean checkPastDate(Integer int1, Integer int2, Integer int3) {
-        LocalDate d = LocalDate.of(int1, int2, int3);
+        LocalDate date2 = LocalDate.of(int1, int2, int3);
         LocalDate currentDate = LocalDate.now();
-        return d.isBefore(currentDate);
+        return date2.isBefore(currentDate);
     }
 
     public boolean isInCreationPage() {

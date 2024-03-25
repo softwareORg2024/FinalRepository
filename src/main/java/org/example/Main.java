@@ -142,7 +142,7 @@ public class Main {
                     loginProcedure(input);
                     return;
                 case 3:
-                    forgotPass(input);
+                    forgotPass();
                     return;
                 case 4:
                     logger.info("Have a nice day!! ");
@@ -365,7 +365,10 @@ public class Main {
                     break;
                 case 5:
                     int eventCost = obj.getLocalEvent().eventCost(cost);
-                    logger.info( CREATE_EVENT_MESSAGE+eventCost);
+
+                    logger.info(CREATE_EVENT_MESSAGE+String.valueOf(eventCost));
+
+
                     displayUserMenu(input);
                     break;
 
@@ -808,6 +811,7 @@ public class Main {
                 logger.info("Logging out as Admin.");
 
                 logInSignUp();
+                break;
 
             default:
                 logger.info(INVALID_OPTION_MESSAGE);
@@ -816,7 +820,7 @@ public class Main {
         displayAdminMenu( input);
     }
 
-    private static void forgotPass(Scanner input) {
+    private static void forgotPass() {
         String name = getInput( "Enter the name for your account");
         String pass = getInput( "Enter the new password for your account");
         obj.setEnteredUsername(name);
@@ -863,6 +867,7 @@ public class Main {
                 break;
             case 3 :
                 logInSignUp();
+                break;
             default :
                 logger.info(INVALID_OPTION_MESSAGE);
                 signUpProcedure(input);
