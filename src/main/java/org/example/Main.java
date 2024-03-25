@@ -308,7 +308,8 @@ public class Main {
 
     private static void viewListOfServices() {
         if (sp != null && sp.getPerson() != null && sp.getPerson().getUserName() != null) {
-            logger.info(obj.showservicesForSp(sp.getPerson().getUserName()));
+            String p1=obj.showservicesForSp(sp.getPerson().getUserName());
+            logger.info(p1);
         } else {
             logger.info("Cannot show services for the service provider - missing details.");
         }
@@ -351,8 +352,9 @@ public class Main {
            case 4 -> type = "Photographer";
            case 5 -> {
                int eventCost = obj.getLocalEvent().eventCost(cost);
-
-               logger.info(CREATE_EVENT_MESSAGE + String.valueOf(eventCost));
+String S1=CREATE_EVENT_MESSAGE;
+S1+=eventCost;
+               logger.info(S1);
 
 
                displayUserMenu(input);
