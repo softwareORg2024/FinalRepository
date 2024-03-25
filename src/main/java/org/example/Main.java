@@ -19,6 +19,7 @@ public class Main {
     private static final String INCORRECT_VALUE_MESSAGE = "\nYou have entered an incorrect value. Please enter a correct number:";
     private static final String PROMPT_PASSWORD_MESSAGE = "Please enter your password";
     private static final String ANSI_PURPLE = "\u001B[95m";
+
     private static final String name = "qa";
     private static final String pass1 = "3";
     private static final String ANSI_RESET = "\u001B[0m";
@@ -514,7 +515,7 @@ String createEventMessage=CREATE_EVENT_MESSAGE;
     }
 
     private static void displayUserMenu(Scanner input) {
-        String s = "\u001B[95m" +
+        String s = ANSI_PURPLE +
                 """
                \n ╔══════════════════════╗
                 ║      User Menu       ║
@@ -537,7 +538,10 @@ String createEventMessage=CREATE_EVENT_MESSAGE;
             case 3 -> {
                 show = obj.viewEventsByUser(user.getUserName());
                 String eventname = getInput(show + "\n Please enter eventName:\n");
-                logger.info("The event " + eventname + " was successfully deleted\n\n");
+                String eventCreated="The event ";
+                eventCreated+=eventname;
+                eventCreated+=" was successfully deleted\n\n";
+                logger.info(eventCreated);
                 obj.deleteEventByUser(user.getUserName(), eventname);
 
             }
@@ -590,7 +594,7 @@ String createEventMessage=CREATE_EVENT_MESSAGE;
     }
 
     private static void displayEditMenu() {
-        String menu = "\u001B[95m" + """
+        String menu = ANSI_PURPLE + """
         \n
         ╔════════════════════════════════════╗
         ║          Edit Event Menu           ║
