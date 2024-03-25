@@ -134,25 +134,28 @@ public class Main {
                 }
             }
 
-            switch (choice) {
-                case 1:
-                    signUpProcedure(input);
-                    return;
-                case 2:
-                    loginProcedure(input);
-                    return;
-                case 3:
-                    forgotPass();
-                    return;
-                case 4:
-                    logger.info("Have a nice day!! ");
-                    System.exit(1);
-                    break;
-                default:
-                    logger.info("Invalid option selected. Please try again.");
-                    logger.info(menuOptions);
+        switch (choice) {
+            case 1 -> {
+                signUpProcedure(input);
 
             }
+            case 2 -> {
+                loginProcedure(input);
+
+            }
+            case 3 -> {
+                forgotPass();
+                
+            }
+            case 4 -> {
+                logger.info("Have a nice day!! ");
+                System.exit(1);
+            }
+            default -> {
+                logger.info("Invalid option selected. Please try again.");
+                logger.info(menuOptions);
+            }
+        }
         }
 
 
@@ -211,27 +214,17 @@ public class Main {
         while (true) {
             choice = getChoice(input);
             switch (choice) {
-                case 1:
-                    addNewService(input);
-                    break;
-                case 2:
-                    modifyExistingService(input);
-                    break;
-                case 3:
-                    deleteExistingService(input);
-                    break;
-                case 4:
-                    viewListOfUsers();
-                    break;
-                case 5:
-                    viewListOfServices();
-                    break;
-                case 6:
+                case 1 -> addNewService(input);
+                case 2 -> modifyExistingService(input);
+                case 3 -> deleteExistingService(input);
+                case 4 -> viewListOfUsers();
+                case 5 -> viewListOfServices();
+                case 6 -> {
                     logger.info("Logging out as Service provider.");
                     logInSignUp();
                     return;
-                default:
-                    logger.info(INVALID_OPTION_MESSAGE);
+                }
+                default -> logger.info(INVALID_OPTION_MESSAGE);
             }
             displaySpMenu( input);
         }
@@ -348,37 +341,24 @@ public class Main {
 
             String type = "";
             String spList = "";
-            switch (serviceChoice) {
-                case 1:
-                    type = "Food";
+       switch (serviceChoice) {
+           case 1 -> type = "Food";
+           case 2 -> type = "Decoration";
+           case 3 -> type = "Entertainment";
+           case 4 -> type = "Photographer";
+           case 5 -> {
+               int eventCost = obj.getLocalEvent().eventCost(cost);
 
-                    break;
-                case 2:
-                    type = "Decoration";
-
-                    break;
-                case 3:
-                    type = "Entertainment";
-                    break;
-                case 4:
-                    type = "Photographer";
-                    break;
-                case 5:
-                    int eventCost = obj.getLocalEvent().eventCost(cost);
-
-                    logger.info(CREATE_EVENT_MESSAGE+String.valueOf(eventCost));
+               logger.info(CREATE_EVENT_MESSAGE + String.valueOf(eventCost));
 
 
-                    displayUserMenu(input);
-                    break;
-
-                default:
-
-                    logger.info("Choose from the menu plz..\n");
-                    addServices(input, int1, event1);
-
-
-            }
+               displayUserMenu(input);
+           }
+           default -> {
+               logger.info("Choose from the menu plz..\n");
+               addServices(input, int1, event1);
+           }
+       }
        if (serviceChoice != 5) {
             spList = searchInSpAccordingToType(type);
            logger.info(spList);
@@ -540,38 +520,27 @@ public class Main {
 
         logger.info(s);
         int choice = input.nextInt();
+        String show;
         switch (choice) {
-            case 1:
-                creatBasicEvent(input);
-                break;
-
-
-            case 2:
-
-               editEvent(input);
-                break;
-         case 3:
-                String show=obj.viewEventsByUser(user.getUserName());
-                String eventname= getInput(show+"\n Please enter eventName:\n");
-                logger.info("The event "+eventname+" was successfully deleted\n\n");
+            case 1 -> creatBasicEvent(input);
+            case 2 -> editEvent(input);
+            case 3 -> {
+                show = obj.viewEventsByUser(user.getUserName());
+                String eventname = getInput(show + "\n Please enter eventName:\n");
+                logger.info("The event " + eventname + " was successfully deleted\n\n");
                 obj.deleteEventByUser(user.getUserName(), eventname);
 
-                break;
-
-            case 4:
-                 show=obj.viewEventsByUser(user.getUserName());
+            }
+            case 4 -> {
+                show = obj.viewEventsByUser(user.getUserName());
                 logger.info(show);
                 displayUserMenu(input);
-                break;
-
-            case 5:
-                logInSignUp();
-                break;
-
-
-            default:
+            }
+            case 5 -> logInSignUp();
+            default -> {
                 logger.info("Invalid option selected.\n");
                 displayUserMenu(input);
+            }
         }
         displayUserMenu(input);
 
@@ -780,42 +749,41 @@ public class Main {
         logger.info(menu);
         int choice = input.nextInt();
         switch (choice) {
-            case 1:
+            case 1 -> {
                 logger.info(obj.showUserListForAdmin());
-
-                break;
-
-
-            case 2:
+            }
+            case 2 -> {
                 logger.info(obj.showSPtForAdmin());
-
-                break;
-            case 3:
-                logger.info(obj.showEventForAdmin());break;
-            case 4:
+            }
+            case 3 -> {
+                logger.info(obj.showEventForAdmin());
+            }
+            case 4 -> {
                 logger.info("Please enter package ID: ");
                 Integer id = input.nextInt();
-                String description= getInput( "Please enter package description: ");
+                String description = getInput("Please enter package description: ");
                 logger.info("Please enter package cost: ");
                 Double cost = input.nextDouble();
-                obj.createPackage(description,cost,id);break;
-            case 5:
+                obj.createPackage(description, cost, id);
+            }
+            case 5 -> {
                 logger.info(obj.showPackageForAdmin());
                 logger.info("Please enter package ID: ");
-                 id = input.nextInt();
+                Integer id = input.nextInt();
                 obj.deletePackage(id);
-                break;
-            case 6:
-                logger.info(obj.showPackageForAdmin());break;
-            case 7:
+            }
+            case 6 -> {
+                logger.info(obj.showPackageForAdmin());
+            }
+            case 7 -> {
                 logger.info("Logging out as Admin.");
 
                 logInSignUp();
-                break;
-
-            default:
+            }
+            default -> {
                 logger.info(INVALID_OPTION_MESSAGE);
                 displayAdminMenu(input);
+            }
         }
         displayAdminMenu( input);
     }
@@ -841,37 +809,41 @@ public class Main {
 
         logger.info(menu);
         int choice = input.nextInt();
-
+        String name ;
+        String phone ;
+        String email ;
+        String password;
+        String birthDate;
+        String type;
 
         switch (choice) {
-            case 1 :
+            case 1 -> {
                 logger.info("\nIn order to make a new account you have to enter your information\n");
-                String name= getInput( PROMPT_NAME_MESSAGE);
-                String phone= getInput( "Please enter your phone");
-                String email = getInput( "Please enter your Gmail");
-                String password = getInput( PROMPT_PASSWORD_MESSAGE);
-                String birthDate = getInput("Please enter your BirthDate");
-                String type= getInput( "\nPlease enter your type(Food,Decoration,Entertainment,Photographer)-->");
-                obj.createAccountForSp(name,password,birthDate,phone,type,email);
-                break;
+                name = getInput(PROMPT_NAME_MESSAGE);
+                phone = getInput("Please enter your phone");
+                email = getInput("Please enter your Gmail");
+                password = getInput(PROMPT_PASSWORD_MESSAGE);
+                birthDate = getInput("Please enter your BirthDate");
+                type = getInput("\nPlease enter your type(Food,Decoration,Entertainment,Photographer)-->");
+                obj.createAccountForSp(name, password, birthDate, phone, type, email);
 
-
-            case 2 :
+            }
+            case 2 -> {
                 logger.info("\nIn order to make a new account you have to enter your information\n");
-                 name= getInput( PROMPT_NAME_MESSAGE);
-                 phone= getInput( "Please enter your phone");
-                 email = getInput( "Please enter your Gmail");
-                 password = getInput(PROMPT_PASSWORD_MESSAGE);
-                 birthDate = getInput("Please enter your BirthDate");
-                obj.createAccountForUser(name,password,birthDate,phone,email);
-                break;
-            case 3 :
+                name = getInput(PROMPT_NAME_MESSAGE);
+                phone = getInput("Please enter your phone");
+                email = getInput("Please enter your Gmail");
+                password = getInput(PROMPT_PASSWORD_MESSAGE);
+                birthDate = getInput("Please enter your BirthDate");
+                obj.createAccountForUser(name, password, birthDate, phone, email);
+            }
+            case 3 -> {
                 logInSignUp();
-                break;
-            default :
+            }
+            default -> {
                 logger.info(INVALID_OPTION_MESSAGE);
                 signUpProcedure(input);
-
+            }
         }
 
 
