@@ -495,7 +495,10 @@ String createEventMessage=CREATE_EVENT_MESSAGE;
                         logger.info("Local event not found, cannot calculate cost.");
                     }
                 } else {
-                    logger.info("Package with id " + packid + " not found.");
+                    String packageMessege="Package with id ";
+                    packageMessege+=String.valueOf(packid);
+                    packageMessege+=" not found.";
+                    logger.info(packageMessege);
                 }
 
                 displayUserMenu(input);
