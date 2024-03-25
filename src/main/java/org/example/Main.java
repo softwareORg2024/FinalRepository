@@ -491,7 +491,9 @@ String createEventMessage=CREATE_EVENT_MESSAGE;
                     Event localEvent = obj.getLocalEvent();
                     if (localEvent != null) {
                         int eventCost = localEvent.eventCost(cost);
-                        logger.info(CREATE_EVENT_MESSAGE + eventCost);
+                        String s=CREATE_EVENT_MESSAGE;
+                        s+=String.valueOf(eventCost);
+                        logger.info(s);
                     } else {
                         logger.info("Local event not found, cannot calculate cost.");
                     }
