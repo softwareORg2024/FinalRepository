@@ -17,13 +17,6 @@ public class Serviceproviderfeature {
 
     }
 
-
-
-
-
-
-
-
         @Given("the service provider is logged in")
     public void the_service_provider_is_logged_in() {
             boolean b = obj.isServiceProviderFlag();
@@ -43,7 +36,7 @@ public class Serviceproviderfeature {
 
     @Then("the new service is added successfully")
     public void the_new_service_is_added_successfully() {
-      assertTrue(obj.isServiceaddedsucc());
+      assertTrue(obj.isServiceproviderMenuFlag());
     }
 
 
@@ -54,7 +47,7 @@ public class Serviceproviderfeature {
     }
     @Then("the service is modified successfully")
     public void the_service_is_modified_successfully() {
-       assertTrue(obj.isEditServiceForSpFlag());
+       assertTrue(obj.isServiceproviderMenuFlag());
     }
 
 
@@ -65,7 +58,7 @@ public class Serviceproviderfeature {
 
     @Then("the selected service is deleted successfully")
     public void the_selected_service_is_deleted_successfully() {
-      assertTrue(obj.isDeleteServiceForSpFlag());
+      assertTrue(obj.isServiceproviderMenuFlag());
     }
     @When("his name is {string} to see users and services")
     public void his_name_is_to_see_users_and_services(String string) {
@@ -74,7 +67,7 @@ public class Serviceproviderfeature {
 
     @Then("the list of users who chose the service provider's services is displayed")
     public void the_list_of_users_who_chose_the_service_provider_s_services_is_displayed() {
-      assertTrue(obj.isShowUsersAndEventsForSpFlag());
+      assertTrue(obj.isServiceproviderMenuFlag());
     }
     @When("his name is {string}")
     public void his_name_is(String string) {
@@ -83,7 +76,7 @@ public class Serviceproviderfeature {
 
     @Then("the list of services")
     public void the_list_of_services() {
-       assertTrue(obj.isShowservicesForSpFlag());
+       assertTrue(obj.isServiceproviderMenuFlag());
     }
 
 

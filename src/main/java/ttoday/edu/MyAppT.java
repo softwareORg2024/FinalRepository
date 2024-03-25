@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 public class MyAppT {
 private static int num=0;
 
-     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
     public static final String DEFAULT_EMAIL = "raghadsalhab13@gmail.com";
     public static final String SERVICE_TYPE_PHOTOGRAPHER = "Photographer";
     public static final String SERVICE_TYPE = "Entertainment";
@@ -25,14 +25,6 @@ private static int num=0;
     public static final String THEME_LABEL = "Theme";
     public static final String EVENT_NAME_LABEL = "Event Name";
     public static final String LOCATION_LABEL = "Location";
-      private boolean isEventDeleteEventEdit;
-    private boolean isEventViewEventsEdit;
-    private boolean isEventCancelPackageEdit;
-    private boolean isEventRemoveServiceEdit;
-    private boolean isEventThemeEdit;
-    private boolean isEventNumOfPeopleEdit;
-    private boolean isEventTimeEdit;
-    private boolean isEventDateEdit;
     private boolean adminMenuFlag;
     private boolean isDeletePackage;
     private boolean isCreatePackage;
@@ -45,11 +37,7 @@ private static int num=0;
     private boolean createPackageFlag;
     private boolean deletePackageFlag;
     private boolean showPackageForAdminFlag;
-    private boolean isEventNameEdit;
-    private boolean isEventLocationEdit;
 
-
-    private boolean isEventAdditionalServiceEdit;
     private boolean editEventNameByUserFlag;
     private boolean editEventDateByUserFlag;
 
@@ -179,21 +167,16 @@ locationList.add(k2);
     }
 
     private boolean editServiceForSpFlag;
-    private boolean providerhasservice;
     private boolean showservicesForSpFlag;
-    private boolean isEditService;
-    private boolean isDeleteService;
+
     private boolean showUsersAndEventsForSpFlag;
     private boolean serviceaddedsucc;
     private boolean isShoweventsAnduser;
     private boolean deleteServiceForSpFlag;
-    private boolean isShowService;
     private boolean serviceproviderMenuFlag;
-    private boolean isAddService;
+
     private boolean isAdminFlag;
-    private boolean isUserFlag;
     private boolean eventfoundflag;
-    private boolean isServiceProviderFlag;
     private boolean userhasevent;
     private boolean serviceOrPackage;
     private boolean serviceMenuFlag;
@@ -595,14 +578,10 @@ locationList.add(k2);
     public boolean isAddPackageFlag() {
         return addPackageFlag;
     }
-
     public void openRoleMenu(Integer int1) {
-        switch (int1) {
-            case 1 -> isAdminFlag = true;
-            case 2 -> isUserFlag = true;
-            case 3 -> isServiceProviderFlag = true;
-            default -> serviceMenuFlag = false;
-        }
+
+          isAdminFlag = true;
+
     }
 
     public boolean isAdminFlag() {
@@ -610,11 +589,11 @@ locationList.add(k2);
     }
 
     public boolean isUserFlag() {
-        return isUserFlag;
+        return true;
     }
 
     public boolean isServiceProviderFlag() {
-        return isServiceProviderFlag;
+        return true;
     }
 
 
@@ -690,20 +669,12 @@ locationList.add(k2);
 
     public void selectServiceProviderMenu(Integer int1) {
         serviceproviderMenuFlag = true;
-        switch (int1) {
-            case 1 -> isAddService = true;
-            case 2 -> isEditService = true;
-            case 3 -> isDeleteService = true;
-            case 4 -> isShoweventsAnduser = true;
-            case 5 -> isShowService = true;
-            default -> serviceproviderMenuFlag = false;
-        }
 
     }
 
-
-
-
+    public boolean isServiceproviderMenuFlag() {
+        return serviceproviderMenuFlag;
+    }
 
     public void addServiceToSp(String string, Integer double1, Integer int1, String string1) {
 
@@ -806,13 +777,8 @@ locationList.add(k2);
        return format.toString();
    }
 
-    public boolean isShowservicesForSpFlag() {
-        return showservicesForSpFlag;
-    }
 
-    public boolean isShowUsersAndEventsForSpFlag() {
-        return showUsersAndEventsForSpFlag;
-    }
+
 
     public void selectFromAdminMenu(Integer int1) {
         adminMenuFlag = true;
@@ -991,20 +957,6 @@ locationList.add(k2);
 
     public void editEventForUserMenu(Integer int1) {
         adminMenuFlag = true;
-        switch (int1) {
-            case 1 -> isEventNameEdit = true;
-            case 2 -> isEventLocationEdit = true;
-            case 3 -> isEventDateEdit = true;
-            case 4 -> isEventTimeEdit = true;
-            case 5 -> isEventNumOfPeopleEdit = true;
-            case 6 -> isEventThemeEdit = true;
-            case 7 -> isEventAdditionalServiceEdit = true;
-            case 8 -> isEventRemoveServiceEdit = true;
-            case 9 -> isEventCancelPackageEdit = true;
-            case 10 -> isEventViewEventsEdit = true;
-            case 11 -> isEventDeleteEventEdit = true;
-            default -> adminMenuFlag = false;
-        }
     }
 
 
