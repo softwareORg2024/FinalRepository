@@ -1,10 +1,7 @@
 name: SonarCloud
 on:
   push:
-    branches:
-      - main
-  pull_request:
-    types: [opened, synchronize, reopened]
+    branches: [main]
 
 jobs:
   build-on-ubuntu:
@@ -20,13 +17,14 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: '17'
-          distribution: 'temurin'
+          distribution: 'zulu'
 
       - name: Step3 - Build Maven Project
         run: mvn --batch-mode clean -DskipTests
 
       - name: Step4 - run test cases
         run: mvn --batch-mode -Dmaven.test.failure.ignore=true -X test
+
       - name: Cache SonarCloud packages
         uses: actions/cache@v3
         with:
