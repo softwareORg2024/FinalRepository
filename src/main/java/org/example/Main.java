@@ -751,30 +751,42 @@ public class Main {
         if(choice<=7){
         switch (choice) {
             case 1 ->
+            {            if (obj != null) {
+
                 logger.info(obj.showUserListForAdmin());
+            }}
+            case 2 -> {
+                if (obj != null) {
 
-            case 2 ->
-                logger.info(obj.showSPtForAdmin());
-
+                    logger.info(obj.showSPtForAdmin());
+                }
+            }
             case 3 ->
-                logger.info(obj.showEventForAdmin());
+            {if (obj != null) {
 
+                logger.info(obj.showEventForAdmin());
+            }}
             case 4 -> {
-                logger.info("Please enter package ID: ");
+                if (obj != null) {
+
+                    logger.info("Please enter package ID: ");
                 Integer id = input.nextInt();
                 String description = getInput("Please enter package description: ");
                 logger.info("Please enter package cost: ");
                 Double cost = input.nextDouble();
-                obj.createPackage(description, cost, id);
+                obj.createPackage(description, cost, id);}
             }
             case 5 -> {
+                if (obj != null) {
+
                 logger.info(obj.showPackageForAdmin());
                 logger.info("Please enter package ID: ");
                 Integer id = input.nextInt();
                 obj.deletePackage(id);
+                }
             }
             case 6 -> {
-                if (obj != null) {  // Replace this with your actual condition
+                if (obj != null) {
                     String packageInfo = obj.showPackageForAdmin();
                     logger.info(packageInfo);
                 }
