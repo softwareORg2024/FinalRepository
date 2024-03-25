@@ -773,8 +773,12 @@ public class Main {
                 Integer id = input.nextInt();
                 obj.deletePackage(id);
             }
-            case 6 ->
-                logger.info(obj.showPackageForAdmin());
+            case 6 -> {
+                if (obj != null) {  // Replace this with your actual condition
+                    String packageInfo = obj.showPackageForAdmin();
+                    logger.info(packageInfo);
+                }
+            }
 
             case 7 -> {
                 logger.info("Logging out as Admin.");
