@@ -748,6 +748,7 @@ public class Main {
               """ +ANSI_RESET+"\n"+CHOICE_PROMPT;
         logger.info(menu);
         int choice = input.nextInt();
+        if(obj!=null){
         switch (choice) {
             case 1 ->
                 logger.info(obj.showUserListForAdmin());
@@ -784,7 +785,7 @@ public class Main {
                 logger.info(INVALID_OPTION_MESSAGE);
                 displayAdminMenu(input);
             }
-        }
+        }}
         displayAdminMenu( input);
     }
 
