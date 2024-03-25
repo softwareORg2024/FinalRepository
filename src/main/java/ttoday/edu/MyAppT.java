@@ -667,7 +667,7 @@ locationList.add(k2);
         return eventfoundflag;
     }
 
-    public void selectServiceProviderMenu(Integer int1) {
+    public void selectServiceProviderMenu() {
         serviceproviderMenuFlag = true;
 
     }
@@ -686,12 +686,6 @@ locationList.add(k2);
 
     }
 
-    public boolean isServiceaddedsucc() {
-        return serviceaddedsucc;
-    }
-
-
-
     public void editServiceForSp(String string, Integer double1, Integer int1, String string2) {
         Service s = searchInServiceProvider(string2).searchForServiceId(int1);
         if(s==null){
@@ -707,13 +701,6 @@ locationList.add(k2);
 
     }
 
-
-
-
-    public boolean isEditServiceForSpFlag() {
-        return editServiceForSpFlag;
-    }
-
     public void deleteServiceForSp(Integer int1, String string) {
         ServiceProvider p = searchInServiceProvider(string);
         Service s = p.searchForServiceId(int1);
@@ -726,10 +713,6 @@ locationList.add(k2);
         else{
         logger.info("deleted successfully");}
 
-    }
-
-    public boolean isDeleteServiceForSpFlag() {
-        return deleteServiceForSpFlag;
     }
 
     public String showservicesForSp(String string) {
@@ -780,16 +763,8 @@ locationList.add(k2);
 
 
 
-    public void selectFromAdminMenu(Integer int1) {
+    public void selectFromAdminMenu() {
         adminMenuFlag = true;
-        switch (int1) {
-            case 1 -> isSeeUserList = true;
-            case 2 -> isSeeSPList = true;
-            case 3 -> isSeeEventList = true;
-            case 4 -> isCreatePackage = true;
-            case 5 -> isDeletePackage = true;
-            default -> adminMenuFlag = false;
-        }
     }
 
     public String showUserListForAdmin() {

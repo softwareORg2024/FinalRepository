@@ -23,9 +23,9 @@ public class Serviceproviderfeature {
 
         }
 
-    @When("the service provider selects {int}")
-    public void the_service_provider_selects(Integer int1) {
-        obj.selectServiceProviderMenu(int1);
+    @When("the service provider selects")
+    public void the_service_provider_selects() {
+        obj.selectServiceProviderMenu();
     }
 
 

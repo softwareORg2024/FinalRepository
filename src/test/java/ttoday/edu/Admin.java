@@ -20,9 +20,9 @@ public class Admin {
         boolean b = obj.isAdminFlag();
     }
 
-    @When("the admin selects {int}")
-    public void the_admin_selects(Integer int1) {
-      obj.selectFromAdminMenu(int1);
+    @When("the admin selects")
+    public void the_admin_selects() {
+      obj.selectFromAdminMenu();
     }
     @When("the user list created")
     public void the_user_list_created() {
@@ -38,7 +38,7 @@ public class Admin {
     }
     @Then("the list of all registered users in the application is displayed")
     public void the_list_of_all_registered_users_in_the_application_is_displayed() {
-        assertTrue(obj.isShowUserListForAdminFlag());
+        assertTrue(obj.isAdminMenuFlag());
     }
 
     @Then("the list of all service providers in the application is displayed")
