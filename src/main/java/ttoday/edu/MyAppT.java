@@ -578,7 +578,7 @@ locationList.add(k2);
     public boolean isAddPackageFlag() {
         return addPackageFlag;
     }
-    public void openRoleMenu(Integer int1) {
+    public void openRoleMenu() {
 
           isAdminFlag = true;
 

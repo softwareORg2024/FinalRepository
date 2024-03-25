@@ -22,9 +22,9 @@ public class roles {
     }
 
 
-@When("the admin enter {int}")
-public void the_admin_enter(Integer int1) {
-    obj.openRoleMenu(int1);
+@When("the admin enter")
+public void the_admin_enter() {
+    obj.openRoleMenu();
 }
 
 
@@ -35,17 +35,17 @@ public void the_admin_enter(Integer int1) {
     }
 
 
-    @When("the user enter {int}")
-    public void the_user_enter(Integer int1) {
-        obj.openRoleMenu(int1);
+    @When("the user enter")
+    public void the_user_enter() {
+        obj.openRoleMenu();
     }
     @Then("You can see service provider menu")
     public void you_can_see_service_provider_menu() {
         assertTrue( obj.isServiceProviderFlag());
     }
-    @When("the service provider enter {int}")
-    public void the_service_provider_enter(Integer int1) {
-        obj.openRoleMenu(int1);
+    @When("the service provider enter")
+    public void the_service_provider_enter() {
+        obj.openRoleMenu();
     }
 
     @Then("You can see user menu")
