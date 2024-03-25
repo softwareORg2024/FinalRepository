@@ -748,7 +748,7 @@ public class Main {
               """ +ANSI_RESET+"\n"+CHOICE_PROMPT;
         logger.info(menu);
         int choice = input.nextInt();
-        if(obj!=null){
+        if(choice<=7){
         switch (choice) {
             case 1 ->
                 logger.info(obj.showUserListForAdmin());
