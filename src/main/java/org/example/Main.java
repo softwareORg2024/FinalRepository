@@ -260,7 +260,8 @@ public class Main {
             if (person != null) {
                 String userName = person.getUserName();
                 if (userName != null) {
-                    logger.info(obj.showservicesForSp(userName));
+                    String p2=obj.showservicesForSp(userName);
+                    logger.info(p2);
                     logger.info(PROMPT_SERVICE_ID);
                     int id = input.nextInt();
                     String description = getInput("Please enter new description");
@@ -286,7 +287,8 @@ public class Main {
 
     private static void deleteExistingService(Scanner input) {
         if (sp != null && sp.getPerson() != null && sp.getPerson().getUserName() != null) {
-            logger.info(obj.showservicesForSp(sp.getPerson().getUserName()));
+            String p1=obj.showservicesForSp(sp.getPerson().getUserName());
+            logger.info(p1);
             logger.info(PROMPT_SERVICE_ID);
             int id = input.nextInt();
             obj.deleteServiceForSp(id, sp.getPerson().getUserName());
@@ -297,7 +299,8 @@ public class Main {
 
     private static void viewListOfUsers() {
         if (sp != null && sp.getPerson() != null && sp.getPerson().getUserName() != null) {
-            logger.info(obj.showUsersAndEventsForSp(sp.getPerson().getUserName()));
+            String p=obj.showUsersAndEventsForSp(sp.getPerson().getUserName());
+            logger.info(p);
         } else {
             logger.info("Cannot show users and events for service provider - missing details.");
         }
@@ -725,7 +728,8 @@ public class Main {
         obj.setLocalEvent(searchInEventByName(eventName));
 
         if (obj.addPackageToEvent(pakid)) {
-            logger.info(String.format("%s %d", CREATE_EVENT_MESSAGE, obj.getLocalEvent().eventCost(cost)));
+            int cost11= obj.getLocalEvent().eventCost(cost);
+            logger.info(String.format("%s %d", CREATE_EVENT_MESSAGE,cost11));
         } else {
             logger.info("Failed to add package to the event.");
         }
