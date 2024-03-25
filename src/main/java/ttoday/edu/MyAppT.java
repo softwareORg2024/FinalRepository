@@ -924,13 +924,7 @@ locationList.add(k2);
         return format.toString();
     }
 
-
-    public boolean isShowPackageForAdminFlag() {
-        return showPackageForAdminFlag;
-    }
-
-
-    public void editEventForUserMenu(Integer int1) {
+    public void editEventForUserMenu() {
         adminMenuFlag = true;
     }
 

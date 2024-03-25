@@ -45,9 +45,9 @@ public class editevent {
     }
 
 
-    @When("the user select {int} to edit")
-    public void the_user_select_to_edit(Integer int1) {
-        obj.editEventForUserMenu(int1);
+    @When("the user select to edit")
+    public void the_user_select_to_edit() {
+        obj.editEventForUserMenu();
     }
 
     @Then("a list of events created by the user is displayed")
