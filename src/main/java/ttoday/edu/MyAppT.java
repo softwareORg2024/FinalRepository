@@ -1101,8 +1101,8 @@ locationList.add(k2);
     public void editEventTimeByUser(String string, String string2, Integer int1, Integer int2, Integer int3) {
         Person p=searchInUser(string);
         Event e= p.searchInUserEvents(string2);
-        Time d=new Time(int1,int2,int3);
-        e.setTime(d);
+        Time date10=new Time(int1,int2,int3);
+        e.setTime(date10);
         editEventTimeByUserFlag=true;
     }
 

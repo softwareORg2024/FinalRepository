@@ -517,6 +517,8 @@ public class Main {
             case 2 -> addServices(input, obj.getLocalEvent().eventCost(cost), obj.getLocalEvent());
             case 3 -> logger.info(CREATE_EVENT_MESSAGE + cost);
             default -> {
+                logger.info("Invalid input.");
+
             }
         }
 
@@ -661,14 +663,13 @@ public class Main {
         for (Event e : obj.getEventList()) {
 
             Event event = searchInEventByName(eventName);
-            if (event != null) {
-                if (e.getDate().getYear() == year && e.getDate().getMonth() == month && e.getDate().getDate() == day && e.getTime().equals(event.getTime()) && e.getLocation().equals(event.getLocation())) {
+                if (event != null && e.getDate().getYear() == year && e.getDate().getMonth() == month && e.getDate().getDate() == day && e.getTime().equals(event.getTime()) && e.getLocation().equals(event.getLocation())) {
                     logger.info("You cannot book on this date.\n There is another event booked\n");
                     temp = 1;
                     editEventDate(eventName, input);
                     break;
                 }
-            }
+
 
 
         }
@@ -689,15 +690,14 @@ public class Main {
 
         for (Event e : obj.getEventList()) {
             Event event = searchInEventByName(eventName); // Call the method once and store the result in loc
-            if (event != null) {           // Check if loc is not null
-            if (e.getDate().getYear() == event.getDate().getYear() && e.getDate().getMonth() == event.getDate().getMonth() && e.getDate().getDate() == event.getDate().getDate() && e.getTime().equals(time) && e.getLocation().equals(event.getLocation())) {
+            if (event != null && e.getDate().getYear() == event.getDate().getYear() && e.getDate().getMonth() == event.getDate().getMonth() && e.getDate().getDate() == event.getDate().getDate() && e.getTime().equals(time) && e.getLocation().equals(event.getLocation())) {
                 logger.info("you can't choose this time because location is booked to another event\n");
                 temp = 1;
                 editEvent(input);
                 break;
             }
 
-            }
+
         }
         if (temp == 0) {
             obj.editEventTimeByUser(user.getUserName(), eventName, hour, min, sec);
