@@ -508,18 +508,19 @@ public class Main {
     }
 
     private static void displayUserMenu(Scanner input) {
-        String s = "\u001B[95m" + """
-        \n
-        ╔══════════════════════╗
-        ║      User Menu       ║
-        ╠══════════════════════╣
-        ║ 1. create an event   ║
-        ║ 2. edit the event    ║
-        ║ 3. delete an event   ║
-        ║ 4. view events       ║
-        ║ 5. exit              ║
-        ╚══════════════════════╝
-        """ + ANSI_RESET+"\n"+CHOICE_PROMPT;
+        String s = "\u001B[95m" +
+                """
+               \n ╔══════════════════════╗
+                ║      User Menu       ║
+                ╠══════════════════════╣
+                ║ 1. create an event   ║
+                ║ 2. edit the event    ║
+                ║ 3. delete an event   ║
+                ║ 4. view events       ║
+                ║ 5. exit              ║
+                ╚══════════════════════╝
+                """ + ANSI_RESET + "\n" + CHOICE_PROMPT;
+
 
         logger.info(s);
         int choice = input.nextInt();
