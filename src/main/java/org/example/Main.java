@@ -505,7 +505,10 @@ String createEventMessage=CREATE_EVENT_MESSAGE;
                 displayUserMenu(input);
             }
             case 2 -> addServices(input, obj.getLocalEvent().eventCost(cost), obj.getLocalEvent());
-            case 3 -> logger.info(CREATE_EVENT_MESSAGE + cost);
+            case 3 -> {
+                String s=CREATE_EVENT_MESSAGE;
+                s+=String.valueOf(cost);
+                logger.info(s);}
             default ->
                 logger.info("Invalid input.");
 
@@ -592,24 +595,23 @@ String createEventMessage=CREATE_EVENT_MESSAGE;
     }
 
     private static void displayEditMenu() {
-        String menu = ANSI_PURPLE + """
-        \n
-        ╔════════════════════════════════════╗
-        ║          Edit Event Menu           ║
-        ╠════════════════════════════════════╣
-        ║  1. Edit event name                ║
-        ║  2. Change event location          ║
-        ║  3. Update event date              ║
-        ║  4. Update event time              ║
-        ║  5. Number of attendees for event  ║
-        ║  6. Change event theme             ║
-        ║  7. Add additional services        ║
-        ║  8. Remove a service               ║
-        ║  9. Cancel selected package        ║
-        ║ 10. Edit selected package          ║
-        ║ 11. Exit                           ║
-        ╚════════════════════════════════════╝
-       """ + ANSI_RESET+"\n"+CHOICE_PROMPT;
+        String menu = ANSI_PURPLE +
+        "\n╔════════════════════════════════════╗"+
+        "\n║          Edit Event Menu           ║"+
+        "\n╠════════════════════════════════════╣"+
+        "\n║  1. Edit event name                ║"+
+        "\n║  2. Change event location          ║"+
+        "\n║  3. Update event date              ║"+
+        "\n║  4. Update event time              ║"+
+        "\n║  5. Number of attendees for event  ║"+
+        "\n║  6. Change event theme             ║"+
+        "\n║  7. Add additional services        ║"+
+        "\n║  8. Remove a service               ║"+
+        "\n║  9. Cancel selected package        ║"+
+        "\n║ 10. Edit selected package          ║"+
+        "\n║ 11. Exit                           ║"+
+        "\n╚════════════════════════════════════╝"+
+        ANSI_RESET+"\n"+CHOICE_PROMPT;
         logger.info(menu);
     }
 
@@ -738,7 +740,9 @@ String createEventMessage=CREATE_EVENT_MESSAGE;
 
         if (obj.addPackageToEvent(pakid)) {
             int cost11= obj.getLocalEvent().eventCost(cost);
-            logger.info(String.format("%s %d", CREATE_EVENT_MESSAGE,cost11));
+            String s=CREATE_EVENT_MESSAGE;
+            s+=String.valueOf(cost11);
+            logger.info(s);
         } else {
             logger.info("Failed to add package to the event.");
         }
