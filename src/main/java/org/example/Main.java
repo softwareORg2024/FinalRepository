@@ -516,17 +516,15 @@ String createEventMessage=CREATE_EVENT_MESSAGE;
 
     private static void displayUserMenu(Scanner input) {
         String s = ANSI_PURPLE +
-                """
-               \n ╔══════════════════════╗
-                ║      User Menu       ║
-                ╠══════════════════════╣
-                ║ 1. create an event   ║
-                ║ 2. edit the event    ║
-                ║ 3. delete an event   ║
-                ║ 4. view events       ║
-                ║ 5. exit              ║
-                ╚══════════════════════╝
-                """ + ANSI_RESET + "\n" + CHOICE_PROMPT;
+               "\n╔══════════════════════╗+" +
+                "\n║      User Menu       ║"+
+               " \n╠══════════════════════╣"+
+             "\n║ 1. create an event   ║"+
+              "\n║ 2. edit the event    ║"+
+               "\n║ 3. delete an event   ║"+
+                "\n║ 4. view events       ║"+
+               "\n║ 5. exit              ║"+
+               "\n╚══════════════════════╝"+ ANSI_RESET + "\n" + CHOICE_PROMPT;
 
 
         logger.info(s);
