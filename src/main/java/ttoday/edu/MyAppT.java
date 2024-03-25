@@ -598,18 +598,10 @@ locationList.add(k2);
 
     public void openRoleMenu(Integer int1) {
         switch (int1) {
-            case 1:
-                isAdminFlag = true;
-                break;
-            case 2:
-                isUserFlag = true;
-                break;
-            case 3:
-                isServiceProviderFlag = true;
-                break;
-
-            default:
-                serviceMenuFlag = false;
+            case 1 -> isAdminFlag = true;
+            case 2 -> isUserFlag = true;
+            case 3 -> isServiceProviderFlag = true;
+            default -> serviceMenuFlag = false;
         }
     }
 
@@ -699,24 +691,12 @@ locationList.add(k2);
     public void selectServiceProviderMenu(Integer int1) {
         serviceproviderMenuFlag = true;
         switch (int1) {
-            case 1:
-                isAddService = true;
-                break;
-            case 2:
-                isEditService = true;
-                break;
-            case 3:
-                isDeleteService = true;
-                break;
-            case 4:
-                isShoweventsAnduser = true;
-                break;
-            case 5:
-                isShowService = true;
-
-                break;
-            default:
-                serviceproviderMenuFlag = false;
+            case 1 -> isAddService = true;
+            case 2 -> isEditService = true;
+            case 3 -> isDeleteService = true;
+            case 4 -> isShoweventsAnduser = true;
+            case 5 -> isShowService = true;
+            default -> serviceproviderMenuFlag = false;
         }
 
     }
@@ -837,27 +817,12 @@ locationList.add(k2);
     public void selectFromAdminMenu(Integer int1) {
         adminMenuFlag = true;
         switch (int1) {
-            case 1:
-                isSeeUserList = true;
-                break;
-            case 2:
-
-                isSeeSPList = true;
-                break;
-            case 3:
-
-                isSeeEventList = true;
-                break;
-
-            case 4:
-                isCreatePackage = true;
-                break;
-            case 5:
-                isDeletePackage = true;
-                break;
-
-            default:
-                adminMenuFlag = false;
+            case 1 -> isSeeUserList = true;
+            case 2 -> isSeeSPList = true;
+            case 3 -> isSeeEventList = true;
+            case 4 -> isCreatePackage = true;
+            case 5 -> isDeletePackage = true;
+            default -> adminMenuFlag = false;
         }
     }
 
@@ -1027,44 +992,18 @@ locationList.add(k2);
     public void editEventForUserMenu(Integer int1) {
         adminMenuFlag = true;
         switch (int1) {
-            case 1:
-                isEventNameEdit = true;
-                break;
-            case 2:
-
-                isEventLocationEdit = true;
-                break;
-            case 3:
-                isEventDateEdit = true;
-                break;
-
-            case 4:
-                isEventTimeEdit = true;
-                break;
-            case 5:
-                isEventNumOfPeopleEdit = true;
-                break;
-            case 6:
-                isEventThemeEdit = true;
-                break;
-            case 7:
-                isEventAdditionalServiceEdit = true;
-                break;
-            case 8:
-                isEventRemoveServiceEdit = true;
-                break;
-            case 9:
-                isEventCancelPackageEdit = true;
-                break;
-            case 10:
-                isEventViewEventsEdit = true;
-                break;
-            case 11:
-                isEventDeleteEventEdit = true;
-                break;
-           
-            default:
-                adminMenuFlag = false;
+            case 1 -> isEventNameEdit = true;
+            case 2 -> isEventLocationEdit = true;
+            case 3 -> isEventDateEdit = true;
+            case 4 -> isEventTimeEdit = true;
+            case 5 -> isEventNumOfPeopleEdit = true;
+            case 6 -> isEventThemeEdit = true;
+            case 7 -> isEventAdditionalServiceEdit = true;
+            case 8 -> isEventRemoveServiceEdit = true;
+            case 9 -> isEventCancelPackageEdit = true;
+            case 10 -> isEventViewEventsEdit = true;
+            case 11 -> isEventDeleteEventEdit = true;
+            default -> adminMenuFlag = false;
         }
     }
 
