@@ -74,9 +74,9 @@ public class CreateEvent {
         obj.chooseServiceOrPackageFlag();
     }
 
-    @When("the user selects an option by entering {int} for individual services and other for ready-made packages")
-    public void the_user_selects_an_option_by_entering_for_individual_services_and_other_for_ready_made_packages(Integer int1) {
-        obj.chooseServiceOrPackage(int1);
+    @When("the user selects an option by entering for individual services and other for ready-made packages")
+    public void the_user_selects_an_option_by_entering_for_individual_services_and_other_for_ready_made_packages() {
+        obj.chooseServiceOrPackage();
     }
 
     @Then("the user's choice is captured")

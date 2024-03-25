@@ -419,19 +419,9 @@ locationList.add(k2);
         serviceOrPackage = false;
     }
 
-    public void chooseServiceOrPackage(Integer int1) {
+    public void chooseServiceOrPackage() {
         serviceOrPackage = true;
-        switch (int1) {
-            case 1:
-                isServiceFlag = true;
-                break;
-            case 2:
-                isPackageFlag = true;
-                break;
-            default:
-                serviceOrPackage = false;
 
-        }
     }
 
     public boolean isServiceOrPackage() {
@@ -625,14 +615,6 @@ locationList.add(k2);
         userhasevent = !(pp.getEventList().isEmpty());
     }
 
-
-
-
-
-
-
-
-
     public Event searchInEvent(Integer int1) {
         for (Event e : eventList) {
             if (e.getIndex() == int1) {
@@ -641,13 +623,6 @@ locationList.add(k2);
         }
         return null;
     }
-
-
-
-
-
-
-
 
 
     public void serchforevent(Integer int1) {
@@ -806,7 +781,7 @@ locationList.add(k2);
 
 
         for (Event e : eventList) {
-            // Format date and time based on the stored date object within the event
+
             String formattedDate = dateFormatter.format(e.getDate());
             String formattedTime = timeFormatter.format(e.getDate());
 

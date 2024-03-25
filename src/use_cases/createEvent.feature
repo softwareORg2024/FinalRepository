@@ -18,7 +18,7 @@ Feature: Create Event
 
   Scenario: User chooses between individual services and ready-made packages
     Given the user is presented with a choice between individual services and ready-made packages
-    When the user selects an option by entering 1 for individual services and other for ready-made packages
+    When the user selects an option by entering for individual services and other for ready-made packages
     Then the user's choice is captured
 
   Scenario Outline: User chooses between the different services
