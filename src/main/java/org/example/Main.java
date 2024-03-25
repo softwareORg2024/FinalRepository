@@ -723,8 +723,8 @@ public class Main {
         logger.info(pack);
         int pakid = input.nextInt();
         obj.setLocalEvent(searchInEventByName(eventName));
-        boolean b = obj.addPackageToEvent(pakid);
-        if (b) {
+
+        if (obj.addPackageToEvent(pakid)) {
             logger.info(String.format("%s %d", CREATE_EVENT_MESSAGE, obj.getLocalEvent().eventCost(cost)));
         } else {
             logger.info("Failed to add package to the event.");
@@ -803,7 +803,7 @@ public class Main {
                 logger.info(INVALID_OPTION_MESSAGE);
                 displayAdminMenu(input);
             }
-        
+
         displayAdminMenu( input);
     }
 
