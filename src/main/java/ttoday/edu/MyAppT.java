@@ -392,11 +392,11 @@ locationList.add(k2);
         isInCreationPage = true;
     }
 
-    public void createEventWithBasicInfo( String s, String string, Integer int4, Integer int5, Integer int6, Integer int1, Integer int2, Integer int3, String string2, String string3, Integer int7) {
+    public void createEventWithBasicInfo( String s, String string, Date d1, Time t1, String string2, String string3, Integer int7) {
 
         Person n = searchInUser(s);
-        Date date = new Date(int4, int5, int6);
-        Time time1 = new Time(int1, int2, int3);
+        Date date = d1;
+        Time time1 = t1;
 
 
         int temp = 0;

@@ -2,6 +2,9 @@ package ttoday.edu;
 
 import io.cucumber.java.en.*;
 
+import java.sql.Time;
+import java.util.Date;
+
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -51,7 +54,9 @@ public class CreateEvent {
 
     @When("the user {string} fills in the event details including name {string}, place {string}, time {int}:{int}:{int}, date {int}-{int}-{int}, number of attendees {int}, and theme {string}")
     public void the_user_fills_in_the_event_details_including_name_place_time_date_number_of_attendees_and_theme(String string, String string2, String string3, Integer int1, Integer int2, Integer int3, Integer int4, Integer int5, Integer int6, Integer int7, String string4) {
-        obj.createEventWithBasicInfo(string,string2, int4, int5, int6, int1, int2, int3, string3, string4, int7);
+        Date dateP= new Date(int4, int5, int6);
+        Time timeP=new Time(int1, int2, int3);
+        obj.createEventWithBasicInfo(string,string2,dateP,timeP, string3, string4, int7);
 
 
 
@@ -192,7 +197,9 @@ public class CreateEvent {
 
     @When("the user {string} fills in the event details including name {string}, place {string}, time {int}:{int}:{int}, date {int}-{int}-{int}, number of attendees {int}, and theme {string} and there is no conflict between time and location and place")
     public void the_user_fills_in_the_event_details_including_name_place_time_date_number_of_attendees_and_theme_and_there_is_no_conflict_between_time_and_location_and_place(String string, String string2, String string3, Integer int1, Integer int2, Integer int3, Integer int4, Integer int5, Integer int6, Integer int7, String string4) {
-        obj.createEventWithBasicInfo(string,string2, int4, int5, int6, int1, int2, int3, string3, string4, int7);
+        Date dateP= new Date(int4, int5, int6);
+        Time timeP=new Time(int1, int2, int3);
+        obj.createEventWithBasicInfo(string,string2, dateP, timeP, string3, string4, int7);
 
     }
 

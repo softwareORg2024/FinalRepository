@@ -5,6 +5,7 @@ import ttoday.edu.Package;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.logging.ConsoleHandler;
 import java.util.logging.Formatter;
@@ -461,10 +462,10 @@ String createEventMessage=CREATE_EVENT_MESSAGE;
             locationName = loc.getLocationName();
         }
 
+        Date datePass=new Date(year,month,day);
+Time timePass=new Time( time.getHours(), time.getMinutes(), time.getSeconds());
 
-
-
-        obj.createEventWithBasicInfo(user.getUserName(),eventName,year,month, day, time.getHours(), time.getMinutes(), time.getSeconds(), locationName, theme, number);
+        obj.createEventWithBasicInfo(user.getUserName(),eventName,datePass,timePass, locationName, theme, number);
         String menu = ANSI_PURPLE + """
               ╔═════════════════════════════════╗
               ║        Package & Services       ║
