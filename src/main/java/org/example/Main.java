@@ -748,28 +748,27 @@ public class Main {
               """ +ANSI_RESET+"\n"+CHOICE_PROMPT;
         logger.info(menu);
         int choice = input.nextInt();
-        if(choice<=7){
+
             String s1="";
-        switch (choice) {
-            case 1 ->
-            {            if (obj != null) {
+
+                      if (choice==1) {
                 s1=obj.showUserListForAdmin();
 
                 logger.info(s1);
-            }}
-            case 2 -> {
-                if (obj != null) {
+            }
+
+                      else if (choice==2) {
                     s1=obj.showSPtForAdmin();
                     logger.info(s1);
                 }
-            }
-            case 3 ->
-            {if (obj != null) {
+
+
+                else if (choice==3) {
                 s1=  obj.showEventForAdmin();
                 logger.info(s1);
-            }}
-            case 4 -> {
-                if (obj != null) {
+            }
+
+            else if (choice==4) {
 
                     logger.info("Please enter package ID: ");
                 Integer id = input.nextInt();
@@ -777,9 +776,9 @@ public class Main {
                 logger.info("Please enter package cost: ");
                 Double cost = input.nextDouble();
                 obj.createPackage(description, cost, id);}
-            }
-            case 5 -> {
-                if (obj != null) {
+
+
+                else if (choice==5) {
                     s1=obj.showPackageForAdmin();
 
                 logger.info(s1);
@@ -787,24 +786,24 @@ public class Main {
                 Integer id = input.nextInt();
                 obj.deletePackage(id);
                 }
-            }
-            case 6 -> {
-                if (obj != null) {
+
+
+                else if (choice==6) {
                     String packageInfo = obj.showPackageForAdmin();
                     logger.info(packageInfo);
                 }
-            }
 
-            case 7 -> {
+
+         else if (choice==7) {
                 logger.info("Logging out as Admin.");
 
                 logInSignUp();
             }
-            default -> {
+           else{
                 logger.info(INVALID_OPTION_MESSAGE);
                 displayAdminMenu(input);
             }
-        }}
+        
         displayAdminMenu( input);
     }
 
