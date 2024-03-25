@@ -749,22 +749,24 @@ public class Main {
         logger.info(menu);
         int choice = input.nextInt();
         if(choice<=7){
+            String s1="";
         switch (choice) {
             case 1 ->
             {            if (obj != null) {
+                s1=obj.showUserListForAdmin();
 
-                logger.info(obj.showUserListForAdmin());
+                logger.info(s1);
             }}
             case 2 -> {
                 if (obj != null) {
-
-                    logger.info(obj.showSPtForAdmin());
+                    s1=obj.showSPtForAdmin();
+                    logger.info(s1);
                 }
             }
             case 3 ->
             {if (obj != null) {
-
-                logger.info(obj.showEventForAdmin());
+                s1=  obj.showEventForAdmin();
+                logger.info(s1);
             }}
             case 4 -> {
                 if (obj != null) {
@@ -778,8 +780,9 @@ public class Main {
             }
             case 5 -> {
                 if (obj != null) {
+                    s1=obj.showPackageForAdmin();
 
-                logger.info(obj.showPackageForAdmin());
+                logger.info(s1);
                 logger.info("Please enter package ID: ");
                 Integer id = input.nextInt();
                 obj.deletePackage(id);
