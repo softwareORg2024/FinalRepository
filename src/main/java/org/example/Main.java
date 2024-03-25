@@ -135,18 +135,18 @@ public class Main {
             }
 
         switch (choice) {
-            case 1 -> {
+            case 1 ->
                 signUpProcedure(input);
 
-            }
-            case 2 -> {
+
+            case 2 ->
                 loginProcedure(input);
 
-            }
-            case 3 -> {
+
+            case 3 ->
                 forgotPass();
-                
-            }
+
+
             case 4 -> {
                 logger.info("Have a nice day!! ");
                 System.exit(1);
@@ -496,10 +496,10 @@ public class Main {
             }
             case 2 -> addServices(input, obj.getLocalEvent().eventCost(cost), obj.getLocalEvent());
             case 3 -> logger.info(CREATE_EVENT_MESSAGE + cost);
-            default -> {
+            default ->
                 logger.info("Invalid input.");
 
-            }
+
         }
 
     }
@@ -608,8 +608,8 @@ public class Main {
 
     private static void editEventLocation(String eventName, Scanner input) {
 
-        Event event = searchInEventByName(eventName); // Call the method once and store the result in loc
-        if (event != null) {           // Check if loc is not null
+        Event event = searchInEventByName(eventName);
+        if (event != null) {
             location(event.getDate().getYear(), event.getDate().getMonth(), event.getDate().getDate(), event.getTime());
         }
 
@@ -749,15 +749,15 @@ public class Main {
         logger.info(menu);
         int choice = input.nextInt();
         switch (choice) {
-            case 1 -> {
+            case 1 ->
                 logger.info(obj.showUserListForAdmin());
-            }
-            case 2 -> {
+
+            case 2 ->
                 logger.info(obj.showSPtForAdmin());
-            }
-            case 3 -> {
+
+            case 3 ->
                 logger.info(obj.showEventForAdmin());
-            }
+
             case 4 -> {
                 logger.info("Please enter package ID: ");
                 Integer id = input.nextInt();
@@ -772,9 +772,9 @@ public class Main {
                 Integer id = input.nextInt();
                 obj.deletePackage(id);
             }
-            case 6 -> {
+            case 6 ->
                 logger.info(obj.showPackageForAdmin());
-            }
+
             case 7 -> {
                 logger.info("Logging out as Admin.");
 
@@ -837,9 +837,9 @@ public class Main {
                 birthDate = getInput("Please enter your BirthDate");
                 obj.createAccountForUser(name, password, birthDate, phone, email);
             }
-            case 3 -> {
+            case 3 ->
                 logInSignUp();
-            }
+
             default -> {
                 logger.info(INVALID_OPTION_MESSAGE);
                 signUpProcedure(input);
