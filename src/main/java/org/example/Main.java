@@ -19,7 +19,7 @@ import java.util.Scanner;
 public class Main {
     private static final String INCORRECT_VALUE_MESSAGE = "\nYou have entered an incorrect value. Please enter a correct number:";
     private static final String PROMPT_PASSWORD_MESSAGE = "Please enter your password";
-    private static final String ANSI_PURPLE = "\u001B[95m";
+    private static final String ANSI_PURPLE = "\n\u001B[95m";
 
     private static final String NAME = "qa";
     private static final String PASS_1 = "3";
@@ -523,7 +523,7 @@ Time timePass=new Time( time.getHours(), time.getMinutes(), time.getSeconds());
 
     private static void displayUserMenu(Scanner input) {
         String s = ANSI_PURPLE +
-               "\n╔══════════════════════╗+" +
+               "\n╔══════════════════════╗" +
                 "\n║      User Menu       ║"+
                " \n╠══════════════════════╣"+
              "\n║ 1. create an event   ║"+

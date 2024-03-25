@@ -181,11 +181,7 @@ locationList.add(k2);
     private boolean serviceOrPackage;
     private boolean serviceMenuFlag;
     private boolean isPackageFlag;
-    private boolean isServiceFlag;
-    private boolean isDecorService;
-    private boolean isFoodService;
-    private boolean isPhotoService;
-    private boolean isEnterService;
+
     private boolean addLocalEventFoodFlag;
     private boolean addLocalEventDecorFlag;
     private boolean addLocalEventEnterFlag;
@@ -656,8 +652,8 @@ locationList.add(k2);
 
     public String showservicesForSp(String string) {
         ServiceProvider p = searchInServiceProvider(string);
-        String headerFormat = "%-10s\t%-50s\t%-10s\n";
-        String rowFormat = "%-10s\t%-50s\t%-10.2f\n";
+        String headerFormat = "\u001B[33m%-10s\t%-50s\t%-10s\n\u001B[0m";
+        String rowFormat = "\u001B[33m%-10s\t%-50s\t%-10.2f\n\u001B[0m";
 
         StringBuilder format = new StringBuilder();
         format.append("\n");
@@ -677,27 +673,26 @@ locationList.add(k2);
     }
 
 
+
     public String showUsersAndEventsForSp(String string) {
+        ServiceProvider p = searchInServiceProvider(string);
 
-       ServiceProvider p = searchInServiceProvider(string);
+        String headerFormat = "\u001B[33m%-20s\t%-15s\t%-20s\t%-15s\t%-20s\t%-10s\t%-10s\n\u001B[0m";
+        String rowFormat = "\u001B[33m%-20s\t%-15s\t%-20s\t%-15s\t%-20s\t%-10s\t%-10s\n\u001B[0m";
 
-       String headerFormat = "%-20s\t%-15s\t%-20s\t%-15s\t%-20s\t%-10s\t%-10s\n";
-       String rowFormat = "%-20s\t%-15s\t%-20s\t%-15s\t%-20s\t%-10s\t%-10s\n";
+        StringBuilder format = new StringBuilder();
+        format.append("\n");
+        format.append(String.format(headerFormat, "User Name", PHONE_NUMBER_LABEL, EVENT_NAME_LABEL, THEME_LABEL, LOCATION_LABEL, "Date", "Time"));
 
-       StringBuilder format = new StringBuilder();
-       format.append("\n");
+        for (Event e : p.getEventList()) {
+            String date = e.getDate().getYear() + "\\" + e.getDate().getMonth() + "\\" + e.getDate().getDate();
+            format.append(String.format(rowFormat, e.getUser().getUserName(), e.getUser().getPhoneNum(), e.getEventName(), e.getTheme(), e.getLocation(), date, e.getTime()));
+        }
 
-       format.append(String.format(headerFormat, "User Name", PHONE_NUMBER_LABEL, EVENT_NAME_LABEL, THEME_LABEL, LOCATION_LABEL, "Date", "Time"));
+        showUsersAndEventsForSpFlag = true;
+        return format.toString();
+    }
 
-
-       for (Event e : p.getEventList()) {
-           String date = e.getDate().getYear() + "\\" + e.getDate().getMonth() + "\\" + e.getDate().getDate();
-           format.append(String.format(rowFormat, e.getUser().getUserName(), e.getUser().getPhoneNum(), e.getEventName(), e.getTheme(), e.getLocation(), date, e.getTime()));
-       }
-
-       showUsersAndEventsForSpFlag = true;
-       return format.toString();
-   }
 
 
 
@@ -709,20 +704,19 @@ locationList.add(k2);
     public String showUserListForAdmin() {
         StringBuilder s = new StringBuilder();
 
-        String headerFormat = "%-20s\t%-15s\t%-10s\n";
-        String rowFormat = "%-20s\t%-15s\t%-10s\n";
+        String headerFormat = "\u001B[33m%-20s\t%-15s\t%-10s\n\u001B[0m";
+        String rowFormat = "\u001B[33m%-20s\t%-15s\t%-10s\n\u001B[0m";
 
         s.append("\n");
 
         s.append(String.format(headerFormat, "UserName", PHONE_NUMBER_LABEL, "Birth Date"));
 
         for (Person p : up) {
-
             String birthDate = p.getB();
             s.append(String.format(rowFormat,
                     p.getUserName(),
                     p.getPhoneNum(),
-                    birthDate ));
+                    birthDate));
         }
 
         showUserListForAdminFlag = true;
@@ -731,25 +725,22 @@ locationList.add(k2);
     }
 
 
+
     public String showEventForAdmin() {
         StringBuilder format = new StringBuilder();
-
 
         SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
         SimpleDateFormat timeFormatter = new SimpleDateFormat("HH:mm:ss");
 
-
         format.append("\n");
-        String headerFormat = "%-20s\t%-15s\t%-20s\t%-12s\t%-10s\n";
-        format.append(String.format(headerFormat,EVENT_NAME_LABEL,THEME_LABEL, LOCATION_LABEL, "Date", "Time"));
-
+        String headerFormat = "%-30s\t%-20s\t%-30s\t%-12s\t%-10s\n";
+        format.append(String.format(headerFormat, EVENT_NAME_LABEL, THEME_LABEL, LOCATION_LABEL, "Date", "Time"));
 
         for (Event e : eventList) {
-
             String formattedDate = dateFormatter.format(e.getDate());
             String formattedTime = timeFormatter.format(e.getDate());
 
-            String rowFormat = "%-20s\t%-15s\t%-20s\t%-12s\t%-10s\n";
+            String rowFormat = "%-30s\t%-20s\t%-30s\t%-12s\t%-10s\n";
             format.append(String.format(rowFormat,
                     e.getEventName(),
                     e.getTheme(),
@@ -761,16 +752,18 @@ locationList.add(k2);
         showEventForAdminFlag = true;
         return format.toString();
     }
-    public String showSPtForAdmin() {
 
+    public String showSPtForAdmin() {
         StringBuilder formattedOutput = new StringBuilder();
 
-        String headerFormat = "%-20s\t%-15s\t%-12s\t%-15s\n";
-        String rowFormat = "%-20s\t%-15s\t%-12s\t%-15s\n";
+        String orangeColor = "\u001B[38;5;202m"; // ANSI escape code for orange color
+        String resetColor = "\u001B[0m"; // ANSI escape code to reset color
+
+        String headerFormat = orangeColor + "%-30s\t%-15s\t%-15s\t%-20s" + resetColor + "\n";
+        String rowFormat = "%-30s\t%-15s\t%-15s\t%-20s\n";
         formattedOutput.append("\n");
 
         formattedOutput.append(String.format(headerFormat, "UserName", PHONE_NUMBER_LABEL, "Birth Date", "Service Type"));
-
 
         for (ServiceProvider e : providerList) {
             formattedOutput.append(String.format(rowFormat,
@@ -784,20 +777,9 @@ locationList.add(k2);
     }
 
 
+
     public boolean isAdminMenuFlag() {
         return adminMenuFlag;
-    }
-
-    public boolean isShowUserListForAdminFlag() {
-        return showUserListForAdminFlag;
-    }
-
-    public boolean isShowEventForAdminFlag() {
-        return showEventForAdminFlag;
-    }
-
-    public boolean isShowSPtForAdminFlag() {
-        return showSPtForAdminFlag;
     }
 
     public void createPackage(String string, Double double1,Integer int1) {
@@ -844,24 +826,23 @@ locationList.add(k2);
         StringBuilder format = new StringBuilder();
         format.append("\n");
 
-        String headerFormat = "%-10s\t%-50s\t%-10s\n";
-        String rowFormat = "%-10s\t%-50s\t%-10.2f\n";
 
+        String headerFormat =  "\u001B[38;5;202m%-10s\t%-50s\t%-10s\n\u001B[0m" ;
+        String rowFormat = "\u001B[38;5;202m%-10s\t%-50s\t%-10.2f\n\u001B[0m";
 
         format.append(String.format(headerFormat, "ID", "Description", "Cost"));
-
 
         for (Package p : packageList) {
             format.append(String.format(rowFormat,
                     p.getNumber(),
                     p.getDescription(),
-                    p.getTotalPrice()
-            ));
+                    p.getTotalPrice()));
         }
 
         showPackageForAdminFlag = true;
         return format.toString();
     }
+
 
     public void editEventForUserMenu() {
         adminMenuFlag = true;
@@ -1030,8 +1011,8 @@ locationList.add(k2);
         StringBuilder eventsWithoutPackage = new StringBuilder();
         initializeEventStringBuilders(eventsWithPackage, eventsWithoutPackage);
 
-        String eventWithPackageFormat = "%-20s %-15s %-20s %-12s %-10s %-18s %-10s %-25s %-10s\n";
-        String eventWithoutPackageFormat = "%-20s %-15s %-20s %-12s %-10s %-18s %-25s %-25s %-25s %-25s %-10s\n";
+        String eventWithPackageFormat = "\u001B[38;5;202m%-20s %-15s %-20s %-12s %-10s %-18s %-10s %-25s %-10s\n\u001B[0m" ;
+        String eventWithoutPackageFormat =  "\u001B[38;5;202m%-20s %-15s %-20s %-12s %-10s %-18s %-25s %-25s %-25s %-25s %-10s\n\u001B[0m" ;
 
         int c = getcostlocation(localEvent.getLocation());
         eventsWithPackage.append(String.format(eventWithPackageFormat, EVENT_NAME_LABEL, THEME_LABEL,LOCATION_LABEL, "Date", "Time", "Number of People", "Package ID", "Package Description", "Cost"));
