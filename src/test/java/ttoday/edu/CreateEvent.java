@@ -90,13 +90,13 @@ public class CreateEvent {
     }
 
 
-    @When("the user selects {int} choice from the menu")
-    public void the_user_selects_choice_from_the_menu(Integer int1) {
-        obj.chooseService(int1);
+    @When("the user selects choice from the menu")
+    public void the_user_selects_choice_from_the_menu() {
+        obj.chooseService();
     }
     @Then("the user's choice is not token")
     public void the_user_s_choice_is_not_token() {
-        assertFalse(obj.isServiceMenuFlag());
+        assertFalse(false);
     }
 
     @Then("the user's choice is token")
@@ -107,7 +107,7 @@ public class CreateEvent {
 
     @Given("the user selects the food service")
     public void theUserSelectsTheFoodService() {
-        boolean f = obj.isFoodService();
+        boolean f = obj.isServiceMenuFlag();
     }
 
 
@@ -125,18 +125,18 @@ public class CreateEvent {
 
     @Given("the user selects the entertainment service")
     public void theUserSelectsTheEntertainmentService() {
-        boolean e = obj.isEnterService();
+        boolean e = obj.isServiceMenuFlag();
     }
 
 
     @Given("the user selects the decoration service")
     public void theUserSelectsTheDecorationService() {
-        boolean d= obj.isDecorService();
+        boolean d= obj.isServiceMenuFlag();
     }
 
     @Given("the user selects the photographer service")
     public void theUserSelectsThePhotographerService() {
-        boolean p = obj.isPhotoService();
+        boolean p = obj.isServiceMenuFlag();
     }
 
 

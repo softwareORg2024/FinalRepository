@@ -23,7 +23,7 @@ Feature: Create Event
 
   Scenario Outline: User chooses between the different services
     Given the user chooses to select individual services
-    When the user selects <int1> choice from the menu
+    When the user selects choice from the menu
     Then the user's choice is token
     Examples:
       | int1 |
@@ -35,7 +35,7 @@ Feature: Create Event
 
   Scenario: User chooses between the different services
     Given the user chooses to select individual services
-    When the user selects 6 choice from the menu
+    When the user selects choice from the menu
     Then the user's choice is not token
 
   Scenario: User selects food service for the event

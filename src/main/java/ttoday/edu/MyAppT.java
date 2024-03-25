@@ -437,27 +437,11 @@ locationList.add(k2);
 
 
 
-    public void chooseService(Integer int1) {
+    public void chooseService() {
         serviceMenuFlag = true;
-        switch (int1) {
-            case 1:
-                isFoodService = true;
-                break;
-            case 2:
-                isDecorService = true;
-                break;
-            case 3:
-                isPhotoService = true;
-                break;
-            case 4:
-                isEnterService = true;
-                break;
-            case 5:
-                eventList.add(localEvent);
-                break;
-            default:
-                serviceMenuFlag = false;
-        }
+
+     eventList.add(localEvent);
+
     }
     public void addLocalEventToEventList() {
         eventList.add(localEvent);
@@ -469,26 +453,6 @@ locationList.add(k2);
 
     public boolean isServiceMenuFlag() {
         return serviceMenuFlag;
-    }
-
-    public void setServiceMenuFlag(boolean serviceMenuFlag) {
-        this.serviceMenuFlag = serviceMenuFlag;
-    }
-
-    public boolean isFoodService() {
-        return isFoodService;
-    }
-
-    public boolean isDecorService() {
-        return isDecorService;
-    }
-
-    public boolean isPhotoService() {
-        return isPhotoService;
-    }
-
-    public boolean isEnterService() {
-        return isEnterService;
     }
 
    public int addFoodService(Integer int1, String str) {
