@@ -352,9 +352,9 @@ public class Main {
            case 4 -> type = "Photographer";
            case 5 -> {
                int eventCost = obj.getLocalEvent().eventCost(cost);
-String S1=CREATE_EVENT_MESSAGE;
-S1+=eventCost;
-               logger.info(S1);
+String createEventMessage=CREATE_EVENT_MESSAGE;
+               createEventMessage+=eventCost;
+               logger.info(createEventMessage);
 
 
                displayUserMenu(input);
@@ -370,7 +370,8 @@ S1+=eventCost;
 
            String spName = getInput("Please enter service Provider Name: ");
            if (spName != null && !spName.isEmpty()) {
-               logger.info(obj.showservicesForSp(spName));
+               String s=obj.showservicesForSp(spName);
+               logger.info(s);
            } else {
                logger.info("Service provider name is not provided.");
            }
