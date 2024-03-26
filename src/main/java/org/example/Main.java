@@ -41,7 +41,6 @@ public class Main {
     private static final String INVALID_OPTION_MESSAGE = "Invalid option selected.";
     private static final String CREATE_EVENT_MESSAGE = "Create event successfully and its price is ";
 
-    private static final String INCORRECT_VALUE_MESSAGEE = "\nYou have entered an incorrect value. Please enter a correct number:";
     public static final String CHOICE_PROMPT = "\u001B[37mEnter the number of your choice: \u001B[0m";
 
     public static String searchInSpAccordingToType(String string) {
@@ -113,7 +112,7 @@ public class Main {
 
         String menuOptions = ANSI_PURPLE + """
                      ╔════════════════════════════╗
-                     ║         System Menu        ║
+                     ║          Welcome!          ║
                      ╠════════════════════════════╣
                      ║ 1. Sign up                 ║
                      ║ 2. Login                   ║
@@ -500,10 +499,10 @@ Time timePass=new Time( time.getHours(), time.getMinutes(), time.getSeconds());
                         logger.info("Local event not found, cannot calculate cost.");
                     }
                 } else {
-                    String packageMessege="Package with id ";
-                    packageMessege+=String.valueOf(packid);
-                    packageMessege+=" not found.";
-                    logger.info(packageMessege);
+                    String packageMessage="Package with id ";
+                    packageMessage+=String.valueOf(packid);
+                    packageMessage+=" not found.";
+                    logger.info(packageMessage);
                 }
 
                 displayUserMenu(input);
@@ -535,7 +534,19 @@ Time timePass=new Time( time.getHours(), time.getMinutes(), time.getSeconds());
 
 
         logger.info(s);
-        int choice = input.nextInt();
+        int choice = 0;
+        boolean valid = false;
+        while (!valid) {
+            try {
+                choice = input.nextInt();
+                valid = true;
+            } catch (InputMismatchException e) {
+
+                logger.info(INCORRECT_VALUE_MESSAGE);
+                input.next();
+
+            }
+        }
         String show;
         switch (choice) {
             case 1 -> creatBasicEvent(input);
@@ -866,6 +877,8 @@ Time timePass=new Time( time.getHours(), time.getMinutes(), time.getSeconds());
                 birthDate = getInput("Please enter your BirthDate");
                 type = getInput("\nPlease enter your type(Food,Decoration,Entertainment,Photographer)-->");
                 obj.createAccountForSp(name, password, birthDate, phone, type, email);
+                logger.info("\nYou have successfully registered in our system as service provider. Welcome\n");
+                logInSignUp();
 
             }
             case 2 -> {
@@ -876,6 +889,8 @@ Time timePass=new Time( time.getHours(), time.getMinutes(), time.getSeconds());
                 password = getInput(PROMPT_PASSWORD_MESSAGE);
                 birthDate = getInput("Please enter your BirthDate");
                 obj.createAccountForUser(name, password, birthDate, phone, email);
+                logger.info("\nYou have successfully registered in our system as User. Welcome\n");
+                logInSignUp();
             }
             case 3 ->
                 logInSignUp();
