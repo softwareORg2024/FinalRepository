@@ -42,7 +42,7 @@ public class Event {
     }
 
 
-    // Getter methods
+
     public String getEventName() {
         return eventName;
     }
@@ -68,7 +68,7 @@ public class Event {
         return numGuests;
     }
 
-    // Setter methods
+
     public void setEventName(String eventName) {
         this.eventName = eventName;
     }

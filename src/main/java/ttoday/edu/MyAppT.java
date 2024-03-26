@@ -396,6 +396,7 @@ locationList.add(k2);
         if (temp == 0) {
             Event e = new Event(string, date, time1, string2, string3, int7);
             setLocalEvent(e);
+            localEvent.eventCost(getcostlocation(string2));
             Event ev = getLocalEvent();
             if (ev != null) {
                 ev.setUser(n);
