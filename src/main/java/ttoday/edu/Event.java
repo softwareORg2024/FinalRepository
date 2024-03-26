@@ -129,6 +129,7 @@ public class Event {
     public int eventCost(int locationCost) {
 
 if(eventLocationCost==0){
+
     eventLocationCost=locationCost;
 }
         int cost=eventLocationCost;
@@ -154,7 +155,6 @@ if(eventLocationCost==0){
         }
 
         this.overallCost=cost;
-
          return overallCost;
     }
 

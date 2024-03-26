@@ -51,8 +51,6 @@ private static int num=0;
     private boolean deleteeventbyuserflag;
     private boolean editLocationFlag;
     private boolean editPackageFlag;
-    private boolean searchinusernullflag;
-    private boolean servicetypenotfoundflag;
 
 
     public Event getLocalEvent() {
@@ -176,7 +174,7 @@ locationList.add(k2);
     private boolean isShoweventsAnduser;
     private boolean deleteServiceForSpFlag;
     private boolean serviceproviderMenuFlag;
-    boolean getEventCostFlag = false;
+
     private boolean isAdminFlag;
     private boolean eventfoundflag;
     private boolean userhasevent;
@@ -466,7 +464,6 @@ locationList.add(k2);
                 }
             }
         }
-       servicetypenotfoundflag=true;
         return 0;
     }
 
@@ -558,13 +555,9 @@ locationList.add(k2);
                 return p;
             }
         }
-        searchinusernullflag=true;
         return null;
     }
 
-    public boolean isSearchinusernullflag() {
-        return searchinusernullflag;
-    }
 
     public List<ServiceProvider> getProviderList() {
         return providerList;
@@ -590,7 +583,6 @@ locationList.add(k2);
                 return e;
             }
         }
-
         return null;
     }
 
@@ -645,27 +637,19 @@ locationList.add(k2);
 
 
     }
-boolean isServiceFound=true;
+
     public void deleteServiceForSp(Integer int1, String string) {
         ServiceProvider p = searchInServiceProvider(string);
         Service s = p.searchForServiceId(int1);
-        if (s!= null) {
-            p.getOfferList().remove(s);
+        p.getOfferList().remove(s);
 
-            deleteServiceForSpFlag = true;
-            if (s == null) {
-                logger.info("The service doesn't exist");
-            } else {
-                logger.info("deleted successfully");
-            }
+        deleteServiceForSpFlag = true;
+        if(s==null){
+            logger.info("The service doesn't exist");
         }
-        else
-            isServiceFound=false;
+        else{
+        logger.info("deleted successfully");}
 
-    }
-
-    public boolean isServiceFound() {
-        return isServiceFound;
     }
 
     public String showservicesForSp(String string) {
@@ -871,12 +855,12 @@ boolean isServiceFound=true;
         Person p=searchInUser(string);
        Event e= p.searchInUserEvents(string2);
 
-       if(e!=null) {
-           e.setEventName(string3);
-           editEventNameByUserFlag = true;
-       }
-       else
-           editEventNameByUserFlag = false;
+       if(e!=null){
+       e.setEventName(string3);}
+
+
+        editEventNameByUserFlag=true;
+
     }
 
     public boolean isEditEventNameByUserFlag() {
@@ -1176,10 +1160,6 @@ boolean isServiceFound=true;
         }
     }
 
-    public boolean isServicetypenotfoundflag() {
-        return servicetypenotfoundflag;
-    }
-
     public void createAccountForSp(String string, String string2, String string3, String string5, String string4, String string6) {
        int temp=0;
         for (ServiceProvider user : providerList) {
@@ -1215,17 +1195,6 @@ boolean isServiceFound=true;
 
     public List<Package> getPackageList() {
         return packageList;
-    }
-
-    public int getEventCost(String string, String string2) {
-        Person p = searchInUser(string);
-        Event e = p.searchInUserEvents(string2);
-         getEventCostFlag = true;
-        return e.getOverallCost();
-    }
-
-    public boolean isGetEventCostFlag() {
-        return getEventCostFlag;
     }
 }
 
