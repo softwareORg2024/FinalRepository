@@ -24,6 +24,7 @@ public class Admin {
     @When("the admin selects")
     public void the_admin_selects() {
       obj.selectFromAdminMenu();
+      obj.showPackageForAdmin();
     }
     @When("the user list created")
     public void the_user_list_created() {

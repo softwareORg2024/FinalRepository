@@ -463,6 +463,7 @@ locationList.add(k2);
                 for (Service s : sp.getOfferList()) {
                     if (s.getId() == int1) {
                         handleEventService(s, str);
+
                         return s.getCost();
                     }
                 }
@@ -491,7 +492,7 @@ locationList.add(k2);
                 addLocalEventPhotoFlag = true;
                 break;
             default:
-                break;
+               break;
         }
         sendBookingNotification(service);
     }
@@ -503,6 +504,7 @@ locationList.add(k2);
                     localEvent.getUser().getPhoneNum() + " , has booked a service from you...";
         }
         sendEmailTo(service.getSp().getPerson().getEmail(), email);
+
     }
 
     public boolean isAddLocalEventFoodFlag() {
@@ -805,9 +807,9 @@ locationList.add(k2);
 
     }
 
-    public boolean isCreatePackageFlag() {
-        return createPackageFlag;
-    }
+  //  public boolean isCreatePackageFlag() {
+  //      return createPackageFlag;
+   // }
 
     public void deletePackage(Integer int1) {
 
@@ -826,14 +828,14 @@ locationList.add(k2);
         }
     }
 
-    public boolean isDeletePackageFlag() {
-        return deletePackageFlag;
-    }
+  //  public boolean isDeletePackageFlag() {
+    //    return deletePackageFlag;
+    //}
 
-    public boolean checkPackageList() {
-     return !(packageList.isEmpty());
+   // public boolean checkPackageList() {
+    // return !(packageList.isEmpty());
 
-    }
+   // }
 
     public String showPackageForAdmin() {
         StringBuilder format = new StringBuilder();
@@ -951,9 +953,9 @@ locationList.add(k2);
         return s;
     }
 
-    public boolean isEditToAddAdditionalServiceByUserFlag() {
-        return editToAddAdditionalServiceByUserFlag;
-    }
+  //  public boolean isEditToAddAdditionalServiceByUserFlag() {
+     //   return editToAddAdditionalServiceByUserFlag;
+    //}
 
     public void editDeleteServiceFromEventByUser(String username, String eventName, Integer serviceId) {
 
