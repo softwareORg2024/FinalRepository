@@ -53,6 +53,8 @@ private static int num=0;
     private boolean deleteeventbyuserflag;
     private boolean editLocationFlag;
     private boolean editPackageFlag;
+    private boolean servicetypenotfoundflag;
+    private boolean searchinusernullflag;
 
 
     public Event getLocalEvent() {
@@ -455,7 +457,7 @@ locationList.add(k2);
         return serviceMenuFlag;
     }
 
-   public int addFoodService(Integer int1, String str) {
+    public int addFoodService(Integer int1, String str) {
         for (ServiceProvider sp : providerList) {
             if (sp.getServiceType().equals(str)) {
                 for (Service s : sp.getOfferList()) {
@@ -466,13 +468,14 @@ locationList.add(k2);
                 }
             }
         }
+          servicetypenotfoundflag = true;
         return 0;
     }
 
     private void handleEventService(Service service, String serviceType) {
         switch (serviceType) {
             case SERVICE_TYPE_FOOD:
-               getLocalEvent().setFoodService(service);
+                getLocalEvent().setFoodService(service);
                 addLocalEventFoodFlag = true;
                 break;
             case SERVICE_TYPE_DECORATION:
@@ -557,6 +560,7 @@ locationList.add(k2);
                 return p;
             }
         }
+        searchinusernullflag=true;
         return null;
     }
 
@@ -1212,6 +1216,14 @@ locationList.add(k2);
 
     public boolean isGetEventCostFlag() {
         return getEventCostFlag;
+    }
+
+    public boolean isServicetypenotfoundflag() {
+        return servicetypenotfoundflag;
+    }
+
+    public boolean isSearchinusernullflag() {
+        return searchinusernullflag;
     }
 }
 
