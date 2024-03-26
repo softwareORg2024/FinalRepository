@@ -126,8 +126,14 @@ public class Main {
             boolean valid = false;
             while (!valid) {
                 try {
+
+
                     choice = input.nextInt();
-                    valid = true;
+                    if(choice>0 && choice<5){
+                    valid = true;}
+                    if(!valid){
+                        logger.info(CHOICE_PROMPT);
+                    }
                 } catch (InputMismatchException e) {
 
                     logger.info(INCORRECT_VALUE_MESSAGE);
@@ -369,14 +375,16 @@ String createEventMessage=CREATE_EVENT_MESSAGE;
        if (serviceChoice != 5) {
             spList = searchInSpAccordingToType(type);
            logger.info(spList);
+           String spName;
+           do {
+               spName = getInput("Please enter service Provider Name: ");
+           } while (spName == null || spName.isEmpty() || obj.searchInServiceProvider(spName) == null);
 
-           String spName = getInput("Please enter service Provider Name: ");
-           if (spName != null && !spName.isEmpty()) {
-               String s=obj.showservicesForSp(spName);
-               logger.info(s);
-           } else {
-               logger.info("Service provider name is not provided.");
-           }
+           String s = obj.showservicesForSp(spName);
+           s += "\nEnter your choice: ";
+           logger.info(s);
+
+
 
            Integer serviceId = input.nextInt();
            obj.setLocalEvent(event1);
@@ -457,7 +465,8 @@ String createEventMessage=CREATE_EVENT_MESSAGE;
         String locationName="";
         loc = searchInLocation(id);
         if (loc != null) {
-            cost += loc.getCost();
+            cost = loc.getCost();
+
             locationName = loc.getLocationName();
         }
 
@@ -476,7 +485,9 @@ Time timePass=new Time( time.getHours(), time.getMinutes(), time.getSeconds());
               """ + ANSI_RESET+"\n"+CHOICE_PROMPT;
 
         logger.info(menu );
+
         int choice = input.nextInt();
+
         int packid;
         switch (choice) {
             case 1 -> {
@@ -487,11 +498,13 @@ Time timePass=new Time( time.getHours(), time.getMinutes(), time.getSeconds());
                 obj.addLocalEventToEventList();
 
 
+
                 Package pk = searchInPackage(packid);
                 if (pk != null) {
                     Event localEvent = obj.getLocalEvent();
                     if (localEvent != null) {
-                        int eventCost = localEvent.eventCost(cost);
+                        localEvent.setPack(pk);
+                       int eventCost = localEvent.eventCost(cost);
                         String s=CREATE_EVENT_MESSAGE;
                         s+=String.valueOf(eventCost);
                         logger.info(s);
@@ -511,6 +524,7 @@ Time timePass=new Time( time.getHours(), time.getMinutes(), time.getSeconds());
             case 3 -> {
                 String s=CREATE_EVENT_MESSAGE;
                 s+=String.valueOf(cost);
+                obj.getLocalEvent().eventCost(cost);
                 logger.info(s);}
             default ->
                 logger.info("Invalid input.");
@@ -550,7 +564,15 @@ Time timePass=new Time( time.getHours(), time.getMinutes(), time.getSeconds());
         String show;
         switch (choice) {
             case 1 -> creatBasicEvent(input);
-            case 2 -> editEvent(input);
+            case 2 -> {
+                 show = obj.viewEventsByUser(user.getUserName());
+                logger.info(show);
+                String eventName;
+                do {
+                     eventName = getInput("Please enter Event name: ");
+                } while (searchInEventByName(eventName)==null);
+                editEvent(input,eventName);
+            }
             case 3 -> {
                 show = obj.viewEventsByUser(user.getUserName());
                 String eventname = getInput(show + "\n Please enter eventName:\n");
@@ -580,17 +602,15 @@ Time timePass=new Time( time.getHours(), time.getMinutes(), time.getSeconds());
 
     }
 
-    private static void editEvent(Scanner input) {
-        String show = obj.viewEventsByUser(user.getUserName());
-        logger.info(show);
-        String eventName = getInput("Please enter Event name: ");
+    private static void editEvent(Scanner input, String s) {
 
+String eventName=s;
         displayEditMenu();
 
         int choice = input.nextInt();
 
         switch (choice) {
-            case 1 -> editEventName(eventName);
+            case 1 -> {eventName=editEventName(eventName);}
             case 2 -> editEventLocation(eventName, input);
             case 3 -> editEventDate(eventName, input);
             case 4 -> editEventTime(eventName, input);
@@ -603,9 +623,11 @@ Time timePass=new Time( time.getHours(), time.getMinutes(), time.getSeconds());
             case 11 -> displayUserMenu(input);
             default -> {
                 logger.info(INVALID_OPTION_MESSAGE);
-                displayEditMenu();
+
             }
+
         }
+        editEvent(input,eventName);
 
     }
 
@@ -630,9 +652,10 @@ Time timePass=new Time( time.getHours(), time.getMinutes(), time.getSeconds());
         logger.info(menu);
     }
 
-    private static void editEventName(String eventName) {
+    private static String editEventName(String eventName) {
         String newEventName = getInput("Please enter new Event name: ");
         obj.editEventNameByUser(user.getUserName(), eventName, newEventName);
+        return newEventName;
     }
 
     private static void editEventLocation(String eventName, Scanner input) {
@@ -691,7 +714,7 @@ Time timePass=new Time( time.getHours(), time.getMinutes(), time.getSeconds());
             if (event != null && e.getDate().getYear() == event.getDate().getYear() && e.getDate().getMonth() == event.getDate().getMonth() && e.getDate().getDate() == event.getDate().getDate() && e.getTime().equals(time) && e.getLocation().equals(event.getLocation())) {
                 logger.info("you can't choose this time because location is booked to another event\n");
                 temp = 1;
-                editEvent(input);
+                editEvent(input,eventName);
                 break;
             }
 
