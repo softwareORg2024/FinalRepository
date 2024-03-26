@@ -611,7 +611,7 @@ String eventName=s;
         int choice = input.nextInt();
 
         switch (choice) {
-            case 1 -> {eventName=editEventName(eventName);}
+            case 1 -> eventName=editEventName(eventName);
             case 2 -> editEventLocation(eventName, input);
             case 3 -> editEventDate(eventName, input);
             case 4 -> editEventTime(eventName, input);
@@ -622,10 +622,10 @@ String eventName=s;
             case 9 -> cancelSelectedPackage(eventName);
             case 10 -> editSelectedPackage(eventName, input);
             case 11 -> displayUserMenu(input);
-            default -> {
+            default ->
                 logger.info(INVALID_OPTION_MESSAGE);
 
-            }
+            
 
         }
         editEvent(input,eventName);
