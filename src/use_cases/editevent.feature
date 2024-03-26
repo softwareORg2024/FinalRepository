@@ -13,6 +13,12 @@ When the user select to edit
 And user "salma" modifies the event name of event "omar's birthday" to "asma Birhday"
 Then the event name is updated successfully
 
+  Scenario: User edits the event name
+    Given the user is on the event details page
+    When the user select to edit
+    And user "salma" modifies the event name of event "omarrr's birthday" to "asma Birhday"
+    Then the event name is not found
+
 Scenario: User changes the event location
 Given the user is on the event details page
 When the user select to edit
@@ -91,6 +97,7 @@ Then the selected package  is removed from the event
       | string  |
     | "salma" |
      | "abd" |
+      | "mira" |
 
 
 
@@ -99,6 +106,12 @@ Given the user is logged in
 When the user select to edit
   And user "rawand" to delete event "rawand's Birthday"
   Then the selected event is deleted from the user's events list
+
+  Scenario: User see overall cost to  an existing event
+    Given the user is logged in
+    When the user select to edit
+    And user "rawand" to see  event cost "rawand's Birthday"
+    Then the cost is displayed
 
   Scenario: User edit the selected package
     Given the user is on the event details page
