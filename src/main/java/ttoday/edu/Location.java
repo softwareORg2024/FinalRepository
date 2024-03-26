@@ -18,25 +18,13 @@ public class Location {
         return cost;
     }
 
-    public void setCost(int cost) {
-        this.cost = cost;
-    }
+
 
     public String getLocationName() {
         return locationName;
     }
 
-    public void setLocationName(String locationName) {
-        this.locationName = locationName;
-    }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
     public int getId() {
         return id;

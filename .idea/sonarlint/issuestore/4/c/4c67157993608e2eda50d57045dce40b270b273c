@@ -1,85 +1,89 @@
 
+g
+java:S2583‡"DChange this condition so that it does not always evaluate to "false"(Ï­ùˆıÿÿÿÿ8½ËÌãç1
 ˆ
-java:S1450¯"eRemove the "deleteServiceForSpFlag" field and declare it as a local variable in the relevant methods.(À†åğüÿÿÿÿ8ñ­ç1
+java:S1450¯"eRemove the "deleteServiceForSpFlag" field and declare it as a local variable in the relevant methods.(À†åğüÿÿÿÿ8ÜËÌãç1
 †
-java:S1450©"cRemove the "editServiceForSpFlag" field and declare it as a local variable in the relevant methods.(÷¬øµşÿÿÿÿ8ö­ç1
+java:S1450©"cRemove the "editServiceForSpFlag" field and declare it as a local variable in the relevant methods.(÷¬øµşÿÿÿÿ8İËÌãç1
 w
-java:S1450Ê"YRemove the "inUserPage" field and declare it as a local variable in the relevant methods.(¶ìÿ™8ø­ç1
+java:S1450Æ"YRemove the "inUserPage" field and declare it as a local variable in the relevant methods.(¶ìÿ™8İËÌãç1
 }
-java:S1450­"_Remove the "serviceaddedsucc" field and declare it as a local variable in the relevant methods.(’ ç8û­ç1
+java:S1450­"_Remove the "serviceaddedsucc" field and declare it as a local variable in the relevant methods.(’ ç8ŞËÌãç1
+†
+java:S1450""dRemove the "showEventForAdminFlag" field and declare it as a local variable in the relevant methods.(²™‰÷üÿÿÿÿ8ŞËÌãç1
 ˆ
-java:S1450'"fRemove the "showPackageForAdminFlag" field and declare it as a local variable in the relevant methods.(‰„¡¿ûÿÿÿÿ8€Ÿ­ç1
+java:S1450'"fRemove the "showPackageForAdminFlag" field and declare it as a local variable in the relevant methods.(‰„¡¿ûÿÿÿÿ8ßËÌãç1
+
+java:S1450$"bRemove the "showSPtForAdminFlag" field and declare it as a local variable in the relevant methods.(‹®Ûš8ßËÌãç1
+„
+java:S1450!"gRemove the "showUserListForAdminFlag" field and declare it as a local variable in the relevant methods.(Ò–š›8ßËÌãç1
 ‡
-java:S1450¬"jRemove the "showUsersAndEventsForSpFlag" field and declare it as a local variable in the relevant methods.(¡»®}8†Ÿ­ç1
+java:S1450¬"jRemove the "showUsersAndEventsForSpFlag" field and declare it as a local variable in the relevant methods.(¡»®}8àËÌãç1
 ‡
-java:S1450ª"dRemove the "showservicesForSpFlag" field and declare it as a local variable in the relevant methods.(½ˆùŸûÿÿÿÿ8‰Ÿ­ç1
+java:S1450ª"dRemove the "showservicesForSpFlag" field and declare it as a local variable in the relevant methods.(½ˆùŸûÿÿÿÿ8àËÌãç1
 y
-java:S1450´"[Remove the "userhasevent" field and declare it as a local variable in the relevant methods.(Ì§üã8‹Ÿ­ç1
+java:S1450´"[Remove the "userhasevent" field and declare it as a local variable in the relevant methods.(Ì§üã8àËÌãç1
 I
-java:S1874K",Remove this use of "Time"; it is deprecated.(èº³Å8ã’Í£ç1
+java:S1874K",Remove this use of "Time"; it is deprecated.(èº³Å8õËÌãç1
 N
-java:S1874T",Remove this use of "Time"; it is deprecated.(µùğÎüÿÿÿÿ8¾Ÿ­ç1
+java:S1874T",Remove this use of "Time"; it is deprecated.(µùğÎüÿÿÿÿ8ùËÌãç1
 N
-java:S1874U",Remove this use of "Date"; it is deprecated.(õòÃùÿÿÿÿ8á’Í£ç1
+java:S1874U",Remove this use of "Date"; it is deprecated.(õòÃùÿÿÿÿ8úËÌãç1
 J
-java:S1874Í",Remove this use of "Time"; it is deprecated.(Î¨ÌÙ8ØŸ­ç1
+java:S1874É",Remove this use of "Time"; it is deprecated.(Î¨ÌÙ8ÂÌÌãç1
 O
-java:S1874Î",Remove this use of "Date"; it is deprecated.(ôƒ½ùùÿÿÿÿ8ÚŸ­ç1
+java:S1874Ê",Remove this use of "Date"; it is deprecated.(ôƒ½ùùÿÿÿÿ8ÃÌÌãç1
 R
-java:S1874·"/Remove this use of "getYear"; it is deprecated.(ÉÉóÊÿÿÿÿÿ8“Í£ç1
+java:S1874¹"/Remove this use of "getYear"; it is deprecated.(ÉÉóÊÿÿÿÿÿ8üÍÌãç1
 S
-java:S1874·"0Remove this use of "getMonth"; it is deprecated.(ÉÉóÊÿÿÿÿÿ8“Í£ç1
+java:S1874¹"0Remove this use of "getMonth"; it is deprecated.(ÉÉóÊÿÿÿÿÿ8ÎÌãç1
 R
-java:S1874·"/Remove this use of "getDate"; it is deprecated.(ÉÉóÊÿÿÿÿÿ8“Í£ç1
+java:S1874¹"/Remove this use of "getDate"; it is deprecated.(ÉÉóÊÿÿÿÿÿ8„ÎÌãç1
 O
-java:S1874û",Remove this use of "Date"; it is deprecated.(ÊÇ¬ûÿÿÿÿ8¢­ç1
+java:S1874ğ",Remove this use of "Date"; it is deprecated.(ÊÇ¬ûÿÿÿÿ8»ÎÌãç1
 J
-java:S1874ˆ",Remove this use of "Time"; it is deprecated.(òŞš8‘¢­ç1
+java:S1874ı",Remove this use of "Time"; it is deprecated.(òŞš8ÀÎÌãç1
 M
-java:S1874Æ"/Remove this use of "getYear"; it is deprecated.(ãëï–8Ä¢­ç1
+java:S1874»"/Remove this use of "getYear"; it is deprecated.(ãëï–8”ÏÌãç1
 N
-java:S1874Æ"0Remove this use of "getMonth"; it is deprecated.(ãëï–8Å¢­ç1
+java:S1874»"0Remove this use of "getMonth"; it is deprecated.(ãëï–8•ÏÌãç1
 M
-java:S1874Æ"/Remove this use of "getDate"; it is deprecated.(ãëï–8Å¢­ç1
+java:S1874»"/Remove this use of "getDate"; it is deprecated.(ãëï–8–ÏÌãç1
 I
-java:S1068"'Remove this unused "num" private field.(È–£§úÿÿÿÿ8 ³§“ç1
+java:S1068"'Remove this unused "num" private field.(È–£§úÿÿÿÿ8ÁÏÌãç1
 O
-java:S1068"3Remove this unused "isDeletePackage" private field.(İõˆ%8£­ç1
+java:S1068"3Remove this unused "isDeletePackage" private field.(İõˆ%8ÑÏÌãç1
 U
-java:S1068"3Remove this unused "isCreatePackage" private field.(ê‚¥ûÿÿÿÿ8£­ç1
+java:S1068"3Remove this unused "isCreatePackage" private field.(ê‚¥ûÿÿÿÿ8ÒÏÌãç1
 O
-java:S1068"2Remove this unused "isSeeEventList" private field.(”Ç¢ã8’£­ç1
+java:S1068"2Remove this unused "isSeeEventList" private field.(”Ç¢ã8ÒÏÌãç1
 N
-java:S1068 "1Remove this unused "isSeeUserList" private field.(Ç×ß¨8‚¤­ç1
-K
-java:S1068#"/Remove this unused "isSeeSPList" private field.(ÀÃ;8‚¤­ç1
-]
-java:S1068'";Remove this unused "showPackageForAdminFlag" private field.(‰„¡¿ûÿÿÿÿ8‚¤­ç1
+java:S1068 "1Remove this unused "isSeeUserList" private field.(Ç×ß¨8ÒÏÌãç1
+Y
+java:S1068!"<Remove this unused "showUserListForAdminFlag" private field.(Ò–š›8ÓÏÌãç1
 [
-java:S1068©"8Remove this unused "editServiceForSpFlag" private field.(÷¬øµşÿÿÿÿ8‚¤­ç1
-\
-java:S1068ª"9Remove this unused "showservicesForSpFlag" private field.(½ˆùŸûÿÿÿÿ8ƒ¤­ç1
-\
-java:S1068¬"?Remove this unused "showUsersAndEventsForSpFlag" private field.(¡»®}8ƒ¤­ç1
-R
-java:S1068­"4Remove this unused "serviceaddedsucc" private field.(’ ç8ƒ¤­ç1
-Z
-java:S1068®"7Remove this unused "isShoweventsAnduser" private field.(Àû“øÿÿÿÿ8ƒ¤­ç1
-]
-java:S1068¯":Remove this unused "deleteServiceForSpFlag" private field.(À†åğüÿÿÿÿ8ƒ¤­ç1
-N
-java:S1068´"0Remove this unused "userhasevent" private field.(Ì§üã8ƒ¤­ç1
+java:S1068""9Remove this unused "showEventForAdminFlag" private field.(²™‰÷üÿÿÿÿ8ÓÏÌãç1
+K
+java:S1068#"/Remove this unused "isSeeSPList" private field.(ÀÃ;8ÓÏÌãç1
 T
-java:S1068¸"1Remove this unused "isServiceFlag" private field.(Ïíëôıÿÿÿÿ8ƒ¤­ç1
-U
-java:S1068¹"2Remove this unused "isDecorService" private field.(õûæ¶ıÿÿÿÿ8ƒ¤­ç1
+java:S1068$"7Remove this unused "showSPtForAdminFlag" private field.(‹®Ûš8ÖÏÌãç1
+]
+java:S1068'";Remove this unused "showPackageForAdminFlag" private field.(‰„¡¿ûÿÿÿÿ8×ÏÌãç1
+[
+java:S1068©"8Remove this unused "editServiceForSpFlag" private field.(÷¬øµşÿÿÿÿ8ÙÏÌãç1
+\
+java:S1068ª"9Remove this unused "showservicesForSpFlag" private field.(½ˆùŸûÿÿÿÿ8ÚÏÌãç1
+\
+java:S1068¬"?Remove this unused "showUsersAndEventsForSpFlag" private field.(¡»®}8àÏÌãç1
+R
+java:S1068­"4Remove this unused "serviceaddedsucc" private field.(’ ç8ğÏÌãç1
+Z
+java:S1068®"7Remove this unused "isShoweventsAnduser" private field.(Àû“øÿÿÿÿ8ŠĞÌãç1
+]
+java:S1068¯":Remove this unused "deleteServiceForSpFlag" private field.(À†åğüÿÿÿÿ8‹ĞÌãç1
+N
+java:S1068´"0Remove this unused "userhasevent" private field.(Ì§üã8‹ĞÌãç1
 O
-java:S1068º"1Remove this unused "isFoodService" private field.(¦Ú»Ó8„¤­ç1
-P
-java:S1068»"2Remove this unused "isPhotoService" private field.(´®Á³8„¤­ç1
-P
-java:S1068¼"2Remove this unused "isEnterService" private field.(ş¿ü8„¤­ç1
-O
-java:S1068È",Remove this unused "isLogged" private field.(²ÇĞûÿÿÿÿ8„¤­ç1
+java:S1068Ä",Remove this unused "isLogged" private field.(²ÇĞûÿÿÿÿ8ĞÌãç1
 L
-java:S1068Ê".Remove this unused "inUserPage" private field.(¶ìÿ™8…¤­ç1
+java:S1068Æ".Remove this unused "inUserPage" private field.(¶ìÿ™8’ĞÌãç1

@@ -11,11 +11,14 @@ Feature: Create Event
     When the user fills in the event details with a past date 2024-01-25
     Then the user receives an error message
 
-  Scenario: User creates a new event with mandatory details
+  Scenario Outline: User creates a new event with mandatory details
     Given the user is on the event creation page
-    When the user "haya" fills in the event details including name " Laila's Birthday", place "home", time 5:00:00, date 2024-03-25, number of attendees 20, and theme "unicorn"
+    When the user <string> fills in the event details including name <string2>, place <string3>, time <int1>:<int2>:<int3>, date <int4>-<int5>-<int6>, number of attendees <int7>, and theme <string4>
     Then the event is created successfully
-
+    Examples:
+      | string | string2             | string3 | int1 | int2 | int3 | int4 | int5 | int6 | int7 | string4   |
+      | "haya" | " Laila's Birthday" | "home"  | 5    | 00   | 00   | 2024 | 03   | 25   | 20   | "unicorn" |
+      | "haya" | " Laila's Birthday" | "park"  | 5    | 00   | 00   | 2024 | 03   | 25   | 20   | "unicorn" |
   Scenario: User chooses between individual services and ready-made packages
     Given the user is presented with a choice between individual services and ready-made packages
     When the user selects an option by entering for individual services and other for ready-made packages
@@ -75,7 +78,15 @@ Feature: Create Event
     Then  reject event creation
 
 
+  Scenario: User does not exist in the user linked list
+    Given the user "JohnDoe" is not in the linked list
+    When I check for "JohnDoe" in the linked list
+    Then the system should report that the user does not exist
 
 
 
+  Scenario: The specified service type does not exist
+    Given a list of available service types
+    When the service id 1 and type "Premium Support" is not in the list
+    Then the system should report that the service type does not exist
 

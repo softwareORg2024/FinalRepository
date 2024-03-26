@@ -394,8 +394,6 @@ locationList.add(k2);
         if (temp == 0) {
             Event e = new Event(string, date, time1, string2, string3, int7);
             setLocalEvent(e);
-
-           // localEvent.eventCost(string2);
             Event ev = getLocalEvent();
             if (ev != null) {
                 ev.setUser(n);
@@ -460,16 +458,12 @@ locationList.add(k2);
                 for (Service s : sp.getOfferList()) {
                     if (s.getId() == int1) {
                         handleEventService(s, str);
-                        logger.info("Added Successfully");
                         return s.getCost();
                     }
                 }
-
             }
         }
-       logger.info("this id not found ! ");
-
-       return 0;
+        return 0;
     }
 
     private void handleEventService(Service service, String serviceType) {
@@ -1061,7 +1055,7 @@ locationList.add(k2);
                 event.getEntertainmentService() != null ? event.getEntertainmentService().getDiscription() : HYPHEN_STRING,
                 event.getFoodService() != null ? event.getFoodService().getDiscription() : HYPHEN_STRING,
                 event.getPhotographerService() != null ? event.getPhotographerService().getDiscription() : HYPHEN_STRING,
-                event.eventCost(0)));
+                event.eventCost(cost)));
     }
 
     private void addEventWithPackageDetails(Event event, StringBuilder eventsWithPackage, String eventWithPackageFormat, String date, int cost) {
@@ -1074,7 +1068,7 @@ locationList.add(k2);
                 event.getNumGuests(),
                 event.getPack().getNumber(),
                 event.getPack().getDescription(),
-                event.eventCost(0)));
+                event.eventCost(cost)));
     }
 
     private String formatDate(Date date) {

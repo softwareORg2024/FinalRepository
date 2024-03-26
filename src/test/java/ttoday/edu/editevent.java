@@ -59,7 +59,10 @@ public class editevent {
     public void user_modifies_the_event_name_of_event_to(String string, String string2, String string3) {
         obj.editEventNameByUser(string, string2, string3);
     }
-
+    @Then("the event name is not found")
+    public void the_event_name_is_not_found() {
+       assertFalse(obj. isEditEventNameByUserFlag());
+    }
 
     @When("user {string} modifies the event location of event {string} to {int}")
     public void user_modifies_the_event_location_of_event_to(String string, String string2, Integer int1) {
@@ -150,6 +153,7 @@ public class editevent {
         assertTrue(obj.isEditEventThemeByUserFlag());
 
     }
+
     @Then("the selected service is not removed from the event")
     public void the_selected_service_is_not_removed_from_the_event() {
         assertFalse(obj.isEditDeleteServiceFromEventByUserFlag());
@@ -179,13 +183,23 @@ public class editevent {
 
     @When("user {string} select to edit from event {string} to add {int} Package")
     public void user_select_to_edit_from_event_to_add_package(String string, String string2, Integer int1) {
-        obj.editPackage(string,string2,int1);
+        obj.editPackage(string, string2, int1);
     }
-
 
 
     @Then("the selected package  is edited from the event")
     public void the_selected_package_is_edited_from_the_event() {
-assertTrue(obj.isEditPackageFlag());
+        assertTrue(obj.isEditPackageFlag());
+    }
+
+
+    @When("user {string} to see  event cost {string}")
+    public void user_to_see_event_cost(String string, String string2) {
+      int i= obj.getEventCost(string,string2);
+    }
+
+    @Then("the cost is displayed")
+    public void the_cost_is_displayed() {
+       assertTrue(obj.isGetEventCostFlag() );
     }
 }

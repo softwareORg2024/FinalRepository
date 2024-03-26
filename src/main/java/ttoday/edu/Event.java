@@ -29,9 +29,6 @@ public class Event {
         return overallCost;
     }
 
-    public void setOverallCost(int overallCost) {
-        this.overallCost = overallCost;
-    }
 
     public Event(String eventName, Date date, Time time, String location, String theme, int numGuests) {
         this.eventName = eventName;
@@ -167,9 +164,6 @@ if(eventLocationCost==0){
         return index;
     }
 
-    public void setIndex(int index) {
-        this.index = index;
-    }
 
     public Package getPack() {
         return pack;

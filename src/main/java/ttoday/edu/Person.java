@@ -46,24 +46,18 @@ public class Person
 
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+
 
     public void setPass(String pass) {
         this.pass = pass;
     }
-    public void setPhoneNum(String pn) {
-        this.phoneNum=pn;
-    }
+
 
     public List<Event> getEventList() {
         return eventList;
     }
 
-    public void setEventList(List<Event> eventList) {
-        this.eventList = (ArrayList<Event>) eventList;
-    }
+
     public void addUserEvent(Event e){
         eventList.add(e);
     }
