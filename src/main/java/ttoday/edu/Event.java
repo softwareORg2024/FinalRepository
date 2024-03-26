@@ -127,38 +127,28 @@ public class Event {
     }
 
     public int eventCost(int locationCost) {
+        // Use the provided locationCost if eventLocationCost is 0, otherwise keep eventLocationCost
+        int cost = (eventLocationCost == 0) ? locationCost : eventLocationCost;
 
-if(eventLocationCost==0){
-
-    eventLocationCost=locationCost;
-}
-        int cost=eventLocationCost;
-        if(getFoodService()!=null){
-            cost+=getFoodService().getCost();
-
+        if(getFoodService() != null) {
+            cost += getFoodService().getCost();
         }
-        if(getPhotographerService()!=null){
-            cost+=getPhotographerService().getCost();
-
+        if(getPhotographerService() != null) {
+            cost += getPhotographerService().getCost();
         }
-        if(getEntertainmentService()!=null){
-            cost+=getEntertainmentService().getCost();
-
+        if(getEntertainmentService() != null) {
+            cost += getEntertainmentService().getCost();
         }
-        if(getDecorService()!=null){
-            cost+=getDecorService().getCost();
-
+        if(getDecorService() != null) {
+            cost += getDecorService().getCost();
         }
-        if(getPack()!=null){
-            cost+= (int) getPack().getTotalPrice();
-
+        if(getPack() != null) {
+            cost += (int) getPack().getTotalPrice();
         }
 
-        this.overallCost=cost;
-         return overallCost;
+        this.overallCost = cost;
+        return overallCost;
     }
-
-
 
     public int getIndex() {
         return index;

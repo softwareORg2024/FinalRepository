@@ -83,7 +83,7 @@ public class Serviceproviderfeature {
 
     @Then("the selected service is not found")
     public void the_selected_service_is_not_found() {
-        assertFalse(obj.isServiceFound);
+        assertFalse(obj.isServiceFound());
     }
 
 

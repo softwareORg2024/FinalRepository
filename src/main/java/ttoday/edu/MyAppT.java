@@ -37,6 +37,8 @@ private static int num=0;
     private boolean createPackageFlag;
     private boolean deletePackageFlag;
     private boolean showPackageForAdminFlag;
+    private boolean getEventCostFlag;
+    private boolean isServiceFound;
 
     private boolean editEventNameByUserFlag;
     private boolean editEventDateByUserFlag;
@@ -650,8 +652,13 @@ locationList.add(k2);
         else{
         logger.info("deleted successfully");}
 
+        isServiceFound=false;
+
     }
 
+    public boolean isServiceFound() {
+        return isServiceFound;
+    }
     public String showservicesForSp(String string) {
         ServiceProvider p = searchInServiceProvider(string);
         String headerFormat = "\u001B[33m%-10s\t%-50s\t%-10s\n\u001B[0m";
@@ -854,12 +861,12 @@ locationList.add(k2);
     public void editEventNameByUser(String string, String string2, String string3) {
         Person p=searchInUser(string);
        Event e= p.searchInUserEvents(string2);
-
-       if(e!=null){
-       e.setEventName(string3);}
-
-
-        editEventNameByUserFlag=true;
+        if(e!=null) {
+            e.setEventName(string3);
+            editEventNameByUserFlag = true;
+        }
+        else
+            editEventNameByUserFlag = false;
 
     }
 
@@ -1195,6 +1202,16 @@ locationList.add(k2);
 
     public List<Package> getPackageList() {
         return packageList;
+    }
+    public int getEventCost(String string, String string2) {
+        Person p = searchInUser(string);
+        Event e = p.searchInUserEvents(string2);
+        getEventCostFlag = true;
+        return e.getOverallCost();
+    }
+
+    public boolean isGetEventCostFlag() {
+        return getEventCostFlag;
     }
 }
 

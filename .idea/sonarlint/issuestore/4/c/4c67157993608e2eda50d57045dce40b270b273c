@@ -1,89 +1,87 @@
 
-g
-java:S2583"DChange this condition so that it does not always evaluate to "false"(Ï­ùˆıÿÿÿÿ8óÓ«äç1
 ˆ
-java:S1450±"eRemove the "deleteServiceForSpFlag" field and declare it as a local variable in the relevant methods.(À†åğüÿÿÿÿ8Ô«äç1
+java:S1450±"eRemove the "deleteServiceForSpFlag" field and declare it as a local variable in the relevant methods.(À†åğüÿÿÿÿ8ÆÃîåç1
 †
-java:S1450«"cRemove the "editServiceForSpFlag" field and declare it as a local variable in the relevant methods.(÷¬øµşÿÿÿÿ8‚Ô«äç1
+java:S1450«"cRemove the "editServiceForSpFlag" field and declare it as a local variable in the relevant methods.(÷¬øµşÿÿÿÿ8ÇÃîåç1
 w
-java:S1450È"YRemove the "inUserPage" field and declare it as a local variable in the relevant methods.(¶ìÿ™8‚Ô«äç1
+java:S1450È"YRemove the "inUserPage" field and declare it as a local variable in the relevant methods.(¶ìÿ™8ÇÃîåç1
 }
-java:S1450¯"_Remove the "serviceaddedsucc" field and declare it as a local variable in the relevant methods.(’ ç8‚Ô«äç1
+java:S1450¯"_Remove the "serviceaddedsucc" field and declare it as a local variable in the relevant methods.(’ ç8ÈÃîåç1
 †
-java:S1450""dRemove the "showEventForAdminFlag" field and declare it as a local variable in the relevant methods.(²™‰÷üÿÿÿÿ8ƒÔ«äç1
+java:S1450""dRemove the "showEventForAdminFlag" field and declare it as a local variable in the relevant methods.(²™‰÷üÿÿÿÿ8ÉÃîåç1
 ˆ
-java:S1450'"fRemove the "showPackageForAdminFlag" field and declare it as a local variable in the relevant methods.(‰„¡¿ûÿÿÿÿ8„Ô«äç1
+java:S1450'"fRemove the "showPackageForAdminFlag" field and declare it as a local variable in the relevant methods.(‰„¡¿ûÿÿÿÿ8ÉÃîåç1
 
-java:S1450$"bRemove the "showSPtForAdminFlag" field and declare it as a local variable in the relevant methods.(‹®Ûš8„Ô«äç1
+java:S1450$"bRemove the "showSPtForAdminFlag" field and declare it as a local variable in the relevant methods.(‹®Ûš8ÉÃîåç1
 „
-java:S1450!"gRemove the "showUserListForAdminFlag" field and declare it as a local variable in the relevant methods.(Ò–š›8…Ô«äç1
+java:S1450!"gRemove the "showUserListForAdminFlag" field and declare it as a local variable in the relevant methods.(Ò–š›8ÊÃîåç1
 ‡
-java:S1450®"jRemove the "showUsersAndEventsForSpFlag" field and declare it as a local variable in the relevant methods.(¡»®}8…Ô«äç1
+java:S1450®"jRemove the "showUsersAndEventsForSpFlag" field and declare it as a local variable in the relevant methods.(¡»®}8ÊÃîåç1
 ‡
-java:S1450¬"dRemove the "showservicesForSpFlag" field and declare it as a local variable in the relevant methods.(½ˆùŸûÿÿÿÿ8†Ô«äç1
+java:S1450¬"dRemove the "showservicesForSpFlag" field and declare it as a local variable in the relevant methods.(½ˆùŸûÿÿÿÿ8ÊÃîåç1
 y
-java:S1450¶"[Remove the "userhasevent" field and declare it as a local variable in the relevant methods.(Ì§üã8†Ô«äç1
+java:S1450¶"[Remove the "userhasevent" field and declare it as a local variable in the relevant methods.(Ì§üã8ËÃîåç1
 I
-java:S1874M",Remove this use of "Time"; it is deprecated.(èº³Å8ŸÔ«äç1
+java:S1874M",Remove this use of "Time"; it is deprecated.(èº³Å8ØÃîåç1
 N
-java:S1874V",Remove this use of "Time"; it is deprecated.(µùğÎüÿÿÿÿ8¢Ô«äç1
+java:S1874V",Remove this use of "Time"; it is deprecated.(µùğÎüÿÿÿÿ8ÛÃîåç1
 N
-java:S1874W",Remove this use of "Date"; it is deprecated.(õòÃùÿÿÿÿ8¤Ô«äç1
+java:S1874W",Remove this use of "Date"; it is deprecated.(õòÃùÿÿÿÿ8ÜÃîåç1
 J
-java:S1874Ë",Remove this use of "Time"; it is deprecated.(Î¨ÌÙ8ÉÔ«äç1
+java:S1874Ë",Remove this use of "Time"; it is deprecated.(Î¨ÌÙ8ïÃîåç1
 O
-java:S1874Ì",Remove this use of "Date"; it is deprecated.(ôƒ½ùùÿÿÿÿ8ÌÔ«äç1
+java:S1874Ì",Remove this use of "Date"; it is deprecated.(ôƒ½ùùÿÿÿÿ8ïÃîåç1
 R
-java:S1874Â"/Remove this use of "getYear"; it is deprecated.(ÉÉóÊÿÿÿÿÿ8ªÖ«äç1
+java:S1874¹"/Remove this use of "getYear"; it is deprecated.(ÉÉóÊÿÿÿÿÿ8âÄîåç1
 S
-java:S1874Â"0Remove this use of "getMonth"; it is deprecated.(ÉÉóÊÿÿÿÿÿ8«Ö«äç1
+java:S1874¹"0Remove this use of "getMonth"; it is deprecated.(ÉÉóÊÿÿÿÿÿ8âÄîåç1
 R
-java:S1874Â"/Remove this use of "getDate"; it is deprecated.(ÉÉóÊÿÿÿÿÿ8¬Ö«äç1
+java:S1874¹"/Remove this use of "getDate"; it is deprecated.(ÉÉóÊÿÿÿÿÿ8ãÄîåç1
 O
-java:S1874ù",Remove this use of "Date"; it is deprecated.(ÊÇ¬ûÿÿÿÿ8ÕØ«äç1
+java:S1874ğ",Remove this use of "Date"; it is deprecated.(ÊÇ¬ûÿÿÿÿ8„Åîåç1
 J
-java:S1874†",Remove this use of "Time"; it is deprecated.(òŞš8ØØ«äç1
+java:S1874ı",Remove this use of "Time"; it is deprecated.(òŞš8¶Åîåç1
 M
-java:S1874Ä"/Remove this use of "getYear"; it is deprecated.(ãëï–8ºÙ«äç1
+java:S1874»"/Remove this use of "getYear"; it is deprecated.(ãëï–8ñÅîåç1
 N
-java:S1874Ä"0Remove this use of "getMonth"; it is deprecated.(ãëï–8ºÙ«äç1
+java:S1874»"0Remove this use of "getMonth"; it is deprecated.(ãëï–8ñÅîåç1
 M
-java:S1874Ä"/Remove this use of "getDate"; it is deprecated.(ãëï–8»Ù«äç1
+java:S1874»"/Remove this use of "getDate"; it is deprecated.(ãëï–8ñÅîåç1
 I
-java:S1068"'Remove this unused "num" private field.(È–£§úÿÿÿÿ8íÚ«äç1
+java:S1068"'Remove this unused "num" private field.(È–£§úÿÿÿÿ8œÆîåç1
 O
-java:S1068"3Remove this unused "isDeletePackage" private field.(İõˆ%8íÚ«äç1
+java:S1068"3Remove this unused "isDeletePackage" private field.(İõˆ%8œÆîåç1
 U
-java:S1068"3Remove this unused "isCreatePackage" private field.(ê‚¥ûÿÿÿÿ8íÚ«äç1
+java:S1068"3Remove this unused "isCreatePackage" private field.(ê‚¥ûÿÿÿÿ8œÆîåç1
 O
-java:S1068"2Remove this unused "isSeeEventList" private field.(”Ç¢ã8íÚ«äç1
+java:S1068"2Remove this unused "isSeeEventList" private field.(”Ç¢ã8œÆîåç1
 N
-java:S1068 "1Remove this unused "isSeeUserList" private field.(Ç×ß¨8íÚ«äç1
+java:S1068 "1Remove this unused "isSeeUserList" private field.(Ç×ß¨8œÆîåç1
 Y
-java:S1068!"<Remove this unused "showUserListForAdminFlag" private field.(Ò–š›8îÚ«äç1
+java:S1068!"<Remove this unused "showUserListForAdminFlag" private field.(Ò–š›8Æîåç1
 [
-java:S1068""9Remove this unused "showEventForAdminFlag" private field.(²™‰÷üÿÿÿÿ8îÚ«äç1
+java:S1068""9Remove this unused "showEventForAdminFlag" private field.(²™‰÷üÿÿÿÿ8Æîåç1
 K
-java:S1068#"/Remove this unused "isSeeSPList" private field.(ÀÃ;8îÚ«äç1
+java:S1068#"/Remove this unused "isSeeSPList" private field.(ÀÃ;8Æîåç1
 T
-java:S1068$"7Remove this unused "showSPtForAdminFlag" private field.(‹®Ûš8îÚ«äç1
+java:S1068$"7Remove this unused "showSPtForAdminFlag" private field.(‹®Ûš8Æîåç1
 ]
-java:S1068'";Remove this unused "showPackageForAdminFlag" private field.(‰„¡¿ûÿÿÿÿ8îÚ«äç1
+java:S1068'";Remove this unused "showPackageForAdminFlag" private field.(‰„¡¿ûÿÿÿÿ8Æîåç1
 [
-java:S1068«"8Remove this unused "editServiceForSpFlag" private field.(÷¬øµşÿÿÿÿ8ïÚ«äç1
+java:S1068«"8Remove this unused "editServiceForSpFlag" private field.(÷¬øµşÿÿÿÿ8Æîåç1
 \
-java:S1068¬"9Remove this unused "showservicesForSpFlag" private field.(½ˆùŸûÿÿÿÿ8ïÚ«äç1
+java:S1068¬"9Remove this unused "showservicesForSpFlag" private field.(½ˆùŸûÿÿÿÿ8Æîåç1
 \
-java:S1068®"?Remove this unused "showUsersAndEventsForSpFlag" private field.(¡»®}8ïÚ«äç1
+java:S1068®"?Remove this unused "showUsersAndEventsForSpFlag" private field.(¡»®}8Æîåç1
 R
-java:S1068¯"4Remove this unused "serviceaddedsucc" private field.(’ ç8ïÚ«äç1
+java:S1068¯"4Remove this unused "serviceaddedsucc" private field.(’ ç8ŸÆîåç1
 Z
-java:S1068°"7Remove this unused "isShoweventsAnduser" private field.(Àû“øÿÿÿÿ8ïÚ«äç1
+java:S1068°"7Remove this unused "isShoweventsAnduser" private field.(Àû“øÿÿÿÿ8ŸÆîåç1
 ]
-java:S1068±":Remove this unused "deleteServiceForSpFlag" private field.(À†åğüÿÿÿÿ8ïÚ«äç1
+java:S1068±":Remove this unused "deleteServiceForSpFlag" private field.(À†åğüÿÿÿÿ8ŸÆîåç1
 N
-java:S1068¶"0Remove this unused "userhasevent" private field.(Ì§üã8ğÚ«äç1
+java:S1068¶"0Remove this unused "userhasevent" private field.(Ì§üã8ŸÆîåç1
 O
-java:S1068Æ",Remove this unused "isLogged" private field.(²ÇĞûÿÿÿÿ8ğÚ«äç1
+java:S1068Æ",Remove this unused "isLogged" private field.(²ÇĞûÿÿÿÿ8ŸÆîåç1
 L
-java:S1068È".Remove this unused "inUserPage" private field.(¶ìÿ™8ğÚ«äç1
+java:S1068È".Remove this unused "inUserPage" private field.(¶ìÿ™8 Æîåç1
