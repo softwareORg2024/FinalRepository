@@ -1,132 +1,51 @@
 
-G
-java:S2629ç"$Invoke method(s) only conditionally.(Ÿªı‹ùÿÿÿÿ8¨‡éç1
-G
-java:S2629ù"$Invoke method(s) only conditionally.(Ÿªı‹ùÿÿÿÿ8©‡éç1
-G
-java:S2629„"$Invoke method(s) only conditionally.(úÜÀåıÿÿÿÿ8©‡éç1
-G
-java:S2629Œ"$Invoke method(s) only conditionally.(Ÿªı‹ùÿÿÿÿ8ª‡éç1
-Z
-java:S2629·"7Use the built-in formatting to construct this argument.(ñ•ıáüÿÿÿÿ8ª‡éç1
-G
-java:S2629È"$Invoke method(s) only conditionally.(•™Êğÿÿÿÿÿ8ª‡éç1
-Z
-java:S2629¯"7Use the built-in formatting to construct this argument.(ñ•ıáüÿÿÿÿ8¯‡éç1
-Z
-java:S2629´"7Use the built-in formatting to construct this argument.(ˆûäûÿÿÿÿ8¯‡éç1
-Z
-java:S2629º"7Use the built-in formatting to construct this argument.(¡òé¯øÿÿÿÿ8¯‡éç1
-U
-java:S2629Ø"7Use the built-in formatting to construct this argument.(ç¯Åœ8¯‡éç1
-G
-java:S2629…"$Invoke method(s) only conditionally.(­‘¸Àüÿÿÿÿ8°‡éç1
-B
-java:S2629“"$Invoke method(s) only conditionally.(ÊÜ“Æ8²‡éç1
-G
-java:S2629™"$Invoke method(s) only conditionally.(îÀáŠûÿÿÿÿ8²‡éç1
-B
-java:S2629"$Invoke method(s) only conditionally.(Â³´Ş8²‡éç1
-B
-java:S2629¦"$Invoke method(s) only conditionally.(œ–8²‡éç1
-B
-java:S2629¬"$Invoke method(s) only conditionally.(±Úûê8³‡éç1
-u
-java:S2259§"RA "NullPointerException" could be thrown; "searchInEventByName()" can return null.(‡éˆÍúÿÿÿÿ8‘°êç1
-p
-java:S2259µ"RA "NullPointerException" could be thrown; "searchInEventByName()" can return null.(°¿®Ê8ùêîç1
-p
-java:S2259í"RA "NullPointerException" could be thrown; "searchInEventByName()" can return null.(Ó„á¯8¥ìç1
-u
-java:S2259§"RA "NullPointerException" could be thrown; "searchInEventByName()" can return null.(‡éˆÍúÿÿÿÿ8£ñç1
-p
-java:S2259ì"RA "NullPointerException" could be thrown; "searchInEventByName()" can return null.( ‡›¦8¥ìç1
-u
-java:S2259ğ"RA "NullPointerException" could be thrown; "searchInEventByName()" can return null.(ó˜¼›üÿÿÿÿ8¥ìç1
-u
-java:S2259§"RA "NullPointerException" could be thrown; "searchInEventByName()" can return null.(‡éˆÍúÿÿÿÿ8ôéç1
-_
-java:S2259™"AA "NullPointerException" could be thrown; "loc" is nullable here.(´ıÙ8ˆ…‘ç1
-u
-java:S2259ê"RA "NullPointerException" could be thrown; "searchInEventByName()" can return null.(™ûñ°ùÿÿÿÿ8Ÿ¥ìç1
-u
-java:S2259§"RA "NullPointerException" could be thrown; "searchInEventByName()" can return null.(‡éˆÍúÿÿÿÿ8ôç1
-u
-java:S2259Ì"RA "NullPointerException" could be thrown; "searchInEventByName()" can return null.(¾µ£¬ıÿÿÿÿ8é·ğç1
-p
-java:S2259ä"RA "NullPointerException" could be thrown; "searchInEventByName()" can return null.(ôíâÛ8¤æêç1
-u
-java:S2259ê"RA "NullPointerException" could be thrown; "searchInEventByName()" can return null.(™ûñ°ùÿÿÿÿ8‘©îç1
-u
-java:S2259Ì"RA "NullPointerException" could be thrown; "searchInEventByName()" can return null.(¾µ£¬ıÿÿÿÿ8ğñç1
-p
-java:S2259µ"RA "NullPointerException" could be thrown; "searchInEventByName()" can return null.(°¿®Ê8ôç1
-u
-java:S2259ï"RA "NullPointerException" could be thrown; "searchInEventByName()" can return null.(ŸøúÊøÿÿÿÿ8©îç1
-u
-java:S2259ğ"RA "NullPointerException" could be thrown; "searchInEventByName()" can return null.(ó˜¼›üÿÿÿÿ8Ÿ¥ìç1
-p
-java:S2259í"RA "NullPointerException" could be thrown; "searchInEventByName()" can return null.(Ó„á¯8©îç1
-u
-java:S2259Ì"RA "NullPointerException" could be thrown; "searchInEventByName()" can return null.(¾µ£¬ıÿÿÿÿ8ôç1
-u
-java:S2259ó"RA "NullPointerException" could be thrown; "searchInEventByName()" can return null.(¡ÙŒ˜ıÿÿÿÿ8¥ìç1
-p
-java:S2259é"RA "NullPointerException" could be thrown; "searchInEventByName()" can return null.(‘Û¬Ø8¥ìç1
-u
-java:S2259ó"RA "NullPointerException" could be thrown; "searchInEventByName()" can return null.(¡ÙŒ˜ıÿÿÿÿ8©îç1
-p
-java:S2259ò"RA "NullPointerException" could be thrown; "searchInEventByName()" can return null.(ä¯¸¬8¥ìç1
-u
-java:S2259Ì"RA "NullPointerException" could be thrown; "searchInEventByName()" can return null.(¾µ£¬ıÿÿÿÿ8õ‘ïç1
 R
-java:S1874å"/Remove this use of "getYear"; it is deprecated.(í°°Àşÿÿÿÿ8¦šéç1
+java:S1874–"/Remove this use of "getYear"; it is deprecated.(í°°Àşÿÿÿÿ8ŒÚ×“ç1
 S
-java:S1874å"0Remove this use of "getMonth"; it is deprecated.(í°°Àşÿÿÿÿ8§šéç1
+java:S1874–"0Remove this use of "getMonth"; it is deprecated.(í°°Àşÿÿÿÿ8Ú×“ç1
 R
-java:S1874å"/Remove this use of "getDate"; it is deprecated.(í°°Àşÿÿÿÿ8¨šéç1
+java:S1874–"/Remove this use of "getDate"; it is deprecated.(í°°Àşÿÿÿÿ8Ú×“ç1
 [
-java:S1854û"8Remove this useless assignment to local variable "time".(óÓ’èÿÿÿÿÿ8¯šéç1
+java:S1854¬"8Remove this useless assignment to local variable "time".(óÓ’èÿÿÿÿÿ8“Ú×“ç1
 O
-java:S1874û",Remove this use of "Time"; it is deprecated.(óÓ’èÿÿÿÿÿ8·šéç1
+java:S1874¬",Remove this use of "Time"; it is deprecated.(óÓ’èÿÿÿÿÿ8•Ú×“ç1
 O
-java:S1874",Remove this use of "Time"; it is deprecated.(¬ì€Äúÿÿÿÿ8¿šéç1
-N
-java:S1874œ"0Remove this use of "getHours"; it is deprecated.(ºœÊµ8Æšéç1
-P
-java:S1874œ"2Remove this use of "getMinutes"; it is deprecated.(ºœÊµ8Çšéç1
-P
-java:S1874œ"2Remove this use of "getSeconds"; it is deprecated.(ºœÊµ8Çšéç1
-F	java:S108»")Either remove or fill this block of code.(üØô8Îšéç1
-R
-java:S1874§"/Remove this use of "getYear"; it is deprecated.(‡éˆÍúÿÿÿÿ8èšéç1
-S
-java:S1874§"0Remove this use of "getMonth"; it is deprecated.(‡éˆÍúÿÿÿÿ8éšéç1
-R
-java:S1874§"/Remove this use of "getDate"; it is deprecated.(‡éˆÍúÿÿÿÿ8êšéç1
-M
-java:S1874µ"/Remove this use of "getYear"; it is deprecated.(°¿®Ê8Œ›éç1
-N
-java:S1874µ"0Remove this use of "getMonth"; it is deprecated.(°¿®Ê8›éç1
-M
-java:S1874µ"/Remove this use of "getDate"; it is deprecated.(°¿®Ê8“›éç1
+java:S1874¾",Remove this use of "Time"; it is deprecated.(¬ì€Äúÿÿÿÿ8Ú×“ç1
+O
+java:S1874Ñ",Remove this use of "Date"; it is deprecated.(–áêùÿÿÿÿ8£Æµİç1
 I
-java:S1874Ç",Remove this use of "Time"; it is deprecated.(ÛìÆ[8Ÿ›éç1
+java:S1874Ò",Remove this use of "Time"; it is deprecated.(Ø¶¶P8­Æµİç1
+M
+java:S1874Ò"0Remove this use of "getHours"; it is deprecated.(Ø¶¶P8·Æµİç1
+O
+java:S1874Ò"2Remove this use of "getMinutes"; it is deprecated.(Ø¶¶P8¼Æµİç1
+O
+java:S1874Ò"2Remove this use of "getSeconds"; it is deprecated.(Ø¶¶P8¾Æµİç1
 R
-java:S1874Ì"/Remove this use of "getYear"; it is deprecated.(¾µ£¬ıÿÿÿÿ8¥›éç1
-R
-java:S1874Ì"/Remove this use of "getYear"; it is deprecated.(¾µ£¬ıÿÿÿÿ8¯›éç1
+java:S1874÷"/Remove this use of "getYear"; it is deprecated.(œ½Š™şÿÿÿÿ8´Çµİç1
 S
-java:S1874Ì"0Remove this use of "getMonth"; it is deprecated.(¾µ£¬ıÿÿÿÿ8°›éç1
+java:S1874÷"0Remove this use of "getMonth"; it is deprecated.(œ½Š™şÿÿÿÿ8·Çµİç1
+R
+java:S1874÷"/Remove this use of "getDate"; it is deprecated.(œ½Š™şÿÿÿÿ8ºÇµİç1
+R
+java:S1874"/Remove this use of "getYear"; it is deprecated.(ñ·¦Üûÿÿÿÿ8ÊÇµİç1
 S
-java:S1874Ì"0Remove this use of "getMonth"; it is deprecated.(¾µ£¬ıÿÿÿÿ8³›éç1
+java:S1874"0Remove this use of "getMonth"; it is deprecated.(ñ·¦Üûÿÿÿÿ8ÍÇµİç1
 R
-java:S1874Ì"/Remove this use of "getDate"; it is deprecated.(¾µ£¬ıÿÿÿÿ8·›éç1
+java:S1874"/Remove this use of "getDate"; it is deprecated.(ñ·¦Üûÿÿÿÿ8ÑÇµİç1
+I
+java:S1874¢",Remove this use of "Time"; it is deprecated.(ÛìÆ[8öÚ×“ç1
 R
-java:S1874Ì"/Remove this use of "getDate"; it is deprecated.(¾µ£¬ıÿÿÿÿ8¸›éç1
-h	java:S128­"LEnd this switch case with an unconditional break, return or throw statement.(ÒñŠ{8—œéç1
-J
-java:S1172¹",Remove this unused method parameter "input".(²×úÊ8 œéç1
-n	java:S128Ü"LEnd this switch case with an unconditional break, return or throw statement.(‰ÆÄÎşÿÿÿÿ8¦œéç1
+java:S1874¨"/Remove this use of "getYear"; it is deprecated.(®ÁÆÍúÿÿÿÿ8èÇµİç1
+R
+java:S1874¨"/Remove this use of "getYear"; it is deprecated.(®ÁÆÍúÿÿÿÿ8êÇµİç1
+S
+java:S1874¨"0Remove this use of "getMonth"; it is deprecated.(®ÁÆÍúÿÿÿÿ8íÇµİç1
+S
+java:S1874¨"0Remove this use of "getMonth"; it is deprecated.(®ÁÆÍúÿÿÿÿ8ğÇµİç1
+R
+java:S1874¨"/Remove this use of "getDate"; it is deprecated.(®ÁÆÍúÿÿÿÿ8ôÇµİç1
+R
+java:S1874¨"/Remove this use of "getDate"; it is deprecated.(®ÁÆÍúÿÿÿÿ8öÇµİç1
 Y
-java:S1068"<Remove this unused "INCORRECT_VALUE_MESSAGEE" private field.(ûàÔ¼8´œéç1
+java:S1068,"<Remove this unused "INCORRECT_VALUE_MESSAGEE" private field.(ûàÔ¼8´œéç1

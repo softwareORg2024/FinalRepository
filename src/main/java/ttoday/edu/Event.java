@@ -76,6 +76,7 @@ public class Event {
         this.eventName = eventName;
     }
 
+
     public void setDate(Date date) {
         this.date = date;
     }

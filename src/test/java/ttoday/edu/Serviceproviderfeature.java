@@ -74,10 +74,12 @@ public class Serviceproviderfeature {
         obj.showservicesForSp(string);
     }
 
+
     @Then("the list of services")
     public void the_list_of_services() {
        assertTrue(obj.isServiceproviderMenuFlag());
     }
+
 
 
 

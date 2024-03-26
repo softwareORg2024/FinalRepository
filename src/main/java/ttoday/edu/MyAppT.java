@@ -385,6 +385,7 @@ locationList.add(k2);
         int temp = 0;
 
 
+
         for (Event e : getEventList()) {
             if (e.getDate().equals(date) && e.getTime().equals(time1) && e.getLocation().equals(string2)) {
                setLocalEventFlag(false);

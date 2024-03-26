@@ -5,6 +5,7 @@ Feature: Role-Based Authentication and Task Display
     When the admin enter
     Then you can see admin menu
 
+
   Scenario: User logs in and views user tasks
     Given I am in system
     When the user enter

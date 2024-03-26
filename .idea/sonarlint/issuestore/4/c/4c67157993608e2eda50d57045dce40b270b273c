@@ -1,159 +1,85 @@
 
-k
-java:S1192Œ"HDefine a constant instead of duplicating this literal "Circus " 3 times.(ºıî©ÿÿÿÿÿ8ú§§“ç1
+ˆ
+java:S1450¯"eRemove the "deleteServiceForSpFlag" field and declare it as a local variable in the relevant methods.(À†åğüÿÿÿÿ8ñ­ç1
+†
+java:S1450©"cRemove the "editServiceForSpFlag" field and declare it as a local variable in the relevant methods.(÷¬øµşÿÿÿÿ8ö­ç1
 w
-java:S1450Ô"YRemove the "inUserPage" field and declare it as a local variable in the relevant methods.(¶ìÿ™8‰¬§“ç1
-~
-java:S1450¼"[Remove the "isAddService" field and declare it as a local variable in the relevant methods.(×õŞøÿÿÿÿ8‰¬§“ç1
-€
-java:S1450&"^Remove the "isCreatePackage" field and declare it as a local variable in the relevant methods.(ê‚¥ûÿÿÿÿ8‰¬§“ç1
-z
-java:S1450%"^Remove the "isDeletePackage" field and declare it as a local variable in the relevant methods.(İõˆ%8Š¬§“ç1
-|
-java:S1450µ"^Remove the "isDeleteService" field and declare it as a local variable in the relevant methods.(àä®8Š¬§“ç1
-
-java:S1450´"\Remove the "isEditService" field and declare it as a local variable in the relevant methods.( ¢¬Êÿÿÿÿÿ8Š¬§“ç1
+java:S1450Ê"YRemove the "inUserPage" field and declare it as a local variable in the relevant methods.(¶ìÿ™8ø­ç1
+}
+java:S1450­"_Remove the "serviceaddedsucc" field and declare it as a local variable in the relevant methods.(’ ç8û­ç1
+ˆ
+java:S1450'"fRemove the "showPackageForAdminFlag" field and declare it as a local variable in the relevant methods.(‰„¡¿ûÿÿÿÿ8€Ÿ­ç1
 ‡
-java:S14504"kRemove the "isEventAdditionalServiceEdit" field and declare it as a local variable in the relevant methods.(éõ[8Š¬§“ç1
-„
-java:S1450"gRemove the "isEventCancelPackageEdit" field and declare it as a local variable in the relevant methods.(ÙÓœÎ8Š¬§“ç1
-€
-java:S1450#"^Remove the "isEventDateEdit" field and declare it as a local variable in the relevant methods.(Œ­ñ×üÿÿÿÿ8Š¬§“ç1
-‚
-java:S1450"eRemove the "isEventDeleteEventEdit" field and declare it as a local variable in the relevant methods.(İòÈ8Š¬§“ç1
-
-java:S14501"bRemove the "isEventLocationEdit" field and declare it as a local variable in the relevant methods.(Ì†ÛÚ8Š¬§“ç1
-{
-java:S14500"^Remove the "isEventNameEdit" field and declare it as a local variable in the relevant methods.(Ÿ– Ò8‹¬§“ç1
+java:S1450¬"jRemove the "showUsersAndEventsForSpFlag" field and declare it as a local variable in the relevant methods.(¡»®}8†Ÿ­ç1
 ‡
-java:S1450!"eRemove the "isEventNumOfPeopleEdit" field and declare it as a local variable in the relevant methods.(ÔÃíïşÿÿÿÿ8‹¬§“ç1
-„
-java:S1450"gRemove the "isEventRemoveServiceEdit" field and declare it as a local variable in the relevant methods.(šô8‹¬§“ç1
-|
-java:S1450 "_Remove the "isEventThemeEdit" field and declare it as a local variable in the relevant methods.(ƒ–…½8‹¬§“ç1
-{
-java:S1450""^Remove the "isEventTimeEdit" field and declare it as a local variable in the relevant methods.(ÒİŒ8Œ¬§“ç1
-
-java:S1450"dRemove the "isEventViewEventsEdit" field and declare it as a local variable in the relevant methods.(¦³¹˜8¬§“ç1
-z
-java:S1450'"]Remove the "isSeeEventList" field and declare it as a local variable in the relevant methods.(”Ç¢ã8¬§“ç1
-v
-java:S1450+"ZRemove the "isSeeSPList" field and declare it as a local variable in the relevant methods.(ÀÃ;8¬§“ç1
+java:S1450ª"dRemove the "showservicesForSpFlag" field and declare it as a local variable in the relevant methods.(½ˆùŸûÿÿÿÿ8‰Ÿ­ç1
 y
-java:S1450("\Remove the "isSeeUserList" field and declare it as a local variable in the relevant methods.(Ç×ß¨8¬§“ç1
-
-java:S1450Å"\Remove the "isServiceFlag" field and declare it as a local variable in the relevant methods.(Ïíëôıÿÿÿÿ8¬§“ç1
-z
-java:S1450º"\Remove the "isShowService" field and declare it as a local variable in the relevant methods.(¥±˜º8¬§“ç1
-…
-java:S1450¸"bRemove the "isShoweventsAnduser" field and declare it as a local variable in the relevant methods.(Àû“øÿÿÿÿ8¬§“ç1
-„
-java:S1450»"fRemove the "serviceproviderMenuFlag" field and declare it as a local variable in the relevant methods.(øöŒ‚8¬§“ç1
-y
-java:S1450Á"[Remove the "userhasevent" field and declare it as a local variable in the relevant methods.(Ì§üã8¬§“ç1
-_	java:S107„"=Method has 11 parameters, which is greater than 7 authorized.(®ğá„ûÿÿÿÿ8¬§“ç1
+java:S1450´"[Remove the "userhasevent" field and declare it as a local variable in the relevant methods.(Ì§üã8‹Ÿ­ç1
 I
-java:S1874S",Remove this use of "Time"; it is deprecated.(èº³Å8—¬§“ç1
+java:S1874K",Remove this use of "Time"; it is deprecated.(èº³Å8ã’Í£ç1
 N
-java:S1874\",Remove this use of "Time"; it is deprecated.(µùğÎüÿÿÿÿ8™¬§“ç1
+java:S1874T",Remove this use of "Time"; it is deprecated.(µùğÎüÿÿÿÿ8¾Ÿ­ç1
 N
-java:S1874]",Remove this use of "Date"; it is deprecated.(õòÃùÿÿÿÿ8š¬§“ç1
-a
-java:S1117a"?Rename "localEvent" which hides the field declared at line 217.(“‰şÿÿÿÿÿ8š¬§“ç1
+java:S1874U",Remove this use of "Date"; it is deprecated.(õòÃùÿÿÿÿ8á’Í£ç1
 J
-java:S1874×",Remove this use of "Time"; it is deprecated.(Î¨ÌÙ8­¬§“ç1
+java:S1874Í",Remove this use of "Time"; it is deprecated.(Î¨ÌÙ8ØŸ­ç1
 O
-java:S1874Ø",Remove this use of "Date"; it is deprecated.(ôƒ½ùùÿÿÿÿ8­¬§“ç1
-Y
-java:S1117ñ"6Rename "d" which hides the field declared at line 216.(´¨ŒÁøÿÿÿÿ8Æ¬§“ç1
-J
-java:S1874†",Remove this use of "Date"; it is deprecated.(éáÚ¥8È¬§“ç1
-Y
-java:S1117‡"6Rename "t" which hides the field declared at line 215.(Íı„ùÿÿÿÿ8È¬§“ç1
-O
-java:S1874‡",Remove this use of "Time"; it is deprecated.(Íı„ùÿÿÿÿ8È¬§“ç1
+java:S1874Î",Remove this use of "Date"; it is deprecated.(ôƒ½ùùÿÿÿÿ8ÚŸ­ç1
 R
-java:S1874¬"/Remove this use of "getYear"; it is deprecated.(ÉÉóÊÿÿÿÿÿ8ƒ­§“ç1
+java:S1874·"/Remove this use of "getYear"; it is deprecated.(ÉÉóÊÿÿÿÿÿ8“Í£ç1
 S
-java:S1874¬"0Remove this use of "getMonth"; it is deprecated.(ÉÉóÊÿÿÿÿÿ8‹­§“ç1
+java:S1874·"0Remove this use of "getMonth"; it is deprecated.(ÉÉóÊÿÿÿÿÿ8“Í£ç1
 R
-java:S1874¬"/Remove this use of "getDate"; it is deprecated.(ÉÉóÊÿÿÿÿÿ8Œ­§“ç1
-Y
-java:S1854­"6Remove this useless assignment to local variable "tt".(®È „øÿÿÿÿ8ø±§“ç1
-E
-java:S1481©"'Remove this unused "tt" local variable.(Š©Ê®8û±§“ç1
-T
-java:S1117¼"6Rename "d" which hides the field declared at line 216.(•èÎ8ÿ±§“ç1
-J
-java:S1874¼",Remove this use of "Date"; it is deprecated.(•èÎ8€²§“ç1
-Y
-java:S1117É"6Rename "d" which hides the field declared at line 216.(¸ºÒÉûÿÿÿÿ8…²§“ç1
+java:S1874·"/Remove this use of "getDate"; it is deprecated.(ÉÉóÊÿÿÿÿÿ8“Í£ç1
 O
-java:S1874É",Remove this use of "Time"; it is deprecated.(¸ºÒÉûÿÿÿÿ8…²§“ç1
+java:S1874û",Remove this use of "Date"; it is deprecated.(ÊÇ¬ûÿÿÿÿ8¢­ç1
+J
+java:S1874ˆ",Remove this use of "Time"; it is deprecated.(òŞš8‘¢­ç1
 M
-java:S1874‡
-"/Remove this use of "getYear"; it is deprecated.(ãëï–8ğ²§“ç1
+java:S1874Æ"/Remove this use of "getYear"; it is deprecated.(ãëï–8Ä¢­ç1
 N
-java:S1874‡
-"0Remove this use of "getMonth"; it is deprecated.(ãëï–8ò²§“ç1
+java:S1874Æ"0Remove this use of "getMonth"; it is deprecated.(ãëï–8Å¢­ç1
 M
-java:S1874‡
-"/Remove this use of "getDate"; it is deprecated.(ãëï–8ó²§“ç1
+java:S1874Æ"/Remove this use of "getDate"; it is deprecated.(ãëï–8Å¢­ç1
 I
 java:S1068"'Remove this unused "num" private field.(È–£§úÿÿÿÿ8 ³§“ç1
-P
-java:S1068".Remove this unused "dateFormat" private field.(‚óôÎøÿÿÿÿ8 ³§“ç1
-W
-java:S1068":Remove this unused "isEventDeleteEventEdit" private field.(İòÈ8¨´§“ç1
-V
-java:S1068"9Remove this unused "isEventViewEventsEdit" private field.(¦³¹˜8¨´§“ç1
-Y
-java:S1068"<Remove this unused "isEventCancelPackageEdit" private field.(ÙÓœÎ8¨´§“ç1
-Y
-java:S1068"<Remove this unused "isEventRemoveServiceEdit" private field.(šô8¨´§“ç1
-Q
-java:S1068 "4Remove this unused "isEventThemeEdit" private field.(ƒ–…½8©´§“ç1
-\
-java:S1068!":Remove this unused "isEventNumOfPeopleEdit" private field.(ÔÃíïşÿÿÿÿ8©´§“ç1
-P
-java:S1068""3Remove this unused "isEventTimeEdit" private field.(ÒİŒ8©´§“ç1
-U
-java:S1068#"3Remove this unused "isEventDateEdit" private field.(Œ­ñ×üÿÿÿÿ8©´§“ç1
 O
-java:S1068%"3Remove this unused "isDeletePackage" private field.(İõˆ%8©´§“ç1
+java:S1068"3Remove this unused "isDeletePackage" private field.(İõˆ%8£­ç1
 U
-java:S1068&"3Remove this unused "isCreatePackage" private field.(ê‚¥ûÿÿÿÿ8©´§“ç1
+java:S1068"3Remove this unused "isCreatePackage" private field.(ê‚¥ûÿÿÿÿ8£­ç1
 O
-java:S1068'"2Remove this unused "isSeeEventList" private field.(”Ç¢ã8©´§“ç1
+java:S1068"2Remove this unused "isSeeEventList" private field.(”Ç¢ã8’£­ç1
 N
-java:S1068("1Remove this unused "isSeeUserList" private field.(Ç×ß¨8©´§“ç1
+java:S1068 "1Remove this unused "isSeeUserList" private field.(Ç×ß¨8‚¤­ç1
 K
-java:S1068+"/Remove this unused "isSeeSPList" private field.(ÀÃ;8©´§“ç1
-P
-java:S10680"3Remove this unused "isEventNameEdit" private field.(Ÿ– Ò8©´§“ç1
-T
-java:S10681"7Remove this unused "isEventLocationEdit" private field.(Ì†ÛÚ8©´§“ç1
+java:S1068#"/Remove this unused "isSeeSPList" private field.(ÀÃ;8‚¤­ç1
+]
+java:S1068'";Remove this unused "showPackageForAdminFlag" private field.(‰„¡¿ûÿÿÿÿ8‚¤­ç1
+[
+java:S1068©"8Remove this unused "editServiceForSpFlag" private field.(÷¬øµşÿÿÿÿ8‚¤­ç1
 \
-java:S10684"@Remove this unused "isEventAdditionalServiceEdit" private field.(éõ[8©´§“ç1
-Y
-java:S1068²"6Remove this unused "providerhasservice" private field.(´€¼øÿÿÿÿÿ8‚µ§“ç1
-T
-java:S1068´"1Remove this unused "isEditService" private field.( ¢¬Êÿÿÿÿÿ8‚µ§“ç1
-Q
-java:S1068µ"3Remove this unused "isDeleteService" private field.(àä®8‚µ§“ç1
+java:S1068ª"9Remove this unused "showservicesForSpFlag" private field.(½ˆùŸûÿÿÿÿ8ƒ¤­ç1
+\
+java:S1068¬"?Remove this unused "showUsersAndEventsForSpFlag" private field.(¡»®}8ƒ¤­ç1
+R
+java:S1068­"4Remove this unused "serviceaddedsucc" private field.(’ ç8ƒ¤­ç1
 Z
-java:S1068¸"7Remove this unused "isShoweventsAnduser" private field.(Àû“øÿÿÿÿ8ƒµ§“ç1
-O
-java:S1068º"1Remove this unused "isShowService" private field.(¥±˜º8ƒµ§“ç1
-Y
-java:S1068»";Remove this unused "serviceproviderMenuFlag" private field.(øöŒ‚8ƒµ§“ç1
-S
-java:S1068¼"0Remove this unused "isAddService" private field.(×õŞøÿÿÿÿ8ƒµ§“ç1
+java:S1068®"7Remove this unused "isShoweventsAnduser" private field.(Àû“øÿÿÿÿ8ƒ¤­ç1
+]
+java:S1068¯":Remove this unused "deleteServiceForSpFlag" private field.(À†åğüÿÿÿÿ8ƒ¤­ç1
 N
-java:S1068Á"0Remove this unused "userhasevent" private field.(Ì§üã8„µ§“ç1
+java:S1068´"0Remove this unused "userhasevent" private field.(Ì§üã8ƒ¤­ç1
 T
-java:S1068Å"1Remove this unused "isServiceFlag" private field.(Ïíëôıÿÿÿÿ8„µ§“ç1
+java:S1068¸"1Remove this unused "isServiceFlag" private field.(Ïíëôıÿÿÿÿ8ƒ¤­ç1
+U
+java:S1068¹"2Remove this unused "isDecorService" private field.(õûæ¶ıÿÿÿÿ8ƒ¤­ç1
 O
-java:S1068Ò",Remove this unused "isLogged" private field.(²ÇĞûÿÿÿÿ8„µ§“ç1
+java:S1068º"1Remove this unused "isFoodService" private field.(¦Ú»Ó8„¤­ç1
+P
+java:S1068»"2Remove this unused "isPhotoService" private field.(´®Á³8„¤­ç1
+P
+java:S1068¼"2Remove this unused "isEnterService" private field.(ş¿ü8„¤­ç1
+O
+java:S1068È",Remove this unused "isLogged" private field.(²ÇĞûÿÿÿÿ8„¤­ç1
 L
-java:S1068Ô".Remove this unused "inUserPage" private field.(¶ìÿ™8„µ§“ç1
+java:S1068Ê".Remove this unused "inUserPage" private field.(¶ìÿ™8…¤­ç1

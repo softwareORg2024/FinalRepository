@@ -1,5 +1,6 @@
 package ttoday.edu;
 
+
 public class Location {
     private int cost;
      private int id;

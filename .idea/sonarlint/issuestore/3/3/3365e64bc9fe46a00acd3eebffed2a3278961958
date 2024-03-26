@@ -1,8 +1,0 @@
-
-’
-java:S1319/"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(Á¼·‚ÿÿÿÿÿ8›åç÷ß1
-†
-java:S13193"iThe type of "eventList" should be an interface such as "List" rather than the implementation "ArrayList".(Âœá‘8œåç÷ß1
-u	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(š°ä?8žåç÷ß1
-K
-java:S1068")Remove this unused "email" private field.(ª«Õìùÿÿÿÿ8ºåç÷ß1

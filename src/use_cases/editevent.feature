@@ -40,6 +40,7 @@ When the user select to edit
 And  user "salma" modifies the number of attendees in event "omar's birthday" to 80
 Then the number of attendees for the event is updated successfully
 
+
 Scenario: User changes the theme of the event
 Given the user is on the event details page
 When the user select to edit

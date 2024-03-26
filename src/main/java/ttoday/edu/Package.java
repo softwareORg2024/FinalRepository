@@ -1,5 +1,6 @@
 package ttoday.edu;
 
+
 public class Package {
     private String description;
     private double totalPrice;
