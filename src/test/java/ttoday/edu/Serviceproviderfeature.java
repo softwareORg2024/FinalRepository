@@ -2,6 +2,7 @@ package ttoday.edu;
 
 import io.cucumber.java.en.*;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class Serviceproviderfeature {
@@ -80,7 +81,10 @@ public class Serviceproviderfeature {
        assertTrue(obj.isServiceproviderMenuFlag());
     }
 
-
+    @Then("the selected service is not found")
+    public void the_selected_service_is_not_found() {
+        assertFalse(obj.isServiceFound);
+    }
 
 
 

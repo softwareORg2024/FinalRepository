@@ -176,7 +176,7 @@ locationList.add(k2);
     private boolean isShoweventsAnduser;
     private boolean deleteServiceForSpFlag;
     private boolean serviceproviderMenuFlag;
-
+    boolean getEventCostFlag = false;
     private boolean isAdminFlag;
     private boolean eventfoundflag;
     private boolean userhasevent;
@@ -644,19 +644,27 @@ locationList.add(k2);
 
 
     }
-
+boolean isServiceFound=true;
     public void deleteServiceForSp(Integer int1, String string) {
         ServiceProvider p = searchInServiceProvider(string);
         Service s = p.searchForServiceId(int1);
-        p.getOfferList().remove(s);
+        if (s!= null) {
+            p.getOfferList().remove(s);
 
-        deleteServiceForSpFlag = true;
-        if(s==null){
-            logger.info("The service doesn't exist");
+            deleteServiceForSpFlag = true;
+            if (s == null) {
+                logger.info("The service doesn't exist");
+            } else {
+                logger.info("deleted successfully");
+            }
         }
-        else{
-        logger.info("deleted successfully");}
+        else
+            isServiceFound=false;
 
+    }
+
+    public boolean isServiceFound() {
+        return isServiceFound;
     }
 
     public String showservicesForSp(String string) {
@@ -862,12 +870,12 @@ locationList.add(k2);
         Person p=searchInUser(string);
        Event e= p.searchInUserEvents(string2);
 
-       if(e!=null){
-       e.setEventName(string3);}
-
-
-        editEventNameByUserFlag=true;
-
+       if(e!=null) {
+           e.setEventName(string3);
+           editEventNameByUserFlag = true;
+       }
+       else
+           editEventNameByUserFlag = false;
     }
 
     public boolean isEditEventNameByUserFlag() {
@@ -1206,6 +1214,17 @@ locationList.add(k2);
 
     public List<Package> getPackageList() {
         return packageList;
+    }
+
+    public int getEventCost(String string, String string2) {
+        Person p = searchInUser(string);
+        Event e = p.searchInUserEvents(string2);
+         getEventCostFlag = true;
+        return e.getOverallCost();
+    }
+
+    public boolean isGetEventCostFlag() {
+        return getEventCostFlag;
     }
 }
 

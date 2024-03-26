@@ -13,11 +13,23 @@ Feature: Manage Services as a Service Provider
     Then the service is modified successfully
 
 
-  Scenario: Service provider deletes an existing service
+  Scenario Outline: Service provider deletes an existing service
     Given the service provider is logged in
     When the service provider selects
-    And the service with id 3 to delete it and service provider "ali"
+    And the service with id <int1> to delete it and service provider <string>
     Then the selected service is deleted successfully
+    Examples:
+      | int1 | string |
+      | 3    | "ali"  |
+  Scenario Outline: Service provider deletes an existing service
+    Given the service provider is logged in
+    When the service provider selects
+    And the service with id <int1> to delete it and service provider <string>
+    Then the selected service is not found
+    Examples:
+      | int1 | string |
+      | 8  | "ali"  |
+
 
   Scenario: Service provider navigates to the list of users who chose their services
     Given the service provider is logged in

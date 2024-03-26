@@ -9,9 +9,7 @@ public class Service {
         return sp;
     }
 
-    public void setSp(ServiceProvider sp) {
-        this.sp = sp;
-    }
+
 
     private String discription;
     private int cost;
@@ -27,9 +25,7 @@ public class Service {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+
 
     public String getDiscription() {
         return discription;
