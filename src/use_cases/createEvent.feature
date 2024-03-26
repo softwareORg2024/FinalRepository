@@ -75,7 +75,15 @@ Feature: Create Event
     Then  reject event creation
 
 
+  Scenario: User does not exist in the user linked list
+    Given the user "JohnDoe" is not in the linked list
+    When I check for "JohnDoe" in the linked list
+    Then the system should report that the user does not exist
 
 
 
+  Scenario: The specified service type does not exist
+    Given a list of available service types
+    When the service id 1 and type "Premium Support" is not in the list
+    Then the system should report that the service type does not exist
 

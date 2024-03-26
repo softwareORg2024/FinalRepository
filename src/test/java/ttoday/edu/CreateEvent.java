@@ -211,6 +211,32 @@ public class CreateEvent {
       assertFalse(obj.isLocalEventFlag());
     }
 
+    @Given("the user {string} is not in the linked list")
+    public void the_user_is_not_in_the_linked_list(String string) {
+       obj.searchInUser(string);
+    }
+    @When("I check for {string} in the linked list")
+    public void i_check_for_in_the_linked_list(String string) {
+        obj.searchInUser(string);
+    }
+    @Then("the system should report that the user does not exist")
+    public void the_system_should_report_that_the_user_does_not_exist() {
+       assertTrue( obj.isSearchinusernullflag());
+    }
+    @Given("a list of available service types")
+    public void a_list_of_available_service_types() {
+        obj.isServicetypenotfoundflag();
+    }
+    @When("the service id {int} and type {string} is not in the list")
+    public void the_service_id_and_type_is_not_in_the_list(Integer int1, String string) {
+        obj.addFoodService( int1, string);
+    }
+
+    @Then("the system should report that the service type does not exist")
+    public void the_system_should_report_that_the_service_type_does_not_exist() {
+       assertTrue( obj.isServicetypenotfoundflag());
+    }
+
 
 
 }

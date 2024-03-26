@@ -51,6 +51,8 @@ private static int num=0;
     private boolean deleteeventbyuserflag;
     private boolean editLocationFlag;
     private boolean editPackageFlag;
+    private boolean searchinusernullflag;
+    private boolean servicetypenotfoundflag;
 
 
     public Event getLocalEvent() {
@@ -463,6 +465,7 @@ locationList.add(k2);
                 }
             }
         }
+       servicetypenotfoundflag=true;
         return 0;
     }
 
@@ -554,9 +557,13 @@ locationList.add(k2);
                 return p;
             }
         }
+        searchinusernullflag=true;
         return null;
     }
 
+    public boolean isSearchinusernullflag() {
+        return searchinusernullflag;
+    }
 
     public List<ServiceProvider> getProviderList() {
         return providerList;
@@ -582,6 +589,7 @@ locationList.add(k2);
                 return e;
             }
         }
+
         return null;
     }
 
@@ -1157,6 +1165,10 @@ locationList.add(k2);
         } catch (MessagingException m) {
           logger.info("MessagingException");
         }
+    }
+
+    public boolean isServicetypenotfoundflag() {
+        return servicetypenotfoundflag;
     }
 
     public void createAccountForSp(String string, String string2, String string3, String string5, String string4, String string6) {
