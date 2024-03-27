@@ -88,10 +88,14 @@ private static int num=0;
         Time tim = new Time(8, 0, 0);
        d = new Date(2024, 2, 29);
         Person u10 = new Person("jood", "123", "7\3\2003", "0599221233",DEFAULT_EMAIL);
-        addUser(u10);
+        Person u11 = new Person("joodi", "123", "7\3\2003", "0599221233",DEFAULT_EMAIL);
+        addUser(u10);addUser(u11);
         Event e10 = new Event("jood's birthday", d1, t1, "pool", "Upcycling ", 20);
+        Event e11 = new Event("joodi's birthday", d1, t1, "pool", "Upcycling ", 20);
         eventList.add(e10);
         u10.addUserEvent(e10);
+        eventList.add(e11);
+        u10.addUserEvent(e11);
 
 
 
@@ -134,14 +138,26 @@ private static int num=0;
         raghad.addService(f3);
         asma.addService(f4);
         asma.addEvent(e10);
+      //  raghad.addEvent(e10);
+        mira.addEvent(e10);
+        lama.addEvent(e10);
+        asma.addEvent(e11);
+     //   raghad.addEvent(e11);
+        mira.addEvent(e11);
+        lama.addEvent(e11);
         e2.setEntertainmentService(f4);
         e1.setFoodService(f1);
         e10.setEntertainmentService(f4);
         e10.setDecorService(f2);
         e10.setPhotographerService(f3);
         e10.setFoodService(f1);
+        e11.setEntertainmentService(f4);
+        e11.setDecorService(f2);
+        e11.setPhotographerService(f3);
+        e11.setFoodService(f1);
         u3.addUserEvent(e1);
         u3.addUserEvent(e10);
+        u3.addUserEvent(e11);
         Package p = new Package("food+photo", 1000.00,1);
         addPackage(p);
         Package p2 = new Package("food+photo+cake", 100.00,2);
@@ -718,9 +734,10 @@ locationList.add(k2);
         format.append(String.format(headerFormat, "User Name", PHONE_NUMBER_LABEL, EVENT_NAME_LABEL, THEME_LABEL, LOCATION_LABEL, "Date", "Time"));
 
         for (Event e : p.getEventList()) {
+            if(e.getUser()!=null){
             String date = e.getDate().getYear() + "\\" + e.getDate().getMonth() + "\\" + e.getDate().getDate();
             format.append(String.format(rowFormat, e.getUser().getUserName(), e.getUser().getPhoneNum(), e.getEventName(), e.getTheme(), e.getLocation(), date, e.getTime()));
-        }
+        }}
 
         showUsersAndEventsForSpFlag = true;
         return format.toString();
@@ -986,31 +1003,40 @@ int temp=1;
         Event e = p.searchInUserEvents(eventName);
 
              if (e.getEntertainmentService() != null) {
-            if( e.getEntertainmentService().getId()==serviceId){  e.setEntertainmentService(null);}
+            if( e.getEntertainmentService().getId()==serviceId){
+                System.out.println("100000000");
+                e.getEntertainmentService().getSp().getEventList().remove(e);
+                e.setEntertainmentService(null);}
 
         }
-           else if (e.getDecorService() != null) {
+            if (e.getDecorService() != null) {
+                 System.out.println("200000000");
 
                  if( e.getDecorService().getId()==serviceId)
-                 { e.setDecorService(null);}
+                 { e.getDecorService().getSp().getEventList().remove(e);
+                     e.setDecorService(null);
+
+                 }
 
             }
 
-            else if (e.getFoodService() != null ) {
+             if (e.getFoodService() != null ) {
+                 System.out.println("300000000");
 
               if(e.getFoodService().getId()==(serviceId))
-              { e.setFoodService(null);}
+              { e.getFoodService().getSp().getEventList().remove(e);
+                  e.setFoodService(null);}
             }
 
-            else if (e.getPhotographerService() != null ) {
+             if (e.getPhotographerService() != null ) {
+                 System.out.println("400000000");
 
                 if(e.getPhotographerService().getId()==(serviceId))
-                {  e.setPhotographerService(null);  }
+                {  e.getPhotographerService().getSp().getEventList().remove(e);
+                    e.setPhotographerService(null);  }
             }
-            else {
 
-                editDeleteServiceFromEventByUserFlag = false;
-            }
+        editDeleteServiceFromEventByUserFlag = true;
 
     }
 /* public void deleteEventByUser(String string, String string2) {

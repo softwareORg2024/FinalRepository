@@ -748,6 +748,8 @@ public class Main {
     private static void addServicesToEvent(String eventName, Scanner input) {
         Event event = searchInEventByName(eventName);
         if (event != null) {
+            System.out.println("1235");
+            obj.setLocalEvent(event);
             addServices(input, event.getOverallCost(),event);
         }
     }

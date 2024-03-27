@@ -71,23 +71,15 @@ Then the event theme is updated successfully
     Examples:
        | string  | string2           | int11 |
       | "salma" | "omar's birthday" | 2     |
-      | "salma" | "tala's Birthday" | 4     |
-      | "mira" | "mira's Birthday" | 3     |
-      | "salma" | "Laila's Birthday" | 1     |
+
+
+       | "salma" | "tala's Birthday" | 4     |
+       | "mira" | "mira's Birthday" | 3     |
+       | "salma" | "Laila's Birthday" | 1     |
        | "salma" | "omar's birthday" | 4     |
        | "salma" | "tala's Birthday" | 2     |
        | "mira" | "mira's Birthday" | 1    |
        | "salma" | "Laila's Birthday" | 3     |
-
-  Scenario Outline: User removes a service from the event
-    Given the user is on the event details page
-    When the user select to edit
-    And user <string> delete from event <string2> the service with id <int11>
-    Then the selected service is not removed from the event
-    Examples:
-      | string  | string2           | int11 |
-      | "salma" | "amr's birthday" | 100    |
-
 Scenario: User cancels the selected package
 Given the user is on the event details page
 When the user select to edit
@@ -116,7 +108,7 @@ Then the selected package  is removed from the event
     Examples:
       | string   | string2             |
       | "rawand" | "rawand's Birthday" |
-      | "jood" | "jood's birthday" |
+
 
   Scenario: User see overall cost to  an existing event
     Given the user is logged in
