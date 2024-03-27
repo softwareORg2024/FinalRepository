@@ -79,8 +79,8 @@ private static int num=0;
         Time t1 = new Time(5, 0, 0);
         java.sql.Date d1 = new java.sql.Date((long)2024 - 3 - 25);
         Event e1 = new Event("Laila's Birthday", d1, t1, "home", "Under the Sea", 20);
-        Event e2 = new Event("omar's birthday", d1, t1, "home", "Upcycling ", 20);
-        Event e8 = new Event("amr's birthday", d1, t1, "home", "Upcycling ", 20);
+        Event e2 = new Event("omar's birthday", d1, t1, "home", "funny ", 20);
+        Event e8 = new Event("amr's birthday", d1, t1, "home", "cute ", 20);
          eventList.add(e8);
 
         addEvent(e1);
@@ -846,7 +846,7 @@ int temp=1;
 
         }
         if(temp==1){
-            System.out.println("doesnt exist");
+           logger.info("doesnt exist");
         }
     }
 
