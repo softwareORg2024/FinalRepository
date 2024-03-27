@@ -253,8 +253,11 @@ public class Main {
         return choice;
     }
 
+
+
+
     private static void addNewService(Scanner input) {
-        try {
+
             logger.info(PROMPT_SERVICE_ID);
             int id = 0;
             boolean validInput = false;
@@ -283,78 +286,66 @@ public class Main {
                     cost = input.nextInt();
                     validInput = true; // Exit loop if input is successful
                 } catch (InputMismatchException ime) {
-                    logger.severe("Invalid input. Please enter a numeric value for cost.");
+                    logger.severe(INVALID_COST_INPUT);
                     input.next(); // Consume the invalid token to avoid infinite loop
                 }
             }
 
             obj.addServiceToSp(description, cost, id, sp.getPerson().getUserName());
 
-        } catch (Exception e) {
-            logger.severe("An error occurred while adding a new service: " + e.getMessage());
 
-        }
     }
+    private static final String INVALID_COST_INPUT = "Invalid input. Please enter a numeric value for cost.";
 
 
     private static void modifyExistingService(Scanner input) {
-        if (sp != null) {
-            Person person = sp.getPerson();
-            if (person != null) {
-                String userName = person.getUserName();
-                if (userName != null) {
-                    String p2=obj.showservicesForSp(userName);
-                    logger.info(p2);
-                    Service s = null;
-                    int id = 0;
-                    while (s == null) {
-                        logger.info(PROMPT_SERVICE_ID);
-                        boolean validInput = false;
-                        while (!validInput) {
-                            try {
-                                id = input.nextInt();
-                                validInput = true;
-                            } catch (InputMismatchException ime) {
-                                logger.info("Invalid input. Please enter a numeric value for service ID.");
-                                input.next(); // Consume the invalid token to avoid infinite loop
-                            }
-                        }
-                        s = sp.searchForServiceId(id);
-                        if (s == null) {
-                            logger.info("Service ID not found. Please try again.");
-                        }
-                    }
 
-                    String description = getInput("Please enter new description"); // Assuming this method handles its own exceptions
+            Person person = sp.getPerson();
+
+                String userName = person.getUserName();
+        String p2=obj.showservicesForSp(userName);
+        logger.info(p2);
+
+        logger.info(PROMPT_SERVICE_ID);
+        int id = 0;
+        boolean validInput = false;
+
+        while (!validInput) {
+            try {
+                id = input.nextInt();
+                if (!searchInServiceById(id,sp)) {
+                    validInput = true;
+                } else {
+                    logger.severe("this id doesn't existing before...  Enter another Service Id:  ");
+
+                }
+            } catch (InputMismatchException ime) {
+                logger.severe("Invalid input ...  Enter Service Id: ");
+                input.next();
+            }}
+
+
+                    String description = getInput("Please enter new description");
 
                     logger.info("Enter new cost:");
                     int cost = 0;
-                    boolean validInput = false;
+                     validInput = false;
                     while (!validInput) {
                         try {
                             cost = input.nextInt();
                             validInput = true;
                         } catch (InputMismatchException ime) {
-                            logger.info("Invalid input. Please enter a numeric value for cost.");
+                            logger.info(INVALID_COST_INPUT);
                             input.next(); // Consume the invalid token to avoid infinite loop
                         }
                     }
 
-                    if (description != null) {
+
                         obj.editServiceForSp(description, cost, id, userName);
-                    } else {
-                        logger.info("Cannot edit service for SP, description is null.");
-                    }
-                } else {
-                    logger.info("User name is null.");
-                }
-            } else {
-                logger.info("Person object is null.");
-            }
-        } else {
-            logger.info("Service provider details are incomplete.");
-        }
+
+
     }
+
 
 
     private static void deleteExistingService(Scanner input) {
@@ -457,15 +448,7 @@ public class Main {
             obj.addFoodService(serviceId, type);
 
             logger.info("Added Successfully");
-         /*  for(ServiceProvider sp: obj.getProviderList()) {
-               Iterator<Event> iterator = sp.getEventList().iterator();
-               while (iterator.hasNext()) {
-                   Event yy = iterator.next();
-                   if (yy == e) {
-                       iterator.remove();
-                   }
-               }
-           }*/
+
             addServices(input, int1, event1);
         }}
 
@@ -816,7 +799,6 @@ public class Main {
     private static void addServicesToEvent(String eventName, Scanner input) {
         Event event = searchInEventByName(eventName);
         if (event != null) {
-            System.out.println("1235");
             obj.setLocalEvent(event);
             addServices(input, event.getOverallCost(),event);
         }
@@ -976,7 +958,7 @@ public class Main {
                     cost = input.nextInt();
                     validInput = true; // Exit loop if input is successful
                 } catch (InputMismatchException ime) {
-                    logger.severe("Invalid input. Please enter a numeric value for cost.");
+                    logger.severe(INVALID_COST_INPUT);
                     input.next(); // Consume the invalid token to avoid infinite loop
                 }
             }
