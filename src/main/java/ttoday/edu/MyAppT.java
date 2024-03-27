@@ -886,10 +886,7 @@ if(searchInServiceProvider(string1)!=null){
 
     }
 
-  //  public boolean isCreatePackageFlag() {
-  //      return createPackageFlag;
-   // }
-
+  
     public void deletePackage(Integer int1) {
 int temp=1;
         for(Package p:packageList)
@@ -911,14 +908,7 @@ int temp=1;
         }
     }
 
-  //  public boolean isDeletePackageFlag() {
-    //    return deletePackageFlag;
-    //}
 
-   // public boolean checkPackageList() {
-    // return !(packageList.isEmpty());
-
-   // }
 
     public String showPackageForAdmin() {
         StringBuilder format = new StringBuilder();
@@ -1036,9 +1026,6 @@ int temp=1;
         return s;
     }
 
-  //  public boolean isEditToAddAdditionalServiceByUserFlag() {
-     //   return editToAddAdditionalServiceByUserFlag;
-    //}
 
     public void editDeleteServiceFromEventByUser(String username, String eventName, Integer serviceId) {
 
@@ -1048,13 +1035,11 @@ int temp=1;
 
              if (e.getEntertainmentService() != null) {
             if( e.getEntertainmentService().getId()==serviceId){
-                System.out.println("100000000");
                 e.getEntertainmentService().getSp().getEventList().remove(e);
                 e.setEntertainmentService(null);}
 
         }
             if (e.getDecorService() != null) {
-                 System.out.println("200000000");
 
                  if( e.getDecorService().getId()==serviceId)
                  { e.getDecorService().getSp().getEventList().remove(e);
@@ -1065,7 +1050,6 @@ int temp=1;
             }
 
              if (e.getFoodService() != null ) {
-                 System.out.println("300000000");
 
               if(e.getFoodService().getId()==(serviceId))
               { e.getFoodService().getSp().getEventList().remove(e);
@@ -1073,7 +1057,6 @@ int temp=1;
             }
 
              if (e.getPhotographerService() != null ) {
-                 System.out.println("400000000");
 
                 if(e.getPhotographerService().getId()==(serviceId))
                 {  e.getPhotographerService().getSp().getEventList().remove(e);
@@ -1083,22 +1066,6 @@ int temp=1;
         editDeleteServiceFromEventByUserFlag = true;
 
     }
-/* public void deleteEventByUser(String string, String string2) {
-        Person p = searchInUser(string);
-        Event e = p.searchInUserEvents(string2);
-        p.getEventList().remove(e);
-        eventList.remove(e);
-        deleteeventbyuserflag = true;
-        for (ServiceProvider S : providerList) {
-            Iterator<Event> iterator = S.getEventList().iterator();
-            while (iterator.hasNext()) {
-                Event yy = iterator.next();
-                if (yy.getEventName().equals(string2)) {
-                    iterator.remove();
-                }
-            }
-        }
-    }*/
 
     public boolean isEditDeleteServiceFromEventByUserFlag() {
         return editDeleteServiceFromEventByUserFlag;
