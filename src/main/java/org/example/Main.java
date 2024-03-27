@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Date;
 import java.util.InputMismatchException;
+import java.util.Iterator;
 import java.util.logging.ConsoleHandler;
 import java.util.logging.Formatter;
 import java.util.logging.Handler;
@@ -122,37 +123,37 @@ public class Main {
                      """ +ANSI_RESET+"\n"+CHOICE_PROMPT;
         logger.info(menuOptions);
 
-            int choice = 0;
-            boolean valid = false;
-            while (!valid) {
-                try {
+        int choice = 0;
+        boolean valid = false;
+        while (!valid) {
+            try {
 
 
-                    choice = input.nextInt();
-                    if(choice>0 && choice<5){
+                choice = input.nextInt();
+                if(choice>0 && choice<5){
                     valid = true;}
-                    if(!valid){
-                        logger.info(CHOICE_PROMPT);
-                    }
-                } catch (InputMismatchException e) {
-
-                    logger.info(INCORRECT_VALUE_MESSAGE);
-                    input.next();
-
+                if(!valid){
+                    logger.info(CHOICE_PROMPT);
                 }
+            } catch (InputMismatchException e) {
+
+                logger.info(INCORRECT_VALUE_MESSAGE);
+                input.next();
+
             }
+        }
 
         switch (choice) {
             case 1 ->
-                signUpProcedure(input);
+                    signUpProcedure(input);
 
 
             case 2 ->
-                loginProcedure(input);
+                    loginProcedure(input);
 
 
             case 3 ->
-                forgotPass();
+                    forgotPass();
 
 
             case 4 -> {
@@ -164,7 +165,7 @@ public class Main {
                 logger.info(menuOptions);
             }
         }
-        }
+    }
 
 
 
@@ -174,16 +175,16 @@ public class Main {
 
         String name= getInput( PROMPT_NAME_MESSAGE);
         String password = getInput( PROMPT_PASSWORD_MESSAGE);
-       user= obj.searchInUser(name);
+        user= obj.searchInUser(name);
         sp=obj.searchInServiceProvider(name);
         if(user!=(null)){
             if(password.equals(user.getPass())){
-            displayUserMenu(input);}else{
+                displayUserMenu(input);}else{
                 logger.info("Wrong Password\n");
                 logInSignUp();
             }
         }
-       else if(sp!=(null)){
+        else if(sp!=(null)){
             if(password.equals(sp.getPerson().getPass())){
                 displaySpMenu(input);}else{
                 logger.info("Wrong Password\n");
@@ -192,7 +193,7 @@ public class Main {
 
 
         }
-       else if(name.equals(adimnUsername)&&password.equals(adminPassword)){
+        else if(name.equals(adimnUsername)&&password.equals(adminPassword)){
             displayAdminMenu(input);
 
         }else{
@@ -323,8 +324,8 @@ public class Main {
         }
     }
 
-   private static void addServices(Scanner input,int int1,Event event1){
-       String menu = ANSI_PURPLE + """
+    private static void addServices(Scanner input,int int1,Event event1){
+        String menu = ANSI_PURPLE + """
               ╔════════════════════════════╗
               ║       Service Menu         ║
               ╠════════════════════════════╣
@@ -335,70 +336,78 @@ public class Main {
               ║ 5. Finish                  ║
               ╚════════════════════════════╝
               """ +ANSI_RESET+"\n"+CHOICE_PROMPT;
-            logger.info(menu);
+        logger.info(menu);
 
-          int serviceChoice= 0;
-           boolean valid = false;
-           while (!valid) {
-               try {
-                   serviceChoice= input.nextInt();
-                   valid = true;
-               } catch (InputMismatchException e) {
+        int serviceChoice= 0;
+        boolean valid = false;
+        while (!valid) {
+            try {
+                serviceChoice= input.nextInt();
+                valid = true;
+            } catch (InputMismatchException e) {
 
-                   logger.info(INCORRECT_VALUE_MESSAGE);
-                   input.next();
+                logger.info(INCORRECT_VALUE_MESSAGE);
+                input.next();
 
-               }
-           }
+            }
+        }
 
-            String type = "";
-            String spList = "";
-       switch (serviceChoice) {
-           case 1 -> type = "Food";
-           case 2 -> type = "Decoration";
-           case 3 -> type = "Entertainment";
-           case 4 -> type = "Photographer";
-           case 5 -> {
-               int eventCost = obj.getLocalEvent().eventCost(cost);
-String createEventMessage=CREATE_EVENT_MESSAGE;
-               createEventMessage+=eventCost;
-               logger.info(createEventMessage);
+        String type = "";
+        String spList = "";
+        switch (serviceChoice) {
+            case 1 -> type = "Food";
+            case 2 -> type = "Decoration";
+            case 3 -> type = "Entertainment";
+            case 4 -> type = "Photographer";
+            case 5 -> {
+                int eventCost = obj.getLocalEvent().eventCost(cost);
+                String createEventMessage=CREATE_EVENT_MESSAGE;
+                createEventMessage+=eventCost;
+                logger.info(createEventMessage);
 
 
-               displayUserMenu(input);
-           }
-           default -> {
-               logger.info("Choose from the menu plz..\n");
-               addServices(input, int1, event1);
-           }
-       }
-       if (serviceChoice != 5) {
+                displayUserMenu(input);
+            }
+            default -> {
+                logger.info("Choose from the menu plz..\n");
+                addServices(input, int1, event1);
+            }
+        }
+        if (serviceChoice != 5) {
             spList = searchInSpAccordingToType(type);
-           logger.info(spList);
-           String spName;
-           do {
-               spName = getInput("Please enter service Provider Name: ");
-           } while (spName == null || spName.isEmpty() || obj.searchInServiceProvider(spName) == null);
+            logger.info(spList);
+            String spName;
+            do {
+                spName = getInput("Please enter service Provider Name: ");
+            } while (spName == null || spName.isEmpty() || obj.searchInServiceProvider(spName) == null);
 
-           String s = obj.showservicesForSp(spName);
-           s += "\nEnter your choice: ";
-           logger.info(s);
-
-
-
-           Integer serviceId = input.nextInt();
-           obj.setLocalEvent(event1);
-
-           obj.addFoodService(serviceId, type);
-
-           logger.info("Added Successfully");
+            obj.searchInServiceProvider(spName).addEvent(obj.getLocalEvent());
+            String s = obj.showservicesForSp(spName);
+            s += "\nEnter your choice: ";
+            logger.info(s);
 
 
-           addServices(input, int1, event1);
-       }}
+
+            Integer serviceId = input.nextInt();
+            obj.setLocalEvent(event1);
+
+            obj.addFoodService(serviceId, type);
+
+            logger.info("Added Successfully");
+         /*  for(ServiceProvider sp: obj.getProviderList()) {
+               Iterator<Event> iterator = sp.getEventList().iterator();
+               while (iterator.hasNext()) {
+                   Event yy = iterator.next();
+                   if (yy == e) {
+                       iterator.remove();
+                   }
+               }
+           }*/
+            addServices(input, int1, event1);
+        }}
 
 
-       static int cost;
+    static int cost;
 
 
     private static void location(int year,int month,int day,Time time){
@@ -471,7 +480,7 @@ String createEventMessage=CREATE_EVENT_MESSAGE;
         }
 
         Date datePass=new Date(year,month,day);
-Time timePass=new Time( time.getHours(), time.getMinutes(), time.getSeconds());
+        Time timePass=new Time( time.getHours(), time.getMinutes(), time.getSeconds());
 
         obj.createEventWithBasicInfo(user.getUserName(),eventName,datePass,timePass, locationName, theme, number);
         String menu = ANSI_PURPLE + """
@@ -504,7 +513,7 @@ Time timePass=new Time( time.getHours(), time.getMinutes(), time.getSeconds());
                     Event localEvent = obj.getLocalEvent();
                     if (localEvent != null) {
                         localEvent.setPack(pk);
-                       int eventCost = localEvent.eventCost(cost);
+                        int eventCost = localEvent.eventCost(cost);
                         String s=CREATE_EVENT_MESSAGE;
                         s+=String.valueOf(eventCost);
                         logger.info(s);
@@ -527,7 +536,7 @@ Time timePass=new Time( time.getHours(), time.getMinutes(), time.getSeconds());
                 obj.getLocalEvent().eventCost(cost);
                 logger.info(s);}
             default ->
-                logger.info("Invalid input.");
+                    logger.info("Invalid input.");
 
 
 
@@ -537,15 +546,15 @@ Time timePass=new Time( time.getHours(), time.getMinutes(), time.getSeconds());
 
     private static void displayUserMenu(Scanner input) {
         String s = ANSI_PURPLE +
-               "\n╔══════════════════════╗" +
+                "\n╔══════════════════════╗" +
                 "\n║      User Menu       ║"+
-               " \n╠══════════════════════╣"+
-             "\n║ 1. create an event   ║"+
-              "\n║ 2. edit the event    ║"+
-               "\n║ 3. delete an event   ║"+
+                " \n╠══════════════════════╣"+
+                "\n║ 1. create an event   ║"+
+                "\n║ 2. edit the event    ║"+
+                "\n║ 3. delete an event   ║"+
                 "\n║ 4. view events       ║"+
-               "\n║ 5. exit              ║"+
-               "\n╚══════════════════════╝"+ ANSI_RESET + "\n" + CHOICE_PROMPT;
+                "\n║ 5. exit              ║"+
+                "\n╚══════════════════════╝"+ ANSI_RESET + "\n" + CHOICE_PROMPT;
 
 
         logger.info(s);
@@ -566,11 +575,11 @@ Time timePass=new Time( time.getHours(), time.getMinutes(), time.getSeconds());
         switch (choice) {
             case 1 -> creatBasicEvent(input);
             case 2 -> {
-                 show = obj.viewEventsByUser(user.getUserName());
+                show = obj.viewEventsByUser(user.getUserName());
                 logger.info(show);
                 String eventName;
                 do {
-                     eventName = getInput("Please enter Event name: ");
+                    eventName = getInput("Please enter Event name: ");
                 } while (searchInEventByName(eventName)==null);
                 editEvent(input,eventName);
             }
@@ -605,7 +614,7 @@ Time timePass=new Time( time.getHours(), time.getMinutes(), time.getSeconds());
 
     private static void editEvent(Scanner input, String s) {
 
-String eventName=s;
+        String eventName=s;
         displayEditMenu();
 
         int choice = input.nextInt();
@@ -623,9 +632,9 @@ String eventName=s;
             case 10 -> editSelectedPackage(eventName, input);
             case 11 -> displayUserMenu(input);
             default ->
-                logger.info(INVALID_OPTION_MESSAGE);
+                    logger.info(INVALID_OPTION_MESSAGE);
 
-            
+
 
         }
         editEvent(input,eventName);
@@ -634,22 +643,22 @@ String eventName=s;
 
     private static void displayEditMenu() {
         String menu = ANSI_PURPLE +
-        "\n╔════════════════════════════════════╗"+
-        "\n║          Edit Event Menu           ║"+
-        "\n╠════════════════════════════════════╣"+
-        "\n║  1. Edit event name                ║"+
-        "\n║  2. Change event location          ║"+
-        "\n║  3. Update event date              ║"+
-        "\n║  4. Update event time              ║"+
-        "\n║  5. Number of attendees for event  ║"+
-        "\n║  6. Change event theme             ║"+
-        "\n║  7. Add additional services        ║"+
-        "\n║  8. Remove a service               ║"+
-        "\n║  9. Cancel selected package        ║"+
-        "\n║ 10. Edit selected package          ║"+
-        "\n║ 11. Exit                           ║"+
-        "\n╚════════════════════════════════════╝"+
-        ANSI_RESET+"\n"+CHOICE_PROMPT;
+                "\n╔════════════════════════════════════╗"+
+                "\n║          Edit Event Menu           ║"+
+                "\n╠════════════════════════════════════╣"+
+                "\n║  1. Edit event name                ║"+
+                "\n║  2. Change event location          ║"+
+                "\n║  3. Update event date              ║"+
+                "\n║  4. Update event time              ║"+
+                "\n║  5. Number of attendees for event  ║"+
+                "\n║  6. Change event theme             ║"+
+                "\n║  7. Add additional services        ║"+
+                "\n║  8. Remove a service               ║"+
+                "\n║  9. Cancel selected package        ║"+
+                "\n║ 10. Edit selected package          ║"+
+                "\n║ 11. Exit                           ║"+
+                "\n╚════════════════════════════════════╝"+
+                ANSI_RESET+"\n"+CHOICE_PROMPT;
         logger.info(menu);
     }
 
@@ -670,7 +679,7 @@ String eventName=s;
 
 
 
-            int locationId = input.nextInt();
+        int locationId = input.nextInt();
         obj.editLocation(user.getUserName(), eventName, locationId);
     }
 
@@ -685,12 +694,12 @@ String eventName=s;
         for (Event e : obj.getEventList()) {
 
             Event event = searchInEventByName(eventName);
-                if (event != null && e.getDate().getYear() == year && e.getDate().getMonth() == month && e.getDate().getDate() == day && e.getTime().equals(event.getTime()) && e.getLocation().equals(event.getLocation())) {
-                    logger.info("You cannot book on this date.\n There is another event booked\n");
-                    temp = 1;
-                    editEventDate(eventName, input);
-                    break;
-                }
+            if (event != null && e.getDate().getYear() == year && e.getDate().getMonth() == month && e.getDate().getDate() == day && e.getTime().equals(event.getTime()) && e.getLocation().equals(event.getLocation())) {
+                logger.info("You cannot book on this date.\n There is another event booked\n");
+                temp = 1;
+                editEventDate(eventName, input);
+                break;
+            }
 
 
 
@@ -749,18 +758,18 @@ String eventName=s;
         String s = "";
         Event event = searchInEventByName(eventName);
         if (event != null) {
-        if (event.getFoodService() != null) {
-            s += event.getFoodService().getId() + "\t" + event.getFoodService().getDiscription() + "\n";
-        }
-        if (event.getDecorService() != null) {
-            s += event.getDecorService().getId() + "\t" + event.getDecorService().getDiscription() + "\n";
-        }
-        if (event.getEntertainmentService() != null) {
-            s += event.getEntertainmentService().getId() + "\t" + event.getEntertainmentService().getDiscription() + "\n";
-        }
-        if (event.getPhotographerService() != null) {
-            s += event.getPhotographerService().getId() + "\t" + event.getPhotographerService().getDiscription() + "\n";
-        }
+            if (event.getFoodService() != null) {
+                s += event.getFoodService().getId() + "\t" + event.getFoodService().getDiscription() + "\n";
+            }
+            if (event.getDecorService() != null) {
+                s += event.getDecorService().getId() + "\t" + event.getDecorService().getDiscription() + "\n";
+            }
+            if (event.getEntertainmentService() != null) {
+                s += event.getEntertainmentService().getId() + "\t" + event.getEntertainmentService().getDiscription() + "\n";
+            }
+            if (event.getPhotographerService() != null) {
+                s += event.getPhotographerService().getId() + "\t" + event.getPhotographerService().getDiscription() + "\n";
+            }
         }
         logger.info(s);
         Integer serviceToDelete = input.nextInt();
@@ -805,60 +814,60 @@ String eventName=s;
         logger.info(menu);
         int choice = input.nextInt();
 
-            String s1="";
+        String s1="";
 
-                      if (choice==1) {
-                s1=obj.showUserListForAdmin();
+        if (choice==1) {
+            s1=obj.showUserListForAdmin();
 
-                logger.info(s1);
-            }
+            logger.info(s1);
+        }
 
-                      else if (choice==2) {
-                    s1=obj.showSPtForAdmin();
-                    logger.info(s1);
-                }
-
-
-                else if (choice==3) {
-                s1=  obj.showEventForAdmin();
-                logger.info(s1);
-            }
-
-            else if (choice==4) {
-
-                    logger.info("Please enter package ID: ");
-                Integer id = input.nextInt();
-                String description = getInput("Please enter package description: ");
-                logger.info("Please enter package cost: ");
-                Double cost = input.nextDouble();
-                obj.createPackage(description, cost, id);}
+        else if (choice==2) {
+            s1=obj.showSPtForAdmin();
+            logger.info(s1);
+        }
 
 
-                else if (choice==5) {
-                    s1=obj.showPackageForAdmin();
+        else if (choice==3) {
+            s1=  obj.showEventForAdmin();
+            logger.info(s1);
+        }
 
-                logger.info(s1);
-                logger.info("Please enter package ID: ");
-                Integer id = input.nextInt();
-                obj.deletePackage(id);
-                }
+        else if (choice==4) {
+
+            logger.info("Please enter package ID: ");
+            Integer id = input.nextInt();
+            String description = getInput("Please enter package description: ");
+            logger.info("Please enter package cost: ");
+            Double cost = input.nextDouble();
+            obj.createPackage(description, cost, id);}
 
 
-                else if (choice==6) {
-                    String packageInfo = obj.showPackageForAdmin();
-                    logger.info(packageInfo);
-                }
+        else if (choice==5) {
+            s1=obj.showPackageForAdmin();
+
+            logger.info(s1);
+            logger.info("Please enter package ID: ");
+            Integer id = input.nextInt();
+            obj.deletePackage(id);
+        }
 
 
-         else if (choice==7) {
-                logger.info("Logging out as Admin.");
+        else if (choice==6) {
+            String packageInfo = obj.showPackageForAdmin();
+            logger.info(packageInfo);
+        }
 
-                logInSignUp();
-            }
-           else{
-                logger.info(INVALID_OPTION_MESSAGE);
-                displayAdminMenu(input);
-            }
+
+        else if (choice==7) {
+            logger.info("Logging out as Admin.");
+
+            logInSignUp();
+        }
+        else{
+            logger.info(INVALID_OPTION_MESSAGE);
+            displayAdminMenu(input);
+        }
 
         displayAdminMenu( input);
     }
@@ -917,7 +926,7 @@ String eventName=s;
                 logInSignUp();
             }
             case 3 ->
-                logInSignUp();
+                    logInSignUp();
 
             default -> {
                 logger.info(INVALID_OPTION_MESSAGE);
@@ -931,12 +940,12 @@ String eventName=s;
 
 
     private static String getInput(String prompt) {
-       logger.info(prompt);
+        logger.info(prompt);
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         try {
             return reader.readLine();
         } catch (IOException e) {
-       
+
             return "";
         }
     }
