@@ -886,7 +886,7 @@ if(searchInServiceProvider(string1)!=null){
 
     }
 
-  
+
     public void deletePackage(Integer int1) {
 int temp=1;
         for(Package p:packageList)
@@ -1033,34 +1033,32 @@ int temp=1;
         Person p = searchInUser(username);
         Event e = p.searchInUserEvents(eventName);
 
-             if (e.getEntertainmentService() != null) {
-            if( e.getEntertainmentService().getId()==serviceId){
+             if (e.getEntertainmentService() != null && e.getEntertainmentService().getId()==serviceId) {
+
                 e.getEntertainmentService().getSp().getEventList().remove(e);
-                e.setEntertainmentService(null);}
+                e.setEntertainmentService(null);
 
         }
-            if (e.getDecorService() != null) {
+            if (e.getDecorService() != null && e.getDecorService().getId()==serviceId) {
 
-                 if( e.getDecorService().getId()==serviceId)
-                 { e.getDecorService().getSp().getEventList().remove(e);
+                  e.getDecorService().getSp().getEventList().remove(e);
                      e.setDecorService(null);
 
-                 }
+
 
             }
 
-             if (e.getFoodService() != null ) {
+             if (e.getFoodService() != null && e.getFoodService().getId()==(serviceId) ) {
 
-              if(e.getFoodService().getId()==(serviceId))
-              { e.getFoodService().getSp().getEventList().remove(e);
-                  e.setFoodService(null);}
+               e.getFoodService().getSp().getEventList().remove(e);
+                  e.setFoodService(null);
             }
 
-             if (e.getPhotographerService() != null ) {
+             if (e.getPhotographerService() != null && e.getPhotographerService().getId()==(serviceId) ) {
 
-                if(e.getPhotographerService().getId()==(serviceId))
-                {  e.getPhotographerService().getSp().getEventList().remove(e);
-                    e.setPhotographerService(null);  }
+
+                  e.getPhotographerService().getSp().getEventList().remove(e);
+                    e.setPhotographerService(null);
             }
 
         editDeleteServiceFromEventByUserFlag = true;
