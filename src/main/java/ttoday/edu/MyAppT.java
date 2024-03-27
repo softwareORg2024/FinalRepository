@@ -77,16 +77,16 @@ private static int num=0;
 
         Time t1 = new Time(5, 0, 0);
         Time tim = new Time(8, 0, 0);
-         Date d = new Date(2024, 2, 29);
-        Date d1 = new java.sql.Date((long)2024 - 3 - 25);
+         Date date2 = new Date(2024, 2, 29);
+        Date d1 = new Date(2025, 1, 2);
 
 
         Person u1 = new Person("haya", "123", "7\3\2003", "0599221233",DEFAULT_EMAIL);
-        Person u2 = new Person("mohammad", "1234", "7\3\2004", "0594506933",DEFAULT_EMAIL);
-        Person u10 = new Person("jood", "123", "7\3\2003", "0599221233",DEFAULT_EMAIL);
-        Person u11 = new Person("joodi", "123", "7\3\2003", "0599221233",DEFAULT_EMAIL);
+        Person u2 = new Person("mohammad", "1234", "7\3\2004", "0594776933",DEFAULT_EMAIL);
+        Person u10 = new Person("jood", "123", "7\2\2003", "0599221233",DEFAULT_EMAIL);
+        Person u11 = new Person("joodi", "123", "7\4\2007", "059900243",DEFAULT_EMAIL);
         Person u4 = new Person("ahmad", "1234", "7\3\2005", "0594507973",DEFAULT_EMAIL);
-        Person u3 = new Person("salma", "1234", "7\7\2006", "0594502933",DEFAULT_EMAIL);
+        Person u3 = new Person("salma", "1234", "7\7\2006", "0594502363",DEFAULT_EMAIL);
         Person abd=new Person("abd","1234","26\5\2004","0598188123");
         Person pForDelete=new Person("rawand","1234","8\3\2011","0598986445");
         Person p5=new Person("mira","1234","26\2\2003","05981555123","mira.assi66@gmail.com");
@@ -131,7 +131,7 @@ private static int num=0;
         Event e8 = new Event("amr's birthday", d1, t1, "home", "cute ", 20);
         Event e10 = new Event("jood's birthday", d1, t1, "pool", "Upcycling ", 20);
         Event e11 = new Event("joodi's birthday", d1, t1, "pool", "Upcycling ", 20);
-        localEvent = new Event("asmaa", d, tim, "home", "Superhero", 25);
+        localEvent = new Event("asmaa", date2, tim, "home", "Superhero", 25);
         Event e5 = new Event("mira's Birthday", d1, t1, "home", "unicorn", 20);
         Event e3 = new Event("abd's Birthday", d1, t1, "home", "boyTheme ", 20);
         Event e6 = new Event("rawand's Birthday", d1, t1, "home", "Mexican", 20);
@@ -679,8 +679,7 @@ if(searchInServiceProvider(string1)!=null){
     serviceaddedsucc = true;
     searchInServiceProvider(string1).addService(s);
     logger.info("Added successfully");
-}if(searchInServiceProvider(string1)==null){
-            System.out.println("yrtuyyyyyyyyyyyyyyyyyyyyyy");
+}else{
             serviceaddedsucc = false;
 
 }
@@ -725,7 +724,7 @@ if(searchInServiceProvider(string1)!=null){
     boolean createSp ;
     public void createSp()
     {
-        ServiceProvider sp=new ServiceProvider();
+        new ServiceProvider();
         createSp=true;
     }
 
@@ -735,7 +734,7 @@ if(searchInServiceProvider(string1)!=null){
     boolean createP ;
     public void createP()
     {
-        Person p=new Person();
+        new Person();
         createP=true;
     }
 
