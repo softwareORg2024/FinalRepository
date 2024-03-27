@@ -257,13 +257,8 @@ public class Main {
         return choice;
     }
 
-
-    private static void addNewService(Scanner input) {
-
-        logger.info(PROMPT_SERVICE_ID);
+    private static int addNewServiceId(Scanner input){  boolean validInput = false;
         int id = 0;
-        boolean validInput = false;
-
         while (!validInput) {
             try {
                 id = input.nextInt();
@@ -278,21 +273,20 @@ public class Main {
                 input.next();
             }
         }
+    return id;
+    }
 
-        String description = getInput("Please enter description"); // Assuming this method handles its own exceptions
+
+
+    private static void addNewService(Scanner input) {
+int id=0;
+        logger.info(PROMPT_SERVICE_ID);
+        id=addNewServiceId( input);
+
+        String description = getInput("Please enter description");
 
         logger.info("Enter service cost:");
-        int cost = 0;
-        validInput = false;
-        while (!validInput) {
-            try {
-                cost = input.nextInt();
-                validInput = true; // Exit loop if input is successful
-            } catch (InputMismatchException ime) {
-                logger.severe(INVALID_COST_INPUT);
-                input.next(); // Consume the invalid token to avoid infinite loop
-            }
-        }
+        int cost=enterCorrectCost(input) ;
 
         obj.addServiceToSp(description, cost, id, sp.getPerson().getUserName());
 
@@ -300,8 +294,26 @@ public class Main {
     }
 
     private static final String INVALID_COST_INPUT = "Invalid input. Please enter a numeric value for cost.";
+private static int CorrectModifiId(Scanner input)
+{int modiId = 0;
+    boolean validModiInput = false;
 
+        while (!validModiInput) {
+            try {
+                modiId = input.nextInt();
+                if (!searchInServiceById(modiId, sp)) {
+                    validModiInput = true;
+                } else {
+                    logger.severe("this id doesn't existing before...  Enter another Service Id:  ");
 
+                }
+            } catch (InputMismatchException ime) {
+                logger.severe("Invalid input ...  Enter Service Id: ");
+                input.next();
+            }
+        }
+return modiId;
+}
     private static void modifyExistingService(Scanner input) {
 
         Person person = sp.getPerson();
@@ -312,38 +324,14 @@ public class Main {
 
         logger.info(PROMPT_SERVICE_ID);
         int id = 0;
-        boolean validInput = false;
-
-        while (!validInput) {
-            try {
-                id = input.nextInt();
-                if (!searchInServiceById(id, sp)) {
-                    validInput = true;
-                } else {
-                    logger.severe("this id doesn't existing before...  Enter another Service Id:  ");
-
-                }
-            } catch (InputMismatchException ime) {
-                logger.severe("Invalid input ...  Enter Service Id: ");
-                input.next();
-            }
-        }
+        id=CorrectModifiId(input);
 
 
         String description = getInput("Please enter new description");
 
         logger.info("Enter new cost:");
         int cost = 0;
-        validInput = false;
-        while (!validInput) {
-            try {
-                cost = input.nextInt();
-                validInput = true;
-            } catch (InputMismatchException ime) {
-                logger.info(INVALID_COST_INPUT);
-                input.next(); // Consume the invalid token to avoid infinite loop
-            }
-        }
+      cost=enterCorrectCost(input);
 
 
         obj.editServiceForSp(description, cost, id, userName);
@@ -858,16 +846,17 @@ public class Main {
         return id;
     }
 
+
     private static int enterCorrectCost(Scanner input) {
         int cost = 0;
-        Boolean validCostInput = false;
+        boolean validCostInput = false;
         while (!validCostInput) {
             try {
                 cost = input.nextInt();
-                validCostInput = true; // Exit loop if input is successful
+                validCostInput = true;
             } catch (InputMismatchException ime) {
                 logger.severe(INVALID_COST_INPUT);
-                input.next(); // Consume the invalid token to avoid infinite loop
+                input.next();
             }
         }
         return cost;
@@ -898,7 +887,7 @@ public class Main {
     private static void displayAdminMenu(Scanner input) {
         String menu = "\n\u001B[33m" + """
               ╔══════════════════════════════════════════╗
-              ║                 Admin Menu               ║
+              ║        k         Admin Menu               ║
               ╠══════════════════════════════════════════╣
               ║ 1. View list of all registered users     ║
               ║ 2. View list of all service providers    ║
@@ -916,31 +905,26 @@ public class Main {
 
         String s1="";
 
-        if (choice==1) {
-            s1=obj.showUserListForAdmin();
+        switch (choice) {
+            case 1 -> {
+                s1 = obj.showUserListForAdmin();
+                logger.info(s1);
+            }
+            case 2 -> {
+                s1 = obj.showSPtForAdmin();
+                logger.info(s1);
+            }
+            case 3 -> {
+                s1 = obj.showEventForAdmin();
+                logger.info(s1);
+            }
+            case 4 -> {
 
-            logger.info(s1);
-        }
-
-        else if (choice==2) {
-            s1=obj.showSPtForAdmin();
-            logger.info(s1);
-        }
-
-
-        else if (choice==3) {
-            s1=  obj.showEventForAdmin();
-            logger.info(s1);
-        }
-
-        else if (choice==4) {
-
-            logger.info("Please enter package ID: ");
+                logger.info("Please enter package ID: ");
 
 
-
-            int id = 0;
-           id= enterCorrevtId( input,"this id is existing before...  Enter another Package Id:  ","Invalid input ...  Enter Package Id: ");
+                int id = 0;
+                id = enterCorrevtId(input, "this id is existing before...  Enter another Package Id:  ", "Invalid input ...  Enter Package Id: ");
 
 
                 String description = getInput("Please enter package description: ");
@@ -949,55 +933,53 @@ public class Main {
                 obj.createPackage(description, cost, id);
 
 
-        }
-        else if (choice==5) {
-            s1=obj.showPackageForAdmin();
+            }
+            case 5 -> {
+                s1 = obj.showPackageForAdmin();
 
-            logger.info(s1);
-            logger.info("Please enter package ID: ");
-            Integer id = input.nextInt();
-            obj.deletePackage(id);
-        }
+                logger.info(s1);
+                logger.info("Please enter package ID: ");
+                Integer id = input.nextInt();
+                obj.deletePackage(id);
+            }
+            case 6 -> {
+                String packageInfo = obj.showPackageForAdmin();
+                logger.info(packageInfo);
+            }
+            case 7 -> {
+                logger.info("Enter Location Id:");
+                int id = 0;
+                id = enterCorrevtIdLocation(input);
 
+                String name = getInput("Enter the name ");
+                String description = getInput("Please enter description");
 
-        else if (choice==6) {
-            String packageInfo = obj.showPackageForAdmin();
-            logger.info(packageInfo);
-        }
-        else if (choice==7) {
-            logger.info("Enter Location Id:");
-            int id = 0;
-           id= enterCorrevtIdLocation(input);
+                logger.info("Enter Location cost:");
+                int cost = 0;
+                cost = enterCorrectCost(input);
 
-            String name = getInput( "Enter the name ");
-            String description = getInput("Please enter description");
+                Location l1 = new Location(id, cost, name, description);
+                obj.getLocationList().add(l1);
 
-            logger.info("Enter Location cost:");
-            int cost = 0;
-            cost=enterCorrectCost( input);
-
-          Location l1=new Location(id,cost,name,description);
-            obj.getLocationList().add(l1);
-
-        }
-        else if (choice==8) {
-            String s=showLocationForAdmin();
-            logger.info(s);
-        }
-
-
-        else if (choice==9) {
-            logger.info("Logging out as Admin.");
-
-            logInSignUp();
-        }
-        else{
-            logger.info(INVALID_OPTION_MESSAGE);
-            displayAdminMenu(input);
+            }
+            case 8 -> {
+                String s = showLocationForAdmin();
+                logger.info(s);
+            }
+            case 9 -> {
+                logger.info("Logging out as Admin.");
+                logInSignUp();
+            }
+            default -> {
+                logger.info(INVALID_OPTION_MESSAGE);
+                displayAdminMenu(input);
+            }
         }
 
         displayAdminMenu( input);
     }
+
+
 
 
 
