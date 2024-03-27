@@ -584,7 +584,7 @@ public class Main {
             }
             case 3 -> {
                 show = obj.viewEventsByUser(user.getUserName());
-                String eventname = getInput(show + "\n Please enter eventName:\n");
+                String eventname = getInput(show + "\n Please enter eventName:");
                 String eventCreated="The event ";
                 eventCreated+=eventname;
                 eventCreated+=" was successfully deleted\n\n";

@@ -1164,14 +1164,13 @@ int temp=1;
 
         deleteeventbyuserflag = true;
         for (ServiceProvider S : providerList) {
-            for (Event event : S.getEventList()) {
-           if(event.getEventName().equals(e.getEventName())){
-          S.getEventList().remove(e);
-           }
-
+            Iterator<Event> iterator = S.getEventList().iterator();
+            while (iterator.hasNext()) {
+                Event event = iterator.next();
+                if (event.getEventName().equals(e.getEventName())) {
+                    iterator.remove();
+                }
             }
-
-
         }
         p.getEventList().remove(e);
         eventList.remove(e);
