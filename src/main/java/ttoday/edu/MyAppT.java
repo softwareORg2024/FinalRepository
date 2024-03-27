@@ -956,41 +956,60 @@ locationList.add(k2);
   //  public boolean isEditToAddAdditionalServiceByUserFlag() {
      //   return editToAddAdditionalServiceByUserFlag;
     //}
+  public void editDeleteServiceFromEventByUser(String username, String eventName, Integer serviceId) {
 
-    public void editDeleteServiceFromEventByUser(String username, String eventName, Integer serviceId) {
+      editDeleteServiceFromEventByUserFlag = true;
+      Person p = searchInUser(username);
+      Event e = p.searchInUserEvents(eventName);
+      ServiceProvider sp = new ServiceProvider("tt","jj","200-08-80","055","ff","55");
+      if (e.getEntertainmentService() != null) {
+          if( e.getEntertainmentService().getId()==serviceId){
+              sp=e.getEntertainmentService().getSp();
+              e.setEntertainmentService(null);}
 
-        editDeleteServiceFromEventByUserFlag = true;
-        Person p = searchInUser(username);
-        Event e = p.searchInUserEvents(eventName);
+      }
+      else if (e.getDecorService() != null) {
+          sp=e.getEntertainmentService().getSp();
 
-             if (e.getEntertainmentService() != null) {
-            if( e.getEntertainmentService().getId()==serviceId){  e.setEntertainmentService(null);}
+          if( e.getDecorService().getId()==serviceId)
+          {                sp=e.getDecorService().getSp();
 
-        }
-           else if (e.getDecorService() != null) {
+              e.setDecorService(null);}
 
-                 if( e.getDecorService().getId()==serviceId)
-                 { e.setDecorService(null);}
+      }
 
-            }
+      else if (e.getFoodService() != null ) {
 
-            else if (e.getFoodService() != null ) {
+          if(e.getFoodService().getId()==(serviceId))
+          {                 sp=e.getFoodService().getSp();
+              e.setFoodService(null);}
+      }
 
-              if(e.getFoodService().getId()==(serviceId))
-              { e.setFoodService(null);}
-            }
+      else if (e.getPhotographerService() != null ) {
 
-            else if (e.getPhotographerService() != null ) {
+          if(e.getPhotographerService().getId()==(serviceId))
+          {
+              sp=e.getPhotographerService().getSp();
+              e.setPhotographerService(null);
+          }
+      }
+      else {
+          sp=null;
 
-                if(e.getPhotographerService().getId()==(serviceId))
-                {  e.setPhotographerService(null);  }
-            }
-            else {
+          editDeleteServiceFromEventByUserFlag = false;
+      }
+      if(sp!=null) {
+          Iterator<Event> iterator = sp.getEventList().iterator();
+          while (iterator.hasNext()) {
+              Event yy = iterator.next();
+              if (yy == e) {
+                  iterator.remove();
+              }
+          }
+      }
 
-                editDeleteServiceFromEventByUserFlag = false;
-            }
+  }
 
-    }
 
 
     public boolean isEditDeleteServiceFromEventByUserFlag() {
@@ -1111,6 +1130,8 @@ locationList.add(k2);
             }
         }
     }
+
+
 
     public boolean isDeleteEventByUserFlag() {
         return deleteeventbyuserflag;
