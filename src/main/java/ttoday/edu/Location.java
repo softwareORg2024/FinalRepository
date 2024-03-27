@@ -7,7 +7,11 @@ public class Location {
     private String locationName;
     private String description;
 
-    public Location(int id,int cost, String locationName,String description) {
+    public String getDescription() {
+        return description;
+    }
+
+    public Location(int id, int cost, String locationName, String description) {
         this.id=id;
         this.cost = cost;
         this.locationName = locationName;

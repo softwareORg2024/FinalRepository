@@ -258,15 +258,20 @@ public class Main {
             logger.info(PROMPT_SERVICE_ID);
             int id = 0;
             boolean validInput = false;
+
             while (!validInput) {
                 try {
                     id = input.nextInt();
-                    validInput = true; // Exit loop if input is successful
+                    if (searchInServiceById(id,sp)) {
+                        validInput = true;
+                    } else {
+                        logger.severe("this id is existing before...  Enter another Service Id:  ");
+
+                    }
                 } catch (InputMismatchException ime) {
-                    logger.severe("Invalid input. Please enter a numeric value for service ID.");
-                    input.next(); // Consume the invalid token to avoid infinite loop
-                }
-            }
+                    logger.severe("Invalid input ...  Enter Service Id: ");
+                    input.next();
+                }}
 
             String description = getInput("Please enter description"); // Assuming this method handles its own exceptions
 
@@ -873,7 +878,8 @@ public class Main {
               ║ 5. Delete an existing ready-made package ║
               ║ 6. View list of all packages             ║  
               ║ 7. Add location                          ║
-              ║ 8. Exit                                  ║
+              ║ 8. Show location                         ║
+              ║ 9. Exit                                  ║
               ╚══════════════════════════════════════════╝
               """ +ANSI_RESET+"\n"+CHOICE_PROMPT;
         logger.info(menu);
@@ -901,13 +907,30 @@ public class Main {
         else if (choice==4) {
 
             logger.info("Please enter package ID: ");
-            Integer id = input.nextInt();
-            String description = getInput("Please enter package description: ");
-            logger.info("Please enter package cost: ");
-            Double cost = input.nextDouble();
-            obj.createPackage(description, cost, id);}
+
+            int id = 0;
+            boolean validInput = false;
+
+            while (!validInput) {
+                try {
+                    id = input.nextInt();
+                    if (searchInPackageById(id)) {
+                        validInput = true;
+                    } else {
+                        logger.severe("this id is existing before...  Enter another Package Id:  ");
+
+                    }
+                } catch (InputMismatchException ime) {
+                    logger.severe("Invalid input ...  Enter Package Id: ");
+                    input.next();
+                }}
+                String description = getInput("Please enter package description: ");
+                logger.info("Please enter package cost: ");
+                Double cost = input.nextDouble();
+                obj.createPackage(description, cost, id);
 
 
+        }
         else if (choice==5) {
             s1=obj.showPackageForAdmin();
 
@@ -963,8 +986,8 @@ public class Main {
 
         }
         else if (choice==8) {
-
-
+            String s=showLocationForAdmin();
+            logger.info(s);
         }
 
 
@@ -983,7 +1006,7 @@ public class Main {
         displayAdminMenu( input);
     }
 
-    
+
 
     private static void forgotPass() {
         String name = getInput( "Enter the name for your account");
@@ -1060,6 +1083,27 @@ private static boolean searchInLocationById(int id){
     }
     return true;}
 
+    private static boolean searchInPackageById(int id){
+        for(Package p :obj.getPackageList()) {
+            if(p.getNumber()==id){
+                return false;
+
+            }
+        }
+        return true;}
+    private static boolean searchInServiceById(int id,ServiceProvider sp){
+        for(Service p : sp.getOfferList()) {
+            if(p.getId()==id){
+                return false;
+
+            }
+        }
+        return true;}
+
+
+
+
+
 private static String getInput(String prompt) {
         logger.info(prompt);
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -1070,5 +1114,27 @@ private static String getInput(String prompt) {
             return "";
         }
     }
+
+    public static String showLocationForAdmin() {
+        String headerFormat = "\u001B[33m%-10s\t%-30s\t%-40s\t%-10s\n\u001B[0m";
+        String rowFormat = "\u001B[33m%-10s\t%-30s\t%-40s\t%-10.2f\n\u001B[0m";
+
+        StringBuilder format = new StringBuilder();
+        format.append("\n");
+        format.append(String.format(headerFormat, "ID", "Name", "Description", "Cost"));
+
+        for (Location L : obj.getLocationList()) {
+            double cost = L.getCost();
+            format.append(String.format(rowFormat,
+                    L.getId(),
+                    L.getLocationName(),
+                    L.getDescription(),
+                    cost));
+        }
+
+
+        return format.toString();
+    }
+
 
 }

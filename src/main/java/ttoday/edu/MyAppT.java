@@ -798,24 +798,47 @@ if(searchInServiceProvider(string1)!=null){
     public String showUserListForAdmin() {
         StringBuilder s = new StringBuilder();
 
-        String headerFormat = "\u001B[33m%-20s\t%-15s\t%-10s\n\u001B[0m";
-        String rowFormat = "\u001B[33m%-20s\t%-15s\t%-10s\n\u001B[0m";
+        String orangeColor = "\u001B[38;5;202m"; // ANSI escape code for orange color
+        String resetColor = "\u001B[0m"; // ANSI escape code to reset color
+
+        String headerFormat = orangeColor + "%-20s\t%-15s\t%-30s" + resetColor + "\n";
+        String rowFormat = "%-20s\t%-15s\t%-30s\n";
 
         s.append("\n");
-
-        s.append(String.format(headerFormat, "UserName", PHONE_NUMBER_LABEL, "Birth Date"));
+        s.append(String.format(headerFormat, "UserName", PHONE_NUMBER_LABEL, "Email"));
 
         for (Person p : up) {
-            String birthDate = p.getB();
             s.append(String.format(rowFormat,
                     p.getUserName(),
                     p.getPhoneNum(),
-                    birthDate));
+                    p.getEmail()));
         }
 
         showUserListForAdminFlag = true;
 
         return s.toString();
+    }
+    public String showSPtForAdmin() {
+        StringBuilder formattedOutput = new StringBuilder();
+
+        String orangeColor = "\u001B[38;5;202m"; // ANSI escape code for orange color
+        String resetColor = "\u001B[0m"; // ANSI escape code to reset color
+
+        String headerFormat = orangeColor + "%-30s\t%-15s\t%-30s\t%-20s" + resetColor + "\n";
+        String rowFormat = "%-30s\t%-15s\t%-30s\t%-20s\n";
+        formattedOutput.append("\n");
+
+        formattedOutput.append(String.format(headerFormat, "UserName", PHONE_NUMBER_LABEL, "Email", "Service Type"));
+
+        for (ServiceProvider e : providerList) {
+            formattedOutput.append(String.format(rowFormat,
+                    e.getPerson().getUserName(),
+                    e.getPerson().getPhoneNum(),
+                    e.getPerson().getEmail(),
+                    e.getServiceType()));
+        }
+        showSPtForAdminFlag = true;
+        return formattedOutput.toString();
     }
 
 
@@ -845,29 +868,6 @@ if(searchInServiceProvider(string1)!=null){
 
         showEventForAdminFlag = true;
         return format.toString();
-    }
-
-    public String showSPtForAdmin() {
-        StringBuilder formattedOutput = new StringBuilder();
-
-        String orangeColor = "\u001B[38;5;202m"; // ANSI escape code for orange color
-        String resetColor = "\u001B[0m"; // ANSI escape code to reset color
-
-        String headerFormat = orangeColor + "%-30s\t%-15s\t%-15s\t%-20s" + resetColor + "\n";
-        String rowFormat = "%-30s\t%-15s\t%-15s\t%-20s\n";
-        formattedOutput.append("\n");
-
-        formattedOutput.append(String.format(headerFormat, "UserName", PHONE_NUMBER_LABEL, "Birth Date", "Service Type"));
-
-        for (ServiceProvider e : providerList) {
-            formattedOutput.append(String.format(rowFormat,
-                    e.getPerson().getUserName(),
-                    e.getPerson().getPhoneNum(),
-                    e.getPerson().getB(),
-                    e.getServiceType()));
-        }
-        showSPtForAdminFlag = true;
-        return formattedOutput.toString();
     }
 
 
