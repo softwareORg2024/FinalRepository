@@ -26,16 +26,18 @@ public class Main {
 
     private static final String ANSI_RESET = "\u001B[0m";
 
-    private static String username(String str){
-        String user="to";
-        user+=str;
+    private static String username(String str) {
+        String user = "to";
+        user += str;
         return user;
     }
-    private static String password(String str){
-        String pass="12";
-        pass+=str;
+
+    private static String password(String str) {
+        String pass = "12";
+        pass += str;
         return pass;
     }
+
     private static final String PROMPT_NAME_MESSAGE = "Please enter your Name";
     private static final String PROMPT_SERVICE_ID = "Enter service id:";
     private static final String INVALID_OPTION_MESSAGE = "Invalid option selected.";
@@ -53,6 +55,7 @@ public class Main {
         }
         return resultBuilder.toString();
     }
+
     public static Event searchInEventByName(String str) {
         for (Event e : obj.getEventList()) {
             if (e.getEventName().equals(str)) {
@@ -61,17 +64,19 @@ public class Main {
         }
         return null;
     }
+
     public static Package searchInPackage(int packId) {
-        for(Package j :obj.getPackageList())
-        {
-            if (j.getNumber()==packId) {
+        for (Package j : obj.getPackageList()) {
+            if (j.getNumber() == packId) {
                 return j;
             }
 
         }
         return null;
     }
+
     private static final Logger logger = Logger.getLogger(Main.class.getName());
+
     static {
         Handler consoleHandler = new ConsoleHandler();
         consoleHandler.setFormatter(new Formatter() {
@@ -88,6 +93,7 @@ public class Main {
             rootLogger.removeHandler(handlers[0]);
         }
     }
+
     public static Location searchInLocation(Integer int1) {
         for (Location e : obj.getLocationList()) {
             if (e.getId() == int1) {
@@ -97,8 +103,8 @@ public class Main {
         return null;
     }
 
-    private static Person user=new Person();
-    private static ServiceProvider sp=new ServiceProvider();
+    private static Person user = new Person();
+    private static ServiceProvider sp = new ServiceProvider();
 
     static MyAppT obj = new MyAppT();
 
@@ -107,19 +113,20 @@ public class Main {
         logInSignUp();
 
     }
+
     public static void logInSignUp() {
         Scanner input = new Scanner(System.in);
 
         String menuOptions = ANSI_PURPLE + """
-                     ╔════════════════════════════╗
-                     ║          Welcome!          ║
-                     ╠════════════════════════════╣
-                     ║ 1. Sign up                 ║
-                     ║ 2. Login                   ║
-                     ║ 3. Forget password         ║
-                     ║ 4. Log out                 ║
-                     ╚════════════════════════════╝
-                     """ +ANSI_RESET+"\n"+CHOICE_PROMPT;
+                ╔════════════════════════════╗
+                ║          Welcome!          ║
+                ╠════════════════════════════╣
+                ║ 1. Sign up                 ║
+                ║ 2. Login                   ║
+                ║ 3. Forget password         ║
+                ║ 4. Log out                 ║
+                ╚════════════════════════════╝
+                """ + ANSI_RESET + "\n" + CHOICE_PROMPT;
         logger.info(menuOptions);
 
         int choice = 0;
@@ -129,9 +136,10 @@ public class Main {
 
 
                 choice = input.nextInt();
-                if(choice>0 && choice<5){
-                    valid = true;}
-                if(!valid){
+                if (choice > 0 && choice < 5) {
+                    valid = true;
+                }
+                if (!valid) {
                     logger.info(CHOICE_PROMPT);
                 }
             } catch (InputMismatchException e) {
@@ -143,16 +151,13 @@ public class Main {
         }
 
         switch (choice) {
-            case 1 ->
-                    signUpProcedure(input);
+            case 1 -> signUpProcedure(input);
 
 
-            case 2 ->
-                    loginProcedure(input);
+            case 2 -> loginProcedure(input);
 
 
-            case 3 ->
-                    forgotPass();
+            case 3 -> forgotPass();
 
 
             case 4 -> {
@@ -167,35 +172,34 @@ public class Main {
     }
 
 
-
     private static void loginProcedure(Scanner input) {
         String adimnUsername = username(NAME);
         String adminPassword = password(PASS_1);
 
-        String name= getInput( PROMPT_NAME_MESSAGE);
-        String password = getInput( PROMPT_PASSWORD_MESSAGE);
-        user= obj.searchInUser(name);
-        sp=obj.searchInServiceProvider(name);
-        if(user!=(null)){
-            if(password.equals(user.getPass())){
-                displayUserMenu(input);}else{
+        String name = getInput(PROMPT_NAME_MESSAGE);
+        String password = getInput(PROMPT_PASSWORD_MESSAGE);
+        user = obj.searchInUser(name);
+        sp = obj.searchInServiceProvider(name);
+        if (user != (null)) {
+            if (password.equals(user.getPass())) {
+                displayUserMenu(input);
+            } else {
                 logger.info("Wrong Password\n");
                 logInSignUp();
             }
-        }
-        else if(sp!=(null)){
-            if(password.equals(sp.getPerson().getPass())){
-                displaySpMenu(input);}else{
+        } else if (sp != (null)) {
+            if (password.equals(sp.getPerson().getPass())) {
+                displaySpMenu(input);
+            } else {
                 logger.info("Wrong Password\n");
                 logInSignUp();
             }
 
 
-        }
-        else if(name.equals(adimnUsername)&&password.equals(adminPassword)){
+        } else if (name.equals(adimnUsername) && password.equals(adminPassword)) {
             displayAdminMenu(input);
 
-        }else{
+        } else {
             logger.info("Wrong information\n");
             logInSignUp();
         }
@@ -204,17 +208,17 @@ public class Main {
 
     private static void displaySpMenu(Scanner input) {
         String menuOptions = ANSI_PURPLE + """
-                     ╔════════════════════════════════════╗
-                     ║       Service Provider Menu        ║
-                     ╠════════════════════════════════════╣
-                     ║ 1. Add a new service               ║
-                     ║ 2. Modify an existing service      ║
-                     ║ 3. Delete an existing service      ║
-                     ║ 4. View the list of users          ║
-                     ║ 5. View the list of services       ║
-                     ║ 6. Exit                            ║
-                     ╚════════════════════════════════════╝
-                     """ + ANSI_RESET+"\n"+CHOICE_PROMPT;
+                ╔════════════════════════════════════╗
+                ║       Service Provider Menu        ║
+                ╠════════════════════════════════════╣
+                ║ 1. Add a new service               ║
+                ║ 2. Modify an existing service      ║
+                ║ 3. Delete an existing service      ║
+                ║ 4. View the list of users          ║
+                ║ 5. View the list of services       ║
+                ║ 6. Exit                            ║
+                ╚════════════════════════════════════╝
+                """ + ANSI_RESET + "\n" + CHOICE_PROMPT;
 
         int choice;
         logger.info(menuOptions);
@@ -234,7 +238,7 @@ public class Main {
                 }
                 default -> logger.info(INVALID_OPTION_MESSAGE);
             }
-            displaySpMenu( input);
+            displaySpMenu(input);
         }
     }
 
@@ -254,56 +258,56 @@ public class Main {
     }
 
 
-
-
     private static void addNewService(Scanner input) {
 
-            logger.info(PROMPT_SERVICE_ID);
-            int id = 0;
-            boolean validInput = false;
+        logger.info(PROMPT_SERVICE_ID);
+        int id = 0;
+        boolean validInput = false;
 
-            while (!validInput) {
-                try {
-                    id = input.nextInt();
-                    if (searchInServiceById(id,sp)) {
-                        validInput = true;
-                    } else {
-                        logger.severe("this id is existing before...  Enter another Service Id:  ");
+        while (!validInput) {
+            try {
+                id = input.nextInt();
+                if (searchInServiceById(id, sp)) {
+                    validInput = true;
+                } else {
+                    logger.severe("this id is existing before...  Enter another Service Id:  ");
 
-                    }
-                } catch (InputMismatchException ime) {
-                    logger.severe("Invalid input ...  Enter Service Id: ");
-                    input.next();
-                }}
-
-            String description = getInput("Please enter description"); // Assuming this method handles its own exceptions
-
-            logger.info("Enter service cost:");
-            int cost = 0;
-            validInput = false;
-            while (!validInput) {
-                try {
-                    cost = input.nextInt();
-                    validInput = true; // Exit loop if input is successful
-                } catch (InputMismatchException ime) {
-                    logger.severe(INVALID_COST_INPUT);
-                    input.next(); // Consume the invalid token to avoid infinite loop
                 }
+            } catch (InputMismatchException ime) {
+                logger.severe("Invalid input ...  Enter Service Id: ");
+                input.next();
             }
+        }
 
-            obj.addServiceToSp(description, cost, id, sp.getPerson().getUserName());
+        String description = getInput("Please enter description"); // Assuming this method handles its own exceptions
+
+        logger.info("Enter service cost:");
+        int cost = 0;
+        validInput = false;
+        while (!validInput) {
+            try {
+                cost = input.nextInt();
+                validInput = true; // Exit loop if input is successful
+            } catch (InputMismatchException ime) {
+                logger.severe(INVALID_COST_INPUT);
+                input.next(); // Consume the invalid token to avoid infinite loop
+            }
+        }
+
+        obj.addServiceToSp(description, cost, id, sp.getPerson().getUserName());
 
 
     }
+
     private static final String INVALID_COST_INPUT = "Invalid input. Please enter a numeric value for cost.";
 
 
     private static void modifyExistingService(Scanner input) {
 
-            Person person = sp.getPerson();
+        Person person = sp.getPerson();
 
-                String userName = person.getUserName();
-        String p2=obj.showservicesForSp(userName);
+        String userName = person.getUserName();
+        String p2 = obj.showservicesForSp(userName);
         logger.info(p2);
 
         logger.info(PROMPT_SERVICE_ID);
@@ -313,7 +317,7 @@ public class Main {
         while (!validInput) {
             try {
                 id = input.nextInt();
-                if (!searchInServiceById(id,sp)) {
+                if (!searchInServiceById(id, sp)) {
                     validInput = true;
                 } else {
                     logger.severe("this id doesn't existing before...  Enter another Service Id:  ");
@@ -322,35 +326,35 @@ public class Main {
             } catch (InputMismatchException ime) {
                 logger.severe("Invalid input ...  Enter Service Id: ");
                 input.next();
-            }}
+            }
+        }
 
 
-                    String description = getInput("Please enter new description");
+        String description = getInput("Please enter new description");
 
-                    logger.info("Enter new cost:");
-                    int cost = 0;
-                     validInput = false;
-                    while (!validInput) {
-                        try {
-                            cost = input.nextInt();
-                            validInput = true;
-                        } catch (InputMismatchException ime) {
-                            logger.info(INVALID_COST_INPUT);
-                            input.next(); // Consume the invalid token to avoid infinite loop
-                        }
-                    }
+        logger.info("Enter new cost:");
+        int cost = 0;
+        validInput = false;
+        while (!validInput) {
+            try {
+                cost = input.nextInt();
+                validInput = true;
+            } catch (InputMismatchException ime) {
+                logger.info(INVALID_COST_INPUT);
+                input.next(); // Consume the invalid token to avoid infinite loop
+            }
+        }
 
 
-                        obj.editServiceForSp(description, cost, id, userName);
+        obj.editServiceForSp(description, cost, id, userName);
 
 
     }
 
 
-
     private static void deleteExistingService(Scanner input) {
         if (sp != null && sp.getPerson() != null && sp.getPerson().getUserName() != null) {
-            String p1=obj.showservicesForSp(sp.getPerson().getUserName());
+            String p1 = obj.showservicesForSp(sp.getPerson().getUserName());
             logger.info(p1);
             logger.info(PROMPT_SERVICE_ID);
             int id = input.nextInt();
@@ -362,7 +366,7 @@ public class Main {
 
     private static void viewListOfUsers() {
         if (sp != null && sp.getPerson() != null && sp.getPerson().getUserName() != null) {
-            String p=obj.showUsersAndEventsForSp(sp.getPerson().getUserName());
+            String p = obj.showUsersAndEventsForSp(sp.getPerson().getUserName());
             logger.info(p);
         } else {
             logger.info("Cannot show users and events for service provider - missing details.");
@@ -371,32 +375,32 @@ public class Main {
 
     private static void viewListOfServices() {
         if (sp != null && sp.getPerson() != null && sp.getPerson().getUserName() != null) {
-            String p1=obj.showservicesForSp(sp.getPerson().getUserName());
+            String p1 = obj.showservicesForSp(sp.getPerson().getUserName());
             logger.info(p1);
         } else {
             logger.info("Cannot show services for the service provider - missing details.");
         }
     }
 
-    private static void addServices(Scanner input,int int1,Event event1){
+    private static void addServices(Scanner input, int int1, Event event1) {
         String menu = ANSI_PURPLE + """
-              ╔════════════════════════════╗
-              ║       Service Menu         ║
-              ╠════════════════════════════╣
-              ║ 1. Food Service            ║
-              ║ 2. Decor Service           ║
-              ║ 3. Enter Service           ║
-              ║ 4. Photo Service           ║
-              ║ 5. Finish                  ║
-              ╚════════════════════════════╝
-              """ +ANSI_RESET+"\n"+CHOICE_PROMPT;
+                ╔════════════════════════════╗
+                ║       Service Menu         ║
+                ╠════════════════════════════╣
+                ║ 1. Food Service            ║
+                ║ 2. Decor Service           ║
+                ║ 3. Enter Service           ║
+                ║ 4. Photo Service           ║
+                ║ 5. Finish                  ║
+                ╚════════════════════════════╝
+                """ + ANSI_RESET + "\n" + CHOICE_PROMPT;
         logger.info(menu);
 
-        int serviceChoice= 0;
+        int serviceChoice = 0;
         boolean valid = false;
         while (!valid) {
             try {
-                serviceChoice= input.nextInt();
+                serviceChoice = input.nextInt();
                 valid = true;
             } catch (InputMismatchException e) {
 
@@ -415,8 +419,8 @@ public class Main {
             case 4 -> type = "Photographer";
             case 5 -> {
                 int eventCost = obj.getLocalEvent().eventCost(cost);
-                String createEventMessage=CREATE_EVENT_MESSAGE;
-                createEventMessage+=eventCost;
+                String createEventMessage = CREATE_EVENT_MESSAGE;
+                createEventMessage += eventCost;
                 logger.info(createEventMessage);
 
 
@@ -441,7 +445,6 @@ public class Main {
             logger.info(s);
 
 
-
             Integer serviceId = input.nextInt();
             obj.setLocalEvent(event1);
 
@@ -450,33 +453,33 @@ public class Main {
             logger.info("Added Successfully");
 
             addServices(input, int1, event1);
-        }}
+        }
+    }
 
 
     static int cost;
 
 
-    private static void location(int year,int month,int day,Time time){
+    private static void location(int year, int month, int day, Time time) {
 
         logger.info("locations: ");
-        int temp=0;
+        int temp = 0;
         for (Location l : obj.getLocationList()) {
 
             for (Event e : obj.getEventList()) {
 
 
-                if (e.getDate().getYear()==year && e.getDate().getMonth()==month && e.getDate().getDate()==day && e.getTime().equals(time)&& e.getLocation().equals(l.getLocationName())) {
-                    temp=1;
+                if (e.getDate().getYear() == year && e.getDate().getMonth() == month && e.getDate().getDate() == day && e.getTime().equals(time) && e.getLocation().equals(l.getLocationName())) {
+                    temp = 1;
                     break;
                 }
             }
-            if(temp==0){
-                logger.info(l.getId()+"\t"+l.getLocationName()+"\t"+l.getCost()+"\n");
+            if (temp == 0) {
+                logger.info(l.getId() + "\t" + l.getLocationName() + "\t" + l.getCost() + "\n");
 
 
-            }
-            else {
-                temp=0;
+            } else {
+                temp = 0;
             }
 
         }
@@ -484,16 +487,15 @@ public class Main {
 
     }
 
-    private static void creatBasicEvent(Scanner input){
-        cost=0;
+    private static void creatBasicEvent(Scanner input) {
+        cost = 0;
 
-        Time time= new Time(1, 2, 3);
-        String eventName= getInput( "Please enter event name: ");
-        String dates= getInput( "Please enter event date(yyyy-MM-dd): ");
-        String times= getInput( "Please enter event time(HH:mm:ss): ");
+        Time time = new Time(1, 2, 3);
+        String eventName = getInput("Please enter event name: ");
+        String dates = getInput("Please enter event date(yyyy-MM-dd): ");
+        String times = getInput("Please enter event time(HH:mm:ss): ");
 
         String[] dateComponents = dates.split("-");
-
 
 
         int year = Integer.parseInt(dateComponents[0]);
@@ -503,21 +505,20 @@ public class Main {
 
         dateComponents = times.split(":");
         int hour = Integer.parseInt(dateComponents[0]);
-        int min= Integer.parseInt(dateComponents[1]);
+        int min = Integer.parseInt(dateComponents[1]);
         int sec = Integer.parseInt(dateComponents[2]);
-        time = new Time(hour,min,sec);
-
+        time = new Time(hour, min, sec);
 
 
         location(year, month, day, time);
 
         Integer id = input.nextInt();
 
-        String theme= getInput( "Please enter theme: ");
+        String theme = getInput("Please enter theme: ");
         logger.info("Please enter number of attend people: ");
         Integer number = input.nextInt();
         Location loc;
-        String locationName="";
+        String locationName = "";
         loc = searchInLocation(id);
         if (loc != null) {
             cost = loc.getCost();
@@ -525,21 +526,21 @@ public class Main {
             locationName = loc.getLocationName();
         }
 
-        Date datePass=new Date(year,month,day);
-        Time timePass=new Time( time.getHours(), time.getMinutes(), time.getSeconds());
+        Date datePass = new Date(year, month, day);
+        Time timePass = new Time(time.getHours(), time.getMinutes(), time.getSeconds());
 
-        obj.createEventWithBasicInfo(user.getUserName(),eventName,datePass,timePass, locationName, theme, number);
+        obj.createEventWithBasicInfo(user.getUserName(), eventName, datePass, timePass, locationName, theme, number);
         String menu = ANSI_PURPLE + """
-              ╔═════════════════════════════════╗
-              ║        Package & Services       ║
-              ╠═════════════════════════════════╣
-              ║ 1. Choose from existing package ║
-              ║ 2. Choose your own services     ║
-              ║ 3. Exit                         ║
-              ╚═════════════════════════════════╝
-              """ + ANSI_RESET+"\n"+CHOICE_PROMPT;
+                ╔═════════════════════════════════╗
+                ║        Package & Services       ║
+                ╠═════════════════════════════════╣
+                ║ 1. Choose from existing package ║
+                ║ 2. Choose your own services     ║
+                ║ 3. Exit                         ║
+                ╚═════════════════════════════════╝
+                """ + ANSI_RESET + "\n" + CHOICE_PROMPT;
 
-        logger.info(menu );
+        logger.info(menu);
 
         int choice = input.nextInt();
 
@@ -553,23 +554,22 @@ public class Main {
                 obj.addLocalEventToEventList();
 
 
-
                 Package pk = searchInPackage(packid);
                 if (pk != null) {
                     Event localEvent = obj.getLocalEvent();
                     if (localEvent != null) {
                         localEvent.setPack(pk);
                         int eventCost = localEvent.eventCost(cost);
-                        String s=CREATE_EVENT_MESSAGE;
-                        s+=String.valueOf(eventCost);
+                        String s = CREATE_EVENT_MESSAGE;
+                        s += String.valueOf(eventCost);
                         logger.info(s);
                     } else {
                         logger.info("Local event not found, cannot calculate cost.");
                     }
                 } else {
-                    String packageMessage="Package with id ";
-                    packageMessage+=String.valueOf(packid);
-                    packageMessage+=" not found.";
+                    String packageMessage = "Package with id ";
+                    packageMessage += String.valueOf(packid);
+                    packageMessage += " not found.";
                     logger.info(packageMessage);
                 }
 
@@ -577,13 +577,12 @@ public class Main {
             }
             case 2 -> addServices(input, obj.getLocalEvent().eventCost(cost), obj.getLocalEvent());
             case 3 -> {
-                String s=CREATE_EVENT_MESSAGE;
-                s+=String.valueOf(cost);
+                String s = CREATE_EVENT_MESSAGE;
+                s += String.valueOf(cost);
                 obj.getLocalEvent().eventCost(cost);
-                logger.info(s);}
-            default ->
-                    logger.info("Invalid input.");
-
+                logger.info(s);
+            }
+            default -> logger.info("Invalid input.");
 
 
         }
@@ -593,14 +592,14 @@ public class Main {
     private static void displayUserMenu(Scanner input) {
         String s = ANSI_PURPLE +
                 "\n╔══════════════════════╗" +
-                "\n║      User Menu       ║"+
-                " \n╠══════════════════════╣"+
-                "\n║ 1. create an event   ║"+
-                "\n║ 2. edit the event    ║"+
-                "\n║ 3. delete an event   ║"+
-                "\n║ 4. view events       ║"+
-                "\n║ 5. exit              ║"+
-                "\n╚══════════════════════╝"+ ANSI_RESET + "\n" + CHOICE_PROMPT;
+                "\n║      User Menu       ║" +
+                " \n╠══════════════════════╣" +
+                "\n║ 1. create an event   ║" +
+                "\n║ 2. edit the event    ║" +
+                "\n║ 3. delete an event   ║" +
+                "\n║ 4. view events       ║" +
+                "\n║ 5. exit              ║" +
+                "\n╚══════════════════════╝" + ANSI_RESET + "\n" + CHOICE_PROMPT;
 
 
         logger.info(s);
@@ -626,8 +625,8 @@ public class Main {
                 String eventName;
                 do {
                     eventName = getInput("Please enter Event name: ");
-                } while (searchInEventByName(eventName)==null);
-                editEvent(input,eventName);
+                } while (searchInEventByName(eventName) == null);
+                editEvent(input, eventName);
             }
             case 3 -> {
                 show = obj.viewEventsByUser(user.getUserName());
@@ -635,11 +634,11 @@ public class Main {
                 String eventname;
                 do {
                     eventname = getInput("Please enter Event name: ");
-                } while (searchInEventByName(eventname)==null);
-               obj.deleteEventByUser(user.getUserName(), eventname);
-                String eventCreated="The event ";
-                eventCreated+=eventname;
-                eventCreated+=" was successfully deleted\n\n";
+                } while (searchInEventByName(eventname) == null);
+                obj.deleteEventByUser(user.getUserName(), eventname);
+                String eventCreated = "The event ";
+                eventCreated += eventname;
+                eventCreated += " was successfully deleted\n\n";
                 logger.info(eventCreated);
 
             }
@@ -657,20 +656,17 @@ public class Main {
         displayUserMenu(input);
 
 
-
-
-
     }
 
     private static void editEvent(Scanner input, String s) {
 
-        String eventName=s;
+        String eventName = s;
         displayEditMenu();
 
         int choice = input.nextInt();
 
         switch (choice) {
-            case 1 -> eventName=editEventName(eventName);
+            case 1 -> eventName = editEventName(eventName);
             case 2 -> editEventLocation(eventName, input);
             case 3 -> editEventDate(eventName, input);
             case 4 -> editEventTime(eventName, input);
@@ -681,34 +677,32 @@ public class Main {
             case 9 -> cancelSelectedPackage(eventName);
             case 10 -> editSelectedPackage(eventName, input);
             case 11 -> displayUserMenu(input);
-            default ->
-                    logger.info(INVALID_OPTION_MESSAGE);
-
+            default -> logger.info(INVALID_OPTION_MESSAGE);
 
 
         }
-        editEvent(input,eventName);
+        editEvent(input, eventName);
 
     }
 
     private static void displayEditMenu() {
         String menu = ANSI_PURPLE +
-                "\n╔════════════════════════════════════╗"+
-                "\n║          Edit Event Menu           ║"+
-                "\n╠════════════════════════════════════╣"+
-                "\n║  1. Edit event name                ║"+
-                "\n║  2. Change event location          ║"+
-                "\n║  3. Update event date              ║"+
-                "\n║  4. Update event time              ║"+
-                "\n║  5. Number of attendees for event  ║"+
-                "\n║  6. Change event theme             ║"+
-                "\n║  7. Add additional services        ║"+
-                "\n║  8. Remove a service               ║"+
-                "\n║  9. Cancel selected package        ║"+
-                "\n║ 10. Edit selected package          ║"+
-                "\n║ 11. Exit                           ║"+
-                "\n╚════════════════════════════════════╝"+
-                ANSI_RESET+"\n"+CHOICE_PROMPT;
+                "\n╔════════════════════════════════════╗" +
+                "\n║          Edit Event Menu           ║" +
+                "\n╠════════════════════════════════════╣" +
+                "\n║  1. Edit event name                ║" +
+                "\n║  2. Change event location          ║" +
+                "\n║  3. Update event date              ║" +
+                "\n║  4. Update event time              ║" +
+                "\n║  5. Number of attendees for event  ║" +
+                "\n║  6. Change event theme             ║" +
+                "\n║  7. Add additional services        ║" +
+                "\n║  8. Remove a service               ║" +
+                "\n║  9. Cancel selected package        ║" +
+                "\n║ 10. Edit selected package          ║" +
+                "\n║ 11. Exit                           ║" +
+                "\n╚════════════════════════════════════╝" +
+                ANSI_RESET + "\n" + CHOICE_PROMPT;
         logger.info(menu);
     }
 
@@ -724,9 +718,6 @@ public class Main {
         if (event != null) {
             location(event.getDate().getYear(), event.getDate().getMonth(), event.getDate().getDate(), event.getTime());
         }
-
-
-
 
 
         int locationId = input.nextInt();
@@ -752,7 +743,6 @@ public class Main {
             }
 
 
-
         }
         if (temp == 0) {
             obj.editEventDateByUser(user.getUserName(), eventName, year, month, day);
@@ -774,7 +764,7 @@ public class Main {
             if (event != null && e.getDate().getYear() == event.getDate().getYear() && e.getDate().getMonth() == event.getDate().getMonth() && e.getDate().getDate() == event.getDate().getDate() && e.getTime().equals(time) && e.getLocation().equals(event.getLocation())) {
                 logger.info("you can't choose this time because location is booked to another event\n");
                 temp = 1;
-                editEvent(input,eventName);
+                editEvent(input, eventName);
                 break;
             }
 
@@ -800,7 +790,7 @@ public class Main {
         Event event = searchInEventByName(eventName);
         if (event != null) {
             obj.setLocalEvent(event);
-            addServices(input, event.getOverallCost(),event);
+            addServices(input, event.getOverallCost(), event);
         }
     }
 
@@ -838,16 +828,73 @@ public class Main {
         obj.setLocalEvent(searchInEventByName(eventName));
 
         if (obj.addPackageToEvent(pakid)) {
-            int cost11= obj.getLocalEvent().eventCost(cost);
-            String s=CREATE_EVENT_MESSAGE;
-            s+=String.valueOf(cost11);
+            int cost11 = obj.getLocalEvent().eventCost(cost);
+            String s = CREATE_EVENT_MESSAGE;
+            s += String.valueOf(cost11);
             logger.info(s);
         } else {
             logger.info("Failed to add package to the event.");
         }
     }
 
+    private static int enterCorrevtId(Scanner input, String s1, String s2) {
+        boolean validInput = false;
 
+        int id = 0;
+        while (!validInput) {
+            try {
+                id = input.nextInt();
+                if (searchInPackageById(id)) {
+                    validInput = true;
+                } else {
+                    logger.severe(s1);
+
+                }
+            } catch (InputMismatchException ime) {
+                logger.severe(s2);
+                input.next();
+            }
+        }
+        return id;
+    }
+
+    private static int enterCorrectCost(Scanner input) {
+        int cost = 0;
+        Boolean validCostInput = false;
+        while (!validCostInput) {
+            try {
+                cost = input.nextInt();
+                validCostInput = true; // Exit loop if input is successful
+            } catch (InputMismatchException ime) {
+                logger.severe(INVALID_COST_INPUT);
+                input.next(); // Consume the invalid token to avoid infinite loop
+            }
+        }
+        return cost;
+    }
+
+    private static int enterCorrevtIdLocation(Scanner input) {
+
+        boolean validIn = false;
+        int idLocation=0;
+
+        while (!validIn) {
+            try {
+                idLocation = input.nextInt();
+                if (searchInLocationById(idLocation)) {
+                    validIn = true;
+                } else {
+                    logger.severe("this id is existing before...  Enter another Location Id:  ");
+
+                }
+            } catch (InputMismatchException ime) {
+                logger.severe("Invalid input ...  Enter Location Id: ");
+                input.next();
+            }
+        }
+        return idLocation;
+
+    }
     private static void displayAdminMenu(Scanner input) {
         String menu = "\n\u001B[33m" + """
               ╔══════════════════════════════════════════╗
@@ -890,22 +937,12 @@ public class Main {
 
             logger.info("Please enter package ID: ");
 
+
+
             int id = 0;
-            boolean validInput = false;
+           id= enterCorrevtId( input,"this id is existing before...  Enter another Package Id:  ","Invalid input ...  Enter Package Id: ");
 
-            while (!validInput) {
-                try {
-                    id = input.nextInt();
-                    if (searchInPackageById(id)) {
-                        validInput = true;
-                    } else {
-                        logger.severe("this id is existing before...  Enter another Package Id:  ");
 
-                    }
-                } catch (InputMismatchException ime) {
-                    logger.severe("Invalid input ...  Enter Package Id: ");
-                    input.next();
-                }}
                 String description = getInput("Please enter package description: ");
                 logger.info("Please enter package cost: ");
                 Double cost = input.nextDouble();
@@ -930,38 +967,14 @@ public class Main {
         else if (choice==7) {
             logger.info("Enter Location Id:");
             int id = 0;
-            boolean validInput = false;
-
-            while (!validInput) {
-                try {
-                    id = input.nextInt();
-                    if(searchInLocationById(id)){
-                    validInput = true; }
-                    else{
-                        logger.severe("this id is existing before...  Enter another Location Id:  ");
-
-                    }
-                } catch (InputMismatchException ime) {
-                    logger.severe("Invalid input ...  Enter Location Id: ");
-                    input.next();
-                }
-            }
+           id= enterCorrevtIdLocation(input);
 
             String name = getInput( "Enter the name ");
             String description = getInput("Please enter description");
 
             logger.info("Enter Location cost:");
             int cost = 0;
-             validInput = false;
-            while (!validInput) {
-                try {
-                    cost = input.nextInt();
-                    validInput = true; // Exit loop if input is successful
-                } catch (InputMismatchException ime) {
-                    logger.severe(INVALID_COST_INPUT);
-                    input.next(); // Consume the invalid token to avoid infinite loop
-                }
-            }
+            cost=enterCorrectCost( input);
 
           Location l1=new Location(id,cost,name,description);
             obj.getLocationList().add(l1);
@@ -971,8 +984,6 @@ public class Main {
             String s=showLocationForAdmin();
             logger.info(s);
         }
-
-
 
 
         else if (choice==9) {
