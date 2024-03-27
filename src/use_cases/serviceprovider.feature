@@ -1,17 +1,24 @@
 Feature: Manage Services as a Service Provider
 
-  Scenario: Service provider adds a new service
+  Scenario Outline: Service provider adds a new service
     Given the service provider is logged in
     When the service provider selects
-    And fills in the details including description "10 photo", price 20, and ID 5 and service provider "tala"
+    And fills in the details including description <string>, price <int1>, and ID <int2> and service provider <string2>
     Then the new service is added successfully
+    Examples:
+      | string     | int1 | int2 | string2 |
+      | "10 photo" | 20   | 5    | "tala"  |
 
-  Scenario: Service provider modifies an existing service
+
+  Scenario Outline: Service provider modifies an existing service
     Given the service provider is logged in
     When the service provider selects
-    And edits the details of the service including description "9 photo ", price 23, and ID 4 and service provider "tala"
+    And edits the details of the service including description <string>, price <int1>, and ID <int2> and service provider <string2>
     Then the service is modified successfully
-
+    Examples:
+      | string     | int1 | int2 | string2 |
+      | "9 photo " | 23   | 4    | "tala"  |
+      | "55" | 20   | 700   | "ali"  |
 
   Scenario Outline: Service provider deletes an existing service
     Given the service provider is logged in

@@ -1,5 +1,7 @@
 package ttoday.edu;
 
+import io.cucumber.java.Before;
+import io.cucumber.java.BeforeAll;
 import io.cucumber.java.en.*;
 
 import java.sql.Time;
@@ -36,11 +38,13 @@ public class CreateEvent {
     public void the_user_enters_the_creation_page() {
         assertTrue("succeed", obj.isInCreationPage());
     }
+    @Then("the user doesnt enters the creation page")
+    public void the_user_doesnt_enters_the_creation_page() {
+        assertFalse("succeed", obj.isInCreationPage());
 
-    @Given("the user is on the event creation page")
-    public void the_user_is_on_the_event_creation_page() {
-        obj.iAmINCreationPage();
     }
+
+
 
 
     @When("the user fills in the event details with a past date {int}-{int}-{int}")
@@ -67,10 +71,6 @@ public class CreateEvent {
 
 
 
-    @Then("the event is created successfully")
-    public void the_event_is_created_successfully() {
-        assertTrue(obj.isLocalEventFlag());
-    }
 
     @Given("the user is presented with a choice between individual services and ready-made packages")
     public void the_user_is_presented_with_a_choice_between_individual_services_and_ready_made_packages() {
@@ -123,6 +123,13 @@ public class CreateEvent {
     @Then("Add the selected food service provider details to the event")
     public void addTheSelectedFoodServiceProviderDetailsToTheEvent() {
         assertTrue(obj.isAddLocalEventFoodFlag());
+    }
+
+
+    @Then("Add the selected food service provider details to the event rejected")
+    public void add_the_selected_food_service_provider_details_to_the_event_rejected() {
+        assertFalse(obj.isServicetypenotfoundflag() );
+
     }
 
 
@@ -198,6 +205,12 @@ public class CreateEvent {
        assertTrue(obj.isAddPackageFlag());
     }
 
+
+    @Then("the event is created successfully")
+    public void the_event_is_created_successfully() {
+        assertTrue(obj.isLocalEventFlag());
+
+    }
     @When("the user {string} fills in the event details including name {string}, place {string}, time {int}:{int}:{int}, date {int}-{int}-{int}, number of attendees {int}, and theme {string} and there is no conflict between time and location and place")
     public void the_user_fills_in_the_event_details_including_name_place_time_date_number_of_attendees_and_theme_and_there_is_no_conflict_between_time_and_location_and_place(String string, String string2, String string3, Integer int1, Integer int2, Integer int3, Integer int4, Integer int5, Integer int6, Integer int7, String string4) {
         Date dateP= new Date(int4, int5, int6);
@@ -205,6 +218,12 @@ public class CreateEvent {
         obj.createEventWithBasicInfo(string,string2, dateP, timeP, string3, string4, int7);
 
     }
+    @Given("the user is on the event creation page")
+    public void the_user_is_on_the_event_creation_page() {
+        obj.iAmINCreationPage();
+    }
+
+
 
 
     @Then("reject event creation")

@@ -24,12 +24,16 @@ Feature: Admin Management
     And adds the description of an event " Golden Event " and the cost 100.00 and id 5
     Then the new ready-made package is created successfully
 
-  Scenario: Admin deletes an existing ready-made package
+  Scenario Outline: Admin deletes an existing ready-made package
     Given the admin is logged in
     And there exist ready-made packages in the application
     When the admin selects
-    And selects 1 To delete
+    And selects <int1> To delete
     Then the selected package is deleted successfully
+    Examples:
+      | int1 |
+      | 1    |
+      | 45    |
 
   Scenario: Admin views list of all packages
     Given the admin is logged in

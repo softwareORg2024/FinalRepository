@@ -12,47 +12,90 @@ Feature: login
     Then login failed
 
 
-  Scenario: invalid pass
+  Scenario Outline: invalid pass
     Given I am not in system
-    When set valid username "haya" and invalid pass "12349"
+    When set valid username <user_name> and invalid pass <pass>
     Then login failed
+    Examples:
+      | user_name | pass    |
+      | "haya"    | "12349" |
+      | "naa"    | "Forget" |
+      | "nay"    | "1234" |
+      | "haya"    | "Forget" |
 
 
-  Scenario: blank user name
+
+  Scenario Outline: blank user name
     Given I am not in system
-    When set empty username "" and pass "1234"
+    When set empty username <user_name> and pass <pass>
     Then login failed
+    Examples:
+      | user_name | pass   |
+      | ""        | "1234" |
+      | "sara"        | "" |
+      | "sara"        | "1234" |
+      | ""        | "" |
 
-  Scenario: blank pass
+  Scenario Outline: blank pass
     Given I am not in system
-    When set valid username "haya" and empty pass ""
+    When set valid username <user_name> and empty pass <pass>
     Then login failed
+    Examples:
+      | user_name | pass |
+      | "haya"    | ""   |
+      | ""        | "1234" |
+      | ""        | "" |
+      | "haya"        | "1234" |
 
-  Scenario: User Forgot Password
+
+  Scenario Outline: User Forgot Password
     Given I am not in system
-    When set valid username "haya" and  pass "Forget"
-    Then take new pass "12345"
+    When set valid username <user_name> and  pass <pass>
+    Then take new pass <newPass>
+    Examples:
+      | user_name | pass     | newPass |
+      | "haya"    | "Forget" | "12345" |
+      | "haa"    | "Forget" | "12345" |
+      | "haya"    | "Fort" | "12345" |
 
-  Scenario: User needs to Create Account
-    Given I am not in system
-    And i don't have an account
-    When set new username "adam" and pass "54321" and bd="7\3\2004" and phone numbr="0594507933" and email="haya@gmail.com"
-    Then create succeed
-
-  Scenario: Service provider needs to Create Account
-    Given I am not in system
-    And i don't have an account
-    When set new username "eman" and pass "54321" and bd="7\3\2004" and sType="photographer" and phone numbr="0594507933" and email= "eman@gmail.com"
-    Then create succeed
-
-  Scenario: Service provider needs to Create Account
-    Given I am not in system
-    And i don't have an account
-    When set new username "jana" and pass "54321" and bd="7\3\2004" and sType="photographer" and phone numbr="0594507933" and email= "eman@gmail.com"
-    Then create succeed
-
-  Scenario: User needs to Create Account
+  Scenario Outline: User needs to Create Account
     Given I am not in system
     And i don't have an account
-    When set new username "zaid" and pass "54321" and bd="7\3\2004" and phone numbr="0594507933" and email="haya@gmail.com"
+    When set new username <string> and pass <string2> and bd=<string3> and phone numbr=<string4> and email=<string5>
     Then create succeed
+    Examples:
+      | string | string2 | string3    | string4      | string5          |
+      | "adam" | "54321" | "7\3\2004" | "0594507933" | "haya@gmail.com" |
+      | "adm" | "54321" | "7\3\2004" | "0594507933" | "haya@gmail.com" |
+      | "adam" | "4321" | "7\3\2004" | "0594507933" | "haya@gmail.com" |
+      | "adm" | "321" | "7\3\2004" | "0594507933" | "haya@gmail.com" |
+
+  Scenario Outline: Service provider needs to Create Account
+    Given I am not in system
+    And i don't have an account
+    When set new username <string> and pass <string2> and bd=<string3> and sType=<string4> and phone numbr=<string5> and email= <string6>
+    Then create succeed
+    Examples:
+      | string | string2 | string3    | string4        | string5      | string6          |
+      | "eman" | "54321" | "7\3\2004" | "photographer" | "0594507933" | "eman@gmail.com" |
+      | "eman" | "21" | "7\3\2004" | "photographer" | "0594507933" | "eman@gmail.com" |
+      | "pllp" | "05321" | "7\3\2004" | "photographer" | "0594507933" | "eman@gmail.com" |
+
+  Scenario Outline: Service provider needs to Create Account
+    Given I am not in system
+    And i don't have an account
+    When set new username <string> and pass <string2> and bd=<string3> and sType=<string4> and phone numbr=<string5> and email= <string6>
+    Then create succeed
+    Examples:
+      | string | string2 | string3    | string4        | string5      | string6          |
+      | "jana" | "54321" | "7\3\2004" | "photographer" | "0594507933" | "eman@gmail.com" |
+
+
+  Scenario Outline: User needs to Create Account
+    Given I am not in system
+    And i don't have an account
+    When set new username <string> and pass <string2> and bd=<string3> and phone numbr=<string4> and email=<string5>
+    Then create succeed
+    Examples:
+      | string | string2 | string3    | string4      | string5          |
+      | "zaid" | "54321" | "7\3\2004" | "0594507933" | "haya@gmail.com" |

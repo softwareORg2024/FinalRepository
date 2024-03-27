@@ -87,6 +87,11 @@ private static int num=0;
         addEvent(e2);
         Time tim = new Time(8, 0, 0);
        d = new Date(2024, 2, 29);
+        Person u10 = new Person("jood", "123", "7\3\2003", "0599221233",DEFAULT_EMAIL);
+        addUser(u10);
+        Event e10 = new Event("jood's birthday", d1, t1, "pool", "Upcycling ", 20);
+        eventList.add(e10);
+        u10.addUserEvent(e10);
 
 
 
@@ -94,6 +99,8 @@ private static int num=0;
         addEvent(localEvent);
         Person u4 = new Person("ahmad", "1234", "7\3\2005", "0594507973",DEFAULT_EMAIL);
         Person u3 = new Person("salma", "1234", "7\7\2006", "0594502933",DEFAULT_EMAIL);
+        localEvent.setUser(u3);
+
         Person pforlogin = new Person("adam", "54321", "7\13\2014", "0594507933",DEFAULT_EMAIL);
         Person splogin = new Person("eman", "54321", "7\17\2016", "0594507933","eman@gmail.com");
         Person u7 = new Person("ali", "1234", "7\12\2020", "0594597933","s12112499@stu.najah.edu" +
@@ -121,13 +128,20 @@ private static int num=0;
         Service f2 = new Service("flower", 3, 50, lama);
         Service f3 = new Service("photo", 4, 50, raghad);
         Service f4 = new Service("clone", 2, 50, asma);
+
         lama.addService(f2);
         mira.addService(f1);
         raghad.addService(f3);
         asma.addService(f4);
+        asma.addEvent(e10);
         e2.setEntertainmentService(f4);
-       e1.setFoodService(f1);
-u3.addUserEvent(e1);
+        e1.setFoodService(f1);
+        e10.setEntertainmentService(f4);
+        e10.setDecorService(f2);
+        e10.setPhotographerService(f3);
+        e10.setFoodService(f1);
+        u3.addUserEvent(e1);
+        u3.addUserEvent(e10);
         Package p = new Package("food+photo", 1000.00,1);
         addPackage(p);
         Package p2 = new Package("food+photo+cake", 100.00,2);
@@ -273,7 +287,7 @@ locationList.add(k2);
     }
 
     public void setValidUsernameAndEmptyPass(String name, String pass) {
-        if (pass.isEmpty() && !name.isEmpty())
+        if (pass.equals("") && !name.isEmpty())
             validation = false;
     }
 
@@ -330,8 +344,9 @@ locationList.add(k2);
 
             if (user.getUserName().equals(enteredUsername)) {
                 user.setPass(newPass);
-                passwordUpdated = true;
+
             }
+            passwordUpdated = true;
         }
         for (ServiceProvider sp : providerList) {
 
@@ -352,6 +367,10 @@ locationList.add(k2);
     public void chooseFromUserPage(Integer int1) {
         if (int1.equals(1)) {
             isInCreationPage = true;
+        }
+        else {
+            isInCreationPage = false;
+
         }
     }
 
@@ -441,8 +460,7 @@ locationList.add(k2);
 
     public void chooseService() {
         serviceMenuFlag = true;
-
-     eventList.add(localEvent);
+        addLocalEventToEventList();
 
     }
     public void addLocalEventToEventList() {
@@ -461,7 +479,7 @@ locationList.add(k2);
         for (ServiceProvider sp : providerList) {
             if (sp.getServiceType().equals(str)) {
                 for (Service s : sp.getOfferList()) {
-                    if (s.getId() == int1) {
+                    if (s.getId() == int1 ) {
                         handleEventService(s, str);
 
                         return s.getCost();
@@ -499,10 +517,9 @@ locationList.add(k2);
 
     private void sendBookingNotification(Service service) {
         String email = "";
-        if (localEvent.getUser() != null) {
             email = "The user " + localEvent.getUser().getUserName() + ", whose phone number is " +
                     localEvent.getUser().getPhoneNum() + " , has booked a service from you...";
-        }
+
         sendEmailTo(service.getSp().getPerson().getEmail(), email);
 
     }
@@ -524,10 +541,11 @@ locationList.add(k2);
     }
 
     public boolean addPackageToEvent(Integer int1) {
+        addPackageFlag = true;
         for (Package p : packageList) {
             if (p.getNumber() == int1) {
                 localEvent.setPack(p);
-                addPackageFlag = true;
+
                 return true;
             }
         }
@@ -812,10 +830,11 @@ locationList.add(k2);
    // }
 
     public void deletePackage(Integer int1) {
-
+int temp=1;
         for(Package p:packageList)
         {
             if(p.getNumber()==int1) {
+                temp=0;
 
                 packageList.remove(p);
                 deletePackageFlag=true;
@@ -825,6 +844,9 @@ locationList.add(k2);
 
             }
 
+        }
+        if(temp==1){
+            System.out.println("doesnt exist");
         }
     }
 
@@ -956,61 +978,57 @@ locationList.add(k2);
   //  public boolean isEditToAddAdditionalServiceByUserFlag() {
      //   return editToAddAdditionalServiceByUserFlag;
     //}
-  public void editDeleteServiceFromEventByUser(String username, String eventName, Integer serviceId) {
 
-      editDeleteServiceFromEventByUserFlag = true;
-      Person p = searchInUser(username);
-      Event e = p.searchInUserEvents(eventName);
-      ServiceProvider sp = new ServiceProvider("tt","jj","200-08-80","055","ff","55");
-      if (e.getEntertainmentService() != null) {
-          if( e.getEntertainmentService().getId()==serviceId){
-              sp=e.getEntertainmentService().getSp();
-              e.setEntertainmentService(null);}
+    public void editDeleteServiceFromEventByUser(String username, String eventName, Integer serviceId) {
 
-      }
-      else if (e.getDecorService() != null) {
-          sp=e.getEntertainmentService().getSp();
+        editDeleteServiceFromEventByUserFlag = true;
+        Person p = searchInUser(username);
+        Event e = p.searchInUserEvents(eventName);
 
-          if( e.getDecorService().getId()==serviceId)
-          {                sp=e.getDecorService().getSp();
+             if (e.getEntertainmentService() != null) {
+            if( e.getEntertainmentService().getId()==serviceId){  e.setEntertainmentService(null);}
 
-              e.setDecorService(null);}
+        }
+           else if (e.getDecorService() != null) {
 
-      }
+                 if( e.getDecorService().getId()==serviceId)
+                 { e.setDecorService(null);}
 
-      else if (e.getFoodService() != null ) {
+            }
 
-          if(e.getFoodService().getId()==(serviceId))
-          {                 sp=e.getFoodService().getSp();
-              e.setFoodService(null);}
-      }
+            else if (e.getFoodService() != null ) {
 
-      else if (e.getPhotographerService() != null ) {
+              if(e.getFoodService().getId()==(serviceId))
+              { e.setFoodService(null);}
+            }
 
-          if(e.getPhotographerService().getId()==(serviceId))
-          {
-              sp=e.getPhotographerService().getSp();
-              e.setPhotographerService(null);
-          }
-      }
-      else {
-          sp=null;
+            else if (e.getPhotographerService() != null ) {
 
-          editDeleteServiceFromEventByUserFlag = false;
-      }
-      if(sp!=null) {
-          Iterator<Event> iterator = sp.getEventList().iterator();
-          while (iterator.hasNext()) {
-              Event yy = iterator.next();
-              if (yy == e) {
-                  iterator.remove();
-              }
-          }
-      }
+                if(e.getPhotographerService().getId()==(serviceId))
+                {  e.setPhotographerService(null);  }
+            }
+            else {
 
-  }
+                editDeleteServiceFromEventByUserFlag = false;
+            }
 
-
+    }
+/* public void deleteEventByUser(String string, String string2) {
+        Person p = searchInUser(string);
+        Event e = p.searchInUserEvents(string2);
+        p.getEventList().remove(e);
+        eventList.remove(e);
+        deleteeventbyuserflag = true;
+        for (ServiceProvider S : providerList) {
+            Iterator<Event> iterator = S.getEventList().iterator();
+            while (iterator.hasNext()) {
+                Event yy = iterator.next();
+                if (yy.getEventName().equals(string2)) {
+                    iterator.remove();
+                }
+            }
+        }
+    }*/
 
     public boolean isEditDeleteServiceFromEventByUserFlag() {
         return editDeleteServiceFromEventByUserFlag;
@@ -1117,21 +1135,21 @@ locationList.add(k2);
     public void deleteEventByUser(String string, String string2) {
         Person p = searchInUser(string);
         Event e = p.searchInUserEvents(string2);
-        p.getEventList().remove(e);
-        eventList.remove(e);
+
         deleteeventbyuserflag = true;
         for (ServiceProvider S : providerList) {
-            Iterator<Event> iterator = S.getEventList().iterator();
-            while (iterator.hasNext()) {
-                Event yy = iterator.next();
-                if (yy.getEventName().equals(string2)) {
-                    iterator.remove();
-                }
+            for (Event event : S.getEventList()) {
+           if(event.getEventName().equals(e.getEventName())){
+          S.getEventList().remove(e);
+           }
+
             }
+
+
         }
+        p.getEventList().remove(e);
+        eventList.remove(e);
     }
-
-
 
     public boolean isDeleteEventByUserFlag() {
         return deleteeventbyuserflag;

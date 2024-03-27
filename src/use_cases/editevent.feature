@@ -53,11 +53,15 @@ When the user select to edit
 And  user "salma" modifies the event theme in event "omar's birthday" to "frozen"
 Then the event theme is updated successfully
 
-Scenario: User adds additional services to the event
-Given the user is on the event details page
-When the user select to edit
-  And  user "salma" modifies the event "jori's Birthday"
-Then the services appear
+  Scenario Outline: User adds additional services to the event
+    Given the user is on the event details page
+    When the user select to edit
+    And user <string> modifies the event <string2>
+    Then the services appear
+    Examples:
+      | string  | string2           |
+      | "salma" | "jori's Birthday" |
+      | "jood" | "jood's birthday" |
 
   Scenario Outline: User removes a service from the event
     Given the user is on the event details page
@@ -70,7 +74,10 @@ Then the services appear
       | "salma" | "tala's Birthday" | 4     |
       | "mira" | "mira's Birthday" | 3     |
       | "salma" | "Laila's Birthday" | 1     |
-
+       | "salma" | "omar's birthday" | 4     |
+       | "salma" | "tala's Birthday" | 2     |
+       | "mira" | "mira's Birthday" | 1    |
+       | "salma" | "Laila's Birthday" | 3     |
 
   Scenario Outline: User removes a service from the event
     Given the user is on the event details page
@@ -98,14 +105,18 @@ Then the selected package  is removed from the event
     | "salma" |
      | "abd" |
       | "mira" |
+      | "haya" |
 
 
-
-  Scenario: User deletes an existing event
-Given the user is logged in
-When the user select to edit
-  And user "rawand" to delete event "rawand's Birthday"
-  Then the selected event is deleted from the user's events list
+  Scenario Outline: User deletes an existing event
+    Given the user is logged in
+    When the user select to edit
+    And user <string> to delete event <string2>
+    Then the selected event is deleted from the user's events list
+    Examples:
+      | string   | string2             |
+      | "rawand" | "rawand's Birthday" |
+      | "jood" | "jood's birthday" |
 
   Scenario: User see overall cost to  an existing event
     Given the user is logged in
