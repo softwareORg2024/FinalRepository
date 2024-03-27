@@ -127,7 +127,7 @@ public class Event {
     }
 
     public int eventCost(int locationCost) {
-        // Use the provided locationCost if eventLocationCost is 0, otherwise keep eventLocationCost
+
         int cost = (eventLocationCost == 0) ? locationCost : eventLocationCost;
 
         if(getFoodService() != null) {

@@ -97,7 +97,7 @@ Then the selected package  is removed from the event
     | "salma" |
      | "abd" |
       | "mira" |
-      | "haya" |
+
 
 
   Scenario Outline: User deletes an existing event

@@ -254,13 +254,43 @@ public class Main {
     }
 
     private static void addNewService(Scanner input) {
-        logger.info(PROMPT_SERVICE_ID);
-        int id = input.nextInt();
-        String description = getInput("Please enter description");
-        logger.info("Enter service cost:");
-        int cost = input.nextInt();
-        obj.addServiceToSp(description, cost, id, sp.getPerson().getUserName());
+        try {
+            logger.info(PROMPT_SERVICE_ID);
+            int id = 0;
+            boolean validInput = false;
+            while (!validInput) {
+                try {
+                    id = input.nextInt();
+                    validInput = true; // Exit loop if input is successful
+                } catch (InputMismatchException ime) {
+                    logger.severe("Invalid input. Please enter a numeric value for service ID.");
+                    input.next(); // Consume the invalid token to avoid infinite loop
+                }
+            }
+
+            String description = getInput("Please enter description"); // Assuming this method handles its own exceptions
+
+            logger.info("Enter service cost:");
+            int cost = 0;
+            validInput = false;
+            while (!validInput) {
+                try {
+                    cost = input.nextInt();
+                    validInput = true; // Exit loop if input is successful
+                } catch (InputMismatchException ime) {
+                    logger.severe("Invalid input. Please enter a numeric value for cost.");
+                    input.next(); // Consume the invalid token to avoid infinite loop
+                }
+            }
+
+            obj.addServiceToSp(description, cost, id, sp.getPerson().getUserName());
+
+        } catch (Exception e) {
+            logger.severe("An error occurred while adding a new service: " + e.getMessage());
+
+        }
     }
+
 
     private static void modifyExistingService(Scanner input) {
         if (sp != null) {
@@ -270,11 +300,40 @@ public class Main {
                 if (userName != null) {
                     String p2=obj.showservicesForSp(userName);
                     logger.info(p2);
-                    logger.info(PROMPT_SERVICE_ID);
-                    int id = input.nextInt();
-                    String description = getInput("Please enter new description");
+                    Service s = null;
+                    int id = 0;
+                    while (s == null) {
+                        logger.info(PROMPT_SERVICE_ID);
+                        boolean validInput = false;
+                        while (!validInput) {
+                            try {
+                                id = input.nextInt();
+                                validInput = true;
+                            } catch (InputMismatchException ime) {
+                                logger.info("Invalid input. Please enter a numeric value for service ID.");
+                                input.next(); // Consume the invalid token to avoid infinite loop
+                            }
+                        }
+                        s = sp.searchForServiceId(id);
+                        if (s == null) {
+                            logger.info("Service ID not found. Please try again.");
+                        }
+                    }
+
+                    String description = getInput("Please enter new description"); // Assuming this method handles its own exceptions
+
                     logger.info("Enter new cost:");
-                    int cost = input.nextInt();
+                    int cost = 0;
+                    boolean validInput = false;
+                    while (!validInput) {
+                        try {
+                            cost = input.nextInt();
+                            validInput = true;
+                        } catch (InputMismatchException ime) {
+                            logger.info("Invalid input. Please enter a numeric value for cost.");
+                            input.next(); // Consume the invalid token to avoid infinite loop
+                        }
+                    }
 
                     if (description != null) {
                         obj.editServiceForSp(description, cost, id, userName);
@@ -330,8 +389,8 @@ public class Main {
               ╠════════════════════════════╣
               ║ 1. Food Service            ║
               ║ 2. Decor Service           ║
-              ║ 3. Photo Service           ║
-              ║ 4. Enter Service           ║
+              ║ 3. Enter Service           ║
+              ║ 4. Photo Service           ║
               ║ 5. Finish                  ║
               ╚════════════════════════════╝
               """ +ANSI_RESET+"\n"+CHOICE_PROMPT;
@@ -584,12 +643,16 @@ public class Main {
             }
             case 3 -> {
                 show = obj.viewEventsByUser(user.getUserName());
-                String eventname = getInput(show + "\n Please enter eventName:\n");
+                logger.info(show);
+                String eventname;
+                do {
+                    eventname = getInput("Please enter Event name: ");
+                } while (searchInEventByName(eventname)==null);
+               obj.deleteEventByUser(user.getUserName(), eventname);
                 String eventCreated="The event ";
                 eventCreated+=eventname;
                 eventCreated+=" was successfully deleted\n\n";
                 logger.info(eventCreated);
-                obj.deleteEventByUser(user.getUserName(), eventname);
 
             }
             case 4 -> {

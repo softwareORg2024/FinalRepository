@@ -70,81 +70,109 @@ private static int num=0;
     }
 
     public MyAppT() {
+        Location k1=new Location(1,100,"Resturant","50 people");
+        Location k2=new Location(2,100,"Park","70 people");
+        locationList.add(k1);
+        locationList.add(k2);
+
+        Time t1 = new Time(5, 0, 0);
+        Time tim = new Time(8, 0, 0);
+         Date d = new Date(2024, 2, 29);
+        Date d1 = new java.sql.Date((long)2024 - 3 - 25);
 
 
         Person u1 = new Person("haya", "123", "7\3\2003", "0599221233",DEFAULT_EMAIL);
-        addUser(u1);
         Person u2 = new Person("mohammad", "1234", "7\3\2004", "0594506933",DEFAULT_EMAIL);
-        addUser(u2);
-        Time t1 = new Time(5, 0, 0);
-        java.sql.Date d1 = new java.sql.Date((long)2024 - 3 - 25);
+        Person u10 = new Person("jood", "123", "7\3\2003", "0599221233",DEFAULT_EMAIL);
+        Person u11 = new Person("joodi", "123", "7\3\2003", "0599221233",DEFAULT_EMAIL);
+        Person u4 = new Person("ahmad", "1234", "7\3\2005", "0594507973",DEFAULT_EMAIL);
+        Person u3 = new Person("salma", "1234", "7\7\2006", "0594502933",DEFAULT_EMAIL);
+        Person abd=new Person("abd","1234","26\5\2004","0598188123");
+        Person pForDelete=new Person("rawand","1234","8\3\2011","0598986445");
+        Person p5=new Person("mira","1234","26\2\2003","05981555123","mira.assi66@gmail.com");
+        Person splogin = new Person("eman", "54321", "7\17\2016", "0594507933","eman@gmail.com");
+        Person u7 = new Person("ali", "1234", "7\12\2020", "0594597933","s12112499@stu.najah.edu" );
+        Person u8 = new Person("tala", "1234", "8\3\2009", "0594506933",DEFAULT_EMAIL);
+        addUser(u3);
+        addUser(u4);
+        addUser(p5);
+        addUser(u10);
+        addUser(u11);
+        addUser(abd);
+        addUser(pForDelete);
+
+
+        ServiceProvider sp1p = new ServiceProvider(splogin, SERVICE_TYPE_PHOTOGRAPHER);
+        ServiceProvider sp2p = new ServiceProvider(u8, SERVICE_TYPE_PHOTOGRAPHER);
+        ServiceProvider sp3f = new ServiceProvider(u1, SERVICE_TYPE_FOOD);
+        ServiceProvider sp4e = new ServiceProvider(u2, SERVICE_TYPE);
+        ServiceProvider sp5d = new ServiceProvider(u7, SERVICE_TYPE_DECORATION);
+        Service f1 = new Service("cake", 1, 50, sp3f);
+        Service f2 = new Service("flower", 3, 50, sp5d);
+        Service f3 = new Service("photo", 4, 50, sp2p);
+        Service f4 = new Service("clone", 2, 50, sp4e);
+        Service f5 = new Service("100 photos", 4, 100, sp1p);
+        sp5d.addService(f2);
+        sp3f.addService(f1);
+        sp2p.addService(f3);
+        sp4e.addService(f4);
+        sp1p.addService(f5);
+
+        addServiceProvider(sp2p);
+        addServiceProvider(sp3f);
+        addServiceProvider(sp4e);
+        addServiceProvider(sp5d);
+        addServiceProvider(sp1p);
+
+
+
         Event e1 = new Event("Laila's Birthday", d1, t1, "home", "Under the Sea", 20);
         Event e2 = new Event("omar's birthday", d1, t1, "home", "funny ", 20);
         Event e8 = new Event("amr's birthday", d1, t1, "home", "cute ", 20);
-         eventList.add(e8);
-
-        addEvent(e1);
-        addEvent(e2);
-        Time tim = new Time(8, 0, 0);
-       d = new Date(2024, 2, 29);
-        Person u10 = new Person("jood", "123", "7\3\2003", "0599221233",DEFAULT_EMAIL);
-        Person u11 = new Person("joodi", "123", "7\3\2003", "0599221233",DEFAULT_EMAIL);
-        addUser(u10);addUser(u11);
         Event e10 = new Event("jood's birthday", d1, t1, "pool", "Upcycling ", 20);
         Event e11 = new Event("joodi's birthday", d1, t1, "pool", "Upcycling ", 20);
-        eventList.add(e10);
-        u10.addUserEvent(e10);
-        eventList.add(e11);
-        u10.addUserEvent(e11);
-
-
-
-         localEvent = new Event("asmaa", d, tim, "home", "Superhero", 25);
+        localEvent = new Event("asmaa", d, tim, "home", "Superhero", 25);
+        Event e5 = new Event("mira's Birthday", d1, t1, "home", "unicorn", 20);
+        Event e3 = new Event("abd's Birthday", d1, t1, "home", "boyTheme ", 20);
+        Event e6 = new Event("rawand's Birthday", d1, t1, "home", "Mexican", 20);
+        Event e7 = new Event("tala's Birthday", d1, t1, "home", "girly ", 20);
+        Event e9 = new Event("jori's Birthday", d1, t1, "home", "Circus ", 20);
+        addEvent(e1);
+        addEvent(e2);
+        addEvent(e8);
+        addEvent(e10);
+        addEvent(e11);
+        addEvent(e5);
+        addEvent(e3);
+        addEvent(e6);
+        addEvent(e7);
+        addEvent(e9);
         addEvent(localEvent);
-        Person u4 = new Person("ahmad", "1234", "7\3\2005", "0594507973",DEFAULT_EMAIL);
-        Person u3 = new Person("salma", "1234", "7\7\2006", "0594502933",DEFAULT_EMAIL);
-        localEvent.setUser(u3);
 
-        Person pforlogin = new Person("adam", "54321", "7\13\2014", "0594507933",DEFAULT_EMAIL);
-        Person splogin = new Person("eman", "54321", "7\17\2016", "0594507933","eman@gmail.com");
-        Person u7 = new Person("ali", "1234", "7\12\2020", "0594597933","s12112499@stu.najah.edu" +
-                "");
-        Person u8 = new Person("tala", "1234", "8\3\2009", "0594506933",DEFAULT_EMAIL);
-
-        ServiceProvider eman = new ServiceProvider(splogin, SERVICE_TYPE_PHOTOGRAPHER);
-        addServiceProvider(eman);
-        addUser(pforlogin);
-        addUser(u3);
-        addUser(u4);
-        u3.getEventList().add(e2);
-        ServiceProvider raghad = new ServiceProvider(u8, SERVICE_TYPE_PHOTOGRAPHER);
-        ServiceProvider mira = new ServiceProvider(u1, SERVICE_TYPE_FOOD);
-        ServiceProvider asma = new ServiceProvider(u2, SERVICE_TYPE);
-        ServiceProvider lama = new ServiceProvider(u7, SERVICE_TYPE_DECORATION);
-        addServiceProvider(raghad);
-        addServiceProvider(mira);
-        addServiceProvider(asma);
-        addServiceProvider(lama);
-
+        e1.setUser(u3);
+        e2.setUser(u3);
         e8.setUser(u3);
-        u3.addUserEvent(e8);
-        Service f1 = new Service("cake", 1, 50, mira);
-        Service f2 = new Service("flower", 3, 50, lama);
-        Service f3 = new Service("photo", 4, 50, raghad);
-        Service f4 = new Service("clone", 2, 50, asma);
+        e10.setUser(u10);
+        e11.setUser(u11);
+        localEvent.setUser(u3);
+        e5.setUser(p5);
+        e6.setUser(pForDelete);
+        e7.setUser(u3);
+        e9.setUser(u3);
+        e3.setUser(abd);
 
-        lama.addService(f2);
-        mira.addService(f1);
-        raghad.addService(f3);
-        asma.addService(f4);
-        asma.addEvent(e10);
-      //  raghad.addEvent(e10);
-        mira.addEvent(e10);
-        lama.addEvent(e10);
-        asma.addEvent(e11);
-     //   raghad.addEvent(e11);
-        mira.addEvent(e11);
-        lama.addEvent(e11);
+        u3.addUserEvent(e1);
+        u3.addUserEvent(e2);
+        u3.addUserEvent(e8);
+        u3.addUserEvent(localEvent);
+        u3.addUserEvent(e7);
+        u3.addUserEvent(e9);
+        u10.addUserEvent(e10);
+        u11.addUserEvent(e11);
+        p5.addUserEvent(e5);
+        pForDelete.addUserEvent(e6);
+        abd.addUserEvent(e3);
+
         e2.setEntertainmentService(f4);
         e1.setFoodService(f1);
         e10.setEntertainmentService(f4);
@@ -155,49 +183,32 @@ private static int num=0;
         e11.setDecorService(f2);
         e11.setPhotographerService(f3);
         e11.setFoodService(f1);
-        u3.addUserEvent(e1);
-        u3.addUserEvent(e10);
-        u3.addUserEvent(e11);
-        Package p = new Package("food+photo", 1000.00,1);
-        addPackage(p);
-        Package p2 = new Package("food+photo+cake", 100.00,2);
-        addPackage(p2);
-        Person abd=new Person("abd","1234","26\5\2004","0598188123");
-        Event e3 = new Event("abd's Birthday", d1, t1, "home", "boyTheme ", 20);
-        e3.setPack(p2);
-        abd.addUserEvent(e3);
-        up.add(abd);
-        Person p5=new Person("mira","1234","26\2\2003","05981555123");
-        addUser(p5);
-        Event e5 = new Event("mira's Birthday", d1, t1, "home", "unicorn", 20);
-        asma.addEvent(e5);
-        e5.setUser(p5);
+        e6.setPhotographerService(f4);
+        e7.setPhotographerService(f3);
         e5.setDecorService(f2);
 
-p5.addUserEvent(e5);
-up.add(p5);
-eventList.add(e5);
-eventList.add(e3);
-Location k1=new Location(1,100,"Resturant","50 people");
-Location k2=new Location(2,100,"Park","70 people");
-locationList.add(k1);
-locationList.add(k2);
-        Person pForDelete=new Person("rawand","1234","8\3\2011","0598986445");
-        addUser(pForDelete);
-        Event e6 = new Event("rawand's Birthday", d1, t1, "home", "Mexican", 20);
-        e6.setUser(pForDelete);
-        e6.setPhotographerService(f4);
-        pForDelete.addUserEvent(e6);
-        Event e7 = new Event("tala's Birthday", d1, t1, "home", "girly ", 20);
-        e7.setPhotographerService(f3);
-        e7.setUser(u3);
-        u3.addUserEvent(e7);
-       eventList.add(e7);
-       raghad.addEvent(e7);
-        Event e9 = new Event("jori's Birthday", d1, t1, "home", "Circus ", 20);
-        eventList.add(e9);
-        e9.setUser(u3);
-        u3.addUserEvent(e9);
+        sp4e.addEvent(e2);
+        sp3f.addEvent(e1);
+        sp4e.addEvent(e10);
+        sp5d.addEvent(e10);
+        sp2p.addEvent(e10);
+        sp3f.addEvent(e10);
+        sp4e.addEvent(e11);
+        sp5d.addEvent(e11);
+        sp2p.addEvent(e11);
+        sp3f.addEvent(e11);
+        sp2p.addEvent(e6);
+        sp2p.addEvent(e7);
+        sp5d.addEvent(e5);
+
+        Package p = new Package("food+photo", 1000.00,1);
+        Package p2 = new Package("food+photo+cake", 100.00,2);
+
+        addPackage(p);
+        addPackage(p2);
+
+        e3.setPack(p2);
+
     }
 
     private boolean editServiceForSpFlag;
@@ -1164,19 +1175,17 @@ int temp=1;
 
         deleteeventbyuserflag = true;
         for (ServiceProvider S : providerList) {
-            for (Event event : S.getEventList()) {
-           if(event.getEventName().equals(e.getEventName())){
-          S.getEventList().remove(e);
-           }
-
+            Iterator<Event> iterator = S.getEventList().iterator();
+            while (iterator.hasNext()) {
+                Event event = iterator.next();
+                if (event.getEventName().equals(e.getEventName())) {
+                    iterator.remove();
+                }
             }
-
-
         }
         p.getEventList().remove(e);
         eventList.remove(e);
     }
-
     public boolean isDeleteEventByUserFlag() {
         return deleteeventbyuserflag;
     }

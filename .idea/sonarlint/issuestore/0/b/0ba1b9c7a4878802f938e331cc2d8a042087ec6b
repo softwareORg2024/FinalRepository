@@ -1,49 +1,57 @@
 
+X
+java:S1141†"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8ý¨°€è1
+X
+java:S1141•"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8ÿ¨°€è1
+u
+java:S3776§"RRefactor this method to reduce its Cognitive Complexity from 43 to the 15 allowed.(°ñáßüÿÿÿÿ8ÕÁ°€è1
+^	java:S125Ç"<This block of commented-out lines of code should be removed.(Äò­öýÿÿÿÿ8õÁ°€è1
 R
-java:S1874"/Remove this use of "getYear"; it is deprecated.(í°°Àþÿÿÿÿ8³õ…åç1
+java:S1874à"/Remove this use of "getYear"; it is deprecated.(í°°Àþÿÿÿÿ8øÁ°€è1
 S
-java:S1874"0Remove this use of "getMonth"; it is deprecated.(í°°Àþÿÿÿÿ8¸õ…åç1
+java:S1874à"0Remove this use of "getMonth"; it is deprecated.(í°°Àþÿÿÿÿ8úÁ°€è1
 R
-java:S1874"/Remove this use of "getDate"; it is deprecated.(í°°Àþÿÿÿÿ8¹õ…åç1
+java:S1874à"/Remove this use of "getDate"; it is deprecated.(í°°Àþÿÿÿÿ8ûÁ°€è1
 [
-java:S1854³"8Remove this useless assignment to local variable "time".(óÓ’èÿÿÿÿÿ8½õ…åç1
+java:S1854ö"8Remove this useless assignment to local variable "time".(óÓ’èÿÿÿÿÿ8Â°€è1
 O
-java:S1874³",Remove this use of "Time"; it is deprecated.(óÓ’èÿÿÿÿÿ8¿õ…åç1
+java:S1874ö",Remove this use of "Time"; it is deprecated.(óÓ’èÿÿÿÿÿ8„Â°€è1
 O
-java:S1874Å",Remove this use of "Time"; it is deprecated.(¬ì€Äúÿÿÿÿ8Çõ…åç1
+java:S1874ˆ",Remove this use of "Time"; it is deprecated.(¬ì€Äúÿÿÿÿ8ˆÂ°€è1
 O
-java:S1874Ù",Remove this use of "Date"; it is deprecated.(–áêùÿÿÿÿ8Ëõ…åç1
+java:S1874œ",Remove this use of "Date"; it is deprecated.(–áêùÿÿÿÿ8Â°€è1
 I
-java:S1874Ú",Remove this use of "Time"; it is deprecated.(Ø¶¶P8Ìõ…åç1
+java:S1874",Remove this use of "Time"; it is deprecated.(Ø¶¶P8ŽÂ°€è1
 M
-java:S1874Ú"0Remove this use of "getHours"; it is deprecated.(Ø¶¶P8Íõ…åç1
+java:S1874"0Remove this use of "getHours"; it is deprecated.(Ø¶¶P8ŽÂ°€è1
 O
-java:S1874Ú"2Remove this use of "getMinutes"; it is deprecated.(Ø¶¶P8Îõ…åç1
+java:S1874"2Remove this use of "getMinutes"; it is deprecated.(Ø¶¶P8Â°€è1
 O
-java:S1874Ú"2Remove this use of "getSeconds"; it is deprecated.(Ø¶¶P8Ïõ…åç1
+java:S1874"2Remove this use of "getSeconds"; it is deprecated.(Ø¶¶P8Â°€è1
 R
-java:S1874š"/Remove this use of "getYear"; it is deprecated.(œ½Š™þÿÿÿÿ8ùõ…åç1
+java:S1874á"/Remove this use of "getYear"; it is deprecated.(œ½Š™þÿÿÿÿ8ÑÂ°€è1
 S
-java:S1874š"0Remove this use of "getMonth"; it is deprecated.(œ½Š™þÿÿÿÿ8úõ…åç1
+java:S1874á"0Remove this use of "getMonth"; it is deprecated.(œ½Š™þÿÿÿÿ8ÓÂ°€è1
 R
-java:S1874š"/Remove this use of "getDate"; it is deprecated.(œ½Š™þÿÿÿÿ8ûõ…åç1
+java:S1874á"/Remove this use of "getDate"; it is deprecated.(œ½Š™þÿÿÿÿ8ÓÂ°€è1
 R
-java:S1874°"/Remove this use of "getYear"; it is deprecated.(ñ·¦Üûÿÿÿÿ8ƒö…åç1
+java:S1874÷"/Remove this use of "getYear"; it is deprecated.(ñ·¦Üûÿÿÿÿ8ÝÂ°€è1
 S
-java:S1874°"0Remove this use of "getMonth"; it is deprecated.(ñ·¦Üûÿÿÿÿ8„ö…åç1
+java:S1874÷"0Remove this use of "getMonth"; it is deprecated.(ñ·¦Üûÿÿÿÿ8ßÂ°€è1
 R
-java:S1874°"/Remove this use of "getDate"; it is deprecated.(ñ·¦Üûÿÿÿÿ8…ö…åç1
+java:S1874÷"/Remove this use of "getDate"; it is deprecated.(ñ·¦Üûÿÿÿÿ8àÂ°€è1
 I
-java:S1874Å",Remove this use of "Time"; it is deprecated.(ÛìÆ[8Žö…åç1
+java:S1874Œ",Remove this use of "Time"; it is deprecated.(ÛìÆ[8çÂ°€è1
 R
-java:S1874Ë"/Remove this use of "getYear"; it is deprecated.(®ÁÆÍúÿÿÿÿ8ö…åç1
+java:S1874’"/Remove this use of "getYear"; it is deprecated.(®ÁÆÍúÿÿÿÿ8êÂ°€è1
 R
-java:S1874Ë"/Remove this use of "getYear"; it is deprecated.(®ÁÆÍúÿÿÿÿ8ö…åç1
+java:S1874’"/Remove this use of "getYear"; it is deprecated.(®ÁÆÍúÿÿÿÿ8ëÂ°€è1
 S
-java:S1874Ë"0Remove this use of "getMonth"; it is deprecated.(®ÁÆÍúÿÿÿÿ8‘ö…åç1
+java:S1874’"0Remove this use of "getMonth"; it is deprecated.(®ÁÆÍúÿÿÿÿ8ìÂ°€è1
 S
-java:S1874Ë"0Remove this use of "getMonth"; it is deprecated.(®ÁÆÍúÿÿÿÿ8‘ö…åç1
+java:S1874’"0Remove this use of "getMonth"; it is deprecated.(®ÁÆÍúÿÿÿÿ8íÂ°€è1
 R
-java:S1874Ë"/Remove this use of "getDate"; it is deprecated.(®ÁÆÍúÿÿÿÿ8’ö…åç1
+java:S1874’"/Remove this use of "getDate"; it is deprecated.(®ÁÆÍúÿÿÿÿ8îÂ°€è1
 R
-java:S1874Ë"/Remove this use of "getDate"; it is deprecated.(®ÁÆÍúÿÿÿÿ8“ö…åç1
+java:S1874’"/Remove this use of "getDate"; it is deprecated.(®ÁÆÍúÿÿÿÿ8ðÂ°€è1
+M	java:S106®"+Replace this use of System.out by a logger.(ð¢Ëäÿÿÿÿÿ8ùÂ°€è1

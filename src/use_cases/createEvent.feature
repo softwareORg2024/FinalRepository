@@ -26,8 +26,8 @@ Feature: Create Event
     Then the event is created successfully
     Examples:
       | string | string2             | string3 | int1 | int2 | int3 | int4 | int5 | int6 | int7 | string4   |
-      | "haya" | " Laila's Birthday" | "home"  | 5    | 00   | 00   | 2024 | 03   | 25   | 20   | "unicorn" |
-      | "haya" | " ii's Birthday" | "Park"  | 5    | 00   | 00   | 2024 | 02   | 24   | 20   | "unicorn" |
+      | "salma" | " Laila's Birthday" | "home"  | 5    | 00   | 00   | 2024 | 03   | 25   | 20   | "unicorn" |
+      | "salma" | " ii's Birthday" | "Park"  | 5    | 00   | 00   | 2024 | 02   | 24   | 20   | "unicorn" |
       | "salma" | " Laila's Birthday" | "dd"  | 5    | 00   | 00   | 2024 | 03   | 25   | 20   | "unicorn" |
 
   Scenario: User chooses between individual services and ready-made packages
