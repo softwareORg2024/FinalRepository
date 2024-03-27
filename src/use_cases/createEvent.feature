@@ -29,6 +29,10 @@ Feature: Create Event
       | "salma" | " Laila's Birthday" | "home"  | 5    | 00   | 00   | 2024 | 03   | 25   | 20   | "unicorn" |
       | "salma" | " ii's Birthday" | "Park"  | 5    | 00   | 00   | 2024 | 02   | 24   | 20   | "unicorn" |
       | "salma" | " Laila's Birthday" | "dd"  | 5    | 00   | 00   | 2024 | 03   | 25   | 20   | "unicorn" |
+      | "salma" | " yara's Birthday" | "Park"  | 5    | 00   | 00   | 2024 | 02   | 24   | 20   | "unicorn" |
+      | "salma" | " yamna's Birthday" | "Resturant"  | 5    | 00   | 00   | 2024 | 02   | 24   | 20   | "unicorn" |
+      | "salma" | " ameer's Birthday" | "Resturant"  | 5    | 10   | 00   | 2024 | 02   | 24   | 20   | "unicorn" |
+      | "salma" | "dua's Birthday" | "Park"  | 5    | 00   | 00   | 2024 | 07   | 24   | 24   | "unicorn" |
 
   Scenario: User chooses between individual services and ready-made packages
     Given the user is presented with a choice between individual services and ready-made packages
@@ -60,7 +64,6 @@ Feature: Create Event
     Examples:
       | string | string2 | string3 | int1 | int2 | int3 | int4 | int5 | int6 | int7 | string4  |
       | "salma" | "asmaa" | "home"  | 8    | 00   | 00   | 2024 | 02   | 29   | 25   | "frozen" |
-
 
   Scenario: User selects food service for the event
     Given the user selects the food service

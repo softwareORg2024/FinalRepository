@@ -1,11 +1,28 @@
 Feature: edit event
 
 
-Scenario: User navigates to the event details page
-Given the user is logged in
-And there exists an event created by the user "salma"
-When the user select an event 1 to edit it
-Then the event details are displayed
+  Scenario Outline: User navigates to the event details page
+    Given the user is logged in
+    And there exists an event created by the user <string>
+    When the user select an event <int1> to edit it
+    Then the event details are displayed
+    Examples:
+      | string  | int1 |
+      | "salma" | 1    |
+
+  Scenario Outline: User navigates to the event details page
+    Given the user is logged in
+    And there exists an event created by the user <string>
+    When the user select an event <int1> to edit it
+    Then the event details doesnt displayed
+    Examples:
+      | string  | int1 |
+      | "salma" | 100    |
+      | "ahmad" | 10    |
+
+
+
+
 
 Scenario: User edits the event name
 Given the user is on the event details page
@@ -71,8 +88,6 @@ Then the event theme is updated successfully
     Examples:
        | string  | string2           | int11 |
       | "salma" | "omar's birthday" | 2     |
-
-
        | "salma" | "tala's Birthday" | 4     |
        | "mira" | "mira's Birthday" | 3     |
        | "salma" | "Laila's Birthday" | 1     |

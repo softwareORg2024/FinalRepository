@@ -154,6 +154,7 @@ public class CreateEvent {
     @When("the user selects {int} choice from the  entertainment menu")
     public void the_user_selects_choice_from_the_entertainment_menu(Integer int1) {
         obj.addFoodService(int1, "Entertainment");
+        obj.addFoodService(700, "Entertainment");
     }
 
     @Then("Add the selected entertainment service provider details to the event")
@@ -250,6 +251,8 @@ public class CreateEvent {
     @When("the service id {int} and type {string} is not in the list")
     public void the_service_id_and_type_is_not_in_the_list(Integer int1, String string) {
         obj.addFoodService( int1, string);
+        obj.addFoodService( 50, "string");
+
     }
 
     @Then("the system should report that the service type does not exist")

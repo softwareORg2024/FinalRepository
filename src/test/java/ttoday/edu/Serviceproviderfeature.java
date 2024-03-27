@@ -35,9 +35,16 @@ public class Serviceproviderfeature {
         obj.addServiceToSp(string,int1,int2,string2);
     }
 
+    @Then("the new service is doesnt added successfully\\(there is no service provider)")
+    public void the_new_service_is_doesnt_added_successfully_there_is_no_service_provider() {
+        assertFalse(obj.isServiceaddedsucc());
+
+    }
+
+
     @Then("the new service is added successfully")
     public void the_new_service_is_added_successfully() {
-      assertTrue(obj.isServiceproviderMenuFlag());
+      assertTrue(obj.isServiceaddedsucc());
     }
 
 

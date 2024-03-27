@@ -9,6 +9,17 @@ Feature: Manage Services as a Service Provider
       | string     | int1 | int2 | string2 |
       | "10 photo" | 20   | 5    | "tala"  |
 
+  Scenario Outline: Service provider adds a new service
+    Given the service provider is logged in
+    When the service provider selects
+    And fills in the details including description <string>, price <int1>, and ID <int2> and service provider <string2>
+    Then the new service is doesnt added successfully(there is no service provider)
+    Examples:
+      | string     | int1 | int2 | string2 |
+      | "10 photo" | 20   | 5    | "taa45554545lla" |
+
+
+
 
   Scenario Outline: Service provider modifies an existing service
     Given the service provider is logged in

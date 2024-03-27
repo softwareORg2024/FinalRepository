@@ -871,8 +871,9 @@ public class Main {
               ║ 3. View list of all events               ║
               ║ 4. Create a new ready-made package       ║
               ║ 5. Delete an existing ready-made package ║
-              ║ 6. View list of all packages             ║
-              ║ 7. Exit                                  ║
+              ║ 6. View list of all packages             ║  
+              ║ 7. Add location                          ║
+              ║ 8. Exit                                  ║
               ╚══════════════════════════════════════════╝
               """ +ANSI_RESET+"\n"+CHOICE_PROMPT;
         logger.info(menu);
@@ -921,9 +922,55 @@ public class Main {
             String packageInfo = obj.showPackageForAdmin();
             logger.info(packageInfo);
         }
-
-
         else if (choice==7) {
+            logger.info("Enter Location Id:");
+            int id = 0;
+            boolean validInput = false;
+
+            while (!validInput) {
+                try {
+                    id = input.nextInt();
+                    if(searchInLocationById(id)){
+                    validInput = true; }
+                    else{
+                        logger.severe("this id is existing before...  Enter another Location Id:  ");
+
+                    }
+                } catch (InputMismatchException ime) {
+                    logger.severe("Invalid input ...  Enter Location Id: ");
+                    input.next();
+                }
+            }
+
+            String name = getInput( "Enter the name ");
+            String description = getInput("Please enter description");
+
+            logger.info("Enter Location cost:");
+            int cost = 0;
+             validInput = false;
+            while (!validInput) {
+                try {
+                    cost = input.nextInt();
+                    validInput = true; // Exit loop if input is successful
+                } catch (InputMismatchException ime) {
+                    logger.severe("Invalid input. Please enter a numeric value for cost.");
+                    input.next(); // Consume the invalid token to avoid infinite loop
+                }
+            }
+
+          Location l1=new Location(id,cost,name,description);
+            obj.getLocationList().add(l1);
+
+        }
+        else if (choice==8) {
+
+
+        }
+
+
+
+
+        else if (choice==9) {
             logger.info("Logging out as Admin.");
 
             logInSignUp();
@@ -935,6 +982,8 @@ public class Main {
 
         displayAdminMenu( input);
     }
+
+    
 
     private static void forgotPass() {
         String name = getInput( "Enter the name for your account");
@@ -1002,8 +1051,16 @@ public class Main {
 
     }
 
+private static boolean searchInLocationById(int id){
+    for(Location l :obj.getLocationList()) {
+        if(l.getId()==id){
+            return false;
 
-    private static String getInput(String prompt) {
+        }
+    }
+    return true;}
+
+private static String getInput(String prompt) {
         logger.info(prompt);
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         try {

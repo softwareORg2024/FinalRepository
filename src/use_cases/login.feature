@@ -66,9 +66,10 @@ Feature: login
     Examples:
       | string | string2 | string3    | string4      | string5          |
       | "adam" | "54321" | "7\3\2004" | "0594507933" | "haya@gmail.com" |
-      | "adm" | "54321" | "7\3\2004" | "0594507933" | "haya@gmail.com" |
-      | "adam" | "4321" | "7\3\2004" | "0594507933" | "haya@gmail.com" |
-      | "adm" | "321" | "7\3\2004" | "0594507933" | "haya@gmail.com" |
+      | "adm" | "1234" | "7\3\2004" | "0594507933" | "haya@gmail.com" |
+      | "salma" | "1234" | "7\3\2004" | "0594507933" | "haya@gmail.com" |
+      | "salma" | "11" | "7\3\2004" | "0594507933" | "haya@gmail.com" |
+
 
   Scenario Outline: Service provider needs to Create Account
     Given I am not in system
@@ -99,3 +100,15 @@ Feature: login
     Examples:
       | string | string2 | string3    | string4      | string5          |
       | "zaid" | "54321" | "7\3\2004" | "0594507933" | "haya@gmail.com" |
+
+  Scenario: create empty person
+    Given I am not in system
+    And i don't have an account
+    When create empty person
+    Then created empty person succeed
+
+  Scenario: create empty person
+    Given I am not in system
+    And i don't have an account
+    When create empty person
+    Then created empty person succeed

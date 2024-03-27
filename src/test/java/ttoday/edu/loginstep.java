@@ -100,4 +100,21 @@ public class loginstep {
 
     }
 
+    @When("create empty")
+    public void create_empty() {
+        obj.createSp();
+    }
+    @Then("created empty sp succeed")
+    public void created_empty_sp_succeed() {
+        assertTrue(obj.isCreateSp());
+    }
+    @When("create empty person")
+    public void create_empty_person() {
+        obj.createP();
+    }
+    @Then("created empty person succeed")
+    public void created_empty_person_succeed() {
+        assertTrue(obj.isCreateP());
+    }
+
 }

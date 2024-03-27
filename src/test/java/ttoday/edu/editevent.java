@@ -34,6 +34,12 @@ public class editevent {
     }
 
 
+    @Then("the event details doesnt displayed")
+    public void the_event_details_doesnt_displayed() {
+        assertFalse(obj.isEventfoundflag());
+    }
+
+
     @Then("the event details are displayed")
     public void the_event_details_are_displayed() {
         assertTrue(obj.isEventfoundflag());

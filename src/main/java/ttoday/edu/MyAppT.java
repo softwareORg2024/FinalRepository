@@ -216,6 +216,11 @@ private static int num=0;
 
     private boolean showUsersAndEventsForSpFlag;
     private boolean serviceaddedsucc;
+
+    public boolean isServiceaddedsucc() {
+        return serviceaddedsucc;
+    }
+
     private boolean isShoweventsAnduser;
     private boolean deleteServiceForSpFlag;
     private boolean serviceproviderMenuFlag;
@@ -436,6 +441,7 @@ private static int num=0;
             if (e.getDate().equals(date) && e.getTime().equals(time1) && e.getLocation().equals(string2)) {
                setLocalEventFlag(false);
                 temp = 1;
+
                 break;
 
             }
@@ -669,10 +675,16 @@ private static int num=0;
     public void addServiceToSp(String string, Integer double1, Integer int1, String string1) {
 
         Service s = new Service(string, int1, double1, searchInServiceProvider(string1));
-        searchInServiceProvider(string1).addService(s);
-        serviceaddedsucc = true;
+if(searchInServiceProvider(string1)!=null){
+    serviceaddedsucc = true;
+    searchInServiceProvider(string1).addService(s);
+    logger.info("Added successfully");
+}if(searchInServiceProvider(string1)==null){
+            System.out.println("yrtuyyyyyyyyyyyyyyyyyyyyyy");
+            serviceaddedsucc = false;
 
-        logger.info("Added successfully");
+}
+
 
     }
 
@@ -710,6 +722,27 @@ private static int num=0;
     public boolean isServiceFound() {
         return isServiceFound;
     }
+    boolean createSp ;
+    public void createSp()
+    {
+        ServiceProvider sp=new ServiceProvider();
+        createSp=true;
+    }
+
+    public boolean isCreateSp() {
+        return createSp;
+    }
+    boolean createP ;
+    public void createP()
+    {
+        Person p=new Person();
+        createP=true;
+    }
+
+    public boolean isCreateP() {
+        return createP;
+    }
+
     public String showservicesForSp(String string) {
         ServiceProvider p = searchInServiceProvider(string);
         String headerFormat = "\u001B[33m%-10s\t%-50s\t%-10s\n\u001B[0m";
