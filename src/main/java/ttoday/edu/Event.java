@@ -129,9 +129,7 @@ public class Event {
         this.entertainmentService = entertainmentService;
     }
 
-    public int getEventLocationCost() {
-        return eventLocationCost;
-    }
+
 
     public void setEventLocationCost(int eventLocationCost) {
         this.eventLocationCost = eventLocationCost;
