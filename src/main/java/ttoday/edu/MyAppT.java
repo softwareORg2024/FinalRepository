@@ -72,8 +72,10 @@ private static int num=0;
     public MyAppT() {
         Location k1=new Location(1,100,"Resturant","50 people");
         Location k2=new Location(2,100,"Park","70 people");
+        Location k3=new Location(3,0,"home","your home");
         locationList.add(k1);
         locationList.add(k2);
+        locationList.add(k3);
 
         Time t1 = new Time(5, 0, 0);
         Time tim = new Time(8, 0, 0);
@@ -438,13 +440,14 @@ private static int num=0;
 
 
         for (Event e : getEventList()) {
-            if (e.getDate().equals(date) && e.getTime().equals(time1) && e.getLocation().equals(string2)) {
-               setLocalEventFlag(false);
-                temp = 1;
 
-                break;
+                if (e.getDate().equals(date) && e.getTime().equals(time1) && e.getLocation().equals(string2)) {
+                    setLocalEventFlag(false);
+                    temp = 1;
 
-            }
+                    break;
+
+                }
 
         }
         if (temp == 0) {

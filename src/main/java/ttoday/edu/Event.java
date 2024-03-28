@@ -29,6 +29,9 @@ public class Event {
         return overallCost;
     }
 
+    public void setOverallCost(int overallCost) {
+        this.overallCost = overallCost;
+    }
 
     public Event(String eventName, Date date, Time time, String location, String theme, int numGuests) {
         this.eventName = eventName;
@@ -126,9 +129,25 @@ public class Event {
         this.entertainmentService = entertainmentService;
     }
 
+    public int getEventLocationCost() {
+        return eventLocationCost;
+    }
+
+    public void setEventLocationCost(int eventLocationCost) {
+        this.eventLocationCost = eventLocationCost;
+    }
+
     public int eventCost(int locationCost) {
 
-        int cost = (eventLocationCost == 0) ? locationCost : eventLocationCost;
+        int cost;
+        if(eventLocationCost==0){
+
+            eventLocationCost=locationCost;
+            cost=locationCost;
+        }
+        else {
+            cost=eventLocationCost;
+        }
 
         if(getFoodService() != null) {
             cost += getFoodService().getCost();

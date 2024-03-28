@@ -294,7 +294,7 @@ int id=0;
     }
 
     private static final String INVALID_COST_INPUT = "Invalid input. Please enter a numeric value for cost.";
-private static int CorrectModifiId(Scanner input)
+private static int correctModifiId(Scanner input)
 {int modiId = 0;
     boolean validModiInput = false;
 
@@ -324,7 +324,7 @@ return modiId;
 
         logger.info(PROMPT_SERVICE_ID);
         int id = 0;
-        id=CorrectModifiId(input);
+        id= correctModifiId(input);
 
 
         String description = getInput("Please enter new description");
@@ -405,15 +405,9 @@ return modiId;
             case 2 -> type = "Decoration";
             case 3 -> type = "Entertainment";
             case 4 -> type = "Photographer";
-            case 5 -> {
-                int eventCost = obj.getLocalEvent().eventCost(cost);
-                String createEventMessage = CREATE_EVENT_MESSAGE;
-                createEventMessage += eventCost;
-                logger.info(createEventMessage);
-
-
+            case 5 ->
                 displayUserMenu(input);
-            }
+
             default -> {
                 logger.info("Choose from the menu plz..\n");
                 addServices(input, int1, event1);
@@ -452,12 +446,13 @@ return modiId;
 
         logger.info("locations: ");
         int temp = 0;
+
         for (Location l : obj.getLocationList()) {
 
             for (Event e : obj.getEventList()) {
 
 
-                if (e.getDate().getYear() == year && e.getDate().getMonth() == month && e.getDate().getDate() == day && e.getTime().equals(time) && e.getLocation().equals(l.getLocationName())) {
+                if (!e.getLocation().equals("home") && e.getDate().getYear() == year && e.getDate().getMonth() == month && e.getDate().getDate() == day && e.getTime().equals(time) && e.getLocation().equals(l.getLocationName())) {
                     temp = 1;
                     break;
                 }
@@ -471,6 +466,9 @@ return modiId;
             }
 
         }
+
+
+
         logger.info("Please enter location ID: ");
 
     }
@@ -517,7 +515,14 @@ return modiId;
         Date datePass = new Date(year, month, day);
         Time timePass = new Time(time.getHours(), time.getMinutes(), time.getSeconds());
 
+
+
+obj.getLocalEvent().setEventLocationCost(0);
+        obj.getLocalEvent().setOverallCost(0);
+
         obj.createEventWithBasicInfo(user.getUserName(), eventName, datePass, timePass, locationName, theme, number);
+
+        System.out.println("overall:"+obj.getLocalEvent().getOverallCost()+"loc cost"+obj.getLocalEvent().getEventLocationCost());
         String menu = ANSI_PURPLE + """
                 ╔═════════════════════════════════╗
                 ║        Package & Services       ║
@@ -535,12 +540,15 @@ return modiId;
         int packid;
         switch (choice) {
             case 1 -> {
+                obj.getLocalEvent().setOverallCost(0);
+                obj.getLocalEvent().setEventLocationCost(0);
                 String pack = obj.showPackageForAdmin();
                 logger.info(pack);
 
                 packid = input.nextInt();
                 obj.addLocalEventToEventList();
-
+                cost = loc.getCost();
+                System.out.println("loc cost in pack :"+loc.getCost());
 
                 Package pk = searchInPackage(packid);
                 if (pk != null) {
@@ -565,6 +573,7 @@ return modiId;
             }
             case 2 -> addServices(input, obj.getLocalEvent().eventCost(cost), obj.getLocalEvent());
             case 3 -> {
+                cost = loc.getCost();
                 String s = CREATE_EVENT_MESSAGE;
                 s += String.valueOf(cost);
                 obj.getLocalEvent().eventCost(cost);
