@@ -522,7 +522,6 @@ obj.getLocalEvent().setEventLocationCost(0);
 
         obj.createEventWithBasicInfo(user.getUserName(), eventName, datePass, timePass, locationName, theme, number);
 
-        System.out.println("overall:"+obj.getLocalEvent().getOverallCost()+"loc cost"+obj.getLocalEvent().getEventLocationCost());
         String menu = ANSI_PURPLE + """
                 ╔═════════════════════════════════╗
                 ║        Package & Services       ║
@@ -547,8 +546,8 @@ obj.getLocalEvent().setEventLocationCost(0);
 
                 packid = input.nextInt();
                 obj.addLocalEventToEventList();
-                cost = loc.getCost();
-                System.out.println("loc cost in pack :"+loc.getCost());
+                if(loc!=null){
+                cost = loc.getCost();}
 
                 Package pk = searchInPackage(packid);
                 if (pk != null) {
@@ -573,7 +572,8 @@ obj.getLocalEvent().setEventLocationCost(0);
             }
             case 2 -> addServices(input, obj.getLocalEvent().eventCost(cost), obj.getLocalEvent());
             case 3 -> {
-                cost = loc.getCost();
+                if(loc!=null){
+                cost = loc.getCost();}
                 String s = CREATE_EVENT_MESSAGE;
                 s += String.valueOf(cost);
                 obj.getLocalEvent().eventCost(cost);
