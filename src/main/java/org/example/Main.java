@@ -5,6 +5,7 @@ import ttoday.edu.Package;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.logging.ConsoleHandler;
@@ -475,18 +476,48 @@ return modiId;
 
     private static void creatBasicEvent(Scanner input) {
         cost = 0;
-
+        int year,month,day;
         Time time = new Time(1, 2, 3);
         String eventName = getInput("Please enter event name: ");
-        String dates = getInput("Please enter event date(yyyy-MM-dd): ");
+
+        String[] dateComponents;
+        LocalDate currentDate = LocalDate.now();
+        while (true) {
+            String dates = getInput("Please enter event date (yyyy-MM-dd): ");
+             dateComponents = dates.split("-");
+
+             year = Integer.parseInt(dateComponents[0]);
+             month = Integer.parseInt(dateComponents[1]);
+             day = Integer.parseInt(dateComponents[2]);
+
+            if (year > currentDate.getYear() ||
+                    (year == currentDate.getYear() && month > currentDate.getMonthValue()) ||
+                    (year == currentDate.getYear() && month == currentDate.getMonthValue() && day > currentDate.getDayOfMonth())) {
+                break;
+            } else {
+                logger.info("Please enter a future date.");
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         String times = getInput("Please enter event time(HH:mm:ss): ");
 
-        String[] dateComponents = dates.split("-");
 
 
-        int year = Integer.parseInt(dateComponents[0]);
-        int month = Integer.parseInt(dateComponents[1]);
-        int day = Integer.parseInt(dateComponents[2]);
 
 
         dateComponents = times.split(":");
@@ -494,6 +525,8 @@ return modiId;
         int min = Integer.parseInt(dateComponents[1]);
         int sec = Integer.parseInt(dateComponents[2]);
         time = new Time(hour, min, sec);
+
+
 
 
         location(year, month, day, time);
@@ -516,9 +549,6 @@ return modiId;
         Time timePass = new Time(time.getHours(), time.getMinutes(), time.getSeconds());
 
 
-
-obj.getLocalEvent().setEventLocationCost(0);
-        obj.getLocalEvent().setOverallCost(0);
 
         obj.createEventWithBasicInfo(user.getUserName(), eventName, datePass, timePass, locationName, theme, number);
 
@@ -825,10 +855,23 @@ obj.getLocalEvent().setEventLocationCost(0);
         obj.setLocalEvent(searchInEventByName(eventName));
 
         if (obj.addPackageToEvent(pakid)) {
+            if(obj.getLocalEvent().getEntertainmentService()!=null)
+            obj.editDeleteServiceFromEventByUser(user.getUserName(), eventName, obj.getLocalEvent().getEntertainmentService().getId());
+            if(obj.getLocalEvent().getDecorService()!=null)
+
+            obj.editDeleteServiceFromEventByUser(user.getUserName(), eventName, obj.getLocalEvent().getDecorService().getId());
+            if(obj.getLocalEvent().getPhotographerService()!=null)
+
+            obj.editDeleteServiceFromEventByUser(user.getUserName(), eventName, obj.getLocalEvent().getPhotographerService().getId());
+            if(obj.getLocalEvent().getFoodService()!=null)
+
+            obj.editDeleteServiceFromEventByUser(user.getUserName(), eventName, obj.getLocalEvent().getFoodService().getId());
+
             int cost11 = obj.getLocalEvent().eventCost(cost);
             String s = CREATE_EVENT_MESSAGE;
             s += String.valueOf(cost11);
             logger.info(s);
+
         } else {
             logger.info("Failed to add package to the event.");
         }

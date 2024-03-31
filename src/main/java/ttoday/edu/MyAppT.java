@@ -133,7 +133,7 @@ private static int num=0;
         Event e8 = new Event("amr's birthday", d1, t1, "home", "cute ", 20);
         Event e10 = new Event("jood's birthday", d1, t1, "pool", "Upcycling ", 20);
         Event e11 = new Event("joodi's birthday", d1, t1, "pool", "Upcycling ", 20);
-        localEvent = new Event("asmaa", date2, tim, "home", "Superhero", 25);
+        localEvent = new Event("asmaa", date2, tim, "Park", "Superhero", 25);
         Event e5 = new Event("mira's Birthday", d1, t1, "home", "unicorn", 20);
         Event e3 = new Event("abd's Birthday", d1, t1, "home", "boyTheme ", 20);
         Event e6 = new Event("rawand's Birthday", d1, t1, "home", "Mexican", 20);
@@ -441,10 +441,9 @@ private static int num=0;
 
         for (Event e : getEventList()) {
 
-                if (e.getDate().equals(date) && e.getTime().equals(time1) && e.getLocation().equals(string2)) {
+                if (e.getDate().equals(date) && e.getTime().equals(time1) && e.getLocation().equals(string2) && !e.getLocation().equals("home")) {
                     setLocalEventFlag(false);
                     temp = 1;
-
                     break;
 
                 }
@@ -856,7 +855,7 @@ if(searchInServiceProvider(string1)!=null){
         format.append(String.format(headerFormat, EVENT_NAME_LABEL, THEME_LABEL, LOCATION_LABEL, "Date", "Time"));
 
         for (Event e : eventList) {
-            String formattedDate = dateFormatter.format(e.getDate());
+            String formattedDate = e.getDate().getYear()+"\\"+e.getDate().getMonth()+"\\"+e.getDate().getDate();
             String formattedTime = timeFormatter.format(e.getDate());
 
             String rowFormat = "%-30s\t%-20s\t%-30s\t%-12s\t%-10s\n";

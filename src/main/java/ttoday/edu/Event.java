@@ -6,6 +6,9 @@ import java.util.Date;
 public class Event {
     private String eventName;
     private Date date;
+
+
+
     private Time time;
 
     private String theme;
@@ -138,7 +141,12 @@ public class Event {
     public int eventCost(int locationCost) {
 
         int cost;
-        if(eventLocationCost==0){
+        if(location.equals("home")){
+            eventLocationCost=0;
+            cost=eventLocationCost;
+
+        }
+        else if(eventLocationCost==0 ){
 
             eventLocationCost=locationCost;
             cost=locationCost;
@@ -160,6 +168,7 @@ public class Event {
             cost += getDecorService().getCost();
         }
         if(getPack() != null) {
+            cost=eventLocationCost;
             cost += (int) getPack().getTotalPrice();
         }
 

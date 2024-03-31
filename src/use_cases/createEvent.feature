@@ -63,7 +63,7 @@ Feature: Create Event
     Then reject event creation
     Examples:
       | string | string2 | string3 | int1 | int2 | int3 | int4 | int5 | int6 | int7 | string4  |
-      | "salma" | "asmaa" | "home"  | 8    | 00   | 00   | 2024 | 02   | 29   | 25   | "frozen" |
+      | "salma" | "asmaa" | "Park"  | 8    | 00   | 00   | 2024 | 02   | 29   | 25   | "frozen" |
 
   Scenario: User selects food service for the event
     Given the user selects the food service
