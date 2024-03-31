@@ -65,9 +65,7 @@ private static int num=0;
         this.localEvent = localEvent;
     }
 
-    public Date getD() {
-        return d;
-    }
+
 
     public MyAppT() {
         Location k1=new Location(1,100,"Resturant","50 people");
@@ -1192,7 +1190,7 @@ int temp=1;
     public void editLocation(String string, String string2, Integer int1) {
         Person p=searchInUser(string);
         Event e= p.searchInUserEvents(string2);
-        for(Location l:locationList)
+        for(Location l:getLocationList())
         {
             if (l.getId()==int1) {
                 e.setLocation(l.getLocationName());
@@ -1247,7 +1245,7 @@ int temp=1;
 
     public void createAccountForSp(String string, String string2, String string3, String string5, String string4, String string6) {
        int temp=0;
-        for (ServiceProvider user : providerList) {
+        for (ServiceProvider user : getProviderList()) {
             if (user.getPerson().getUserName().equals(string) && user.getPerson().getPass().equals(string2)) {
                 temp=1;
                 break;

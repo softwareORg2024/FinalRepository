@@ -514,22 +514,6 @@ return modiId;
         day = Integer.parseInt(dateComponents[2]);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         String times = getInput("Please enter event time(HH:mm:ss): ");
 
 
