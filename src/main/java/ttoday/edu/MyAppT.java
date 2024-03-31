@@ -847,7 +847,6 @@ if(searchInServiceProvider(string1)!=null){
     public String showEventForAdmin() {
         StringBuilder format = new StringBuilder();
 
-        SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
         SimpleDateFormat timeFormatter = new SimpleDateFormat("HH:mm:ss");
 
         format.append("\n");

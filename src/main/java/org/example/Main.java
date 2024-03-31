@@ -474,22 +474,19 @@ return modiId;
 
     }
 
-    private static void creatBasicEvent(Scanner input) {
-        cost = 0;
-        int year,month,day;
-        Time time = new Time(1, 2, 3);
-        String eventName = getInput("Please enter event name: ");
 
-        String[] dateComponents;
-        LocalDate currentDate = LocalDate.now();
+
+    private static  String  dateConflict(){
+        String dates;
         while (true) {
-            String dates = getInput("Please enter event date (yyyy-MM-dd): ");
-             dateComponents = dates.split("-");
+             dates = getInput("Please enter event date (yyyy-MM-dd): ");
+            String[] dateComponents = dates.split("-");
 
-             year = Integer.parseInt(dateComponents[0]);
-             month = Integer.parseInt(dateComponents[1]);
-             day = Integer.parseInt(dateComponents[2]);
+            int year = Integer.parseInt(dateComponents[0]);
+            int month = Integer.parseInt(dateComponents[1]);
+            int day = Integer.parseInt(dateComponents[2]);
 
+            LocalDate currentDate = LocalDate.now();
             if (year > currentDate.getYear() ||
                     (year == currentDate.getYear() && month > currentDate.getMonthValue()) ||
                     (year == currentDate.getYear() && month == currentDate.getMonthValue() && day > currentDate.getDayOfMonth())) {
@@ -498,6 +495,25 @@ return modiId;
                 logger.info("Please enter a future date.");
             }
         }
+        return dates;
+    }
+    private static void creatBasicEvent(Scanner input) {
+        cost = 0;
+        int year;
+        int month;
+        int day;
+        Time time = new Time(1, 2, 3);
+        String eventName = getInput("Please enter event name: ");
+
+        String[] dateComponents;
+        String dates=dateConflict();
+        dateComponents = dates.split("-");
+
+        year = Integer.parseInt(dateComponents[0]);
+        month = Integer.parseInt(dateComponents[1]);
+        day = Integer.parseInt(dateComponents[2]);
+
+
 
 
 
@@ -855,17 +871,18 @@ return modiId;
         obj.setLocalEvent(searchInEventByName(eventName));
 
         if (obj.addPackageToEvent(pakid)) {
-            if(obj.getLocalEvent().getEntertainmentService()!=null)
-            obj.editDeleteServiceFromEventByUser(user.getUserName(), eventName, obj.getLocalEvent().getEntertainmentService().getId());
-            if(obj.getLocalEvent().getDecorService()!=null)
-
-            obj.editDeleteServiceFromEventByUser(user.getUserName(), eventName, obj.getLocalEvent().getDecorService().getId());
-            if(obj.getLocalEvent().getPhotographerService()!=null)
-
-            obj.editDeleteServiceFromEventByUser(user.getUserName(), eventName, obj.getLocalEvent().getPhotographerService().getId());
-            if(obj.getLocalEvent().getFoodService()!=null)
-
-            obj.editDeleteServiceFromEventByUser(user.getUserName(), eventName, obj.getLocalEvent().getFoodService().getId());
+            if(obj.getLocalEvent().getEntertainmentService()!=null) {
+                obj.editDeleteServiceFromEventByUser(user.getUserName(), eventName, obj.getLocalEvent().getEntertainmentService().getId());
+            }
+            if(obj.getLocalEvent().getDecorService()!=null) {
+                obj.editDeleteServiceFromEventByUser(user.getUserName(), eventName, obj.getLocalEvent().getDecorService().getId());
+            }
+            if(obj.getLocalEvent().getPhotographerService()!=null) {
+                obj.editDeleteServiceFromEventByUser(user.getUserName(), eventName, obj.getLocalEvent().getPhotographerService().getId());
+            }
+            if(obj.getLocalEvent().getFoodService()!=null) {
+                obj.editDeleteServiceFromEventByUser(user.getUserName(), eventName, obj.getLocalEvent().getFoodService().getId());
+            }
 
             int cost11 = obj.getLocalEvent().eventCost(cost);
             String s = CREATE_EVENT_MESSAGE;
